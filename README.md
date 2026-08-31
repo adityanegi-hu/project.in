@@ -20,7 +20,7 @@
 
 - **Frontend**: HTML5, Vanilla CSS3 (Glassmorphism & Neon Glow Tokens), JavaScript (ES6+)
 - **Icons & Libraries**: Lucide Icons, JSZip, FileSaver.js, Canvas Confetti
-- **Backend / Deployment**: Python local dev server / Vercel Global Edge CDN
+- **Backend & Database**: Python 3 HTTP Server, MongoDB (Optional Cloud/Local Persistence)
 
 ---
 
@@ -31,20 +31,11 @@
    git clone https://github.com/adityanegi-hu/project.in.git
    cd project.in
    ```
-2. Start the local server:
+2. Start the local development server:
    ```bash
    python server.py
    ```
 3. Open `http://127.0.0.1:3000` in your browser.
-
----
-
-## 🌐 Deploy to Vercel
-
-The project is pre-configured for 1-click deployment on Vercel:
-```bash
-npx vercel
-```
 
 ---
 

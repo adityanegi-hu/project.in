@@ -1,7 +1,0 @@
-.venv/
-__pycache__/
-*.pyc
-generate_projects.py
-server.py
-.git/
-scratch/
