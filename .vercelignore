@@ -1,8 +1,6 @@
 .venv/
 __pycache__/
 *.pyc
-*.py
-requirements.txt
 generate_projects.py
 server.py
 .git/
