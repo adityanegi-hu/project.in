@@ -24,9 +24,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "AI Starter",
-    "rating": 4.7,
-    "downloads": 3765,
-    "stars": 465,
+    "rating": 4.8,
+    "downloads": 4522,
+    "stars": 522,
     "synopsis": {
       "abstract": "Spam SMS & Email Filter with Naive Bayes is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Scikit-Learn, NLTK, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -73,9 +73,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "1st Year ML",
-    "rating": 4.9,
-    "downloads": 2863,
-    "stars": 963,
+    "rating": 4.7,
+    "downloads": 3309,
+    "stars": 709,
     "synopsis": {
       "abstract": "House Price Prediction with Linear Regression is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pandas, Linear Regression, Matplotlib to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -121,9 +121,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Classic ML",
-    "rating": 4.7,
-    "downloads": 3333,
-    "stars": 733,
+    "rating": 4.6,
+    "downloads": 3516,
+    "stars": 916,
     "synopsis": {
       "abstract": "Iris Flower Species Classification System is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Scikit-Learn, Seaborn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -170,8 +170,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Data Mining",
     "rating": 4.7,
-    "downloads": 4205,
-    "stars": 905,
+    "downloads": 3541,
+    "stars": 941,
     "synopsis": {
       "abstract": "Titanic Passenger Survival Predictor is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pandas, Scikit-Learn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -218,9 +218,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Computer Vision",
-    "rating": 4.6,
-    "downloads": 2120,
-    "stars": 920,
+    "rating": 4.9,
+    "downloads": 2863,
+    "stars": 963,
     "synopsis": {
       "abstract": "Handwritten Digit Recognition with MNIST & KNN is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, OpenCV, Scikit-Learn, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -267,9 +267,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "NLP Mini",
-    "rating": 4.8,
-    "downloads": 2682,
-    "stars": 782,
+    "rating": 4.6,
+    "downloads": 2484,
+    "stars": 584,
     "synopsis": {
       "abstract": "Movie Review Sentiment Analyzer with VADER is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, NLTK, VADER, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -315,9 +315,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Recommender",
-    "rating": 4.8,
-    "downloads": 4630,
-    "stars": 630,
+    "rating": 4.6,
+    "downloads": 2880,
+    "stars": 980,
     "synopsis": {
       "abstract": "Content-Based Movie Recommender System is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Cosine Similarity, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -364,9 +364,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "FinTech ML",
-    "rating": 4.6,
-    "downloads": 2692,
-    "stars": 792,
+    "rating": 4.7,
+    "downloads": 3617,
+    "stars": 317,
     "synopsis": {
       "abstract": "Stock Price Trend Predictor with Moving Averages is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pandas, Matplotlib, Yahoo Finance to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -413,8 +413,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Chemical ML",
     "rating": 4.8,
-    "downloads": 2198,
-    "stars": 998,
+    "downloads": 3194,
+    "stars": 594,
     "synopsis": {
       "abstract": "Red Wine Quality Scoring with Decision Trees is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Decision Trees, Scikit-Learn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -460,9 +460,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Business ML",
-    "rating": 4.7,
-    "downloads": 2629,
-    "stars": 729,
+    "rating": 4.9,
+    "downloads": 4191,
+    "stars": 891,
     "synopsis": {
       "abstract": "Telecom Customer Churn Predictor is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Logistic Regression, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -510,8 +510,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "NLP Classifier",
     "rating": 4.7,
-    "downloads": 4845,
-    "stars": 845,
+    "downloads": 2077,
+    "stars": 877,
     "synopsis": {
       "abstract": "Fake News Headline Detector is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, TF-IDF, PassiveAggressive, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -558,8 +558,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Regression",
     "rating": 4.9,
-    "downloads": 3711,
-    "stars": 411,
+    "downloads": 2867,
+    "stars": 967,
     "synopsis": {
       "abstract": "Used Car Resale Price Valuation Predictor is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Random Forest, Scikit-Learn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -606,9 +606,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "FinTech Defense",
-    "rating": 4.6,
-    "downloads": 1748,
-    "stars": 548,
+    "rating": 4.7,
+    "downloads": 1669,
+    "stars": 469,
     "synopsis": {
       "abstract": "Credit Card Fraud Detection with SMOTE & XGBoost is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, XGBoost, SMOTE, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -656,8 +656,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Medical AI",
     "rating": 4.7,
-    "downloads": 3573,
-    "stars": 973,
+    "downloads": 4629,
+    "stars": 629,
     "synopsis": {
       "abstract": "Pneumonia Detection from Chest X-Rays via CNN is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, CNN, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -704,9 +704,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Autonomous Vision",
-    "rating": 4.8,
-    "downloads": 3870,
-    "stars": 570,
+    "rating": 4.7,
+    "downloads": 2105,
+    "stars": 905,
     "synopsis": {
       "abstract": "Traffic Sign Recognition System with Deep CNN is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, TensorFlow, Keras, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -753,9 +753,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Public Safety",
-    "rating": 4.9,
-    "downloads": 4719,
-    "stars": 719,
+    "rating": 4.6,
+    "downloads": 4292,
+    "stars": 992,
     "synopsis": {
       "abstract": "Real-Time Face Mask Detector with MobileNetV2 is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, OpenCV, MobileNetV2, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -802,9 +802,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Transformers",
-    "rating": 4.8,
-    "downloads": 1594,
-    "stars": 394,
+    "rating": 4.7,
+    "downloads": 3125,
+    "stars": 525,
     "synopsis": {
       "abstract": "Twitter Brand Sentiment NLP with RoBERTa is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, HuggingFace, RoBERTa, Streamlit to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -851,9 +851,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Healthcare ML",
-    "rating": 4.6,
-    "downloads": 3016,
-    "stars": 416,
+    "rating": 4.9,
+    "downloads": 3051,
+    "stars": 451,
     "synopsis": {
       "abstract": "Chronic Kidney Disease Risk Prediction System is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Random Forest, SVM, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -900,9 +900,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "AgriTech AI",
-    "rating": 4.6,
-    "downloads": 2056,
-    "stars": 856,
+    "rating": 4.8,
+    "downloads": 4274,
+    "stars": 974,
     "synopsis": {
       "abstract": "Agricultural Crop Yield Prediction with Weather Data is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, LightGBM, Pandas, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -950,8 +950,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Audio AI",
     "rating": 4.9,
-    "downloads": 4279,
-    "stars": 979,
+    "downloads": 3487,
+    "stars": 887,
     "synopsis": {
       "abstract": "Music Genre Classification with Audio Spectrograms is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Librosa, CNN, PyTorch to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -998,9 +998,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Insurance AI",
-    "rating": 4.8,
-    "downloads": 4878,
-    "stars": 878,
+    "rating": 4.7,
+    "downloads": 1909,
+    "stars": 709,
     "synopsis": {
       "abstract": "Vehicle Damage Severity Assessment using ResNet50 is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, ResNet50, PyTorch, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1046,9 +1046,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "AgriTech Vision",
-    "rating": 4.8,
-    "downloads": 1678,
-    "stars": 478,
+    "rating": 4.6,
+    "downloads": 2896,
+    "stars": 996,
     "synopsis": {
       "abstract": "Plant Leaf Disease Detection Mobile AI is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, TensorFlow Lite, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1095,9 +1095,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Smart City AI",
-    "rating": 4.7,
-    "downloads": 4569,
-    "stars": 569,
+    "rating": 4.6,
+    "downloads": 4944,
+    "stars": 944,
     "synopsis": {
       "abstract": "Air Quality Index (AQI) Forecast with Multi-Output Regression is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, CatBoost, FastAPI, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1144,9 +1144,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Wearables AI",
-    "rating": 4.8,
-    "downloads": 2954,
-    "stars": 354,
+    "rating": 4.7,
+    "downloads": 2121,
+    "stars": 921,
     "synopsis": {
       "abstract": "Human Activity Recognition from Smartphone Sensor Data is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, 1D-CNN, Keras, NumPy to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1193,9 +1193,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Oncology AI",
-    "rating": 4.8,
-    "downloads": 3526,
-    "stars": 926,
+    "rating": 4.7,
+    "downloads": 1877,
+    "stars": 677,
     "synopsis": {
       "abstract": "Automated Breast Cancer Histopathology Diagnostic Tool is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, DenseNet121, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1243,9 +1243,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Capstone Pre-Final",
-    "rating": 4.9,
-    "downloads": 3655,
-    "stars": 355,
+    "rating": 4.8,
+    "downloads": 2562,
+    "stars": 662,
     "synopsis": {
       "abstract": "AI MediScan: Multi-Disease Diagnosis with Grad-CAM is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, FastAPI, PyTorch, Grad-CAM, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1292,9 +1292,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Autonomous Driving",
-    "rating": 4.8,
-    "downloads": 2742,
-    "stars": 842,
+    "rating": 4.9,
+    "downloads": 2799,
+    "stars": 899,
     "synopsis": {
       "abstract": "Autonomous Vehicle Lane Detection & Object Tracking (YOLOv8) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, YOLOv8, OpenCV, DeepSORT to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1342,8 +1342,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Affective AI",
     "rating": 4.9,
-    "downloads": 2195,
-    "stars": 995,
+    "downloads": 4951,
+    "stars": 951,
     "synopsis": {
       "abstract": "Facial Emotion Recognition & Mental Wellness Monitor is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, MediaPipe, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1390,9 +1390,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Enterprise HR",
-    "rating": 4.6,
-    "downloads": 4116,
-    "stars": 816,
+    "rating": 4.8,
+    "downloads": 2494,
+    "stars": 594,
     "synopsis": {
       "abstract": "Automated Resume Parser & Candidate ATS Ranker is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Spacy, Sentence-Transformers, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1439,9 +1439,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Audio Speech",
-    "rating": 4.8,
-    "downloads": 2358,
-    "stars": 458,
+    "rating": 4.6,
+    "downloads": 4076,
+    "stars": 776,
     "synopsis": {
       "abstract": "Speech Emotion Recognition using Bidirectional LSTM is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Librosa, Bi-LSTM, PyTorch to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1488,9 +1488,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Assistive Tech",
-    "rating": 4.7,
-    "downloads": 1853,
-    "stars": 653,
+    "rating": 4.8,
+    "downloads": 1942,
+    "stars": 742,
     "synopsis": {
       "abstract": "Sign Language Gesture to Text Translator is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, MediaPipe, LSTM, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1537,9 +1537,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "ViT Medical",
-    "rating": 4.7,
-    "downloads": 3613,
-    "stars": 313,
+    "rating": 4.8,
+    "downloads": 3522,
+    "stars": 922,
     "synopsis": {
       "abstract": "Skin Cancer Melanoma Classifier with Vision Transformers is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Vision Transformers (ViT), PyTorch, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1586,9 +1586,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Biomedical Vision",
-    "rating": 4.9,
-    "downloads": 2791,
-    "stars": 891,
+    "rating": 4.8,
+    "downloads": 3058,
+    "stars": 458,
     "synopsis": {
       "abstract": "Brain Tumor MRI Segmentation with U-Net Deep Network is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, U-Net, PyTorch, SimpleITK to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1635,9 +1635,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Automotive Safety",
-    "rating": 4.7,
-    "downloads": 4469,
-    "stars": 469,
+    "rating": 4.6,
+    "downloads": 4868,
+    "stars": 868,
     "synopsis": {
       "abstract": "Driver Drowsiness & Yawn Alert Warning System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Dlib, OpenCV, Pygame to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1685,8 +1685,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Surveillance AI",
     "rating": 4.8,
-    "downloads": 2026,
-    "stars": 826,
+    "downloads": 1894,
+    "stars": 694,
     "synopsis": {
       "abstract": "Smart CCTV Perimeter Intrusion & Anomaly Detector is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, YOLOv8, Optical Flow, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1733,9 +1733,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Geospatial AI",
-    "rating": 4.7,
-    "downloads": 3493,
-    "stars": 893,
+    "rating": 4.8,
+    "downloads": 4014,
+    "stars": 714,
     "synopsis": {
       "abstract": "Deforestation & Forest Canopy Satellite Segmentation is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Rasterio, U-Net, GeoPandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1782,9 +1782,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "EdTech AI",
-    "rating": 4.7,
-    "downloads": 4609,
-    "stars": 609,
+    "rating": 4.6,
+    "downloads": 4736,
+    "stars": 736,
     "synopsis": {
       "abstract": "Automated Essay & Academic Answer Scoring Engine is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, DeBERTa, HuggingFace, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1831,9 +1831,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Cyber Forensics",
-    "rating": 4.9,
-    "downloads": 4371,
-    "stars": 371,
+    "rating": 4.8,
+    "downloads": 2474,
+    "stars": 574,
     "synopsis": {
       "abstract": "Deepfake Video Detection with MesoNet & Spatial-Temporal CNN is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, MesoNet, PyTorch, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1881,9 +1881,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Major Capstone",
-    "rating": 4.6,
-    "downloads": 4968,
-    "stars": 968,
+    "rating": 4.9,
+    "downloads": 3247,
+    "stars": 647,
     "synopsis": {
       "abstract": "Multi-Modal Clinical AI Copilot with LLaMA-3 & RAG is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, LLaMA-3, LangChain, Qdrant, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1932,8 +1932,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Robotics & RL",
     "rating": 4.7,
-    "downloads": 1849,
-    "stars": 649,
+    "downloads": 3965,
+    "stars": 665,
     "synopsis": {
       "abstract": "Autonomous Drone Navigation with Deep Reinforcement Learning is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, Gymnasium, AirSim, ROS2 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -1980,9 +1980,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Edge Robotics",
-    "rating": 4.9,
-    "downloads": 4579,
-    "stars": 579,
+    "rating": 4.6,
+    "downloads": 3428,
+    "stars": 828,
     "synopsis": {
       "abstract": "Edge AI Vision for Industrial Robotic Arm Sorting is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, TensorRT, YOLOv8, Jetson Nano to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2030,8 +2030,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "FinTech AI",
     "rating": 4.7,
-    "downloads": 4885,
-    "stars": 885,
+    "downloads": 3061,
+    "stars": 461,
     "synopsis": {
       "abstract": "Autonomous Quantitative Trading Bot with Deep Q-Networks is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Deep Q-Learning, PyTorch, Backtrader to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2078,9 +2078,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Indic NLP",
-    "rating": 4.8,
-    "downloads": 4466,
-    "stars": 466,
+    "rating": 4.6,
+    "downloads": 1568,
+    "stars": 368,
     "synopsis": {
       "abstract": "Neural Machine Translation for Indic Regional Languages is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Transformers, PyTorch, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2128,8 +2128,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "LiDAR Vision",
     "rating": 4.8,
-    "downloads": 3514,
-    "stars": 914,
+    "downloads": 2162,
+    "stars": 962,
     "synopsis": {
       "abstract": "3D LiDAR Point Cloud Semantic Segmentation with PointNet++ is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PointNet++, Open3D, PyTorch to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2176,9 +2176,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Healthcare GenAI",
-    "rating": 4.9,
-    "downloads": 3375,
-    "stars": 775,
+    "rating": 4.8,
+    "downloads": 4942,
+    "stars": 942,
     "synopsis": {
       "abstract": "AI Radiologist Automated Report Generator is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, BioGPT, Vision-Language Models, PyTorch to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2225,9 +2225,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Generative AI",
-    "rating": 4.9,
-    "downloads": 2459,
-    "stars": 559,
+    "rating": 4.8,
+    "downloads": 3474,
+    "stars": 874,
     "synopsis": {
       "abstract": "Real-Time Video Inpainting & Object Removal with GANs is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, DeepFill, PyTorch, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2274,9 +2274,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Bioinformatics",
-    "rating": 4.8,
-    "downloads": 2694,
-    "stars": 794,
+    "rating": 4.9,
+    "downloads": 2935,
+    "stars": 335,
     "synopsis": {
       "abstract": "Drug Molecular Affinity Prediction with Graph Neural Networks is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch Geometric, RDKit, GNN to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2324,8 +2324,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Drone AI",
     "rating": 4.6,
-    "downloads": 3416,
-    "stars": 816,
+    "downloads": 3780,
+    "stars": 480,
     "synopsis": {
       "abstract": "High-Voltage Powerline Defect Inspection on Aerial Drones is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, YOLOv8-OBB, PyTorch, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2372,9 +2372,9 @@ const PROJECTS_DATA = [
     "icon": "brain-circuit",
     "color": "#8b5cf6",
     "badge": "Multimodal AI",
-    "rating": 4.8,
-    "downloads": 2846,
-    "stars": 946,
+    "rating": 4.9,
+    "downloads": 1711,
+    "stars": 511,
     "synopsis": {
       "abstract": "Zero-Shot Medical Classification with BioCLIP is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, BioCLIP, HuggingFace, PyTorch to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2422,8 +2422,8 @@ const PROJECTS_DATA = [
     "color": "#8b5cf6",
     "badge": "Robotics RL",
     "rating": 4.7,
-    "downloads": 3117,
-    "stars": 517,
+    "downloads": 3669,
+    "stars": 369,
     "synopsis": {
       "abstract": "Autonomous Quadruped Robot Locomotion with Reinforcement Learning is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Isaac Gym, PyTorch, PPO RL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2470,9 +2470,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "IoT Starter",
-    "rating": 4.9,
-    "downloads": 2387,
-    "stars": 487,
+    "rating": 4.8,
+    "downloads": 4502,
+    "stars": 502,
     "synopsis": {
       "abstract": "Smart Home LED Automation via Bluetooth HC-05 is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino C++, HC-05, Relay Module, MIT App Inventor to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2519,9 +2519,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Sensor Kit",
-    "rating": 4.6,
-    "downloads": 3824,
-    "stars": 524,
+    "rating": 4.9,
+    "downloads": 2299,
+    "stars": 399,
     "synopsis": {
       "abstract": "Temperature & Humidity Monitor with DHT11 & 16x2 LCD is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, DHT11 Sensor, I2C LCD, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2569,8 +2569,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Hardware Mini",
     "rating": 4.6,
-    "downloads": 3512,
-    "stars": 912,
+    "downloads": 4264,
+    "stars": 964,
     "synopsis": {
       "abstract": "Ultrasonic Reverse Parking Distance Sensor with Buzzer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, HC-SR04, Buzzer, LEDs to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2617,9 +2617,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Energy Saver",
-    "rating": 4.9,
-    "downloads": 1671,
-    "stars": 471,
+    "rating": 4.7,
+    "downloads": 3773,
+    "stars": 473,
     "synopsis": {
       "abstract": "Automatic Street Light Controller using LDR & Arduino is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, LDR Sensor, Relay, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2666,9 +2666,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Health Kit",
-    "rating": 4.6,
-    "downloads": 3704,
-    "stars": 404,
+    "rating": 4.8,
+    "downloads": 4222,
+    "stars": 922,
     "synopsis": {
       "abstract": "Digital Clinical Thermometer with OLED Display is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, DS18B20, OLED Display, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2715,9 +2715,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Home Utility",
-    "rating": 4.6,
-    "downloads": 2680,
-    "stars": 780,
+    "rating": 4.7,
+    "downloads": 4853,
+    "stars": 853,
     "synopsis": {
       "abstract": "Overhead Water Tank Level Indicator with Alarm is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, Transistor Logic, Buzzer, LED Bar to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2764,8 +2764,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Security Mini",
     "rating": 4.8,
-    "downloads": 1630,
-    "stars": 430,
+    "downloads": 2302,
+    "stars": 402,
     "synopsis": {
       "abstract": "Infrared Motion Detection Security Burglar Alarm is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, PIR Motion Sensor, Siren Buzzer to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2811,9 +2811,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Agri Starter",
-    "rating": 4.7,
-    "downloads": 2693,
-    "stars": 793,
+    "rating": 4.8,
+    "downloads": 2150,
+    "stars": 950,
     "synopsis": {
       "abstract": "Automated Soil Moisture Sensor with Micro Servo is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, Capacitive Soil Sensor, SG90 Servo to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2860,9 +2860,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Digital Electronics",
-    "rating": 4.7,
-    "downloads": 3277,
-    "stars": 677,
+    "rating": 4.8,
+    "downloads": 3798,
+    "stars": 498,
     "synopsis": {
       "abstract": "Digital Stopwatch & Lap Timer with 7-Segment Display is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, 4-Digit 7-Segment, Interrupts, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2909,9 +2909,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Safety Tech",
-    "rating": 4.8,
-    "downloads": 2362,
-    "stars": 462,
+    "rating": 4.9,
+    "downloads": 4503,
+    "stars": 503,
     "synopsis": {
       "abstract": "Kitchen Fire & Flame Detection Alarm System is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, IR Flame Sensor, Buzzer, LEDs to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -2958,9 +2958,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Access Control",
-    "rating": 4.8,
-    "downloads": 4774,
-    "stars": 774,
+    "rating": 4.7,
+    "downloads": 3337,
+    "stars": 737,
     "synopsis": {
       "abstract": "Matrix Keypad Door Access Lock with EEPROM is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, 4x4 Keypad, EEPROM, Solenoid Lock to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3007,9 +3007,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Robotics Starter",
-    "rating": 4.7,
-    "downloads": 3441,
-    "stars": 841,
+    "rating": 4.8,
+    "downloads": 2330,
+    "stars": 430,
     "synopsis": {
       "abstract": "Obstacle-Avoiding Two-Wheel Differential Mini Robot is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, L298N Motor Driver, HC-SR04, DC Motors to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3057,8 +3057,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Smart Home",
     "rating": 4.7,
-    "downloads": 4165,
-    "stars": 865,
+    "downloads": 4729,
+    "stars": 729,
     "synopsis": {
       "abstract": "ESP32 Web Server for Multi-Room Appliance Control is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, AsyncWebServer, HTML/CSS/JS, Relays to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3105,9 +3105,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Clean City",
-    "rating": 4.9,
-    "downloads": 2475,
-    "stars": 575,
+    "rating": 4.8,
+    "downloads": 2446,
+    "stars": 546,
     "synopsis": {
       "abstract": "Smart Contactless Dustbin with Ultrasonic Sensor is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP8266, Servo Motor, Ultrasonic Sensor, ThingSpeak to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3154,9 +3154,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Automotive IoT",
-    "rating": 4.6,
-    "downloads": 1720,
-    "stars": 520,
+    "rating": 4.8,
+    "downloads": 3934,
+    "stars": 634,
     "synopsis": {
       "abstract": "GSM Vehicle Theft Alert with GPS Live Tracking is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, SIM800L GSM, NEO-6M GPS, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3204,8 +3204,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Campus IoT",
     "rating": 4.8,
-    "downloads": 4406,
-    "stars": 406,
+    "downloads": 2970,
+    "stars": 370,
     "synopsis": {
       "abstract": "RFID Attendance System with MySQL & Cloud Sync is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, RC522 RFID, Node.js, MySQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3252,9 +3252,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Clean Energy",
-    "rating": 4.6,
-    "downloads": 4096,
-    "stars": 796,
+    "rating": 4.8,
+    "downloads": 2886,
+    "stars": 986,
     "synopsis": {
       "abstract": "Dual-Axis Solar Panel Sun Tracker with LDRs is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Arduino, 2x Servo Motors, 4x LDRs, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3302,8 +3302,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Smart Agriculture",
     "rating": 4.6,
-    "downloads": 3632,
-    "stars": 332,
+    "downloads": 2444,
+    "stars": 544,
     "synopsis": {
       "abstract": "Automatic Plant Drip Irrigation with ESP8266 & Blynk is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP8266, Soil Moisture, Blynk IoT, Relay to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3350,9 +3350,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Safety IoT",
-    "rating": 4.9,
-    "downloads": 4919,
-    "stars": 919,
+    "rating": 4.8,
+    "downloads": 3882,
+    "stars": 582,
     "synopsis": {
       "abstract": "LPG Gas Leakage Detector with MQ-6 & GSM SMS Alert is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, MQ-6 Sensor, GSM Module, Buzzer to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3399,9 +3399,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Smart Metering",
-    "rating": 4.8,
-    "downloads": 2190,
-    "stars": 990,
+    "rating": 4.9,
+    "downloads": 1527,
+    "stars": 327,
     "synopsis": {
       "abstract": "Smart Electricity Sub-Meter with Pulse Counter & Wi-Fi is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, Current Sensor ACS712, ThingSpeak, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3448,9 +3448,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Biomedical IoT",
-    "rating": 4.7,
-    "downloads": 4313,
-    "stars": 313,
+    "rating": 4.8,
+    "downloads": 4786,
+    "stars": 786,
     "synopsis": {
       "abstract": "Pulse Oximeter & SpO2 Heart Rate Monitor (MAX30102) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, MAX30102, OLED, Blynk Cloud to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3497,9 +3497,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Climate IoT",
-    "rating": 4.8,
-    "downloads": 3370,
-    "stars": 770,
+    "rating": 4.7,
+    "downloads": 4637,
+    "stars": 637,
     "synopsis": {
       "abstract": "Weather Monitoring Station with ESP32 & ThingSpeak is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, BME280, UV Sensor, ThingSpeak to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3546,9 +3546,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Surveillance Bot",
-    "rating": 4.6,
-    "downloads": 1720,
-    "stars": 520,
+    "rating": 4.9,
+    "downloads": 3403,
+    "stars": 803,
     "synopsis": {
       "abstract": "Wi-Fi Controlled Video Streaming Robot Car (ESP32-CAM) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-CAM, L298N Driver, WebSockets, HTML5 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3595,9 +3595,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Campus Display",
-    "rating": 4.7,
-    "downloads": 2961,
-    "stars": 361,
+    "rating": 4.8,
+    "downloads": 4742,
+    "stars": 742,
     "synopsis": {
       "abstract": "Wireless Smart Notice Board with NodeMCU & Web UI is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern NodeMCU, P10 LED Matrix, WebSockets, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3645,8 +3645,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Environmental IoT",
     "rating": 4.8,
-    "downloads": 1958,
-    "stars": 758,
+    "downloads": 2854,
+    "stars": 954,
     "synopsis": {
       "abstract": "Water Quality Monitoring System (pH & Turbidity) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, pH Electrode, Turbidity Sensor, ThingSpeak to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3695,8 +3695,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "AgriTech Pre-Final",
     "rating": 4.6,
-    "downloads": 2588,
-    "stars": 688,
+    "downloads": 2968,
+    "stars": 368,
     "synopsis": {
       "abstract": "AgroSense: IoT Smart Agriculture & Drip Irrigation is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, LoRaWAN, MQTT, Node.js, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3743,9 +3743,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Renewable IoT",
-    "rating": 4.6,
-    "downloads": 4392,
-    "stars": 392,
+    "rating": 4.8,
+    "downloads": 4898,
+    "stars": 898,
     "synopsis": {
       "abstract": "Smart Grid Solar Microinverter Monitor is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, Modbus RS485, MQTT, Grafana to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3792,9 +3792,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Medical Telemetry",
-    "rating": 4.9,
-    "downloads": 2111,
-    "stars": 911,
+    "rating": 4.7,
+    "downloads": 3449,
+    "stars": 849,
     "synopsis": {
       "abstract": "Remote Patient ICU Telemetry Kit with Fall & ECG is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, AD8232 ECG, MPU6050, WebSockets to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3841,9 +3841,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Cold Chain IoT",
-    "rating": 4.9,
-    "downloads": 1611,
-    "stars": 411,
+    "rating": 4.6,
+    "downloads": 4168,
+    "stars": 868,
     "synopsis": {
       "abstract": "Smart Cold Storage Vaccine Telemetry System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, PT100 RTD, Cellular NB-IoT, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3890,9 +3890,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Industrial Safety",
-    "rating": 4.6,
-    "downloads": 2428,
-    "stars": 528,
+    "rating": 4.8,
+    "downloads": 1962,
+    "stars": 762,
     "synopsis": {
       "abstract": "Industrial Boiler Pressure & Temp Safety Interlock is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern STM32, Pressure Transducer, CAN Bus, FreeRTOS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3939,9 +3939,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "EV Technology",
-    "rating": 4.6,
-    "downloads": 2740,
-    "stars": 840,
+    "rating": 4.8,
+    "downloads": 1738,
+    "stars": 538,
     "synopsis": {
       "abstract": "EV Battery Management System (BMS) Telemetry is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-S3, CAN-Bus, INA219, Python Backend to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -3988,9 +3988,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Smart Waste",
-    "rating": 4.6,
-    "downloads": 2448,
-    "stars": 548,
+    "rating": 4.7,
+    "downloads": 3449,
+    "stars": 849,
     "synopsis": {
       "abstract": "Smart Municipal Waste Management with Route Optimization is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern NodeMCU, Google Maps API, MongoDB, Express.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4036,9 +4036,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Mesh Network",
-    "rating": 4.6,
-    "downloads": 2964,
-    "stars": 364,
+    "rating": 4.8,
+    "downloads": 2634,
+    "stars": 734,
     "synopsis": {
       "abstract": "Connected Street Lighting Network with ZigBee Mesh is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ZigBee CC2530, Arduino, Raspberry Pi Gateway to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4086,8 +4086,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Drone Sensing",
     "rating": 4.7,
-    "downloads": 3693,
-    "stars": 393,
+    "downloads": 3917,
+    "stars": 617,
     "synopsis": {
       "abstract": "Drone Air Pollution Sniffer Node with PM2.5 & CO2 is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Raspberry Pi Zero, Sensirion SPS30, GPS, Python to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4135,8 +4135,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Infrastructure IoT",
     "rating": 4.6,
-    "downloads": 4424,
-    "stars": 424,
+    "downloads": 3432,
+    "stars": 832,
     "synopsis": {
       "abstract": "Smart City Water Distribution & Pipeline Leak Tracker is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, Flow Sensors, LoRa, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4182,9 +4182,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Defense IoT",
-    "rating": 4.7,
-    "downloads": 2013,
-    "stars": 813,
+    "rating": 4.6,
+    "downloads": 1864,
+    "stars": 664,
     "synopsis": {
       "abstract": "Acoustic Gunshot & Explosion Localization IoT Node is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-S3, MEMS Microphones, TDoA Algorithm to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4231,9 +4231,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Hydroponics",
-    "rating": 4.7,
-    "downloads": 2313,
-    "stars": 413,
+    "rating": 4.9,
+    "downloads": 4563,
+    "stars": 563,
     "synopsis": {
       "abstract": "Automated Greenhouse Climate & Hydroponics Controller is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, FreeRTOS, MQTT, React Dashboard to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4281,9 +4281,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Mining Safety",
-    "rating": 4.6,
-    "downloads": 4648,
-    "stars": 648,
+    "rating": 4.8,
+    "downloads": 3666,
+    "stars": 366,
     "synopsis": {
       "abstract": "Underground Coal Mine Safety Helmet with Gas Sensors is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, LoRaWAN, MQ-4, MPU6050, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4331,9 +4331,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Major Capstone",
-    "rating": 4.8,
-    "downloads": 1726,
-    "stars": 526,
+    "rating": 4.6,
+    "downloads": 4340,
+    "stars": 340,
     "synopsis": {
       "abstract": "Autonomous Agricultural Drone for Precision Fertilizer Spraying is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Pixhawk, ArduPilot, Raspberry Pi 4, Python, ROS2 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4381,9 +4381,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Digital Twin",
-    "rating": 4.8,
-    "downloads": 3462,
-    "stars": 862,
+    "rating": 4.7,
+    "downloads": 3493,
+    "stars": 893,
     "synopsis": {
       "abstract": "Industrial Digital Twin with MQTT & Edge Impulse TinyML is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-S3, Three.js, Edge Impulse, MQTT, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4431,8 +4431,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "TinyML Edge",
     "rating": 4.8,
-    "downloads": 3590,
-    "stars": 990,
+    "downloads": 3418,
+    "stars": 818,
     "synopsis": {
       "abstract": "TinyML Vibration Anomaly Detector for Factory Turbines is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern STM32F4, TinyML, TensorFlow Lite Micro, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4479,9 +4479,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "V2X Automotive",
-    "rating": 4.7,
-    "downloads": 4761,
-    "stars": 761,
+    "rating": 4.8,
+    "downloads": 2814,
+    "stars": 914,
     "synopsis": {
       "abstract": "Vehicle-to-Everything (V2X) Roadside Collision Warning is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-S3, Wi-Fi 802.11p, CAN Bus, FreeRTOS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4528,9 +4528,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Marine IoT",
-    "rating": 4.8,
-    "downloads": 4382,
-    "stars": 382,
+    "rating": 4.6,
+    "downloads": 4932,
+    "stars": 932,
     "synopsis": {
       "abstract": "Subsea Pipeline Leak Acoustic Locator with Hydrophone Array is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Raspberry Pi, Hydrophone Array, DSP Filters, Python to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4577,9 +4577,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Energy Web3",
-    "rating": 4.8,
-    "downloads": 1722,
-    "stars": 522,
+    "rating": 4.7,
+    "downloads": 4901,
+    "stars": 901,
     "synopsis": {
       "abstract": "Peer-to-Peer Microgrid Energy Trading Gateway is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, Ethereum Smart Contracts, Modbus, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4626,9 +4626,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Drone Delivery",
-    "rating": 4.8,
-    "downloads": 3074,
-    "stars": 474,
+    "rating": 4.7,
+    "downloads": 2061,
+    "stars": 861,
     "synopsis": {
       "abstract": "Autonomous Quadcopter Medical Delivery Drone is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Pixhawk 4, Mission Planner, Companion Pi, Python to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4676,8 +4676,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "Wearable AI",
     "rating": 4.9,
-    "downloads": 3343,
-    "stars": 743,
+    "downloads": 4775,
+    "stars": 775,
     "synopsis": {
       "abstract": "Wearable Fall Detection & Cardiac Monitor with TinyML is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-S3, IMU 6-Axis, TinyML, BLE 5.0 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4724,9 +4724,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Biometric Edge",
-    "rating": 4.7,
-    "downloads": 4969,
-    "stars": 969,
+    "rating": 4.9,
+    "downloads": 2379,
+    "stars": 479,
     "synopsis": {
       "abstract": "Biometric Smart Safe with On-Device Face Recognition is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32-S3-CAM, ESP-WHO, TFT Display, C++ to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4773,9 +4773,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Smart Traffic",
-    "rating": 4.8,
-    "downloads": 1670,
-    "stars": 470,
+    "rating": 4.7,
+    "downloads": 2337,
+    "stars": 437,
     "synopsis": {
       "abstract": "Smart City Traffic Signal Optimizer with Induction Loops & Camera is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Raspberry Pi 4, OpenCV, PLC Relay, Python to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4822,9 +4822,9 @@ const PROJECTS_DATA = [
     "icon": "cpu",
     "color": "#f59e0b",
     "badge": "Disaster IoT",
-    "rating": 4.7,
-    "downloads": 4421,
-    "stars": 421,
+    "rating": 4.9,
+    "downloads": 2927,
+    "stars": 327,
     "synopsis": {
       "abstract": "Wildfire Thermal Camera Early Warning Node with LoRaWAN is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern ESP32, FLIR Lepton, LoRaWAN, FreeRTOS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4873,8 +4873,8 @@ const PROJECTS_DATA = [
     "color": "#f59e0b",
     "badge": "EV Infrastructure",
     "rating": 4.8,
-    "downloads": 3746,
-    "stars": 446,
+    "downloads": 2898,
+    "stars": 998,
     "synopsis": {
       "abstract": "Solar EV Charging Station Telemetry & Automated RFID Billing is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern STM32, OCPP 2.0, RFID, MQTT, Python to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4921,9 +4921,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "1st Year Classic",
-    "rating": 4.8,
-    "downloads": 2470,
-    "stars": 570,
+    "rating": 4.7,
+    "downloads": 1609,
+    "stars": 409,
     "synopsis": {
       "abstract": "Student Report Card & GPA Management in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, File Handling, OOPs, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -4970,9 +4970,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "1st Year Beginner",
-    "rating": 4.8,
-    "downloads": 3702,
-    "stars": 402,
+    "rating": 4.7,
+    "downloads": 3817,
+    "stars": 517,
     "synopsis": {
       "abstract": "Bank Account & ATM Transaction Simulator in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C Language, Pointers, Structures, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5019,9 +5019,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Retail POS",
-    "rating": 4.8,
-    "downloads": 3026,
-    "stars": 426,
+    "rating": 4.9,
+    "downloads": 4415,
+    "stars": 415,
     "synopsis": {
       "abstract": "Supermarket Billing & Inventory POS in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, File Streams, Structures, Console UI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5068,9 +5068,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Game Project",
-    "rating": 4.8,
-    "downloads": 3614,
-    "stars": 314,
+    "rating": 4.9,
+    "downloads": 3115,
+    "stars": 515,
     "synopsis": {
       "abstract": "Snake & Ladder 2-Player Console Board Game in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Randomization, Algorithms, ASCII Graphics to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5117,9 +5117,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Contact Book",
-    "rating": 4.6,
-    "downloads": 2932,
-    "stars": 332,
+    "rating": 4.7,
+    "downloads": 2421,
+    "stars": 521,
     "synopsis": {
       "abstract": "Contact Book & Phone Directory in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Binary Search, File Handling, Pointers to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5166,9 +5166,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Popular Mini",
-    "rating": 4.8,
-    "downloads": 3130,
-    "stars": 530,
+    "rating": 4.9,
+    "downloads": 3463,
+    "stars": 863,
     "synopsis": {
       "abstract": "Railway Ticket Reservation & PNR Status in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Data Structures, File Handling, OOPs to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5215,9 +5215,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Healthcare Mini",
-    "rating": 4.7,
-    "downloads": 4625,
-    "stars": 625,
+    "rating": 4.8,
+    "downloads": 2030,
+    "stars": 830,
     "synopsis": {
       "abstract": "Hospital Patient Record & OPD Token System in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Linked Lists, Queue DS, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5264,9 +5264,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Math & Engineering",
-    "rating": 4.7,
-    "downloads": 4509,
-    "stars": 509,
+    "rating": 4.9,
+    "downloads": 2619,
+    "stars": 719,
     "synopsis": {
       "abstract": "Matrix Mathematics & Linear Algebra Solver in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Multidimensional Arrays, Linear Algebra, Algorithms to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5313,9 +5313,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Campus Mini",
-    "rating": 4.7,
-    "downloads": 3045,
-    "stars": 445,
+    "rating": 4.9,
+    "downloads": 2131,
+    "stars": 931,
     "synopsis": {
       "abstract": "Hostel Room Allocation & Mess Management in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, File Handling, Data Management, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5362,9 +5362,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Utility Mini",
-    "rating": 4.6,
-    "downloads": 2792,
-    "stars": 892,
+    "rating": 4.8,
+    "downloads": 4338,
+    "stars": 338,
     "synopsis": {
       "abstract": "Electricity Bill Calculator & Tariff Estimator in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Control Flow, File Handling, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5410,9 +5410,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Algorithm Demo",
-    "rating": 4.6,
-    "downloads": 3904,
-    "stars": 604,
+    "rating": 4.8,
+    "downloads": 4030,
+    "stars": 730,
     "synopsis": {
       "abstract": "Number Guessing & Binary Search Game in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Binary Search, Algorithms to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5459,8 +5459,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "Game Mini",
     "rating": 4.7,
-    "downloads": 3145,
-    "stars": 545,
+    "downloads": 3825,
+    "stars": 525,
     "synopsis": {
       "abstract": "Rock Paper Scissors Game with Score History in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Randomization, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5506,9 +5506,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Payroll Mini",
-    "rating": 4.8,
-    "downloads": 1626,
-    "stars": 426,
+    "rating": 4.6,
+    "downloads": 4280,
+    "stars": 980,
     "synopsis": {
       "abstract": "Simple Employee Salary Slip Generator in C++ is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, OOPs, File Handling to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5555,9 +5555,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Parking Mini",
-    "rating": 4.7,
-    "downloads": 4609,
-    "stars": 609,
+    "rating": 4.6,
+    "downloads": 4908,
+    "stars": 908,
     "synopsis": {
       "abstract": "Mini Parking Lot Space Allocation Manager in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Arrays, Structures, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5603,9 +5603,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Engineering Mini",
-    "rating": 4.9,
-    "downloads": 1615,
-    "stars": 415,
+    "rating": 4.6,
+    "downloads": 4324,
+    "stars": 324,
     "synopsis": {
       "abstract": "Engineering Unit Converter in C is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Functions, Math Formulas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5652,9 +5652,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Systems Mini",
-    "rating": 4.6,
-    "downloads": 3356,
-    "stars": 756,
+    "rating": 4.7,
+    "downloads": 2465,
+    "stars": 565,
     "synopsis": {
       "abstract": "Dynamic Memory Allocator & Garbage Collector Simulator is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Pointers, Memory Management, Data Structures to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5701,9 +5701,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "OS Mini",
-    "rating": 4.7,
-    "downloads": 4089,
-    "stars": 789,
+    "rating": 4.9,
+    "downloads": 3415,
+    "stars": 815,
     "synopsis": {
       "abstract": "Mini Unix Shell (sh) with Pipes & I/O Redirection is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, POSIX API, Processes, Pipes to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5750,9 +5750,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Networking",
-    "rating": 4.9,
-    "downloads": 3275,
-    "stars": 675,
+    "rating": 4.8,
+    "downloads": 4402,
+    "stars": 402,
     "synopsis": {
       "abstract": "Multithreaded HTTP Web Server in Modern C++ is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++17, Sockets, pthreads, HTTP/1.1 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5799,9 +5799,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Data Structures",
-    "rating": 4.8,
-    "downloads": 4762,
-    "stars": 762,
+    "rating": 4.7,
+    "downloads": 4757,
+    "stars": 757,
     "synopsis": {
       "abstract": "B-Tree & Red-Black Tree Database Indexer is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Red-Black Tree, B-Tree, Algorithms to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5848,9 +5848,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Compression",
-    "rating": 4.9,
-    "downloads": 2647,
-    "stars": 747,
+    "rating": 4.8,
+    "downloads": 3770,
+    "stars": 470,
     "synopsis": {
       "abstract": "Huffman Lossless File Compression Tool in C++ is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Huffman Coding, Bit Manipulation, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5897,9 +5897,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "OS Simulation",
-    "rating": 4.6,
-    "downloads": 4856,
-    "stars": 856,
+    "rating": 4.8,
+    "downloads": 2942,
+    "stars": 342,
     "synopsis": {
       "abstract": "CPU Process Scheduler Simulation in C++ is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Queues, OS Algorithms, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5945,9 +5945,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Architecture",
-    "rating": 4.9,
-    "downloads": 2135,
-    "stars": 935,
+    "rating": 4.8,
+    "downloads": 3378,
+    "stars": 778,
     "synopsis": {
       "abstract": "Hardware Cache Simulator (LRU, LFU, Direct Mapped) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Cache Memory, Computer Architecture to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -5994,9 +5994,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Graphics Engine",
-    "rating": 4.7,
-    "downloads": 3657,
-    "stars": 357,
+    "rating": 4.9,
+    "downloads": 4439,
+    "stars": 439,
     "synopsis": {
       "abstract": "Ray Tracer 3D Rendering Engine in C++ is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Vector Math, Ray Tracing, PPM Output to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6043,9 +6043,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Database Engine",
-    "rating": 4.9,
-    "downloads": 4723,
-    "stars": 723,
+    "rating": 4.6,
+    "downloads": 2384,
+    "stars": 484,
     "synopsis": {
       "abstract": "Relational Database Engine with Custom B-Tree Storage is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Database Internals, B-Tree, Disk Pages to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6093,9 +6093,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Compiler Design",
-    "rating": 4.9,
-    "downloads": 1707,
-    "stars": 507,
+    "rating": 4.6,
+    "downloads": 4184,
+    "stars": 884,
     "synopsis": {
       "abstract": "Lexical Analyzer & AST Parser Generator in C is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Lexer, Parser, AST, Compiler to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6142,9 +6142,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "VM Systems",
-    "rating": 4.6,
-    "downloads": 2880,
-    "stars": 980,
+    "rating": 4.9,
+    "downloads": 2875,
+    "stars": 975,
     "synopsis": {
       "abstract": "Virtual Machine Bytecode Interpreter in C++ is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Virtual Machine, Bytecode, Registers to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6191,9 +6191,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Networking",
-    "rating": 4.9,
-    "downloads": 1871,
-    "stars": 671,
+    "rating": 4.7,
+    "downloads": 1645,
+    "stars": 445,
     "synopsis": {
       "abstract": "Network Packet Sniffer & Protocol Analyzer with Raw Sockets is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Raw Sockets, pcap, Network Protocols to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6240,9 +6240,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Storage Systems",
-    "rating": 4.8,
-    "downloads": 3830,
-    "stars": 530,
+    "rating": 4.9,
+    "downloads": 2339,
+    "stars": 439,
     "synopsis": {
       "abstract": "Embedded Key-Value Store with Write-Ahead Logging (WAL) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, WAL, Persistence, Storage to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6290,8 +6290,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "Database Pre-Final",
     "rating": 4.8,
-    "downloads": 4798,
-    "stars": 798,
+    "downloads": 4238,
+    "stars": 938,
     "synopsis": {
       "abstract": "SQLite-Compatible Relational DBMS from Scratch is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++17, SQL Parser, B-Tree, File Storage to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6338,9 +6338,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Async Systems",
-    "rating": 4.9,
-    "downloads": 3623,
-    "stars": 323,
+    "rating": 4.6,
+    "downloads": 3504,
+    "stars": 904,
     "synopsis": {
       "abstract": "High-Performance HTTP/2 Asynchronous Server in C++20 is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++20, epoll, Coroutines, HTTP/2 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6389,8 +6389,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "Game Engine",
     "rating": 4.8,
-    "downloads": 4398,
-    "stars": 398,
+    "downloads": 2942,
+    "stars": 342,
     "synopsis": {
       "abstract": "Cross-Platform 2D/3D Game Engine with OpenGL is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, OpenGL, GLFW, GLSL, Box2D to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6437,9 +6437,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "High-Frequency Tech",
-    "rating": 4.7,
-    "downloads": 3469,
-    "stars": 869,
+    "rating": 4.8,
+    "downloads": 3142,
+    "stars": 542,
     "synopsis": {
       "abstract": "Memory-Mapped High-Frequency Order Matching Engine is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++20, Memory Mapping, Lock-Free Queues, FinTech to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6486,9 +6486,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "File Systems",
-    "rating": 4.8,
-    "downloads": 3226,
-    "stars": 626,
+    "rating": 4.7,
+    "downloads": 4353,
+    "stars": 353,
     "synopsis": {
       "abstract": "Ext2 File System Inode Parser & Forensic Extractor is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Ext2, File Systems, Forensics to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6536,8 +6536,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "Audio DSP",
     "rating": 4.8,
-    "downloads": 4570,
-    "stars": 570,
+    "downloads": 1654,
+    "stars": 454,
     "synopsis": {
       "abstract": "Fast Fourier Transform (FFT) Audio Equalizer in C++ is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, FFT, DSP, PortAudio to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6584,9 +6584,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Kernel Driver",
-    "rating": 4.9,
-    "downloads": 2687,
-    "stars": 787,
+    "rating": 4.7,
+    "downloads": 3205,
+    "stars": 605,
     "synopsis": {
       "abstract": "Linux Kernel Module for Custom Character Device is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, Linux Kernel, Kernel Modules, IPC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6633,9 +6633,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "DevTools",
-    "rating": 4.7,
-    "downloads": 4313,
-    "stars": 313,
+    "rating": 4.6,
+    "downloads": 4084,
+    "stars": 784,
     "synopsis": {
       "abstract": "Static Code Analysis & Linting Tool for C++ is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Clang AST, Static Analysis, Compilers to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6682,9 +6682,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "P2P Systems",
-    "rating": 4.6,
-    "downloads": 2604,
-    "stars": 704,
+    "rating": 4.9,
+    "downloads": 3583,
+    "stars": 983,
     "synopsis": {
       "abstract": "Multithreaded BitTorrent Client Protocol Implementation is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, BitTorrent Protocol, Sockets, SHA-1 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6732,9 +6732,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Crypto Systems",
-    "rating": 4.9,
-    "downloads": 3707,
-    "stars": 407,
+    "rating": 4.6,
+    "downloads": 2060,
+    "stars": 860,
     "synopsis": {
       "abstract": "Cryptographic Suite: AES-256, RSA & SHA-256 in C++ is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Cryptography, AES-256, RSA, SIMD to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6781,9 +6781,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Graph Compute",
-    "rating": 4.8,
-    "downloads": 2938,
-    "stars": 338,
+    "rating": 4.7,
+    "downloads": 1541,
+    "stars": 341,
     "synopsis": {
       "abstract": "High-Performance In-Memory Graph Analytics Engine is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, OpenMP, Graph Algorithms, Multithreading to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6830,9 +6830,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Distributed Systems",
-    "rating": 4.9,
-    "downloads": 2483,
-    "stars": 583,
+    "rating": 4.8,
+    "downloads": 4318,
+    "stars": 318,
     "synopsis": {
       "abstract": "Raft Distributed Consensus Protocol Implementation in C++ is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Raft, Distributed Systems, RPC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6881,8 +6881,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "OS Capstone",
     "rating": 4.9,
-    "downloads": 4967,
-    "stars": 967,
+    "downloads": 2823,
+    "stars": 923,
     "synopsis": {
       "abstract": "x86 32-Bit Microkernel Operating System is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, x86 Assembly, OS Kernel, Paging, QEMU to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6929,9 +6929,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Major Capstone",
-    "rating": 4.9,
-    "downloads": 1623,
-    "stars": 423,
+    "rating": 4.7,
+    "downloads": 2501,
+    "stars": 601,
     "synopsis": {
       "abstract": "Redis Clone: In-Memory Distributed Cache with Cluster Sync is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++20, epoll, Redis Protocol, Networking to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -6978,9 +6978,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "GPU Graphics",
-    "rating": 4.6,
-    "downloads": 4976,
-    "stars": 976,
+    "rating": 4.9,
+    "downloads": 4455,
+    "stars": 455,
     "synopsis": {
       "abstract": "Hardware-Accelerated Vulkan & CUDA Path Tracer is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Vulkan API, CUDA, GLSL Shaders to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7028,8 +7028,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "Compiler Capstone",
     "rating": 4.6,
-    "downloads": 4180,
-    "stars": 880,
+    "downloads": 4808,
+    "stars": 808,
     "synopsis": {
       "abstract": "WebAssembly JIT Compiler Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, JIT Compiler, Wasm, Assembly to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7076,9 +7076,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Distributed DB",
-    "rating": 4.7,
-    "downloads": 2625,
-    "stars": 725,
+    "rating": 4.6,
+    "downloads": 4036,
+    "stars": 736,
     "synopsis": {
       "abstract": "Distributed Fault-Tolerant Key-Value Store with Paxos is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Paxos, Distributed Systems, gRPC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7125,9 +7125,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Media Systems",
-    "rating": 4.8,
-    "downloads": 1558,
-    "stars": 358,
+    "rating": 4.9,
+    "downloads": 4255,
+    "stars": 955,
     "synopsis": {
       "abstract": "Hardware-Accelerated H.264 Video Transcoding Pipeline is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, SIMD AVX2, Video Codecs, DSP to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7174,9 +7174,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "Embedded OS",
-    "rating": 4.8,
-    "downloads": 2090,
-    "stars": 890,
+    "rating": 4.6,
+    "downloads": 3684,
+    "stars": 384,
     "synopsis": {
       "abstract": "Real-Time Operating System (RTOS) Kernel for ARM Cortex-M is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, ARM Assembly, Cortex-M, FreeRTOS Internals to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7223,9 +7223,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "TSDB Engine",
-    "rating": 4.7,
-    "downloads": 1597,
-    "stars": 397,
+    "rating": 4.6,
+    "downloads": 4988,
+    "stars": 988,
     "synopsis": {
       "abstract": "Time-Series Database (TSDB) with Gorilla Compression is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++20, Gorilla Compression, TSDB, Storage Engine to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7273,8 +7273,8 @@ const PROJECTS_DATA = [
     "color": "#10b981",
     "badge": "Security Protocol",
     "rating": 4.9,
-    "downloads": 1915,
-    "stars": 715,
+    "downloads": 3735,
+    "stars": 435,
     "synopsis": {
       "abstract": "Custom TLS 1.3 Cryptographic Stack & Handshake Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, TLS 1.3, ECDHE, Security Protocols to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7321,9 +7321,9 @@ const PROJECTS_DATA = [
     "icon": "code",
     "color": "#10b981",
     "badge": "High-Speed Network",
-    "rating": 4.8,
-    "downloads": 2442,
-    "stars": 542,
+    "rating": 4.7,
+    "downloads": 1873,
+    "stars": 673,
     "synopsis": {
       "abstract": "Zero-Copy 10Gbps Packet Processing Engine with DPDK is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, DPDK, Kernel Bypass, High-Speed Networking to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7371,8 +7371,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Popular Mini",
     "rating": 4.6,
-    "downloads": 2860,
-    "stars": 960,
+    "downloads": 2948,
+    "stars": 348,
     "synopsis": {
       "abstract": "Personal Budget & Daily Expense Tracker in Python is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, CSV Module, Datetime, Matplotlib to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7419,9 +7419,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "College Utility",
-    "rating": 4.8,
-    "downloads": 2346,
-    "stars": 446,
+    "rating": 4.6,
+    "downloads": 4116,
+    "stars": 816,
     "synopsis": {
       "abstract": "Student Attendance & CGPA Calculator with Charts is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pandas, Matplotlib, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7468,9 +7468,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Web Scraper",
-    "rating": 4.6,
-    "downloads": 1716,
-    "stars": 516,
+    "rating": 4.9,
+    "downloads": 2355,
+    "stars": 455,
     "synopsis": {
       "abstract": "E-Commerce Price Drop Tracker & Web Scraper is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, BeautifulSoup4, Requests, smtplib to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7516,9 +7516,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Automation",
-    "rating": 4.6,
-    "downloads": 3308,
-    "stars": 708,
+    "rating": 4.7,
+    "downloads": 3953,
+    "stars": 653,
     "synopsis": {
       "abstract": "Automated PDF Invoice Generator with ReportLab is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, ReportLab, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7565,9 +7565,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "API Mini",
-    "rating": 4.8,
-    "downloads": 3602,
-    "stars": 302,
+    "rating": 4.9,
+    "downloads": 1659,
+    "stars": 459,
     "synopsis": {
       "abstract": "Weather Forecast CLI with OpenWeather API is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, REST API, JSON, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7614,9 +7614,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Text-to-Speech",
-    "rating": 4.9,
-    "downloads": 1823,
-    "stars": 623,
+    "rating": 4.7,
+    "downloads": 1669,
+    "stars": 469,
     "synopsis": {
       "abstract": "Wikipedia Summary & Text-to-Speech Audio Book Tool is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Wikipedia API, gTTS, Pygame to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7663,9 +7663,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Security Tool",
-    "rating": 4.7,
-    "downloads": 2685,
-    "stars": 785,
+    "rating": 4.8,
+    "downloads": 2586,
+    "stars": 686,
     "synopsis": {
       "abstract": "Encrypted Password Manager with SQLite & Fernet is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Cryptography, SQLite3, Fernet to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7712,9 +7712,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Email Bot",
-    "rating": 4.9,
-    "downloads": 4935,
-    "stars": 935,
+    "rating": 4.7,
+    "downloads": 3385,
+    "stars": 785,
     "synopsis": {
       "abstract": "Automated Email Newsletter Dispatcher is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, smtplib, Email MIME, CSV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7761,9 +7761,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Data Visualizer",
-    "rating": 4.9,
-    "downloads": 4263,
-    "stars": 963,
+    "rating": 4.7,
+    "downloads": 2509,
+    "stars": 609,
     "synopsis": {
       "abstract": "COVID-19 Global Statistics Tracker with Matplotlib is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Matplotlib, Pandas, REST API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7810,9 +7810,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Forex Tool",
-    "rating": 4.8,
-    "downloads": 4374,
-    "stars": 374,
+    "rating": 4.6,
+    "downloads": 4232,
+    "stars": 932,
     "synopsis": {
       "abstract": "Live Foreign Currency Converter with Historical Charts is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Requests, Matplotlib, Tkinter to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7858,9 +7858,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Text Parser",
-    "rating": 4.8,
-    "downloads": 2286,
-    "stars": 386,
+    "rating": 4.9,
+    "downloads": 1615,
+    "stars": 415,
     "synopsis": {
       "abstract": "Markdown to Clean HTML Document Compiler is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Regular Expressions, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7908,8 +7908,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Productivity Bot",
     "rating": 4.6,
-    "downloads": 2948,
-    "stars": 348,
+    "downloads": 4204,
+    "stars": 904,
     "synopsis": {
       "abstract": "Desktop Downloads Auto-Organizer & File Sorter is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, os, shutil, Watchdog to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -7958,8 +7958,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Finance EDA",
     "rating": 4.6,
-    "downloads": 3880,
-    "stars": 580,
+    "downloads": 4904,
+    "stars": 904,
     "synopsis": {
       "abstract": "Exploratory Data Analysis (EDA) of Global Stock Markets is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pandas, Seaborn, Plotly, Jupyter to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8006,9 +8006,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Marketing Analytics",
-    "rating": 4.8,
-    "downloads": 2050,
-    "stars": 850,
+    "rating": 4.7,
+    "downloads": 1905,
+    "stars": 705,
     "synopsis": {
       "abstract": "Customer Segmentation with RFM Analysis & K-Means is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Scikit-Learn, K-Means, Seaborn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8055,9 +8055,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Geospatial Data",
-    "rating": 4.9,
-    "downloads": 2051,
-    "stars": 851,
+    "rating": 4.8,
+    "downloads": 4438,
+    "stars": 438,
     "synopsis": {
       "abstract": "Airbnb Rental Price Geospatial Analysis with Folium is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Folium, GeoPandas, Streamlit to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8104,9 +8104,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "NLP Mining",
-    "rating": 4.6,
-    "downloads": 4120,
-    "stars": 820,
+    "rating": 4.9,
+    "downloads": 3039,
+    "stars": 439,
     "synopsis": {
       "abstract": "YouTube Video Comment Sentiment & Topic Modeler is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, YouTube API, NLTK, LDA Topic Modeling to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8153,9 +8153,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Recommender",
-    "rating": 4.9,
-    "downloads": 4619,
-    "stars": 619,
+    "rating": 4.7,
+    "downloads": 4713,
+    "stars": 713,
     "synopsis": {
       "abstract": "Music Recommendation Engine with Collaborative Filtering is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Surprise Library, Pandas, Scikit-Learn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8203,8 +8203,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Credit Risk",
     "rating": 4.7,
-    "downloads": 4597,
-    "stars": 597,
+    "downloads": 2777,
+    "stars": 877,
     "synopsis": {
       "abstract": "Credit Score Rating Classification with XGBoost is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, XGBoost, Scikit-Learn, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8251,9 +8251,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Cyber Analytics",
-    "rating": 4.9,
-    "downloads": 2071,
-    "stars": 871,
+    "rating": 4.7,
+    "downloads": 1617,
+    "stars": 417,
     "synopsis": {
       "abstract": "Fake Job Postings Detection & Text Classification is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Scikit-Learn, TF-IDF, Streamlit to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8301,9 +8301,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Data Engineering",
-    "rating": 4.7,
-    "downloads": 1793,
-    "stars": 593,
+    "rating": 4.6,
+    "downloads": 2796,
+    "stars": 896,
     "synopsis": {
       "abstract": "Automated Data Cleaning & Imputation Pipeline is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pandas, NumPy, Scipy, ReportLab to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8350,9 +8350,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Time Series",
-    "rating": 4.7,
-    "downloads": 3305,
-    "stars": 705,
+    "rating": 4.6,
+    "downloads": 1788,
+    "stars": 588,
     "synopsis": {
       "abstract": "Retail Sales Forecasting with Meta Prophet is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Prophet, Plotly, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8399,9 +8399,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Retail Analytics",
-    "rating": 4.9,
-    "downloads": 4707,
-    "stars": 707,
+    "rating": 4.8,
+    "downloads": 4894,
+    "stars": 894,
     "synopsis": {
       "abstract": "Market Basket Analysis with Apriori & Association Rules is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, MLxtend, Apriori, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8448,9 +8448,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Aviation Analytics",
-    "rating": 4.6,
-    "downloads": 4456,
-    "stars": 456,
+    "rating": 4.7,
+    "downloads": 3169,
+    "stars": 569,
     "synopsis": {
       "abstract": "Commercial Flight Delay Prediction with LightGBM is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, LightGBM, Scikit-Learn, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8497,9 +8497,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Sports Data",
-    "rating": 4.9,
-    "downloads": 1871,
-    "stars": 671,
+    "rating": 4.6,
+    "downloads": 3768,
+    "stars": 468,
     "synopsis": {
       "abstract": "Interactive Sports Analytics Dashboard with Streamlit is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Streamlit, Plotly, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8546,9 +8546,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Market Trends",
-    "rating": 4.7,
-    "downloads": 1521,
-    "stars": 321,
+    "rating": 4.9,
+    "downloads": 1627,
+    "stars": 427,
     "synopsis": {
       "abstract": "Job Market Tech Skills Trend Analyzer (Selenium Scraper) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Selenium, Pandas, WordCloud to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8597,8 +8597,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Data Engineering",
     "rating": 4.6,
-    "downloads": 3764,
-    "stars": 464,
+    "downloads": 4832,
+    "stars": 832,
     "synopsis": {
       "abstract": "Real-Time Stock Market Streaming Pipeline (Kafka & Pandas) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Apache Kafka, DuckDB, Plotly, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8645,9 +8645,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Deep Recommender",
-    "rating": 4.9,
-    "downloads": 3923,
-    "stars": 623,
+    "rating": 4.7,
+    "downloads": 1625,
+    "stars": 425,
     "synopsis": {
       "abstract": "E-Commerce Deep Recommendation System (Neural Collaborative) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, Pandas, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8694,9 +8694,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Biomedical NLP",
-    "rating": 4.9,
-    "downloads": 2395,
-    "stars": 495,
+    "rating": 4.7,
+    "downloads": 2141,
+    "stars": 941,
     "synopsis": {
       "abstract": "Clinical Trials NLP Entity Extraction with SciSpacy is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, SciSpacy, HuggingFace, Streamlit to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8743,9 +8743,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Forensic Finance",
-    "rating": 4.7,
-    "downloads": 4821,
-    "stars": 821,
+    "rating": 4.8,
+    "downloads": 3074,
+    "stars": 474,
     "synopsis": {
       "abstract": "Automated Financial Statement Anomaly & Fraud Detector is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Isolation Forest, Pandas, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8792,9 +8792,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "DevOps Analytics",
-    "rating": 4.7,
-    "downloads": 2337,
-    "stars": 437,
+    "rating": 4.6,
+    "downloads": 4524,
+    "stars": 524,
     "synopsis": {
       "abstract": "Server Fleet Infrastructure Metric Anomaly Detector is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, LSTM Autoencoder, Prometheus, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8841,9 +8841,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Urban Mobility",
-    "rating": 4.7,
-    "downloads": 3009,
-    "stars": 409,
+    "rating": 4.6,
+    "downloads": 1568,
+    "stars": 368,
     "synopsis": {
       "abstract": "Urban Ride-Hailing Spatial-Temporal Demand Forecaster is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch Geometric, GeoPandas, Plotly to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8890,9 +8890,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Predictive CLV",
-    "rating": 4.6,
-    "downloads": 3984,
-    "stars": 684,
+    "rating": 4.8,
+    "downloads": 3634,
+    "stars": 334,
     "synopsis": {
       "abstract": "Customer Lifetime Value (CLV) & Churn Probability Model is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Lifetimes, Pandas, Seaborn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8939,9 +8939,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Marketing AI",
-    "rating": 4.7,
-    "downloads": 2929,
-    "stars": 329,
+    "rating": 4.9,
+    "downloads": 2823,
+    "stars": 923,
     "synopsis": {
       "abstract": "Social Media Influencer Engagement Predictor is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, XGBoost, Transformers, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -8988,9 +8988,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "AutoML Tools",
-    "rating": 4.8,
-    "downloads": 3070,
-    "stars": 470,
+    "rating": 4.6,
+    "downloads": 4636,
+    "stars": 636,
     "synopsis": {
       "abstract": "Automated Feature Engineering Pipeline (Featuretools) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Featuretools, Pandas, Scikit-Learn to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9037,9 +9037,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Remote Sensing",
-    "rating": 4.6,
-    "downloads": 4192,
-    "stars": 892,
+    "rating": 4.8,
+    "downloads": 3966,
+    "stars": 666,
     "synopsis": {
       "abstract": "Satellite Normalized Difference Vegetation Index (NDVI) Mapper is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Rasterio, GeoPandas, Matplotlib to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9087,8 +9087,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Audio Science",
     "rating": 4.9,
-    "downloads": 3231,
-    "stars": 631,
+    "downloads": 2091,
+    "stars": 891,
     "synopsis": {
       "abstract": "Audio Feature Extraction & Musical Key Detection (Librosa) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Librosa, NumPy, Plotly to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9135,9 +9135,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Energy Analytics",
-    "rating": 4.8,
-    "downloads": 1794,
-    "stars": 594,
+    "rating": 4.7,
+    "downloads": 3801,
+    "stars": 501,
     "synopsis": {
       "abstract": "National Grid Hourly Energy Demand Forecaster with LSTM is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, TensorFlow, LSTM, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9184,9 +9184,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Supply Chain Data",
-    "rating": 4.7,
-    "downloads": 2969,
-    "stars": 369,
+    "rating": 4.6,
+    "downloads": 1532,
+    "stars": 332,
     "synopsis": {
       "abstract": "Supply Chain Lead Time Risk Predictor with Bayesian Models is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyMC, ArviZ, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9233,9 +9233,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Major Capstone",
-    "rating": 4.7,
-    "downloads": 4869,
-    "stars": 869,
+    "rating": 4.6,
+    "downloads": 3100,
+    "stars": 500,
     "synopsis": {
       "abstract": "Big Data Analytics Pipeline with PySpark & Delta Lake is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern PySpark, Delta Lake, AWS S3 / GCP, Parquet to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9284,8 +9284,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Algo Trading",
     "rating": 4.7,
-    "downloads": 3381,
-    "stars": 781,
+    "downloads": 3589,
+    "stars": 989,
     "synopsis": {
       "abstract": "Algorithmic Trading Backtesting Engine with Alpaca API is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Backtrader, Alpaca API, NumPy, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9333,8 +9333,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Graph AI",
     "rating": 4.6,
-    "downloads": 4348,
-    "stars": 348,
+    "downloads": 3644,
+    "stars": 344,
     "synopsis": {
       "abstract": "Graph Analytics for Financial Fraud Rings Detection is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, NetworkX, PyTorch Geometric, Neo4j to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9381,9 +9381,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Medical Data AI",
-    "rating": 4.8,
-    "downloads": 4454,
-    "stars": 454,
+    "rating": 4.6,
+    "downloads": 3832,
+    "stars": 532,
     "synopsis": {
       "abstract": "Multimodal Medical Decision Support Pipeline is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Transformers, PyTorch, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9430,9 +9430,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Causal Science",
-    "rating": 4.6,
-    "downloads": 3920,
-    "stars": 620,
+    "rating": 4.9,
+    "downloads": 2763,
+    "stars": 863,
     "synopsis": {
       "abstract": "Causal Inference Engine for Marketing Attribution (DoWhy) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, DoWhy, CausalML, Statsmodels to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9480,9 +9480,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "AutoML Platform",
-    "rating": 4.6,
-    "downloads": 4560,
-    "stars": 560,
+    "rating": 4.8,
+    "downloads": 3590,
+    "stars": 990,
     "synopsis": {
       "abstract": "Enterprise Automated Machine Learning (AutoML) Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Optuna, Scikit-Learn, FastAPI, Docker to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9530,8 +9530,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Traffic AI",
     "rating": 4.6,
-    "downloads": 3732,
-    "stars": 432,
+    "downloads": 4088,
+    "stars": 788,
     "synopsis": {
       "abstract": "Spatial-Temporal Traffic Flow Forecasting with Graph CNN is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch Geometric, DGL, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9579,9 +9579,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "RAG Architecture",
-    "rating": 4.8,
-    "downloads": 2682,
-    "stars": 782,
+    "rating": 4.7,
+    "downloads": 4693,
+    "stars": 693,
     "synopsis": {
       "abstract": "Large-Scale Document Q&A with LangChain & FAISS RAG is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, LangChain, FAISS, HuggingFace, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9628,9 +9628,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "ESG Analytics",
-    "rating": 4.8,
-    "downloads": 1686,
-    "stars": 486,
+    "rating": 4.7,
+    "downloads": 4497,
+    "stars": 497,
     "synopsis": {
       "abstract": "Automated ESG Sustainability Scoring & Risk Analyzer is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, BERT, Spacy, Streamlit to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9679,8 +9679,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Explainable AI",
     "rating": 4.8,
-    "downloads": 2990,
-    "stars": 390,
+    "downloads": 3762,
+    "stars": 462,
     "synopsis": {
       "abstract": "Explainable AI (XAI) Model Auditing Dashboard (SHAP/LIME) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, SHAP, LIME, Plotly, Streamlit to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9727,9 +9727,9 @@ const PROJECTS_DATA = [
     "icon": "terminal",
     "color": "#3b82f6",
     "badge": "Genomics Data",
-    "rating": 4.7,
-    "downloads": 3769,
-    "stars": 469,
+    "rating": 4.8,
+    "downloads": 4102,
+    "stars": 802,
     "synopsis": {
       "abstract": "Genomic Variant Calling & Mutation Frequency Pipeline is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Biopython, Pandas, Scipy to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9777,8 +9777,8 @@ const PROJECTS_DATA = [
     "color": "#3b82f6",
     "badge": "Streaming Cyber",
     "rating": 4.7,
-    "downloads": 3005,
-    "stars": 405,
+    "downloads": 4821,
+    "stars": 821,
     "synopsis": {
       "abstract": "Real-Time Cyber Anomaly Detector with PySpark Streaming is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern PySpark, Kafka, Elasticsearch, Python to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9825,9 +9825,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Web Dev Starter",
-    "rating": 4.6,
-    "downloads": 3444,
-    "stars": 844,
+    "rating": 4.9,
+    "downloads": 3395,
+    "stars": 795,
     "synopsis": {
       "abstract": "Interactive Scientific & Unit Converter Calculator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript, MathJS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9874,9 +9874,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Portfolio",
-    "rating": 4.7,
-    "downloads": 1553,
-    "stars": 353,
+    "rating": 4.8,
+    "downloads": 3122,
+    "stars": 522,
     "synopsis": {
       "abstract": "Responsive Personal Portfolio Website with Dark Mode is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, Vanilla JS, Flexbox to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9924,8 +9924,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Productivity Mini",
     "rating": 4.9,
-    "downloads": 4207,
-    "stars": 907,
+    "downloads": 3427,
+    "stars": 827,
     "synopsis": {
       "abstract": "To-Do List & Task Organizer with LocalStorage is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript, LocalStorage to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -9972,9 +9972,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "UI Mini",
-    "rating": 4.6,
-    "downloads": 4680,
-    "stars": 680,
+    "rating": 4.9,
+    "downloads": 2679,
+    "stars": 779,
     "synopsis": {
       "abstract": "Digital Sticky Notes & Kanban Pinboard is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript, Drag and Drop API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10020,9 +10020,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "EdTech Mini",
-    "rating": 4.9,
-    "downloads": 1739,
-    "stars": 539,
+    "rating": 4.6,
+    "downloads": 2972,
+    "stars": 372,
     "synopsis": {
       "abstract": "Interactive Quiz Web Application with Countdown Timer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10070,8 +10070,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "API Mini",
     "rating": 4.9,
-    "downloads": 2855,
-    "stars": 955,
+    "downloads": 3491,
+    "stars": 891,
     "synopsis": {
       "abstract": "Recipe Finder Web App with Spoonacular REST API is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript, Fetch API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10118,8 +10118,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Habit App",
     "rating": 4.6,
-    "downloads": 1800,
-    "stars": 600,
+    "downloads": 2936,
+    "stars": 336,
     "synopsis": {
       "abstract": "Daily Habit Tracker with Streak Counter & LocalStorage is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10166,9 +10166,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Developer Tool",
-    "rating": 4.8,
-    "downloads": 3490,
-    "stars": 890,
+    "rating": 4.7,
+    "downloads": 3637,
+    "stars": 337,
     "synopsis": {
       "abstract": "Markdown Live Preview Editor & HTML Exporter is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript, Marked.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10215,9 +10215,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Dev API",
-    "rating": 4.6,
-    "downloads": 2252,
-    "stars": 352,
+    "rating": 4.9,
+    "downloads": 4023,
+    "stars": 723,
     "synopsis": {
       "abstract": "GitHub User Profile & Repository Explorer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript, GitHub API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10263,9 +10263,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Finance Mini",
-    "rating": 4.7,
-    "downloads": 3357,
-    "stars": 757,
+    "rating": 4.6,
+    "downloads": 4480,
+    "stars": 480,
     "synopsis": {
       "abstract": "Restaurant Tip & Bill Splitter Calculator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10312,9 +10312,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Audio Web",
-    "rating": 4.9,
-    "downloads": 2491,
-    "stars": 591,
+    "rating": 4.8,
+    "downloads": 3666,
+    "stars": 366,
     "synopsis": {
       "abstract": "Interactive Keyboard Drum Kit Audio App is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, Web Audio API, JavaScript to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10360,9 +10360,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Utility Game",
-    "rating": 4.8,
-    "downloads": 1938,
-    "stars": 738,
+    "rating": 4.7,
+    "downloads": 2785,
+    "stars": 885,
     "synopsis": {
       "abstract": "Typing Speed Tester with Words-Per-Minute Score is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, CSS3, JavaScript to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10410,9 +10410,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Full-Stack Mini",
-    "rating": 4.9,
-    "downloads": 2995,
-    "stars": 395,
+    "rating": 4.7,
+    "downloads": 1849,
+    "stars": 649,
     "synopsis": {
       "abstract": "Full-Stack Blogging Platform with Flask & SQLite is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Flask, SQLite3, Bootstrap, Jinja2 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10459,9 +10459,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Real-Time Web",
-    "rating": 4.8,
-    "downloads": 2714,
-    "stars": 814,
+    "rating": 4.9,
+    "downloads": 4251,
+    "stars": 951,
     "synopsis": {
       "abstract": "Real-Time Group Chat App with Node.js & Socket.io is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Express, Socket.io, HTML5/CSS3 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10507,9 +10507,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "React Productivity",
-    "rating": 4.9,
-    "downloads": 4107,
-    "stars": 807,
+    "rating": 4.7,
+    "downloads": 2153,
+    "stars": 953,
     "synopsis": {
       "abstract": "Task Management Kanban Board (Trello Clone) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, CSS Modules, LocalStorage / Firebase to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10557,9 +10557,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "E-Commerce",
-    "rating": 4.9,
-    "downloads": 2559,
-    "stars": 659,
+    "rating": 4.8,
+    "downloads": 2214,
+    "stars": 314,
     "synopsis": {
       "abstract": "E-Commerce Shopping Cart with Stripe Checkout is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Express, Stripe API, MongoDB, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10606,9 +10606,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "College Portal",
-    "rating": 4.8,
-    "downloads": 4726,
-    "stars": 726,
+    "rating": 4.6,
+    "downloads": 3676,
+    "stars": 376,
     "synopsis": {
       "abstract": "Student Course Registration Portal with PHP & MySQL is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern PHP, MySQL, Bootstrap, JavaScript to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10655,9 +10655,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Recruitment Web",
-    "rating": 4.6,
-    "downloads": 2608,
-    "stars": 708,
+    "rating": 4.8,
+    "downloads": 4842,
+    "stars": 842,
     "synopsis": {
       "abstract": "Job Board & Candidate Resume Submission Portal is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Express, MongoDB, Multer to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10704,9 +10704,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Finance SaaS",
-    "rating": 4.6,
-    "downloads": 2608,
-    "stars": 708,
+    "rating": 4.9,
+    "downloads": 2119,
+    "stars": 919,
     "synopsis": {
       "abstract": "Roommate Expense Sharing Web App (Splitwise Clone) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Node.js, Express, PostgreSQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10753,9 +10753,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Voting Portal",
-    "rating": 4.7,
-    "downloads": 3753,
-    "stars": 453,
+    "rating": 4.6,
+    "downloads": 2124,
+    "stars": 924,
     "synopsis": {
       "abstract": "Online Student Election Voting System with JWT Auth is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Express, JWT, MongoDB to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10802,9 +10802,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Ticketing Web",
-    "rating": 4.8,
-    "downloads": 2910,
-    "stars": 310,
+    "rating": 4.6,
+    "downloads": 2000,
+    "stars": 800,
     "synopsis": {
       "abstract": "Cinema Seat Booking & Movie Ticketing Web App is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Express, Node.js, CSS3 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10851,9 +10851,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Dashboard Web",
-    "rating": 4.6,
-    "downloads": 3860,
-    "stars": 560,
+    "rating": 4.8,
+    "downloads": 3630,
+    "stars": 330,
     "synopsis": {
       "abstract": "Weather Analytics Dashboard with Chart.js Forecasts is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, Chart.js, OpenWeather API, CSS3 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10899,9 +10899,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Cloud Notes",
-    "rating": 4.8,
-    "downloads": 3126,
-    "stars": 526,
+    "rating": 4.6,
+    "downloads": 2716,
+    "stars": 816,
     "synopsis": {
       "abstract": "Notes Management App with Tags & Cloud Sync is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Firebase Firestore, Tailwind CSS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10948,9 +10948,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Health Web",
-    "rating": 4.8,
-    "downloads": 2982,
-    "stars": 382,
+    "rating": 4.9,
+    "downloads": 2643,
+    "stars": 743,
     "synopsis": {
       "abstract": "Fitness Workout & Calorie Tracker Web Portal is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Vue.js, Node.js, MongoDB, Chart.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -10997,9 +10997,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Utility SaaS",
-    "rating": 4.9,
-    "downloads": 1707,
-    "stars": 507,
+    "rating": 4.8,
+    "downloads": 3670,
+    "stars": 370,
     "synopsis": {
       "abstract": "URL Shortener & Click Analytics Platform is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Express, Redis, MongoDB to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11047,9 +11047,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Social Web Pre-Final",
-    "rating": 4.7,
-    "downloads": 2569,
-    "stars": 669,
+    "rating": 4.8,
+    "downloads": 2554,
+    "stars": 654,
     "synopsis": {
       "abstract": "DevConnect: Developer Social Network & Code Portfolio is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js, React, Node.js, MongoDB, TailwindCSS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11097,9 +11097,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "MERN Architecture",
-    "rating": 4.6,
-    "downloads": 4820,
-    "stars": 820,
+    "rating": 4.7,
+    "downloads": 3161,
+    "stars": 561,
     "synopsis": {
       "abstract": "MERN Stack Real-Time Collaboration Workspace is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern MongoDB, Express, React, Node.js, Socket.io to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11146,9 +11146,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Enterprise SaaS",
-    "rating": 4.6,
-    "downloads": 3684,
-    "stars": 384,
+    "rating": 4.7,
+    "downloads": 3165,
+    "stars": 565,
     "synopsis": {
       "abstract": "Multi-Tenant SaaS Project Management Suite is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, FastAPI, PostgreSQL, Docker to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11195,9 +11195,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Developer Sandbox",
-    "rating": 4.9,
-    "downloads": 3183,
-    "stars": 583,
+    "rating": 4.7,
+    "downloads": 1973,
+    "stars": 773,
     "synopsis": {
       "abstract": "Cloud Code Sandbox & Online IDE (Judge0 API) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Monaco Editor, Judge0 API, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11244,9 +11244,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "EdTech Web",
-    "rating": 4.7,
-    "downloads": 1841,
-    "stars": 641,
+    "rating": 4.6,
+    "downloads": 3808,
+    "stars": 508,
     "synopsis": {
       "abstract": "E-Learning Platform with Video Streaming & Quizzes is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js, Node.js, AWS S3, PostgreSQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11293,9 +11293,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Collaboration Web",
-    "rating": 4.9,
-    "downloads": 2883,
-    "stars": 983,
+    "rating": 4.7,
+    "downloads": 1809,
+    "stars": 609,
     "synopsis": {
       "abstract": "Real-Time Collaborative Whiteboard with WebSockets is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, HTML5 Canvas, Socket.io, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11342,9 +11342,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Cloud Storage",
-    "rating": 4.7,
-    "downloads": 2045,
-    "stars": 845,
+    "rating": 4.6,
+    "downloads": 3540,
+    "stars": 940,
     "synopsis": {
       "abstract": "Cloud File Storage & Secure Sharing (Dropbox Clone) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, React, AWS S3 / MinIO, MongoDB to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11392,8 +11392,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Rental Portal",
     "rating": 4.7,
-    "downloads": 2621,
-    "stars": 721,
+    "downloads": 2529,
+    "stars": 629,
     "synopsis": {
       "abstract": "Property Rental & Vacation Booking Portal (Airbnb Clone) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Express, PostgreSQL, Leaflet Maps to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11441,8 +11441,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Delivery Platform",
     "rating": 4.8,
-    "downloads": 2038,
-    "stars": 838,
+    "downloads": 1822,
+    "stars": 622,
     "synopsis": {
       "abstract": "Food Delivery Aggregator with Live Driver Map Tracking is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern MERN Stack, Google Maps API, Socket.io, Stripe to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11489,8 +11489,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Healthcare Web",
     "rating": 4.7,
-    "downloads": 3645,
-    "stars": 345,
+    "downloads": 3857,
+    "stars": 557,
     "synopsis": {
       "abstract": "Digital Pharmacy & Prescription Fulfillment Portal is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Vue.js, Django REST Framework, PostgreSQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11537,9 +11537,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "AI EdTech",
-    "rating": 4.7,
-    "downloads": 2157,
-    "stars": 957,
+    "rating": 4.8,
+    "downloads": 2070,
+    "stars": 870,
     "synopsis": {
       "abstract": "AI-Powered Resume Builder with PDF Export Studio is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, jsPDF, OpenAI / Claude API, TailwindCSS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11586,9 +11586,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Marketplace Web",
-    "rating": 4.9,
-    "downloads": 2115,
-    "stars": 915,
+    "rating": 4.8,
+    "downloads": 3250,
+    "stars": 650,
     "synopsis": {
       "abstract": "Freelance Service Marketplace with Milestone Escrow is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js, Express, Stripe Connect, MongoDB to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11635,9 +11635,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "FinTech Web",
-    "rating": 4.8,
-    "downloads": 1546,
-    "stars": 346,
+    "rating": 4.6,
+    "downloads": 4292,
+    "stars": 992,
     "synopsis": {
       "abstract": "Crowdfunding & Venture Campaign Platform is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Node.js, PostgreSQL, Stripe to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11687,8 +11687,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Major Capstone",
     "rating": 4.6,
-    "downloads": 4676,
-    "stars": 676,
+    "downloads": 4428,
+    "stars": 428,
     "synopsis": {
       "abstract": "Microservices E-Commerce Platform with Docker & Kubernetes is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Go, Docker, Kubernetes, Kafka, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11735,9 +11735,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Algorithms Web",
-    "rating": 4.9,
-    "downloads": 2603,
-    "stars": 703,
+    "rating": 4.7,
+    "downloads": 1805,
+    "stars": 605,
     "synopsis": {
       "abstract": "Collaborative Document Editor with Operational Transformation is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Operational Transformation, WebSockets, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11785,9 +11785,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "High-Concurrency",
-    "rating": 4.6,
-    "downloads": 4168,
-    "stars": 868,
+    "rating": 4.9,
+    "downloads": 3355,
+    "stars": 755,
     "synopsis": {
       "abstract": "High-Concurrency Flash-Sale Ticket Booking System is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Node.js, Redis, PostgreSQL, RabbitMQ, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11834,9 +11834,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Modern Web Stack",
-    "rating": 4.9,
-    "downloads": 2399,
-    "stars": 499,
+    "rating": 4.6,
+    "downloads": 3904,
+    "stars": 604,
     "synopsis": {
       "abstract": "Headless CMS with GraphQL & Next.js 14 Server Actions is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js 14, GraphQL, PostgreSQL, Prisma to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11885,8 +11885,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "WebRTC Streaming",
     "rating": 4.8,
-    "downloads": 3290,
-    "stars": 690,
+    "downloads": 1594,
+    "stars": 394,
     "synopsis": {
       "abstract": "Video Conferencing Platform with WebRTC & Mesh SFU is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, WebRTC, Socket.io, Node.js, mediasoup to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11935,8 +11935,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "University ERP",
     "rating": 4.7,
-    "downloads": 1625,
-    "stars": 425,
+    "downloads": 2845,
+    "stars": 945,
     "synopsis": {
       "abstract": "Enterprise Resource Planning (ERP) System for Universities is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Django, React, PostgreSQL, Redis, Celery to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -11983,9 +11983,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Multi-Vendor Web",
-    "rating": 4.6,
-    "downloads": 3640,
-    "stars": 340,
+    "rating": 4.8,
+    "downloads": 4458,
+    "stars": 458,
     "synopsis": {
       "abstract": "Multi-Vendor Marketplace with Automated Merchant Payouts is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js, Node.js, PostgreSQL, Stripe Connect to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12033,8 +12033,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Low-Code Builder",
     "rating": 4.9,
-    "downloads": 3955,
-    "stars": 655,
+    "downloads": 3543,
+    "stars": 943,
     "synopsis": {
       "abstract": "Low-Code Drag-and-Drop Landing Page & Website Builder is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Dnd-Kit, Tailwind CSS, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12081,9 +12081,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Serverless Web",
-    "rating": 4.9,
-    "downloads": 2555,
-    "stars": 655,
+    "rating": 4.8,
+    "downloads": 3066,
+    "stars": 466,
     "synopsis": {
       "abstract": "Serverless Real-Time Analytics Dashboard (Next.js & AWS Lambda) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js, AWS Lambda, DynamoDB, ClickHouse to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12132,8 +12132,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "DevOps Web",
     "rating": 4.7,
-    "downloads": 4201,
-    "stars": 901,
+    "downloads": 3349,
+    "stars": 749,
     "synopsis": {
       "abstract": "Automated CI/CD Pipeline & Deployment Orchestration Dashboard is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, Node.js, Docker, Go, WebSockets to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12181,9 +12181,9 @@ const PROJECTS_DATA = [
     "icon": "globe",
     "color": "#6366f1",
     "badge": "Healthcare Web",
-    "rating": 4.6,
-    "downloads": 2564,
-    "stars": 664,
+    "rating": 4.8,
+    "downloads": 2618,
+    "stars": 718,
     "synopsis": {
       "abstract": "Telemedicine Consultation Platform with HIPAA Compliance is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern React, WebRTC, FastAPI, PostgreSQL, AWS KMS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12231,8 +12231,8 @@ const PROJECTS_DATA = [
     "color": "#6366f1",
     "badge": "Web3 Full-Stack",
     "rating": 4.9,
-    "downloads": 4131,
-    "stars": 831,
+    "downloads": 4795,
+    "stars": 795,
     "synopsis": {
       "abstract": "Decentralized Social Media Platform with Web3 Auth & IPFS is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Next.js, Ethers.js, IPFS / Pinata, Solidity to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12279,9 +12279,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Java Starter",
-    "rating": 4.8,
-    "downloads": 3410,
-    "stars": 810,
+    "rating": 4.7,
+    "downloads": 3525,
+    "stars": 925,
     "synopsis": {
       "abstract": "Student Grading & Report System in Java CLI is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, OOPs, File Handling, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12328,9 +12328,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "OOPs Classic",
-    "rating": 4.7,
-    "downloads": 2337,
-    "stars": 437,
+    "rating": 4.6,
+    "downloads": 4336,
+    "stars": 336,
     "synopsis": {
       "abstract": "ATM Banking Interface in Java OOPs is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Classes & Objects, Encapsulation, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12377,9 +12377,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Swing GUI",
-    "rating": 4.7,
-    "downloads": 3313,
-    "stars": 713,
+    "rating": 4.9,
+    "downloads": 3191,
+    "stars": 591,
     "synopsis": {
       "abstract": "Scientific Calculator with Java Swing GUI is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Java Swing, AWT, Event Handling to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12426,9 +12426,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Library Mini",
-    "rating": 4.9,
-    "downloads": 3591,
-    "stars": 991,
+    "rating": 4.6,
+    "downloads": 4428,
+    "stars": 428,
     "synopsis": {
       "abstract": "Library Book Inventory Tracker in Java is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, File Streams, Collections, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12476,8 +12476,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Game Mini",
     "rating": 4.9,
-    "downloads": 2735,
-    "stars": 835,
+    "downloads": 3151,
+    "stars": 551,
     "synopsis": {
       "abstract": "Number Guessing Game with Java Swing UI is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Swing, AWT, Random to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12524,8 +12524,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Inventory Java",
     "rating": 4.8,
-    "downloads": 3750,
-    "stars": 450,
+    "downloads": 2898,
+    "stars": 998,
     "synopsis": {
       "abstract": "Simple Inventory Stock Tracker in Java is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, OOPs, File Handling to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12571,9 +12571,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Hospitality Mini",
-    "rating": 4.7,
-    "downloads": 3061,
-    "stars": 461,
+    "rating": 4.6,
+    "downloads": 3284,
+    "stars": 684,
     "synopsis": {
       "abstract": "Hotel Room Reservation System in Java is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, ArrayList, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12619,9 +12619,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Contact Java",
-    "rating": 4.7,
-    "downloads": 3809,
-    "stars": 509,
+    "rating": 4.8,
+    "downloads": 4534,
+    "stars": 534,
     "synopsis": {
       "abstract": "Contact Directory Management in Java is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Collections, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12668,9 +12668,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Multithreaded Mini",
-    "rating": 4.6,
-    "downloads": 3792,
-    "stars": 492,
+    "rating": 4.8,
+    "downloads": 2386,
+    "stars": 486,
     "synopsis": {
       "abstract": "Digital Clock & Stopwatch Desktop App with Swing is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Swing, Multithreading, AWT to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12716,9 +12716,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Utility Java",
-    "rating": 4.6,
-    "downloads": 3488,
-    "stars": 888,
+    "rating": 4.9,
+    "downloads": 4751,
+    "stars": 751,
     "synopsis": {
       "abstract": "Electricity Billing System in Java is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, OOPs, File Handling to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12765,9 +12765,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "EdTech Java",
-    "rating": 4.7,
-    "downloads": 4713,
-    "stars": 713,
+    "rating": 4.8,
+    "downloads": 3174,
+    "stars": 574,
     "synopsis": {
       "abstract": "Quiz Application with Swing UI & Timer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Swing, Timer, Collections to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12813,9 +12813,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Rental Java",
-    "rating": 4.6,
-    "downloads": 4120,
-    "stars": 820,
+    "rating": 4.8,
+    "downloads": 3950,
+    "stars": 650,
     "synopsis": {
       "abstract": "Vehicle Rental System in Java OOPs is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Inheritance, Polymorphism to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12862,9 +12862,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Enterprise Mini",
-    "rating": 4.8,
-    "downloads": 1566,
-    "stars": 366,
+    "rating": 4.7,
+    "downloads": 2829,
+    "stars": 929,
     "synopsis": {
       "abstract": "Employee Payroll & Attendance System in Java Swing & MySQL is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java Swing, JDBC, MySQL, JasperReports to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12911,9 +12911,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Web Java",
-    "rating": 4.9,
-    "downloads": 3435,
-    "stars": 835,
+    "rating": 4.8,
+    "downloads": 3842,
+    "stars": 542,
     "synopsis": {
       "abstract": "Online Examination System in Java Servlets & JSP is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java Servlets, JSP, MySQL, Apache Tomcat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -12960,9 +12960,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Healthcare Java",
-    "rating": 4.8,
-    "downloads": 2770,
-    "stars": 870,
+    "rating": 4.9,
+    "downloads": 4787,
+    "stars": 787,
     "synopsis": {
       "abstract": "Hospital Management System in Java & JDBC is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Swing, JDBC, MySQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13009,9 +13009,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Retail Java",
-    "rating": 4.8,
-    "downloads": 4286,
-    "stars": 986,
+    "rating": 4.6,
+    "downloads": 2460,
+    "stars": 560,
     "synopsis": {
       "abstract": "Supermarket Point of Sale (POS) with Barcode Scanner is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java Swing, MySQL, ZXing Barcode, JDBC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13058,9 +13058,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Banking Java",
-    "rating": 4.8,
-    "downloads": 4106,
-    "stars": 806,
+    "rating": 4.9,
+    "downloads": 3155,
+    "stars": 555,
     "synopsis": {
       "abstract": "Core Banking Portal with Account Transfer & PDF Receipts is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, JDBC, MySQL, iText PDF to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13107,8 +13107,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Pharmacy Java",
     "rating": 4.8,
-    "downloads": 2870,
-    "stars": 970,
+    "downloads": 4146,
+    "stars": 846,
     "synopsis": {
       "abstract": "Pharmacy Inventory & Drug Expiry Date Tracker is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java Swing, MySQL, JDBC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13156,8 +13156,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Spring Boot Starter",
     "rating": 4.7,
-    "downloads": 2505,
-    "stars": 605,
+    "downloads": 4353,
+    "stars": 353,
     "synopsis": {
       "abstract": "College Admission Management Portal in Spring Boot is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Thymeleaf, MySQL, Hibernate to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13203,9 +13203,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Aviation Java",
-    "rating": 4.6,
-    "downloads": 2212,
-    "stars": 312,
+    "rating": 4.7,
+    "downloads": 4633,
+    "stars": 633,
     "synopsis": {
       "abstract": "Airline Flight Ticket Reservation System with Swing is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java Swing, JDBC, MySQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13253,8 +13253,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Rental Spring",
     "rating": 4.6,
-    "downloads": 4300,
-    "stars": 300,
+    "downloads": 2552,
+    "stars": 652,
     "synopsis": {
       "abstract": "Car Rental Management Portal in Spring Boot is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Spring Data JPA, MySQL, Thymeleaf to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13301,9 +13301,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Hospitality Java",
-    "rating": 4.8,
-    "downloads": 2278,
-    "stars": 378,
+    "rating": 4.6,
+    "downloads": 2656,
+    "stars": 756,
     "synopsis": {
       "abstract": "Hotel Room Booking & Restaurant Billing in Java is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, JavaFX, MySQL, JDBC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13349,9 +13349,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Fitness Java",
-    "rating": 4.6,
-    "downloads": 1660,
-    "stars": 460,
+    "rating": 4.7,
+    "downloads": 2605,
+    "stars": 705,
     "synopsis": {
       "abstract": "Gym Membership & Personal Training Manager is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java Swing, MySQL, JDBC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13398,9 +13398,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "DevTools Java",
-    "rating": 4.7,
-    "downloads": 3757,
-    "stars": 457,
+    "rating": 4.6,
+    "downloads": 1516,
+    "stars": 316,
     "synopsis": {
       "abstract": "Software Bug Tracking System with Role-Based Access is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Thymeleaf, MySQL, Bootstrap to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13446,9 +13446,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "JavaFX UI",
-    "rating": 4.8,
-    "downloads": 2342,
-    "stars": 442,
+    "rating": 4.9,
+    "downloads": 1719,
+    "stars": 519,
     "synopsis": {
       "abstract": "Student Information System in Modern JavaFX is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaFX, ControlsFX, SQLite / MySQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13496,9 +13496,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Enterprise Pre-Final",
-    "rating": 4.8,
-    "downloads": 3770,
-    "stars": 470,
+    "rating": 4.9,
+    "downloads": 1871,
+    "stars": 671,
     "synopsis": {
       "abstract": "Spring Boot & Hibernate Microservices Banking Portal is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java 17, Spring Boot, Hibernate JPA, MySQL, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13545,9 +13545,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "CRM Enterprise",
-    "rating": 4.6,
-    "downloads": 3196,
-    "stars": 596,
+    "rating": 4.9,
+    "downloads": 3995,
+    "stars": 695,
     "synopsis": {
       "abstract": "Enterprise CRM & Sales Lead Management System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Thymeleaf, PostgreSQL, Docker to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13594,9 +13594,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Logistics Java",
-    "rating": 4.9,
-    "downloads": 4939,
-    "stars": 939,
+    "rating": 4.6,
+    "downloads": 4500,
+    "stars": 500,
     "synopsis": {
       "abstract": "Supply Chain & Warehouse Logistics Management Platform is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Spring Boot, PostgreSQL, REST APIs to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13643,9 +13643,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Security Java",
-    "rating": 4.7,
-    "downloads": 3705,
-    "stars": 405,
+    "rating": 4.9,
+    "downloads": 2479,
+    "stars": 579,
     "synopsis": {
       "abstract": "E-Commerce Backend REST API with Spring Security & JWT is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Spring Security, JWT, MySQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13692,9 +13692,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "HRMS Java",
-    "rating": 4.9,
-    "downloads": 2983,
-    "stars": 383,
+    "rating": 4.7,
+    "downloads": 2097,
+    "stars": 897,
     "synopsis": {
       "abstract": "Human Resource Management (HRMS) & Leave Portal is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, React, PostgreSQL, Hibernate to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13741,9 +13741,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "FinTech Java",
-    "rating": 4.7,
-    "downloads": 2285,
-    "stars": 385,
+    "rating": 4.8,
+    "downloads": 1514,
+    "stars": 314,
     "synopsis": {
       "abstract": "Insurance Policy & Claims Processing System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, MySQL, Camunda BPM, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13790,9 +13790,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Fleet Java",
-    "rating": 4.7,
-    "downloads": 4769,
-    "stars": 769,
+    "rating": 4.8,
+    "downloads": 4434,
+    "stars": 434,
     "synopsis": {
       "abstract": "Smart Fleet Vehicle Tracking & Dispatch Management is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Spring Boot, PostgreSQL, WebSockets to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13840,8 +13840,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Auction Java",
     "rating": 4.6,
-    "downloads": 1540,
-    "stars": 340,
+    "downloads": 1788,
+    "stars": 588,
     "synopsis": {
       "abstract": "Real Estate Property Listing & Online Auction Portal is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, WebSockets, MySQL, Angular to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13888,9 +13888,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Library ERP",
-    "rating": 4.9,
-    "downloads": 2003,
-    "stars": 803,
+    "rating": 4.7,
+    "downloads": 2909,
+    "stars": 309,
     "synopsis": {
       "abstract": "University Central Library ERP with RFID & Barcode Gate is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Spring Boot, MySQL, JasperReports to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13938,8 +13938,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Hospitality Java",
     "rating": 4.8,
-    "downloads": 1858,
-    "stars": 658,
+    "downloads": 2610,
+    "stars": 710,
     "synopsis": {
       "abstract": "Hotel Chain Central Reservation System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Hibernate, PostgreSQL, Vue.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -13986,9 +13986,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Food Delivery",
-    "rating": 4.8,
-    "downloads": 3182,
-    "stars": 582,
+    "rating": 4.9,
+    "downloads": 3719,
+    "stars": 419,
     "synopsis": {
       "abstract": "Online Food Delivery Platform Backend in Spring Boot is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Redis, MySQL, REST to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14035,9 +14035,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Logistics Java",
-    "rating": 4.7,
-    "downloads": 4661,
-    "stars": 661,
+    "rating": 4.6,
+    "downloads": 4100,
+    "stars": 800,
     "synopsis": {
       "abstract": "Courier & Parcel Tracking Enterprise System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, PostgreSQL, React, Docker to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14084,9 +14084,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Healthcare LIMS",
-    "rating": 4.9,
-    "downloads": 2683,
-    "stars": 783,
+    "rating": 4.8,
+    "downloads": 4790,
+    "stars": 790,
     "synopsis": {
       "abstract": "Clinical Laboratory Information System (LIMS) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Spring Boot, MySQL, Thymeleaf to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14134,9 +14134,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Major Capstone",
-    "rating": 4.8,
-    "downloads": 3506,
-    "stars": 906,
+    "rating": 4.6,
+    "downloads": 4680,
+    "stars": 680,
     "synopsis": {
       "abstract": "Distributed Banking Microservices with Spring Cloud & Kafka is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java 21, Spring Cloud, Apache Kafka, Docker, PostgreSQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14184,8 +14184,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "High-Throughput",
     "rating": 4.9,
-    "downloads": 4091,
-    "stars": 791,
+    "downloads": 2559,
+    "stars": 659,
     "synopsis": {
       "abstract": "High-Throughput Stock Trading Engine with LMAX Disruptor is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java 21, LMAX Disruptor, Off-Heap Memory, FinTech to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14232,9 +14232,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "IAM Security",
-    "rating": 4.9,
-    "downloads": 3759,
-    "stars": 459,
+    "rating": 4.6,
+    "downloads": 2708,
+    "stars": 808,
     "synopsis": {
       "abstract": "Enterprise Identity & Access Management (OAuth2 / OpenID) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Spring Authorization Server, OAuth2, Redis to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14281,9 +14281,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Healthcare FHIR",
-    "rating": 4.6,
-    "downloads": 1640,
-    "stars": 440,
+    "rating": 4.7,
+    "downloads": 2805,
+    "stars": 905,
     "synopsis": {
       "abstract": "Healthcare EHR Interoperability Gateway with HL7 / FHIR is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, HAPI FHIR, Spring Boot, PostgreSQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14330,9 +14330,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "SaaS Billing",
-    "rating": 4.9,
-    "downloads": 2507,
-    "stars": 607,
+    "rating": 4.8,
+    "downloads": 1574,
+    "stars": 374,
     "synopsis": {
       "abstract": "Multi-Tenant SaaS Billing & Subscription Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Stripe API, PostgreSQL, Redis to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14379,9 +14379,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Batch Computing",
-    "rating": 4.6,
-    "downloads": 3356,
-    "stars": 756,
+    "rating": 4.8,
+    "downloads": 1806,
+    "stars": 606,
     "synopsis": {
       "abstract": "Distributed Batch Task Orchestrator with Spring Batch is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Batch, Spring Boot, PostgreSQL, Quartz to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14428,9 +14428,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Stream Analytics",
-    "rating": 4.9,
-    "downloads": 4295,
-    "stars": 995,
+    "rating": 4.8,
+    "downloads": 3286,
+    "stars": 686,
     "synopsis": {
       "abstract": "Real-Time Financial Fraud Detection with Apache Flink & Java is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Apache Flink, Java, Kafka, Redis to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14477,9 +14477,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Telecom Java",
-    "rating": 4.8,
-    "downloads": 2130,
-    "stars": 930,
+    "rating": 4.9,
+    "downloads": 3543,
+    "stars": 943,
     "synopsis": {
       "abstract": "Telecom Billing & Call Detail Record (CDR) Rating Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Spring Boot, Cassandra, Kafka to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14526,9 +14526,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Compliance Java",
-    "rating": 4.7,
-    "downloads": 1541,
-    "stars": 341,
+    "rating": 4.8,
+    "downloads": 2098,
+    "stars": 898,
     "synopsis": {
       "abstract": "Automated Compliance & Audit Logging for Banking Clusters is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Elasticsearch, PostgreSQL, Logstash to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14576,8 +14576,8 @@ const PROJECTS_DATA = [
     "color": "#ea580c",
     "badge": "Aviation Java",
     "rating": 4.6,
-    "downloads": 3324,
-    "stars": 724,
+    "downloads": 3984,
+    "stars": 684,
     "synopsis": {
       "abstract": "Airport Flight Scheduling & Smart Baggage Tracking System is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Spring Boot, PostgreSQL, WebSockets to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14624,9 +14624,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "CQRS Java",
-    "rating": 4.9,
-    "downloads": 2991,
-    "stars": 391,
+    "rating": 4.7,
+    "downloads": 2033,
+    "stars": 833,
     "synopsis": {
       "abstract": "Event-Sourced E-Commerce Backend with CQRS & Axon is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Java, Axon Framework, Spring Boot, PostgreSQL to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14673,9 +14673,9 @@ const PROJECTS_DATA = [
     "icon": "coffee",
     "color": "#ea580c",
     "badge": "Data Governance",
-    "rating": 4.8,
-    "downloads": 4110,
-    "stars": 810,
+    "rating": 4.9,
+    "downloads": 2215,
+    "stars": 315,
     "synopsis": {
       "abstract": "Enterprise Data Governance & Catalog Platform is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Spring Boot, Apache Atlas API, PostgreSQL, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14722,8 +14722,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Flutter Starter",
     "rating": 4.8,
-    "downloads": 1798,
-    "stars": 598,
+    "downloads": 2470,
+    "stars": 570,
     "synopsis": {
       "abstract": "Simple Counter & Engineering Unit Converter App is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Material Design to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14770,9 +14770,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Notes App",
-    "rating": 4.9,
-    "downloads": 2563,
-    "stars": 663,
+    "rating": 4.6,
+    "downloads": 3000,
+    "stars": 400,
     "synopsis": {
       "abstract": "Personal Note-Taking App with SQLite (Sqflite) is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Sqflite, CRUD to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14818,9 +14818,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Health Mini",
-    "rating": 4.6,
-    "downloads": 2912,
-    "stars": 312,
+    "rating": 4.8,
+    "downloads": 1974,
+    "stars": 774,
     "synopsis": {
       "abstract": "BMI & Health Calorie Requirement Calculator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, StatefulWidgets to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14867,8 +14867,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "EdTech App",
     "rating": 4.7,
-    "downloads": 2437,
-    "stars": 537,
+    "downloads": 3933,
+    "stars": 633,
     "synopsis": {
       "abstract": "Flashcard Study App with Spaced Repetition is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, LocalStorage to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14914,9 +14914,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Quotes App",
-    "rating": 4.6,
-    "downloads": 4476,
-    "stars": 476,
+    "rating": 4.8,
+    "downloads": 2982,
+    "stars": 382,
     "synopsis": {
       "abstract": "Daily Motivational Quotes & Affirmations Generator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Share Plus API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -14962,9 +14962,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Finance App",
-    "rating": 4.8,
-    "downloads": 3694,
-    "stars": 394,
+    "rating": 4.9,
+    "downloads": 4411,
+    "stars": 411,
     "synopsis": {
       "abstract": "Tip & Group Dining Bill Splitter with Sleek UI is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Custom Sliders to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15011,8 +15011,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Game App",
     "rating": 4.9,
-    "downloads": 2931,
-    "stars": 331,
+    "downloads": 3911,
+    "stars": 611,
     "synopsis": {
       "abstract": "Tic-Tac-Toe Game with Smart AI Minimax Engine is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Minimax Algorithm to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15058,9 +15058,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Sensor App",
-    "rating": 4.7,
-    "downloads": 2805,
-    "stars": 905,
+    "rating": 4.8,
+    "downloads": 2862,
+    "stars": 962,
     "synopsis": {
       "abstract": "Compass & Device Sensor Utilities App is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Sensors Plus, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15107,8 +15107,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Utility App",
     "rating": 4.7,
-    "downloads": 3489,
-    "stars": 889,
+    "downloads": 1641,
+    "stars": 441,
     "synopsis": {
       "abstract": "World Clock & Timezone Converter App is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Intl Package to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15155,9 +15155,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Expense App",
-    "rating": 4.9,
-    "downloads": 2239,
-    "stars": 339,
+    "rating": 4.6,
+    "downloads": 4156,
+    "stars": 856,
     "synopsis": {
       "abstract": "Personal Expense Tracker with Pie Chart Visualizer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, FL Chart, Sqflite to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15203,9 +15203,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Food App",
-    "rating": 4.7,
-    "downloads": 2057,
-    "stars": 857,
+    "rating": 4.9,
+    "downloads": 3703,
+    "stars": 403,
     "synopsis": {
       "abstract": "Cookbook & Cooking Recipe Checklist App is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, JSON Assets to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15251,9 +15251,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Wellness App",
-    "rating": 4.7,
-    "downloads": 2541,
-    "stars": 641,
+    "rating": 4.6,
+    "downloads": 3356,
+    "stars": 756,
     "synopsis": {
       "abstract": "Daily Mood Tracker & Reflection Diary is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Shared Preferences to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15301,8 +15301,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Cloud App",
     "rating": 4.6,
-    "downloads": 2416,
-    "stars": 516,
+    "downloads": 1644,
+    "stars": 444,
     "synopsis": {
       "abstract": "To-Do & Task Planner with Firebase Cloud Sync is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Dart, Firebase Firestore, Auth to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15349,9 +15349,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Weather App",
-    "rating": 4.9,
-    "downloads": 3231,
-    "stars": 631,
+    "rating": 4.7,
+    "downloads": 3761,
+    "stars": 461,
     "synopsis": {
       "abstract": "Weather Forecast App with 7-Day Visual Charts is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, OpenWeather API, Geolocator, BLoC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15398,9 +15398,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Media App",
-    "rating": 4.9,
-    "downloads": 4183,
-    "stars": 883,
+    "rating": 4.6,
+    "downloads": 1980,
+    "stars": 780,
     "synopsis": {
       "abstract": "Offline Music Player with Equalizer & Playlists is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Just Audio, Audio Service, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15446,9 +15446,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Quiz App",
-    "rating": 4.6,
-    "downloads": 4464,
-    "stars": 464,
+    "rating": 4.8,
+    "downloads": 1938,
+    "stars": 738,
     "synopsis": {
       "abstract": "Quiz Master App with Global Online Leaderboard is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Firebase, State Management (Provider) to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15496,8 +15496,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "News App",
     "rating": 4.9,
-    "downloads": 3563,
-    "stars": 963,
+    "downloads": 4039,
+    "stars": 739,
     "synopsis": {
       "abstract": "News Aggregator App with Category Feed & Bookmarks is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, NewsAPI, HTTP, Hive Storage to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15543,9 +15543,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Habit App",
-    "rating": 4.8,
-    "downloads": 4142,
-    "stars": 842,
+    "rating": 4.9,
+    "downloads": 3663,
+    "stars": 363,
     "synopsis": {
       "abstract": "Habit Builder with Scheduled Push Notifications is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Flutter Local Notifications, Hive to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15592,8 +15592,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Fitness App",
     "rating": 4.9,
-    "downloads": 3275,
-    "stars": 675,
+    "downloads": 2323,
+    "stars": 423,
     "synopsis": {
       "abstract": "Fitness Step Counter & Pedometer with Google Fit is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Pedometer API, Google Fit API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15640,9 +15640,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Social App",
-    "rating": 4.7,
-    "downloads": 1581,
-    "stars": 381,
+    "rating": 4.9,
+    "downloads": 3303,
+    "stars": 703,
     "synopsis": {
       "abstract": "Recipe Sharing Social App with Camera Photo Upload is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Firebase Storage, Firestore, Image Picker to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15688,9 +15688,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Gallery App",
-    "rating": 4.6,
-    "downloads": 3828,
-    "stars": 528,
+    "rating": 4.9,
+    "downloads": 4135,
+    "stars": 835,
     "synopsis": {
       "abstract": "4K Wallpaper Explorer & Download Gallery is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Unsplash API, Wallpaper Manager to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15736,9 +15736,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Utility Scanner",
-    "rating": 4.9,
-    "downloads": 4043,
-    "stars": 743,
+    "rating": 4.6,
+    "downloads": 3308,
+    "stars": 708,
     "synopsis": {
       "abstract": "QR & Barcode Scanner with Custom Card Generator is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Mobile Scanner, QR Flutter to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15785,9 +15785,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Movie App",
-    "rating": 4.6,
-    "downloads": 3072,
-    "stars": 472,
+    "rating": 4.9,
+    "downloads": 1911,
+    "stars": 711,
     "synopsis": {
       "abstract": "Movie Discovery App with TMDB API & Trait Reviews is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, TMDB API, Riverpod, CachedNetworkImage to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15834,9 +15834,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "EdTech App",
-    "rating": 4.9,
-    "downloads": 2655,
-    "stars": 755,
+    "rating": 4.8,
+    "downloads": 3726,
+    "stars": 426,
     "synopsis": {
       "abstract": "Language Learning Flashcards with Audio Pronunciation is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Flutter TTS, AudioPlayers, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15883,9 +15883,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Campus App",
-    "rating": 4.7,
-    "downloads": 1749,
-    "stars": 549,
+    "rating": 4.6,
+    "downloads": 4276,
+    "stars": 976,
     "synopsis": {
       "abstract": "Campus Events & College Fest Companion App is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Firebase Auth, Firestore, QR Scanner to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15933,9 +15933,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Mobile Pre-Final",
-    "rating": 4.9,
-    "downloads": 3555,
-    "stars": 955,
+    "rating": 4.6,
+    "downloads": 3248,
+    "stars": 648,
     "synopsis": {
       "abstract": "TeleHealth: Doctor Appointment & Video Consultation App is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, WebRTC, Firebase, Agora API, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -15982,9 +15982,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "E-Commerce Mobile",
-    "rating": 4.7,
-    "downloads": 3229,
-    "stars": 629,
+    "rating": 4.9,
+    "downloads": 3303,
+    "stars": 703,
     "synopsis": {
       "abstract": "E-Commerce Mobile App with Razorpay & Order Tracking is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Node.js Backend, Razorpay / Stripe, MongoDB to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16032,8 +16032,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Chat Mobile",
     "rating": 4.9,
-    "downloads": 4711,
-    "stars": 711,
+    "downloads": 4859,
+    "stars": 859,
     "synopsis": {
       "abstract": "Real-Time Chat & Voice Messaging App (WhatsApp Clone) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Firebase Firestore, Cloud Functions, Agora to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16081,8 +16081,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Food Delivery",
     "rating": 4.8,
-    "downloads": 2842,
-    "stars": 942,
+    "downloads": 4754,
+    "stars": 754,
     "synopsis": {
       "abstract": "Food Delivery App with Live Driver GPS Tracking is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Google Maps SDK, Node.js, Socket.io to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16129,9 +16129,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Emergency App",
-    "rating": 4.6,
-    "downloads": 1892,
-    "stars": 692,
+    "rating": 4.9,
+    "downloads": 3295,
+    "stars": 695,
     "synopsis": {
       "abstract": "Emergency Blood Donation & SOS Donor Alert App is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Geofencing, Firebase, Twilio SMS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16178,9 +16178,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Rideshare App",
-    "rating": 4.6,
-    "downloads": 2832,
-    "stars": 932,
+    "rating": 4.7,
+    "downloads": 3321,
+    "stars": 721,
     "synopsis": {
       "abstract": "Ridesharing Passenger & Driver Matching App (Uber Clone) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Google Maps, Firebase, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16227,9 +16227,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Smart Home App",
-    "rating": 4.7,
-    "downloads": 3205,
-    "stars": 605,
+    "rating": 4.6,
+    "downloads": 3392,
+    "stars": 792,
     "synopsis": {
       "abstract": "Smart Home Controller App with MQTT & Bluetooth is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, MQTT Client, Flutter Blue Plus, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16276,9 +16276,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "FinTech Mobile",
-    "rating": 4.6,
-    "downloads": 2744,
-    "stars": 844,
+    "rating": 4.8,
+    "downloads": 3770,
+    "stars": 470,
     "synopsis": {
       "abstract": "Personal Finance & Stock Investment Portfolio Tracker is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Yahoo Finance API, FL Chart, Hive to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16325,9 +16325,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Education App",
-    "rating": 4.7,
-    "downloads": 2321,
-    "stars": 421,
+    "rating": 4.6,
+    "downloads": 3764,
+    "stars": 464,
     "synopsis": {
       "abstract": "College LMS Student Companion with Offline Assignment Cache is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, REST API, Sqflite, Dio HTTP Client to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16374,9 +16374,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "AR Mobile",
-    "rating": 4.9,
-    "downloads": 3251,
-    "stars": 651,
+    "rating": 4.7,
+    "downloads": 2541,
+    "stars": 641,
     "synopsis": {
       "abstract": "Augmented Reality (AR) Furniture Placement App is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, ARCore / ARKit, Unity / Sceneform, 3D Models to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16423,9 +16423,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Crypto Mobile",
-    "rating": 4.8,
-    "downloads": 1682,
-    "stars": 482,
+    "rating": 4.6,
+    "downloads": 2004,
+    "stars": 804,
     "synopsis": {
       "abstract": "Crypto Portfolio Tracker with Real-Time Price Alerts is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, CoinGecko API, WebSockets, Riverpod to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16473,8 +16473,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Travel App",
     "rating": 4.7,
-    "downloads": 4165,
-    "stars": 865,
+    "downloads": 4913,
+    "stars": 913,
     "synopsis": {
       "abstract": "Travel Itinerary Planner with Offline Vector Maps is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Mapbox SDK, SQLite, OpenTripMap to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16521,9 +16521,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Audio App",
-    "rating": 4.7,
-    "downloads": 4505,
-    "stars": 505,
+    "rating": 4.9,
+    "downloads": 4591,
+    "stars": 591,
     "synopsis": {
       "abstract": "Audio Book & Podcast Player with Variable Speed & Sleep Timer is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Audio Service, Just Audio, Firebase to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16570,9 +16570,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Major Capstone",
-    "rating": 4.7,
-    "downloads": 3693,
-    "stars": 393,
+    "rating": 4.9,
+    "downloads": 4931,
+    "stars": 931,
     "synopsis": {
       "abstract": "AI-Powered Personal Fitness Coach with Pose Estimation is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, TensorFlow Lite, MediaPipe Pose, BLoC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16619,9 +16619,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Offline-First",
-    "rating": 4.8,
-    "downloads": 4638,
-    "stars": 638,
+    "rating": 4.6,
+    "downloads": 1624,
+    "stars": 424,
     "synopsis": {
       "abstract": "Offline-First Enterprise Field Telemetry App with Couchbase is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Couchbase Lite, P2P Sync, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16668,9 +16668,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Mental Health AI",
-    "rating": 4.9,
-    "downloads": 4051,
-    "stars": 751,
+    "rating": 4.7,
+    "downloads": 4285,
+    "stars": 985,
     "synopsis": {
       "abstract": "Mental Health AI Companion with Voice CBT Journaling is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Whisper AI, LLaMA Mobile, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16717,9 +16717,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "B2B Mobile",
-    "rating": 4.9,
-    "downloads": 1871,
-    "stars": 671,
+    "rating": 4.7,
+    "downloads": 4585,
+    "stars": 585,
     "synopsis": {
       "abstract": "B2B Wholesale Marketplace App with In-App Escrow is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Node.js, MongoDB, Stripe Connect to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16766,9 +16766,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "AgriTech Mobile",
-    "rating": 4.9,
-    "downloads": 3563,
-    "stars": 963,
+    "rating": 4.8,
+    "downloads": 2826,
+    "stars": 926,
     "synopsis": {
       "abstract": "Plant Disease Identification with On-Device TensorFlow Lite is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, TensorFlow Lite, Camera Plugin, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16815,9 +16815,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Gaming Mobile",
-    "rating": 4.9,
-    "downloads": 4655,
-    "stars": 655,
+    "rating": 4.6,
+    "downloads": 4616,
+    "stars": 616,
     "synopsis": {
       "abstract": "Real-Time Multiplayer Trivia Quiz App with WebSockets is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, WebSockets, Node.js, Redis to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16865,8 +16865,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Smart City Mobile",
     "rating": 4.8,
-    "downloads": 2550,
-    "stars": 650,
+    "downloads": 4990,
+    "stars": 990,
     "synopsis": {
       "abstract": "Smart City Citizen Civic Reporting App with Geo-Tagging is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Google Maps, Firebase, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16913,9 +16913,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Web3 Mobile",
-    "rating": 4.6,
-    "downloads": 4444,
-    "stars": 444,
+    "rating": 4.7,
+    "downloads": 3813,
+    "stars": 513,
     "synopsis": {
       "abstract": "Non-Custodial Web3 Crypto Wallet App with Biometric Auth is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Web3dart, Bip39, Biometric Auth to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -16961,9 +16961,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Disaster Tech",
-    "rating": 4.9,
-    "downloads": 3283,
-    "stars": 683,
+    "rating": 4.6,
+    "downloads": 3704,
+    "stars": 404,
     "synopsis": {
       "abstract": "Emergency Disaster Response & Offline Mesh Locator is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Nearby Connections API, Offline Maps to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17011,8 +17011,8 @@ const PROJECTS_DATA = [
     "color": "#ec4899",
     "badge": "Automotive App",
     "rating": 4.8,
-    "downloads": 2734,
-    "stars": 834,
+    "downloads": 2010,
+    "stars": 810,
     "synopsis": {
       "abstract": "Vehicle OBD-II Telemetry & Real-Time Engine Diagnostics is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, OBD-II Protocol, Bluetooth Serial, FL Chart to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17059,9 +17059,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "EdTech AI",
-    "rating": 4.7,
-    "downloads": 2985,
-    "stars": 385,
+    "rating": 4.8,
+    "downloads": 2802,
+    "stars": 902,
     "synopsis": {
       "abstract": "AI Foreign Language Pronunciation Coach with Speech Feedback is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Speech-to-Text, Audio Spectrograms, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17108,9 +17108,9 @@ const PROJECTS_DATA = [
     "icon": "smartphone",
     "color": "#ec4899",
     "badge": "Accessibility AI",
-    "rating": 4.7,
-    "downloads": 4897,
-    "stars": 897,
+    "rating": 4.6,
+    "downloads": 4468,
+    "stars": 468,
     "synopsis": {
       "abstract": "Visually Impaired Assistance App with Real-Time Object Narration is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, YOLOv8 Mobile, Text-to-Speech, OpenCV to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17157,9 +17157,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Blockchain Starter",
-    "rating": 4.8,
-    "downloads": 2174,
-    "stars": 974,
+    "rating": 4.9,
+    "downloads": 3867,
+    "stars": 567,
     "synopsis": {
       "abstract": "SHA-256 Proof-of-Work Blockchain Demo in Python is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, SHA-256, Cryptography, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17205,9 +17205,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Hash Mechanics",
-    "rating": 4.9,
-    "downloads": 4807,
-    "stars": 807,
+    "rating": 4.6,
+    "downloads": 3676,
+    "stars": 376,
     "synopsis": {
       "abstract": "Simple Hash Pointer & Block Structure Simulator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, CryptoJS, HTML5/CSS3 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17253,9 +17253,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Cryptography Mini",
-    "rating": 4.9,
-    "downloads": 4611,
-    "stars": 611,
+    "rating": 4.8,
+    "downloads": 3158,
+    "stars": 558,
     "synopsis": {
       "abstract": "Public-Private Key Pair Generator & Signature Verifier is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, ECDSA, Cryptography to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17301,9 +17301,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Merkle Trees",
-    "rating": 4.7,
-    "downloads": 4969,
-    "stars": 969,
+    "rating": 4.6,
+    "downloads": 3596,
+    "stars": 996,
     "synopsis": {
       "abstract": "Merkle Tree Root Hash Calculator for Transactions is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Binary Trees, SHA-256 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17350,9 +17350,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Voting Mini",
-    "rating": 4.8,
-    "downloads": 2534,
-    "stars": 634,
+    "rating": 4.9,
+    "downloads": 3951,
+    "stars": 651,
     "synopsis": {
       "abstract": "Decentralized Voting Prototype in Python is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Flask, Networking, JSON to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17398,9 +17398,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Explorer Mini",
-    "rating": 4.9,
-    "downloads": 4227,
-    "stars": 927,
+    "rating": 4.8,
+    "downloads": 2714,
+    "stars": 814,
     "synopsis": {
       "abstract": "Simple Peer-to-Peer Block Explorer CLI is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, CLI, Web3.py to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17447,8 +17447,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "Paper Wallet",
     "rating": 4.8,
-    "downloads": 2918,
-    "stars": 318,
+    "downloads": 4786,
+    "stars": 786,
     "synopsis": {
       "abstract": "Paper Crypto Wallet Generator with QR Codes is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, QRCode.js, HTML5 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17494,9 +17494,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Gas Estimator",
-    "rating": 4.9,
-    "downloads": 4743,
-    "stars": 743,
+    "rating": 4.8,
+    "downloads": 2538,
+    "stars": 638,
     "synopsis": {
       "abstract": "Blockchain Gas Fee & Gwei Estimator Tool is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, Ethers.js, REST API to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17542,9 +17542,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Genesis Mini",
-    "rating": 4.7,
-    "downloads": 3813,
-    "stars": 513,
+    "rating": 4.8,
+    "downloads": 4462,
+    "stars": 462,
     "synopsis": {
       "abstract": "Genesis Block Creator & Ledger Inspector is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, JSON, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17590,9 +17590,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Arbitrage Mini",
-    "rating": 4.7,
-    "downloads": 3045,
-    "stars": 445,
+    "rating": 4.8,
+    "downloads": 3566,
+    "stars": 966,
     "synopsis": {
       "abstract": "Crypto Exchange Arbitrage Profit Calculator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, REST APIs, Pandas to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17638,9 +17638,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "DevTools Web3",
-    "rating": 4.6,
-    "downloads": 4064,
-    "stars": 764,
+    "rating": 4.7,
+    "downloads": 4593,
+    "stars": 593,
     "synopsis": {
       "abstract": "Solidity Smart Contract Syntax & ABI Inspector is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, Solc Compiler, HTML5 to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17686,9 +17686,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Consensus Demo",
-    "rating": 4.7,
-    "downloads": 2613,
-    "stars": 713,
+    "rating": 4.8,
+    "downloads": 3378,
+    "stars": 778,
     "synopsis": {
       "abstract": "Byzantine Generals Problem Consensus Simulator is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, HTML5 Canvas, Algorithms to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17735,9 +17735,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Token DApp",
-    "rating": 4.9,
-    "downloads": 4055,
-    "stars": 755,
+    "rating": 4.8,
+    "downloads": 4426,
+    "stars": 426,
     "synopsis": {
       "abstract": "ERC-20 Custom Token & Faucet on Sepolia Testnet is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Hardhat, Ethers.js, Sepolia to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17784,9 +17784,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Crowdfund DApp",
-    "rating": 4.6,
-    "downloads": 1788,
-    "stars": 588,
+    "rating": 4.7,
+    "downloads": 1725,
+    "stars": 525,
     "synopsis": {
       "abstract": "Decentralized Crowdfunding Smart Contract in Solidity is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Ethers.js, React, Hardhat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17833,9 +17833,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Oracle DApp",
-    "rating": 4.6,
-    "downloads": 1720,
-    "stars": 520,
+    "rating": 4.9,
+    "downloads": 4731,
+    "stars": 731,
     "synopsis": {
       "abstract": "Decentralized Fair Lottery with Chainlink VRF is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Chainlink VRF, Hardhat, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17882,9 +17882,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Escrow Web3",
-    "rating": 4.6,
-    "downloads": 3536,
-    "stars": 936,
+    "rating": 4.8,
+    "downloads": 2166,
+    "stars": 966,
     "synopsis": {
       "abstract": "Escrow Smart Contract for Peer-to-Peer Goods Trading is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Ethers.js, Web3.js, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17930,9 +17930,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Rental DApp",
-    "rating": 4.9,
-    "downloads": 3187,
-    "stars": 587,
+    "rating": 4.7,
+    "downloads": 1597,
+    "stars": 397,
     "synopsis": {
       "abstract": "Peer-to-Peer Vehicle Rental Smart Contract is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Hardhat, Ethers.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -17980,8 +17980,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "GovTech Web3",
     "rating": 4.9,
-    "downloads": 2667,
-    "stars": 767,
+    "downloads": 4915,
+    "stars": 915,
     "synopsis": {
       "abstract": "Digital Land Registry System on Ethereum Testnet is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, React, Truffle, Ganache to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18028,9 +18028,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Copyright DApp",
-    "rating": 4.7,
-    "downloads": 1869,
-    "stars": 669,
+    "rating": 4.9,
+    "downloads": 4923,
+    "stars": 923,
     "synopsis": {
       "abstract": "Intellectual Property & Copyright Timestamp Registry is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, IPFS, Ethers.js, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18078,8 +18078,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "Web3 UI",
     "rating": 4.6,
-    "downloads": 2280,
-    "stars": 380,
+    "downloads": 4148,
+    "stars": 848,
     "synopsis": {
       "abstract": "Decentralized Tip Jar with MetaMask Integration is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern HTML5, JavaScript, MetaMask, Ethers.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18127,8 +18127,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "EdTech Web3",
     "rating": 4.9,
-    "downloads": 2939,
-    "stars": 339,
+    "downloads": 3487,
+    "stars": 887,
     "synopsis": {
       "abstract": "Academic Certificate Verification on Polygon Network is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Polygon PoS, Ethers.js, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18175,9 +18175,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "MultiSig Web3",
-    "rating": 4.9,
-    "downloads": 4955,
-    "stars": 955,
+    "rating": 4.7,
+    "downloads": 2449,
+    "stars": 549,
     "synopsis": {
       "abstract": "Multi-Signature Crypto Wallet Smart Contract (2-of-3) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Hardhat, React, Ethers.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18224,8 +18224,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "SaaS Web3",
     "rating": 4.6,
-    "downloads": 3836,
-    "stars": 536,
+    "downloads": 1724,
+    "stars": 524,
     "synopsis": {
       "abstract": "Subscription Payment Contract with Recurring Deductions is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Ethers.js, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18272,8 +18272,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "Airdrop DApp",
     "rating": 4.8,
-    "downloads": 2822,
-    "stars": 922,
+    "downloads": 3810,
+    "stars": 510,
     "synopsis": {
       "abstract": "Decentralized Whitelist & Token Airdrop Smart Contract is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, MerkleProof.sol, Hardhat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18320,9 +18320,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Charity Web3",
-    "rating": 4.6,
-    "downloads": 2324,
-    "stars": 424,
+    "rating": 4.9,
+    "downloads": 4135,
+    "stars": 835,
     "synopsis": {
       "abstract": "On-Chain Charity Donation Tracking & Fund Allocator is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, React, Ethers.js, Sepolia to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18370,9 +18370,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Web3 Pre-Final",
-    "rating": 4.6,
-    "downloads": 4452,
-    "stars": 452,
+    "rating": 4.8,
+    "downloads": 3958,
+    "stars": 658,
     "synopsis": {
       "abstract": "CertiChain: Tamper-Proof Academic Transcripts on Ethereum is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Ethers.js, IPFS, React, Hardhat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18420,9 +18420,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "NFT Marketplace",
-    "rating": 4.7,
-    "downloads": 4393,
-    "stars": 393,
+    "rating": 4.9,
+    "downloads": 2555,
+    "stars": 655,
     "synopsis": {
       "abstract": "NFT Marketplace for Digital Art with IPFS Storage is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, ERC-721, IPFS / Pinata, Next.js, Hardhat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18469,9 +18469,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "ZK Voting",
-    "rating": 4.6,
-    "downloads": 4876,
-    "stars": 876,
+    "rating": 4.7,
+    "downloads": 2041,
+    "stars": 841,
     "synopsis": {
       "abstract": "Decentralized Anonymous Voting with Zero-Knowledge Proofs is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Circom, snarkjs, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18519,9 +18519,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Supply Chain Web3",
-    "rating": 4.8,
-    "downloads": 4166,
-    "stars": 866,
+    "rating": 4.7,
+    "downloads": 2345,
+    "stars": 445,
     "synopsis": {
       "abstract": "Pharmaceutical Supply Chain Provenance Tracker is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Polygon, IPFS, React, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18568,9 +18568,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Identity Web3",
-    "rating": 4.8,
-    "downloads": 4934,
-    "stars": 934,
+    "rating": 4.9,
+    "downloads": 2499,
+    "stars": 599,
     "synopsis": {
       "abstract": "Decentralized Self-Sovereign Identity (DID) Portal is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, W3C DID, Ethers.js, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18618,8 +18618,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "DeFi AMM",
     "rating": 4.6,
-    "downloads": 4088,
-    "stars": 788,
+    "downloads": 4416,
+    "stars": 416,
     "synopsis": {
       "abstract": "DeFi Automated Market Maker (AMM) Uniswap V2 Clone is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Hardhat, React, Ethers.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18666,9 +18666,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Tokenization",
-    "rating": 4.8,
-    "downloads": 1694,
-    "stars": 494,
+    "rating": 4.7,
+    "downloads": 4645,
+    "stars": 645,
     "synopsis": {
       "abstract": "Real Estate Tokenization & Fractional Ownership DApp is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, ERC-20, Next.js, Hardhat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18715,9 +18715,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "DAO Governance",
-    "rating": 4.7,
-    "downloads": 4357,
-    "stars": 357,
+    "rating": 4.8,
+    "downloads": 1550,
+    "stars": 350,
     "synopsis": {
       "abstract": "Decentralized Autonomous Organization (DAO) Governance is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, OpenZeppelin Governor, React, Hardhat to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18764,9 +18764,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Climate Web3",
-    "rating": 4.8,
-    "downloads": 4706,
-    "stars": 706,
+    "rating": 4.7,
+    "downloads": 4181,
+    "stars": 881,
     "synopsis": {
       "abstract": "Carbon Credit Trading & Offset Marketplace on Polygon is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Polygon PoS, React, IPFS to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18813,9 +18813,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Healthcare Web3",
-    "rating": 4.8,
-    "downloads": 1518,
-    "stars": 318,
+    "rating": 4.9,
+    "downloads": 3411,
+    "stars": 811,
     "synopsis": {
       "abstract": "Blockchain Electronic Health Records (EHR) Consent Vault is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, IPFS, Asymmetric Encryption, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18862,9 +18862,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Parametric DeFi",
-    "rating": 4.6,
-    "downloads": 4248,
-    "stars": 948,
+    "rating": 4.8,
+    "downloads": 2714,
+    "stars": 814,
     "synopsis": {
       "abstract": "Parametric Weather Insurance Smart Contract with Oracles is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Chainlink Oracles, Hardhat, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18911,9 +18911,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Freelance Web3",
-    "rating": 4.7,
-    "downloads": 3969,
-    "stars": 669,
+    "rating": 4.9,
+    "downloads": 2483,
+    "stars": 583,
     "synopsis": {
       "abstract": "Web3 Freelance Job Marketplace with Milestone Escrow is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Ethers.js, React, Node.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -18960,9 +18960,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Storage Web3",
-    "rating": 4.9,
-    "downloads": 4743,
-    "stars": 743,
+    "rating": 4.6,
+    "downloads": 3908,
+    "stars": 608,
     "synopsis": {
       "abstract": "Decentralized Storage Network Client (IPFS / Filecoin) is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern JavaScript, IPFS / Helia, Filecoin API, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19010,9 +19010,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Major Capstone",
-    "rating": 4.6,
-    "downloads": 4248,
-    "stars": 948,
+    "rating": 4.9,
+    "downloads": 4755,
+    "stars": 755,
     "synopsis": {
       "abstract": "Cross-Chain Asset Bridge Protocol with Relayer Nodes is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Ethers.js, Node.js Relayer, Hardhat, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19060,8 +19060,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "Layer-2 Rollup",
     "rating": 4.7,
-    "downloads": 1693,
-    "stars": 493,
+    "downloads": 4401,
+    "stars": 401,
     "synopsis": {
       "abstract": "Optimistic Rollup Layer-2 Transaction Sequencer is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Rust, Solidity, TypeScript, Cryptography to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19108,9 +19108,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "DeFi Lending",
-    "rating": 4.8,
-    "downloads": 3862,
-    "stars": 562,
+    "rating": 4.6,
+    "downloads": 3972,
+    "stars": 672,
     "synopsis": {
       "abstract": "Decentralized Collateralized Lending Protocol (Aave Clone) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Hardhat, Chainlink Price Feeds, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19158,8 +19158,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "ZK Privacy",
     "rating": 4.8,
-    "downloads": 2094,
-    "stars": 894,
+    "downloads": 2350,
+    "stars": 450,
     "synopsis": {
       "abstract": "Zero-Knowledge Private Transaction Protocol (Tornado Demo) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Circom, snarkjs, Solidity, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19207,8 +19207,8 @@ const PROJECTS_DATA = [
     "color": "#a855f7",
     "badge": "Perpetuals DEX",
     "rating": 4.8,
-    "downloads": 3730,
-    "stars": 430,
+    "downloads": 3662,
+    "stars": 362,
     "synopsis": {
       "abstract": "Decentralized Perpetual Futures DEX with On-Chain Orderbook is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Pyth Oracle, Hardhat, Next.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19255,9 +19255,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Stablecoin Protocol",
-    "rating": 4.8,
-    "downloads": 2830,
-    "stars": 930,
+    "rating": 4.6,
+    "downloads": 3804,
+    "stars": 504,
     "synopsis": {
       "abstract": "Algorithmic Stablecoin Protocol with Collateralized Debt (CDP) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Chainlink, Hardhat, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19304,9 +19304,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "MEV Analytics",
-    "rating": 4.8,
-    "downloads": 2126,
-    "stars": 926,
+    "rating": 4.6,
+    "downloads": 3848,
+    "stars": 548,
     "synopsis": {
       "abstract": "MEV (Maximal Extractable Value) Arbitrage Bot & Simulator is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Web3.py, Geth Mempool, Solidity to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19353,9 +19353,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Energy Blockchain",
-    "rating": 4.6,
-    "downloads": 2896,
-    "stars": 996,
+    "rating": 4.9,
+    "downloads": 4407,
+    "stars": 407,
     "synopsis": {
       "abstract": "Blockchain-Anchored Smart Grid Energy Billing & Meter Auth is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, ESP32, Web3.js, MQTT to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19402,9 +19402,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Account Abstraction",
-    "rating": 4.7,
-    "downloads": 4425,
-    "stars": 425,
+    "rating": 4.8,
+    "downloads": 3566,
+    "stars": 966,
     "synopsis": {
       "abstract": "Account Abstraction (ERC-4337) Smart Contract Wallet is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, ERC-4337, UserOperation, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19451,9 +19451,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Social Graph",
-    "rating": 4.6,
-    "downloads": 1996,
-    "stars": 796,
+    "rating": 4.7,
+    "downloads": 1905,
+    "stars": 705,
     "synopsis": {
       "abstract": "Decentralized Social Graph Protocol (Lens Clone) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, ERC-721, Polygon, Next.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19500,9 +19500,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Humanitarian Web3",
-    "rating": 4.9,
-    "downloads": 2295,
-    "stars": 395,
+    "rating": 4.8,
+    "downloads": 3502,
+    "stars": 902,
     "synopsis": {
       "abstract": "Sovereign Identity Protocol for Displaced Refugees on IPFS is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, IPFS, Zero-Knowledge, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19549,9 +19549,9 @@ const PROJECTS_DATA = [
     "icon": "blocks",
     "color": "#a855f7",
     "badge": "Security Auditing",
-    "rating": 4.7,
-    "downloads": 4497,
-    "stars": 497,
+    "rating": 4.8,
+    "downloads": 3906,
+    "stars": 606,
     "synopsis": {
       "abstract": "Automated Smart Contract Security Vulnerability Scanner is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Slither AST, Solidity, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19599,8 +19599,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Security Starter",
     "rating": 4.9,
-    "downloads": 2211,
-    "stars": 311,
+    "downloads": 1563,
+    "stars": 363,
     "synopsis": {
       "abstract": "Caesar Cipher & Multi-Algorithm Text Encryption Tool is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Cryptography, CLI, File I/O to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19647,9 +19647,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Port Scanner",
-    "rating": 4.9,
-    "downloads": 3915,
-    "stars": 615,
+    "rating": 4.6,
+    "downloads": 1908,
+    "stars": 708,
     "synopsis": {
       "abstract": "Multi-Threaded TCP Port Scanner with Socket Programming is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Sockets, Multithreading, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19697,8 +19697,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Password Tool",
     "rating": 4.6,
-    "downloads": 2656,
-    "stars": 756,
+    "downloads": 1552,
+    "stars": 352,
     "synopsis": {
       "abstract": "Password Strength & Entropy Calculator with Crack Time is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Regular Expressions, Tkinter, Math to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19745,9 +19745,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Integrity Tool",
-    "rating": 4.7,
-    "downloads": 2217,
-    "stars": 317,
+    "rating": 4.9,
+    "downloads": 1879,
+    "stars": 679,
     "synopsis": {
       "abstract": "File Hash Integrity Checker (MD5, SHA-1, SHA-256) is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, hashlib, File I/O, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19795,8 +19795,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Defensive Tool",
     "rating": 4.8,
-    "downloads": 1610,
-    "stars": 410,
+    "downloads": 2726,
+    "stars": 826,
     "synopsis": {
       "abstract": "Defensive Keylogger Detection & Process Analyzer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, psutil, Win32API, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19843,9 +19843,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Packet Decoder",
-    "rating": 4.9,
-    "downloads": 2243,
-    "stars": 343,
+    "rating": 4.7,
+    "downloads": 4045,
+    "stars": 745,
     "synopsis": {
       "abstract": "Network Packet Header Decoder & IP Analyzer is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, struct, Sockets, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19892,8 +19892,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Steganography",
     "rating": 4.8,
-    "downloads": 3670,
-    "stars": 370,
+    "downloads": 4170,
+    "stars": 870,
     "synopsis": {
       "abstract": "Steganography: Hide Secret Text Inside Image Pixels is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Pillow (PIL), LSB Algorithm to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19939,9 +19939,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Educational Tool",
-    "rating": 4.9,
-    "downloads": 3075,
-    "stars": 475,
+    "rating": 4.8,
+    "downloads": 3126,
+    "stars": 526,
     "synopsis": {
       "abstract": "Brute-Force Password Cracker Simulation for Education is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, hashlib, Multiprocessing to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -19989,8 +19989,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "File Sanitization",
     "rating": 4.6,
-    "downloads": 3596,
-    "stars": 996,
+    "downloads": 4840,
+    "stars": 840,
     "synopsis": {
       "abstract": "Secure File Shredder & Multi-Pass Data Wiper is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, os, random, File System to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20038,8 +20038,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Anti-Phishing",
     "rating": 4.8,
-    "downloads": 2330,
-    "stars": 430,
+    "downloads": 1910,
+    "stars": 710,
     "synopsis": {
       "abstract": "Phishing URL Detector with Heuristic Rule Engine is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, urllib, Regex, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20086,9 +20086,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "2FA Security",
-    "rating": 4.9,
-    "downloads": 3207,
-    "stars": 607,
+    "rating": 4.7,
+    "downloads": 1637,
+    "stars": 437,
     "synopsis": {
       "abstract": "Two-Factor Authentication (TOTP) Generator & Verifier is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, pyotp, QRCode, HMAC to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20136,8 +20136,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Log Defense",
     "rating": 4.8,
-    "downloads": 1714,
-    "stars": 514,
+    "downloads": 3250,
+    "stars": 650,
     "synopsis": {
       "abstract": "SSH Server Failed Login & Brute-Force Monitor is an academic project engineered for 1st Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Regex, Log Parsing, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20184,9 +20184,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "WAF Defense",
-    "rating": 4.8,
-    "downloads": 1770,
-    "stars": 570,
+    "rating": 4.9,
+    "downloads": 4835,
+    "stars": 835,
     "synopsis": {
       "abstract": "Web Application Firewall (WAF) Prototype in Python is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, FastAPI, Regex, HTTP Proxy to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20233,9 +20233,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Vuln Scanner",
-    "rating": 4.9,
-    "downloads": 3879,
-    "stars": 579,
+    "rating": 4.7,
+    "downloads": 3605,
+    "stars": 305,
     "synopsis": {
       "abstract": "Network Vulnerability Scanner (Mini Nessus Clone) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Nmap Engine, Sockets, HTML Reports to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20282,9 +20282,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "OWASP Testing",
-    "rating": 4.9,
-    "downloads": 2591,
-    "stars": 691,
+    "rating": 4.6,
+    "downloads": 3500,
+    "stars": 900,
     "synopsis": {
       "abstract": "Automated SQL Injection & XSS Vulnerability Tester is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Requests, BeautifulSoup4, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20332,8 +20332,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Honeypot Tech",
     "rating": 4.6,
-    "downloads": 3436,
-    "stars": 836,
+    "downloads": 3984,
+    "stars": 684,
     "synopsis": {
       "abstract": "SSH & FTP Honeypot for Intrusion Behavior Logging is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Paramiko, Sockets, JSON Logging to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20380,9 +20380,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Network Defense",
-    "rating": 4.7,
-    "downloads": 4717,
-    "stars": 717,
+    "rating": 4.6,
+    "downloads": 2660,
+    "stars": 760,
     "synopsis": {
       "abstract": "ARP Spoofing & Man-in-the-Middle (MITM) Detector is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Scapy, Network Layer, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20430,8 +20430,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Encrypted Chat",
     "rating": 4.7,
-    "downloads": 4489,
-    "stars": 489,
+    "downloads": 3429,
+    "stars": 829,
     "synopsis": {
       "abstract": "Secure End-to-End Encrypted Chat with RSA & AES is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Cryptography, Sockets, Threading to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20478,9 +20478,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Ransomware Defense",
-    "rating": 4.7,
-    "downloads": 3989,
-    "stars": 689,
+    "rating": 4.8,
+    "downloads": 4290,
+    "stars": 990,
     "synopsis": {
       "abstract": "Educational Ransomware Simulator & Decryption Tool is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, AES-256, Cryptography, CLI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20527,9 +20527,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "DNS Defense",
-    "rating": 4.6,
-    "downloads": 2584,
-    "stars": 684,
+    "rating": 4.7,
+    "downloads": 4661,
+    "stars": 661,
     "synopsis": {
       "abstract": "DNS Spoofing & Cache Poisoning Detection Utility is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, dnspython, Scapy, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20575,9 +20575,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Integrity Monitor",
-    "rating": 4.8,
-    "downloads": 3026,
-    "stars": 426,
+    "rating": 4.9,
+    "downloads": 1775,
+    "stars": 575,
     "synopsis": {
       "abstract": "File System Integrity Monitor (AIDE / Tripwire Clone) is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, SQLite3, Hash Verification to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20624,8 +20624,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Malware Analysis",
     "rating": 4.6,
-    "downloads": 2480,
-    "stars": 580,
+    "downloads": 4784,
+    "stars": 784,
     "synopsis": {
       "abstract": "Malware Signature Scanner with YARA Rule Integration is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, yara-python, File Scanner to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20672,9 +20672,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Traffic Analysis",
-    "rating": 4.6,
-    "downloads": 2088,
-    "stars": 888,
+    "rating": 4.7,
+    "downloads": 4877,
+    "stars": 877,
     "synopsis": {
       "abstract": "Network Packet Sniffer & Traffic Visualizer with Scapy is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Scapy, Matplotlib, Tkinter to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20721,9 +20721,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "System Hardening",
-    "rating": 4.6,
-    "downloads": 2196,
-    "stars": 996,
+    "rating": 4.7,
+    "downloads": 2161,
+    "stars": 961,
     "synopsis": {
       "abstract": "Linux Security Audit & Hardening Benchmark Script is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Bash, Linux Security, ReportLab to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20770,8 +20770,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Memory Forensics",
     "rating": 4.6,
-    "downloads": 1592,
-    "stars": 392,
+    "downloads": 2636,
+    "stars": 736,
     "synopsis": {
       "abstract": "Digital Forensics RAM Memory Dump Inspector is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Volatility Framework API, Forensics to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20818,9 +20818,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Cloud Security Pre-Final",
-    "rating": 4.7,
-    "downloads": 3701,
-    "stars": 401,
+    "rating": 4.9,
+    "downloads": 2447,
+    "stars": 547,
     "synopsis": {
       "abstract": "Cloud Security Posture Management (CSPM) Scanner is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Boto3 / Google Cloud API, FastAPI, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20868,9 +20868,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "AI Security",
-    "rating": 4.9,
-    "downloads": 3599,
-    "stars": 999,
+    "rating": 4.7,
+    "downloads": 3033,
+    "stars": 433,
     "synopsis": {
       "abstract": "Network Intrusion Detection System (NIDS) with Deep Learning is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, Scapy, FastAPI, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20917,9 +20917,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Threat Intel",
-    "rating": 4.8,
-    "downloads": 3254,
-    "stars": 654,
+    "rating": 4.7,
+    "downloads": 3653,
+    "stars": 353,
     "synopsis": {
       "abstract": "Threat Intelligence Aggregator with STIX/TAXII Feeds is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, STIX/TAXII, Elasticsearch, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -20967,9 +20967,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Zero Trust",
-    "rating": 4.7,
-    "downloads": 4209,
-    "stars": 909,
+    "rating": 4.8,
+    "downloads": 1766,
+    "stars": 566,
     "synopsis": {
       "abstract": "Zero Trust Network Access (ZTNA) Microsegmentation Prototype is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, FastAPI, mTLS, JWT, Docker to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21016,9 +21016,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Malware Sandbox",
-    "rating": 4.6,
-    "downloads": 1872,
-    "stars": 672,
+    "rating": 4.8,
+    "downloads": 4594,
+    "stars": 594,
     "synopsis": {
       "abstract": "Automated Malware Dynamic Analysis Sandbox is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, QEMU / VirtualBox API, Volatililty, Flask to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21066,9 +21066,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "SIEM Platform",
-    "rating": 4.6,
-    "downloads": 2592,
-    "stars": 692,
+    "rating": 4.9,
+    "downloads": 2315,
+    "stars": 415,
     "synopsis": {
       "abstract": "Security Information & Event Management (SIEM) with Elastic is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Elasticsearch, Logstash, Kibana, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21115,9 +21115,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Email Defense",
-    "rating": 4.9,
-    "downloads": 1807,
-    "stars": 607,
+    "rating": 4.6,
+    "downloads": 4504,
+    "stars": 504,
     "synopsis": {
       "abstract": "Phishing Email Detection with NLP & Header SPF/DKIM Analysis is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, HuggingFace Transformers, DNS, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21165,9 +21165,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "EDR Agent",
-    "rating": 4.7,
-    "downloads": 2717,
-    "stars": 817,
+    "rating": 4.9,
+    "downloads": 2151,
+    "stars": 951,
     "synopsis": {
       "abstract": "Endpoint Detection & Response (EDR) Agent for Linux/Windows is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, psutil, Win32API, WebSockets, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21214,9 +21214,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "API PenTesting",
-    "rating": 4.7,
-    "downloads": 2257,
-    "stars": 357,
+    "rating": 4.9,
+    "downloads": 3999,
+    "stars": 699,
     "synopsis": {
       "abstract": "Automated Penetration Testing Framework for REST APIs is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Requests, Asyncio, ReportLab to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21263,9 +21263,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Cloud Compliance",
-    "rating": 4.6,
-    "downloads": 1864,
-    "stars": 664,
+    "rating": 4.8,
+    "downloads": 3578,
+    "stars": 978,
     "synopsis": {
       "abstract": "Cloud Storage Data Leak & SAIF Compliance Scanner is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, GCP Cloud Storage API, FastAPI, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21313,8 +21313,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Ransomware Defense",
     "rating": 4.9,
-    "downloads": 4403,
-    "stars": 403,
+    "downloads": 4967,
+    "stars": 967,
     "synopsis": {
       "abstract": "Cryptographic Ransomware Early Warning Honeypot System is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Watchdog, File System, Twilio Alert to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21361,9 +21361,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Wireless Security",
-    "rating": 4.8,
-    "downloads": 4682,
-    "stars": 682,
+    "rating": 4.9,
+    "downloads": 1999,
+    "stars": 799,
     "synopsis": {
       "abstract": "Bluetooth Low Energy (BLE) Threat & Rogue Beacon Monitor is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Bleak Library, Bluetooth, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21411,8 +21411,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "IAM Security",
     "rating": 4.8,
-    "downloads": 3770,
-    "stars": 470,
+    "downloads": 4842,
+    "stars": 842,
     "synopsis": {
       "abstract": "Privilege Escalation & IAM Role Risk Analyzer is an academic project engineered for 3rd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, NetworkX, Boto3, React Dashboard to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21461,8 +21461,8 @@ const PROJECTS_DATA = [
     "color": "#ef4444",
     "badge": "Major Capstone",
     "rating": 4.6,
-    "downloads": 3840,
-    "stars": 540,
+    "downloads": 2156,
+    "stars": 956,
     "synopsis": {
       "abstract": "Autonomous AI Cyber Sentinel & Network Threat Hunter is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch, Gymnasium, Suricata, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21510,9 +21510,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Post-Quantum",
-    "rating": 4.8,
-    "downloads": 3490,
-    "stars": 890,
+    "rating": 4.6,
+    "downloads": 3748,
+    "stars": 448,
     "synopsis": {
       "abstract": "Quantum-Resistant Cryptographic Protocol (NIST Kyber / Dilithium) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C++, Python, liboqs, Kyber-1024, Dilithium to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21560,9 +21560,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Deception Grid",
-    "rating": 4.9,
-    "downloads": 1575,
-    "stars": 375,
+    "rating": 4.7,
+    "downloads": 3665,
+    "stars": 365,
     "synopsis": {
       "abstract": "Deception Technology & Active Defense Decoy Grid is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Docker, eBPF, FastAPI, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21609,9 +21609,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "eBPF Security",
-    "rating": 4.6,
-    "downloads": 3096,
-    "stars": 496,
+    "rating": 4.9,
+    "downloads": 3763,
+    "stars": 463,
     "synopsis": {
       "abstract": "Cloud-Native Runtime Security Sensor with eBPF & Cilium is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern C, eBPF, Go / Python, Kubernetes to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21659,9 +21659,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Adversary Emulation",
-    "rating": 4.6,
-    "downloads": 2444,
-    "stars": 544,
+    "rating": 4.7,
+    "downloads": 2629,
+    "stars": 729,
     "synopsis": {
       "abstract": "MITRE ATT&CK Automated Adversary Emulation Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, MITRE ATT&CK, YAML, FastAPI, React to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21708,9 +21708,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Binary Analysis",
-    "rating": 4.8,
-    "downloads": 2134,
-    "stars": 934,
+    "rating": 4.6,
+    "downloads": 2560,
+    "stars": 660,
     "synopsis": {
       "abstract": "AI-Powered Binary Reverse Engineering & Decompiler Assistant is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Ghidra API, LLaMA-3, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21757,9 +21757,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Graph Threat Hunt",
-    "rating": 4.9,
-    "downloads": 4551,
-    "stars": 551,
+    "rating": 4.7,
+    "downloads": 2277,
+    "stars": 377,
     "synopsis": {
       "abstract": "Cyber Threat Hunting with Graph Neural Networks (GNN) is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, PyTorch Geometric, NetworkX, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21806,9 +21806,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Audit Ledger",
-    "rating": 4.9,
-    "downloads": 2327,
-    "stars": 427,
+    "rating": 4.8,
+    "downloads": 2470,
+    "stars": 570,
     "synopsis": {
       "abstract": "Blockchain-Anchored Zero-Knowledge Security Audit Ledger is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Solidity, Circom, Python, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21856,9 +21856,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Supply Chain Sec",
-    "rating": 4.8,
-    "downloads": 3134,
-    "stars": 534,
+    "rating": 4.7,
+    "downloads": 4681,
+    "stars": 681,
     "synopsis": {
       "abstract": "Software Supply Chain Security & SBOM Vulnerability Tracker is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, CycloneDX, NVD API, Docker, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21905,9 +21905,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "K8s Security",
-    "rating": 4.7,
-    "downloads": 3509,
-    "stars": 909,
+    "rating": 4.8,
+    "downloads": 1842,
+    "stars": 642,
     "synopsis": {
       "abstract": "Kubernetes Cluster Attack Surface Visualizer & Hardening Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, Kubernetes API, React, D3.js to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -21954,9 +21954,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Privacy Compute",
-    "rating": 4.8,
-    "downloads": 2938,
-    "stars": 338,
+    "rating": 4.6,
+    "downloads": 3900,
+    "stars": 600,
     "synopsis": {
       "abstract": "Secure Multi-Party Computation (SMPC) Privacy Engine is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, SMPC, Secret Sharing, Cryptography to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [
@@ -22003,9 +22003,9 @@ const PROJECTS_DATA = [
     "icon": "shield",
     "color": "#ef4444",
     "badge": "Drone Cyber Sec",
-    "rating": 4.8,
-    "downloads": 3402,
-    "stars": 802,
+    "rating": 4.7,
+    "downloads": 3989,
+    "stars": 689,
     "synopsis": {
       "abstract": "Drone Cyber Hijacking & RF Jamming Defense System is an academic project engineered for 4th Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Python, GNSS SDR, Scapy, FastAPI to deliver a clean, robust, and reproducible working system ready for college evaluation.",
       "objectives": [

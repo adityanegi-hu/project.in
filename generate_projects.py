@@ -2525,18 +2525,7 @@ const PROJECTS_DATA = {summary_json};
     }
     with open("js/data-details.json", "w", encoding="utf-8") as f:
         json.dump(details_map, f)
-    print(f"Compiled on-demand project details map -> js/data-details.json")
-
-    # 3. Full data.js (backwards compatible)
-    js_data_part = json.dumps(full_projects, indent=2)
-    js_content = f"""// ProjectForge Complete Database: 50 Working Projects per Domain (9 Domains = 450 Total Projects)
-// Covers 1st, 2nd, 3rd, 4th Year for B.Tech, BCA, B.Sc
-const PROJECTS_DATA = {js_data_part};
-{shared_constants}
-"""
-    with open("js/data.js", "w", encoding="utf-8") as f:
-        f.write(js_content)
-    print(f"Compiled full database -> js/data.js")
+    print("Compiled on-demand project details map -> js/data-details.json")
 
     # MongoDB Sync
     try:
