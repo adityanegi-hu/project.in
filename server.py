@@ -19,6 +19,79 @@ except ImportError:
 
 from datetime import datetime, timezone
 
+import time
+from collections import defaultdict
+
+class WebFirewallShield:
+    """
+    ProjectForge Application-Layer Web Security Firewall (WAF)
+    Provides real-time rate limiting, malicious pattern inspection, path traversal protection,
+    and automatic defense headers.
+    """
+    def __init__(self, rate_limit=120, time_window=60):
+        self.rate_limit = rate_limit
+        self.time_window = time_window
+        self.request_history = defaultdict(list)
+        self.blocked_attacks_count = 0
+        self.total_inspected_requests = 0
+        self.start_time = time.time()
+        
+        self.blocked_patterns = [
+            "../", "..\\", "%2e%2e", "%00", 
+            "<script", "javascript:", "eval(", 
+            "union select", "$where", "/etc/passwd", 
+            "cmd.exe", ".env", "phpinfo"
+        ]
+
+    def is_rate_limited(self, client_ip):
+        now = time.time()
+        self.request_history[client_ip] = [t for t in self.request_history[client_ip] if now - t < self.time_window]
+        if len(self.request_history[client_ip]) >= self.rate_limit:
+            return True
+        self.request_history[client_ip].append(now)
+        return False
+
+    def inspect_request(self, client_ip, path, body=b""):
+        self.total_inspected_requests += 1
+        
+        # 1. Rate Limiting Check
+        if self.is_rate_limited(client_ip):
+            self.blocked_attacks_count += 1
+            return False, 429, "Rate limit exceeded (Max 120 requests/minute). Please slow down."
+
+        # 2. Malicious Pattern Inspection (URL Decoded)
+        lowered_path = urllib.parse.unquote(path).lower()
+        for pattern in self.blocked_patterns:
+            if pattern in lowered_path:
+                self.blocked_attacks_count += 1
+                return False, 403, "Firewall Rule Triggered: Blocked unauthorized pattern."
+
+        if body:
+            try:
+                body_str = body.decode("utf-8", errors="ignore").lower()
+                for pattern in ["<script", "eval(", "union select"]:
+                    if pattern in body_str:
+                        self.blocked_attacks_count += 1
+                        return False, 403, f"Firewall Rule Triggered: Blocked malicious payload."
+            except Exception:
+                pass
+
+        return True, 200, "OK"
+
+    def get_status(self):
+        return {
+            "firewall": "Active",
+            "status": "Healthy & Protecting",
+            "total_inspected_requests": self.total_inspected_requests,
+            "blocked_threats_count": self.blocked_attacks_count,
+            "rate_limit_per_minute": self.rate_limit,
+            "active_clients_tracked": len(self.request_history),
+            "uptime_seconds": int(time.time() - self.start_time)
+        }
+
+waf = WebFirewallShield()
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_PORT = 3000
 MONGO_URI = "mongodb://localhost:27017"
@@ -42,9 +115,15 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
     def end_headers(self):
+        # Application-Layer Firewall Security Headers
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "SAMEORIGIN")
+        self.send_header("X-XSS-Protection", "1; mode=block")
+        self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        self.send_header("Permissions-Policy", "geolocation=(), camera=(), microphone=()")
         self.send_header("Connection", "close")
         super().end_headers()
 
@@ -65,7 +144,16 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
             print(f"Error in send_json: {e}", flush=True)
 
     def do_GET(self):
+        client_ip = self.client_address[0] if self.client_address else "127.0.0.1"
+        allowed, status, msg = waf.inspect_request(client_ip, self.path)
+        if not allowed:
+            self.send_json(status, {"error": msg, "firewall": "Active"})
+            return
+
         parsed = urllib.parse.urlparse(self.path)
+        if parsed.path == "/api/firewall-status":
+            self.send_json(200, waf.get_status())
+            return
         
         # API: Fetch all projects from MongoDB
         if parsed.path == "/api/projects":
