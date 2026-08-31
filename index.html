@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProjectForge - College Projects, Working Code & Ready-to-Present PPT Kits</title>
+  <meta name="description"
+    content="Download complete, verified working student projects, PowerPoint presentations (PPT), documentation synopsis reports, and Viva-Voce defense prep guides for CS, IT, AI/ML, IoT, and Engineering students.">
+  <meta name="keywords"
+    content="student projects, final year project, mini project, engineering ppt, project presentation, source code, python projects, ai ml projects, iot projects">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- JSZip & FileSaver for Instant Client-Side Real Project Packaging -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Sticky Top Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i data-lucide="layers"></i>
+        </div>
+        <div class="logo-text">Project<span>Forge</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#explore-section" class="nav-link active"><i data-lucide="compass"
+              style="width:16px; height:16px;"></i> Explore Projects</a></li>
+        <li><a href="#" id="navCustomizerBtn" class="nav-link"><i data-lucide="sparkles"
+              style="width:16px; height:16px;"></i> AI PPT Studio</a></li>
+        <li><a href="#" id="navVivaBtn" class="nav-link"><i data-lucide="bot" style="width:16px; height:16px;"></i> Viva
+            Practice</a></li>
+        <li><a href="#" id="navSubmitBtn" class="nav-link"><i data-lucide="upload-cloud"
+              style="width:16px; height:16px;"></i> Share Project</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="favoritesFilterBtn" class="btn-icon" title="View Saved Projects">
+          <i data-lucide="bookmark" style="width: 18px; height: 18px;"></i>
+          <span class="saved-badge-count" id="navSavedBadge" style="display:none;">0</span>
+        </button>
+        <button id="themeToggleBtn" class="btn-icon" title="Toggle Light/Dark Theme">
+          <i data-lucide="sun" id="themeIcon" style="width: 18px; height: 18px;"></i>
+        </button>
+        <div id="authNavContainer" style="display: flex; align-items: center;">
+          <button id="navAuthBtn" class="btn btn-outline btn-sm">
+            <i data-lucide="user" style="width:16px; height:16px;"></i> Sign In / Sign Up
+          </button>
+        </div>
+        <a href="#explore-section" class="btn btn-primary btn-sm">
+          <i data-lucide="download-cloud" style="width:16px; height:16px;"></i> Get Projects
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-pill">
+        <i data-lucide="graduation-cap" style="width: 16px; height: 16px;"></i>
+        100% Tested Working Code & Ready-to-Present Defense PPTs
+      </div>
+
+      <h1 class="hero-title">
+        The Ultimate Academic Hub for <span class="gradient-text">Student Projects & PPT Kits</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Find, customize, and download complete working projects across AI/ML, Full Stack, IoT, Python, and Cybersecurity
+        with professionally formatted 10-slide PowerPoint presentations, IEEE reports, and Viva-Voce defense guides.
+      </p>
+
+      <!-- Search Box with Live Filtering -->
+      <div class="hero-search-wrapper">
+        <div class="search-box">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="searchInput" class="search-input"
+            placeholder="Search projects by domain, title, or tech stack (e.g. AI Disease, MERN, ESP32, FinBERT)..."
+            autocomplete="off">
+          <button class="btn btn-primary" onclick="document.getElementById('searchInput').focus()">
+            Find Project
+          </button>
+        </div>
+
+        <div class="quick-tags">
+          <span class="quick-tag-label">Featured Domains (50 Each):</span>
+          <span class="tag-pill" data-tag="AI & Machine Learning">🤖 AI & Machine Learning (50)</span>
+          <span class="tag-pill" data-tag="IoT & Hardware">⚡ IoT & Hardware (50)</span>
+          <span class="tag-pill" data-tag="Java & Enterprise">☕ Java & Enterprise (50)</span>
+          <span class="tag-pill" data-tag="Mobile Flutter">📱 Mobile Flutter (50)</span>
+          <span class="tag-pill" data-tag="Blockchain & Web3">🔗 Blockchain & Web3 (50)</span>
+          <span class="tag-pill" data-tag="Cybersecurity & Cloud">🛡️ Cybersecurity (50)</span>
+        </div>
+      </div>
+
+      <!-- Degree Streams Filter Tabs (B.Tech, BCA, B.Sc) -->
+      <div style="margin-top: 1.75rem;">
+        <div
+          style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.6rem;">
+          <i data-lucide="graduation-cap"
+            style="width: 14px; height: 14px; display: inline; vertical-align: middle;"></i> 1. Select Degree Stream:
+        </div>
+        <div class="degree-tabs-container" id="degreeTabsContainer">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Year Tabs Selector (1st, 2nd, 3rd, 4th Year) -->
+      <div style="margin-top: 1.25rem;">
+        <div
+          style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.6rem;">
+          <i data-lucide="calendar" style="width: 14px; height: 14px; display: inline; vertical-align: middle;"></i> 2.
+          Select Academic Year:
+        </div>
+        <div class="year-tabs-container" id="yearTabsContainer">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">450+</div>
+          <div class="stat-label">Verified Working Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50 / Domain</div>
+          <div class="stat-label">Across 9 Tech Domains</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">450 Decks</div>
+          <div class="stat-label">10-Slide PPT in Every Kit</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">B.Tech • BCA • B.Sc</div>
+          <div class="stat-label">All 4 Academic Years</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog & Project Explorer -->
+  <section class="catalog-section" id="explore-section">
+    <div class="container">
+      <div class="catalog-header">
+        <div class="section-title-wrap">
+          <div>
+            <h2 class="section-title">Explore Verified College Projects</h2>
+            <p class="section-subtitle">Select your academic year (1st, 2nd, 3rd, 4th), degree stream, or category to
+              get complete kits</p>
+          </div>
+          <span class="results-count" id="resultsCountText">Showing 100 Projects</span>
+        </div>
+
+        <!-- Category Scroll Container -->
+        <div class="category-scroll-container">
+          <div class="category-pills" id="categoryPillsContainer">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Filter & Difficulty Toolbar -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <span class="filter-label"><i data-lucide="graduation-cap"
+                style="width: 14px; height: 14px; display: inline;"></i> Degree:</span>
+            <select id="degreeSelect" class="custom-select">
+              <option value="all">All Degrees (B.Tech • BCA • B.Sc)</option>
+              <option value="B.Tech">B.Tech (CSE / IT / AI / ECE)</option>
+              <option value="BCA">BCA (Bachelor of Computer Apps)</option>
+              <option value="B.Sc">B.Sc (Computer Science / IT)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label"><i data-lucide="calendar"
+                style="width: 14px; height: 14px; display: inline;"></i> Year:</span>
+            <select id="yearSelect" class="custom-select">
+              <option value="all">All Years (1st - 4th)</option>
+              <option value="1">1st Year (Easier / Fundamental)</option>
+              <option value="2">2nd Year (Medium / Intermediate)</option>
+              <option value="3">3rd Year (Hard / Pre-Final)</option>
+              <option value="4">4th Year (Very Hard / Capstone)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <span class="filter-label"><i data-lucide="filter" style="width: 14px; height: 14px; display: inline;"></i>
+              Difficulty:</span>
+            <select id="difficultySelect" class="custom-select">
+              <option value="all">All Difficulty Levels</option>
+              <option value="Easy">Easy (1st Year)</option>
+              <option value="Medium">Medium (2nd Year)</option>
+              <option value="Hard">Hard (3rd Year)</option>
+              <option value="Very Hard">Very Hard (4th Year Major)</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <button class="btn btn-outline btn-sm" onclick="app.openCustomizerModal()">
+              <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Personalize PPT Studio
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="app.openVivaModal()">
+              <i data-lucide="mic" style="width: 14px; height: 14px;"></i> Viva Defense Bot
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Progressive 10-Item Pagination: Show More Button -->
+      <div class="load-more-section" id="loadMoreSection" style="text-align: center; margin: 2.5rem 0 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+        <button id="loadMoreBtn" class="btn btn-primary load-more-btn" style="padding: 0.85rem 2.5rem; font-size: 1rem; font-weight: 700; box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35); display: inline-flex; align-items: center; gap: 0.6rem; border-radius: var(--radius-full); cursor: pointer; transition: all 0.2s ease;">
+          <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i>
+          <span>Show More Projects (+<span id="loadMoreRemainingCount">10</span> More)</span>
+        </button>
+        <div id="allLoadedMessage" style="display: none; font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
+          ✨ All matching projects loaded!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MODAL 1: Project Details & PPT Player
+       ========================================== -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">
+            <i data-lucide="folder-check"></i>
+          </div>
+          <div>
+            <h3 class="modal-main-title" id="modalTitle">Project Title</h3>
+            <span class="badge badge-primary" id="modalCategoryBadge">Category • Level</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <button class="btn btn-primary btn-sm" id="modalDownloadBtn">
+            <i data-lucide="download" style="width: 14px; height: 14px;"></i> Download Full Kit (.ZIP)
+          </button>
+          <button class="modal-close-btn" id="modalCloseBtn" title="Close Dialog">
+            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="modal-nav-tabs">
+        <button class="modal-tab-btn active" data-tab="ppt">
+          <i data-lucide="presentation" style="width: 16px; height: 16px;"></i> In-Browser PPT Player
+        </button>
+        <button class="modal-tab-btn" data-tab="overview">
+          <i data-lucide="book-open" style="width: 16px; height: 16px;"></i> Synopsis & Abstract
+        </button>
+        <button class="modal-tab-btn" data-tab="code">
+          <i data-lucide="code-2" style="width: 16px; height: 16px;"></i> Source Code Explorer
+        </button>
+        <button class="modal-tab-btn" data-tab="viva">
+          <i data-lucide="award" style="width: 16px; height: 16px;"></i> Viva Voce Q&A Guide
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tab 1: PPT Slide Deck Viewer -->
+        <div class="tab-pane active" id="tab-ppt">
+          <div class="ppt-player-container" id="pptPlayerContainer">
+            <div class="ppt-top-toolbar">
+              <div class="ppt-deck-title" id="pptDeckTitle">
+                <i data-lucide="presentation"></i> Project Defense Presentation Slides
+              </div>
+              <div class="ppt-top-actions">
+                <button class="btn btn-secondary btn-sm" id="pptCustomizeBtn" title="Customize Student/College Name">
+                  <i data-lucide="edit-3" style="width: 14px; height: 14px;"></i> Customize Names
+                </button>
+                <button class="btn btn-secondary btn-sm" id="pptNotesToggleBtn" title="Toggle Defense Notes">
+                  <i data-lucide="message-square" style="width: 14px; height: 14px;"></i> Speaker Notes
+                </button>
+                <button class="btn btn-secondary btn-sm" id="pptFullscreenBtn" title="Presentation Mode (Fullscreen)">
+                  <i data-lucide="maximize" style="width: 14px; height: 14px;"></i> Fullscreen
+                </button>
+              </div>
+            </div>
+
+            <!-- Slide Viewport (16:9) -->
+            <div class="ppt-slide-viewport" id="pptSlideViewport">
+              <!-- Rendered dynamically by ppt-viewer.js -->
+            </div>
+
+            <!-- Bottom Navigation Controls -->
+            <div class="ppt-bottom-controls">
+              <div class="slide-counter" id="slideCounter">Slide 1 / 10</div>
+              <div class="slide-progress-track" id="slideProgressTrack">
+                <!-- Progress dots -->
+              </div>
+              <div class="slide-nav-buttons">
+                <button class="btn btn-secondary btn-sm" id="pptPrevBtn">
+                  <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i> Previous
+                </button>
+                <button class="btn btn-primary btn-sm" id="pptNextBtn">
+                  Next <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker Notes Box -->
+          <div class="speaker-notes-box" id="speakerNotesBox">
+            <div class="speaker-notes-title">
+              <i data-lucide="lightbulb" style="width: 16px; height: 16px;"></i> Examiner Defense Strategy & Speaker
+              Notes:
+            </div>
+            <div id="speakerNotesText">
+              Welcome faculty. Today we present our final year capstone project...
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Overview & Synopsis -->
+        <div class="tab-pane" id="tab-overview">
+          <div id="overviewContent"></div>
+        </div>
+
+        <!-- Tab 3: Code Explorer -->
+        <div class="tab-pane" id="tab-code">
+          <div class="code-viewer-container">
+            <div class="code-tabs-bar">
+              <div class="code-tabs-list" id="codeTabsList"></div>
+            </div>
+            <pre class="code-pre-box"><code id="codeDisplayBox"></code></pre>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: AI PPT & Synopsis Customizer Studio
+       ========================================== -->
+  <div class="modal-backdrop" id="customizerModal">
+    <div class="modal-card" style="max-width: 680px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge" style="background: var(--grad-cyan);">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <div>
+            <h3 class="modal-main-title">AI PPT & Synopsis Customizer Studio</h3>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Personalize title slides, reports, and team
+              metadata before downloading</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="customizerCloseBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="preview-badge-notice" style="margin-bottom: 1.25rem;">
+          <i data-lucide="info" style="width: 18px; height: 18px;"></i>
+          <span>These details will be dynamically embedded into your PPT slides, IEEE report headers, and downloadable
+            ZIP package.</span>
+        </div>
+
+        <form id="customizerForm">
+          <div class="customizer-form-grid">
+            <div class="form-group">
+              <label class="form-label">College / University Name</label>
+              <input type="text" id="custCollegeName" class="form-input" value="National Institute of Technology"
+                placeholder="e.g. Stanford University / Delhi Technological University" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Academic Year / Semester</label>
+              <input type="text" id="custAcademicYear" class="form-input" value="Final Year Capstone 2024-2025"
+                placeholder="e.g. 8th Semester / Final Year 2025">
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label">Team Members (Names & Roll Numbers)</label>
+              <input type="text" id="custTeamMembers" class="form-input"
+                value="Aarav Sharma (21BCSE042), Priya Patel (21BCSE088)" placeholder="e.g. John Doe, Jane Smith"
+                required>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label">Project Guide / Supervisor Name & Designation</label>
+              <input type="text" id="custGuideName" class="form-input"
+                value="Dr. S. K. Verma, Professor & Head of Department"
+                placeholder="e.g. Dr. Robert Chen, Associate Professor" required>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-secondary" onclick="app.closeCustomizerModal()">Cancel</button>
+            <button type="submit" class="btn btn-outline" id="custApplyBtn">
+              <i data-lucide="eye" style="width: 16px; height: 16px;"></i> Apply & Preview Slides
+            </button>
+            <button type="button" class="btn btn-primary" id="custDownloadBtn">
+              <i data-lucide="download" style="width: 16px; height: 16px;"></i> Download Customized ZIP
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 3: Interactive Viva Defense AI Examiner
+       ========================================== -->
+  <div class="modal-backdrop" id="vivaModal">
+    <div class="modal-card" style="max-width: 780px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge" style="background: var(--grad-sunset);">
+            <i data-lucide="bot"></i>
+          </div>
+          <div>
+            <h3 class="modal-main-title">Interactive Viva Defense Examiner Bot</h3>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Practice answering tough examiner questions and
+              get scored live</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="vivaCloseBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem;">
+        <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+          <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Select Project for Mock
+            Defense:</label>
+          <select id="vivaProjectSelect" class="custom-select" style="flex: 1;"></select>
+        </div>
+
+        <div class="viva-chat-container">
+          <div class="viva-chat-messages" id="vivaChatMessages"></div>
+          <div class="viva-input-bar">
+            <input type="text" id="vivaUserInput" class="form-input"
+              placeholder="Type your defense answer here (e.g., We chose EfficientNet because of compound scaling...)"
+              style="flex: 1;">
+            <button class="btn btn-primary" id="vivaSendBtn">
+              <i data-lucide="send" style="width: 16px; height: 16px;"></i> Send Defense
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 4: Submit & Share Project Portal
+       ========================================== -->
+  <div class="modal-backdrop" id="submitModal">
+    <div class="modal-card" style="max-width: 640px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge" style="background: var(--grad-emerald);">
+            <i data-lucide="upload-cloud"></i>
+          </div>
+          <div>
+            <h3 class="modal-main-title">Share Your College Project</h3>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Help junior engineering students by sharing your
+              working project & PPT</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="submitCloseBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="submitProjectForm">
+          <!-- Contributor Account Badge -->
+          <div id="submitAuthorBadge" style="display: flex; align-items: center; gap: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 0.65rem 0.9rem; margin-bottom: 1.15rem; font-size: 0.85rem; color: var(--accent-emerald);">
+            <i data-lucide="user-check" style="width: 16px; height: 16px; flex-shrink: 0;"></i>
+            <span>Submitting as: <strong id="submitAuthorName" style="color: #fff;">Student Contributor</strong> (<span id="submitAuthorMeta">B.Tech • Year 3</span>)</span>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Project Title</label>
+            <input type="text" id="shareTitle" class="form-input" placeholder="e.g. Smart IoT EV Charging Station"
+              required>
+          </div>
+
+          <div class="customizer-form-grid" style="margin-bottom: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Domain Category</label>
+              <select id="shareCategory" class="custom-select form-input" required>
+                <option value="ai-ml">AI & Machine Learning</option>
+                <option value="web-dev">Web & Full Stack</option>
+                <option value="iot-embedded">IoT & Hardware</option>
+                <option value="python-data">Python Data Science</option>
+                <option value="cybersecurity">Cybersecurity</option>
+                <option value="blockchain">Blockchain</option>
+                <option value="java">Java & Enterprise</option>
+                <option value="mobile">Mobile Flutter</option>
+                <option value="c-cpp">C / C++ Systems</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Primary Tech Stack</label>
+              <input type="text" id="shareTechStack" class="form-input" placeholder="e.g. React, Node.js, Arduino"
+                required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">GitHub Repository / Source Code Link</label>
+            <input type="url" id="shareRepoUrl" class="form-input" placeholder="https://github.com/username/project"
+              required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label class="form-label">Brief Synopsis / Abstract</label>
+            <textarea id="shareAbstract" class="form-textarea" rows="3"
+              placeholder="Describe the problem your project solves and the core methodology..." required></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="app.closeSubmitModal()">Cancel</button>
+            <button type="submit" class="btn btn-emerald">
+              <i data-lucide="upload" style="width: 16px; height: 16px;"></i> Submit for Review
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Authentication Modal (Sign In / Sign Up) -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="modal-dialog auth-dialog" style="max-width: 480px;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-badge"><i data-lucide="shield-check" style="width:14px; height:14px;"></i> Student Account</div>
+          <h2 class="modal-title" id="authModalTitle" style="font-size: 1.35rem; margin-top: 0.25rem;">Student Portal Access</h2>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.2rem;" id="authModalSubtitle">
+            Sign in to save and access your projects anytime on any device.
+          </p>
+        </div>
+        <button class="modal-close" id="authCloseBtn"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem 1.5rem 1.5rem;">
+        <!-- Auth Switch Tabs -->
+        <div class="auth-tabs-row" style="display: flex; gap: 0.5rem; background: var(--bg-tertiary); padding: 0.35rem; border-radius: var(--radius-md); margin-bottom: 1.25rem;">
+          <button type="button" class="auth-tab-btn active" id="authTabSignInBtn" style="flex: 1; padding: 0.6rem; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+            <i data-lucide="log-in" style="width:16px; height:16px;"></i> Sign In
+          </button>
+          <button type="button" class="auth-tab-btn" id="authTabSignUpBtn" style="flex: 1; padding: 0.6rem; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+            <i data-lucide="user-plus" style="width:16px; height:16px;"></i> Create Account
+          </button>
+        </div>
+
+        <!-- Dynamic Context Alert -->
+        <div id="authPromptBanner" style="display: none; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #a5b4fc; display: flex; align-items: center; gap: 0.6rem;">
+          <i data-lucide="bookmark-plus" style="width: 18px; height: 18px; flex-shrink: 0; color: #818cf8;"></i>
+          <span id="authPromptText">Please sign in to bookmark and save this project to your cloud library!</span>
+        </div>
+
+        <!-- 1. Sign In Form -->
+        <form id="signInForm" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="signInEmail">Email Address</label>
+            <input type="email" id="signInEmail" class="form-input" placeholder="student@university.edu" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signInPassword">Password</label>
+            <input type="password" id="signInPassword" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem; justify-content: center;">
+            <i data-lucide="log-in" style="width: 16px; height: 16px;"></i> Sign In to Account
+          </button>
+
+          <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Don't have an account? <a href="#" id="linkToSignUp" style="color: var(--accent-primary); font-weight: 600;">Create Account</a>
+          </p>
+        </form>
+
+        <!-- 2. Sign Up Form -->
+        <form id="signUpForm" style="display: none; flex-direction: column; gap: 0.9rem;">
+          <div class="form-group">
+            <label class="form-label" for="signUpName">Full Name</label>
+            <input type="text" id="signUpName" class="form-input" placeholder="e.g. Aditya Negi" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signUpEmail">Email Address</label>
+            <input type="email" id="signUpEmail" class="form-input" placeholder="student@university.edu" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signUpPassword">Create Password</label>
+            <input type="password" id="signUpPassword" class="form-input" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 0.25rem;">
+            <div class="form-group">
+              <label class="form-label bright-label" for="signUpDegree">
+                <i data-lucide="graduation-cap" style="width: 16px; height: 16px; color: #38bdf8;"></i>
+                Degree Stream
+              </label>
+              <div class="bright-select-wrapper">
+                <select id="signUpDegree" class="form-select auth-select-white" required>
+                  <option value="B.Tech">🎓 B.Tech</option>
+                  <option value="BCA" selected>💻 BCA</option>
+                  <option value="B.Sc">🔬 B.Sc</option>
+                </select>
+                <i data-lucide="chevron-down" class="bright-select-arrow"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label bright-label" for="signUpYear">
+                <i data-lucide="calendar" style="width: 16px; height: 16px; color: #34d399;"></i>
+                Academic Year
+              </label>
+              <div class="bright-select-wrapper">
+                <select id="signUpYear" class="form-select auth-select-white" required>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3" selected>3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+                <i data-lucide="chevron-down" class="bright-select-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-emerald" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem; justify-content: center;">
+            <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i> Create Student Account
+          </button>
+
+          <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Already have an account? <a href="#" id="linkToSignIn" style="color: var(--accent-emerald); font-weight: 600;">Sign In</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#" class="logo">
+            <div class="logo-icon"><i data-lucide="layers"></i></div>
+            <div class="logo-text">Project<span>Forge</span></div>
+          </a>
+          <p>
+            ProjectForge is the premier open platform empowering students with complete, working codebases, IEEE-format
+            reports, and defense PowerPoint presentation kits.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Project Categories</h4>
+          <ul class="footer-links">
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('ai-ml')">AI & Machine Learning </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('web-dev')">Full Stack & Web Dev </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('c-cpp')">C / C++ Systems </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('python-data')">Python & Data Science </a>
+            </li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('iot-embedded')">IoT & Hardware </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('java')">Java & Enterprise </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('mobile')">Mobile Flutter </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('blockchain')">Blockchain & Web3 </a></li>
+            <li><a href="#explore-section" onclick="app.setCategoryFilter('cybersecurity')">Cybersecurity & Cloud</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Kit Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="app.openCustomizerModal()">AI PPT Studio</a></li>
+            <li><a href="#" onclick="app.openVivaModal()">Viva Voce AI Bot</a></li>
+            <li><a href="#explore-section">IEEE Synopsis Format</a></li>
+            <li><a href="#explore-section">System Architecture DFDs</a></li>
+            <li><a href="#" onclick="app.openSubmitModal()">Submit Project</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Academic Guidelines</h4>
+          <ul class="footer-links">
+            <li><a href="#">Presentation Defense Tips</a></li>
+            <li><a href="#">Literature Review Guides</a></li>
+            <li><a href="#">Plagiarism Prevention</a></li>
+            <li><a href="#">Open Source License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025 ProjectForge Academic Repository. All rights reserved. Created by Aditya Negi BCA 5th Sem </div>
+        <div style="display: flex; gap: 1.5rem;" >
+          <a href="https://www.instagram.com/aditya_neg1">Instagram </a>
+          <a href="https://www.linkedin.com/in/aditya-negi-b04ko">LinkedIn</a>
+          <a href="https://github.com/adityanegi-hu">Github</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts with Cache-Busting -->
+  <script src="js/data-summary.js?v=6.0"></script>
+  <script src="js/ppt-viewer.js?v=6.0"></script>
+  <script src="js/downloader.js?v=6.0"></script>
+  <script src="js/viva-simulator.js?v=6.0"></script>
+  <script src="js/app.js?v=6.0"></script>
+
+  <script>
+    // Initialize Lucide icons on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+
+</html>
