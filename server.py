@@ -476,7 +476,14 @@ def start_server(host="127.0.0.1", port=DEFAULT_PORT):
     except KeyboardInterrupt:
         print("\nServer shutting down.", flush=True)
 
+# Top-level entrypoints for Vercel/Serverless inspection
+app = ProjectForgeHandler
+application = ProjectForgeHandler
+handler = ProjectForgeHandler
+
 if __name__ == "__main__":
     port_arg = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", DEFAULT_PORT))
     host_arg = sys.argv[2] if len(sys.argv) > 2 else os.environ.get("HOST", "127.0.0.1")
     start_server(host_arg, port_arg)
+
+
