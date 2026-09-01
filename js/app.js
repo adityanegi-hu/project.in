@@ -1321,13 +1321,13 @@ class ProjectForgeApp {
     if (this.authNavContainer) {
       if (this.currentUser) {
         this.authNavContainer.innerHTML = `
-          <div class="user-profile-badge">
+          <div class="user-profile-badge" onclick="if(window.innerWidth<=768){app.openMobileDrawer();}" title="${this.currentUser.name}">
             <div class="user-avatar">${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}</div>
             <div class="user-info-text">
               <span class="user-name">${this.currentUser.name}</span>
               <span class="user-sub">${this.currentUser.degree || "B.Tech"} • Yr ${this.currentUser.year || "3"}</span>
             </div>
-            <button class="btn btn-outline btn-sm logout-btn" onclick="app.handleSignOut()" title="Sign Out">
+            <button class="btn btn-outline btn-sm logout-btn" onclick="event.stopPropagation(); app.handleSignOut()" title="Sign Out">
               <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
             </button>
           </div>
