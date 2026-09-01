@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: projectforge-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: projectforge
+      - key: HOST
+        value: "0.0.0.0"

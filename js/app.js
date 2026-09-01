@@ -26,6 +26,9 @@ class ProjectForgeApp {
     this.detailsCache = {};
     this.infiniteObserver = null;
 
+    // Cloud Backend Base URL (Supports live cloud deployment & localhost auto-detection)
+    this.apiBase = window.PROJECTFORGE_API_URL || (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1") ? "" : (localStorage.getItem("pf_api_url") || ""));
+
     this.initElements();
     this.initEventListeners();
     this.initAuthListeners();
@@ -678,7 +681,7 @@ class ProjectForgeApp {
 
     // Sync to MongoDB asynchronously if server exists
     try {
-      fetch("/api/user/toggle-save", {
+      fetch(`${this.apiBase}/api/user/toggle-save`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: this.currentUser?.email, projectId: projId })
@@ -1016,7 +1019,7 @@ class ProjectForgeApp {
     };
 
     try {
-      const response = await fetch("/api/share-project", {
+      const response = await fetch(`${this.apiBase}/api/share-project`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newProject)
@@ -1082,7 +1085,7 @@ class ProjectForgeApp {
 
       // 1. Try REST API if server is reachable
       try {
-        const res = await fetch("/api/auth/signin", {
+        const res = await fetch(`${this.apiBase}/api/auth/signin`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })
@@ -1186,7 +1189,7 @@ class ProjectForgeApp {
 
       // 1. Try REST API if server is reachable
       try {
-        const res = await fetch("/api/auth/signup", {
+        const res = await fetch(`${this.apiBase}/api/auth/signup`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password, degree, year })

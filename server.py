@@ -93,18 +93,21 @@ waf = WebFirewallShield()
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_PORT = 3000
-MONGO_URI = "mongodb://localhost:27017"
-DB_NAME = "projectforge"
+DEFAULT_PORT = int(os.environ.get("PORT", 3000))
+DEFAULT_HOST = os.environ.get("HOST", "0.0.0.0")
+MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
+DB_NAME = os.environ.get("DB_NAME", "projectforge")
 
-# Connect to MongoDB
+# Connect to MongoDB (Supports both local mongodb:// and cloud MongoDB Atlas mongodb+srv://)
 db = None
 if pymongo is not None:
     try:
-        mongo_client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=2000)
+        timeout_ms = 5000 if "mongodb+srv" in MONGO_URI else 2000
+        mongo_client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=timeout_ms)
         mongo_client.server_info()
         db = mongo_client[DB_NAME]
-        print(f"Connected to MongoDB at {MONGO_URI}/{DB_NAME}", flush=True)
+        safe_uri = MONGO_URI.split("@")[-1] if "@" in MONGO_URI else MONGO_URI
+        print(f"Connected to MongoDB at {safe_uri}/{DB_NAME}", flush=True)
     except Exception as err:
         print(f"Notice: MongoDB not available at {MONGO_URI} ({err}). Running in fallback mode.", flush=True)
         db = None
@@ -549,15 +552,15 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
 
         self.send_json(404, {"error": "Not Found"})
 
-def start_server(host="127.0.0.1", port=DEFAULT_PORT):
+def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
     os.chdir(BASE_DIR)
     try:
         http.server.ThreadingHTTPServer.allow_reuse_address = False
         with http.server.ThreadingHTTPServer((host, port), ProjectForgeHandler) as httpd:
             print("============================================================", flush=True)
             print(f"ProjectForge Server is LIVE!", flush=True)
-            print(f"Open in your browser: http://{host}:{port}", flush=True)
-            print(f"MongoDB Integration: mongodb://localhost:27017/{DB_NAME}", flush=True)
+            print(f"Host: {host} | Port: {port}", flush=True)
+            print(f"MongoDB Target: {MONGO_URI.split('@')[-1] if '@' in MONGO_URI else MONGO_URI}/{DB_NAME}", flush=True)
             print("============================================================", flush=True)
             httpd.serve_forever()
     except OSError as e:
@@ -572,7 +575,7 @@ def start_server(host="127.0.0.1", port=DEFAULT_PORT):
 
 if __name__ == "__main__":
     port_arg = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", DEFAULT_PORT))
-    host_arg = sys.argv[2] if len(sys.argv) > 2 else os.environ.get("HOST", "127.0.0.1")
+    host_arg = sys.argv[2] if len(sys.argv) > 2 else os.environ.get("HOST", DEFAULT_HOST)
     start_server(host_arg, port_arg)
 
 
