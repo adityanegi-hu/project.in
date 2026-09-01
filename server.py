@@ -101,7 +101,14 @@ DB_NAME = os.environ.get("DB_NAME", "projectforge")
 
 # Connect to MongoDB (Supports both local mongodb:// and cloud MongoDB Atlas mongodb+srv://)
 db = None
-if pymongo is not None:
+mongo_client = None
+
+def get_db():
+    global db, mongo_client
+    if db is not None:
+        return db
+    if pymongo is None:
+        return None
     try:
         timeout_ms = 8000 if "mongodb+srv" in MONGO_URI else 2000
         client_kwargs = {
@@ -118,12 +125,14 @@ if pymongo is not None:
         mongo_client.server_info()
         db = mongo_client[DB_NAME]
         safe_uri = MONGO_URI.split("@")[-1] if "@" in MONGO_URI else MONGO_URI
-        print(f"Connected to MongoDB at {safe_uri}/{DB_NAME}", flush=True)
+        print(f"Connected to MongoDB Atlas at {safe_uri}/{DB_NAME}", flush=True)
+        return db
     except Exception as err:
-        print(f"Notice: MongoDB not available at {MONGO_URI} ({err}). Running in fallback mode.", flush=True)
-        db = None
-else:
-    print("Notice: 'pymongo' module not installed in current environment. Running in standalone static mode.", flush=True)
+        print(f"Notice: MongoDB connection pending ({err}). Will retry on request.", flush=True)
+        return None
+
+# Attempt initial connection
+get_db()
 
 class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
@@ -169,10 +178,12 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json(200, waf.get_status())
             return
         
+        database = get_db()
+
         # API: Fetch all projects from MongoDB
         if parsed.path == "/api/projects":
             try:
-                projects = list(db["projects"].find({}, {"_id": 0})) if db is not None else []
+                projects = list(database["projects"].find({}, {"_id": 0})) if database is not None else []
                 self.send_json(200, projects)
             except Exception as e:
                 self.send_json(500, {"error": str(e)})
@@ -181,7 +192,7 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
         # API: Fetch shared community projects from MongoDB
         elif parsed.path == "/api/shared-projects":
             try:
-                shared = list(db["shared_projects"].find({}, {"_id": 0})) if db is not None else []
+                shared = list(database["shared_projects"].find({}, {"_id": 0})) if database is not None else []
                 self.send_json(200, shared)
             except Exception as e:
                 self.send_json(500, {"error": str(e)})
@@ -197,12 +208,12 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
                     raise ValueError("Email parameter is required")
                 
                 saved_ids = []
-                if db is not None:
-                    user = db["users"].find_one({"email": email})
+                if database is not None:
+                    user = database["users"].find_one({"email": email})
                     if user:
                         saved_ids = user.get("saved_project_ids", [])
                         
-                    saved_projects = list(db["projects"].find({"id": {"$in": saved_ids}}, {"_id": 0}))
+                    saved_projects = list(database["projects"].find({"id": {"$in": saved_ids}}, {"_id": 0}))
                 else:
                     saved_projects = []
 
@@ -224,8 +235,8 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
                     raise ValueError("Project ID is required")
 
                 proj_doc = None
-                if db is not None:
-                    proj_doc = db["projects"].find_one({"id": proj_id}, {"_id": 0})
+                if database is not None:
+                    proj_doc = database["projects"].find_one({"id": proj_id}, {"_id": 0})
 
                 if proj_doc is None:
                     details_file = os.path.join(BASE_DIR, "js", "data-details.json")
@@ -260,6 +271,8 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json(status, {"error": msg, "firewall": "Active"})
             return
 
+        database = get_db()
+
         # API: User Sign Up / Registration
         if parsed.path == "/api/auth/signup":
             try:
@@ -278,8 +291,8 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
 
                 pwd_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
 
-                if db is not None:
-                    existing = db["users"].find_one({"email": email})
+                if database is not None:
+                    existing = database["users"].find_one({"email": email})
                     if existing:
                         raise ValueError("An account with this email already exists. Please Sign In.")
 
@@ -292,7 +305,7 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
                         "saved_project_ids": [],
                         "createdAt": datetime.now(timezone.utc).isoformat()
                     }
-                    db["users"].insert_one(user_doc)
+                    database["users"].insert_one(user_doc)
 
                 user_profile = {
                     "email": email,
@@ -323,8 +336,8 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
 
                 pwd_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
 
-                if db is not None:
-                    user = db["users"].find_one({"email": email})
+                if database is not None:
+                    user = database["users"].find_one({"email": email})
                     if not user:
                         raise ValueError("No account found with this email. Please Sign Up.")
                     if user.get("password") != pwd_hash:
@@ -368,10 +381,10 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
                 saved_ids = []
                 is_saved = False
 
-                if db is not None:
-                    user = db["users"].find_one({"email": email})
+                if database is not None:
+                    user = database["users"].find_one({"email": email})
                     if not user:
-                        db["users"].insert_one({
+                        database["users"].insert_one({
                             "email": email,
                             "name": email.split("@")[0].capitalize(),
                             "password": "",
@@ -391,7 +404,7 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
                             saved_ids.append(project_id)
                             is_saved = True
 
-                        db["users"].update_one(
+                        database["users"].update_one(
                             {"email": email},
                             {"$set": {"saved_project_ids": saved_ids}}
                         )
@@ -547,9 +560,9 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
                     ]
                 }
                 
-                if db is not None:
-                    db["shared_projects"].insert_one(data)
-                    db["projects"].insert_one(full_proj_meta)
+                if database is not None:
+                    database["shared_projects"].insert_one(data)
+                    database["projects"].insert_one(full_proj_meta)
                     print(f"MongoDB: Saved project {proj_id} to both 'shared_projects' and 'projects' collections.", flush=True)
 
                 self.send_json(201, {
