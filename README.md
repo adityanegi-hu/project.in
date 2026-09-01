@@ -1,4 +1,4 @@
-# 🚀 ProjectForge
+# 🚀 ForgeProject
 
 > **Next-Gen Engineering Project Repository & Interactive Viva Defense Platform**
 > 450 Verified, Working Academic Projects across 9 Core Engineering Domains with In-Browser PPT Presenters, IEEE Synopsis Generators, and AI Viva Defense Bots.
@@ -41,4 +41,4 @@
 
 ## 📄 License
 
-MIT License © 2026 ProjectForge
+MIT License © 2026 ForgeProject

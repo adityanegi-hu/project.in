@@ -1,5 +1,5 @@
 /**
- * ProjectForge Interactive Viva-Voce Defense AI Examiner Simulator
+ * ForgeProject Interactive Viva-Voce Defense AI Examiner Simulator
  * Allows students to practice their college project defense with realistic examiner questions,
  * scoring, feedback, and tips.
  */

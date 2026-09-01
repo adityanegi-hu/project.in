@@ -1,10 +1,10 @@
 /**
- * ProjectForge - Main Application Controller
+ * ForgeProject - Main Application Controller
  * Handles 450 projects, 1st/2nd/3rd/4th Year filters, B.Tech/BCA/B.Sc stream matching,
  * search, progressive pagination, on-demand split loading, modals, and dynamic project previews.
  */
 
-class ProjectForgeApp {
+class ForgeProjectApp {
   constructor() {
     this.projects = typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : [];
     this.currentCategory = "all";
@@ -27,7 +27,7 @@ class ProjectForgeApp {
     this.infiniteObserver = null;
 
     // Cloud Backend Base URL (Supports live cloud deployment & localhost auto-detection)
-    this.apiBase = window.PROJECTFORGE_API_URL || (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1") ? "" : (localStorage.getItem("pf_api_url") || ""));
+    this.apiBase = window.FORGEPROJECT_API_URL || window.PROJECTFORGE_API_URL || (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1") ? "" : (localStorage.getItem("pf_api_url") || ""));
 
     this.initElements();
     this.initEventListeners();
@@ -1547,5 +1547,5 @@ class ProjectForgeApp {
 
 // Instantiate on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
-  window.app = new ProjectForgeApp();
+  window.app = new ForgeProjectApp();
 });

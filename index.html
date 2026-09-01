@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0a0e1a">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>ProjectForge - College Projects, Working Code & Ready-to-Present PPT Kits</title>
+  <title>ForgeProject - College Projects, Working Code & Ready-to-Present PPT Kits</title>
   <meta name="description"
     content="Download complete, verified working student projects, PowerPoint presentations (PPT), documentation synopsis reports, and Viva-Voce defense prep guides for CS, IT, AI/ML, IoT, and Engineering students.">
   <meta name="keywords"
@@ -22,10 +22,11 @@
     crossorigin="anonymous"></script>
 
   <!-- Stylesheet with Cache-Busting -->
-  <link rel="stylesheet" href="css/styles.css?v=12.0">
+  <link rel="stylesheet" href="css/styles.css?v=13.0">
 
   <!-- Cloud Backend API Endpoint -->
   <script>
+    window.FORGEPROJECT_API_URL = "https://project-in.onrender.com";
     window.PROJECTFORGE_API_URL = "https://project-in.onrender.com";
   </script>
 
@@ -49,7 +50,7 @@
         <div class="logo-icon">
           <i data-lucide="layers"></i>
         </div>
-        <div class="logo-text">Project<span>Forge</span></div>
+        <div class="logo-text">Forge<span>Project</span></div>
       </a>
 
       <ul class="nav-links">
@@ -246,12 +247,15 @@
       </div>
 
       <!-- Progressive 10-Item Pagination: Show More Button -->
-      <div class="load-more-section" id="loadMoreSection" style="text-align: center; margin: 2.5rem 0 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-        <button id="loadMoreBtn" class="btn btn-primary load-more-btn" style="padding: 0.85rem 2.5rem; font-size: 1rem; font-weight: 700; box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35); display: inline-flex; align-items: center; gap: 0.6rem; border-radius: var(--radius-full); cursor: pointer; transition: all 0.2s ease;">
+      <div class="load-more-section" id="loadMoreSection"
+        style="text-align: center; margin: 2.5rem 0 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
+        <button id="loadMoreBtn" class="btn btn-primary load-more-btn"
+          style="padding: 0.85rem 2.5rem; font-size: 1rem; font-weight: 700; box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35); display: inline-flex; align-items: center; gap: 0.6rem; border-radius: var(--radius-full); cursor: pointer; transition: all 0.2s ease;">
           <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i>
           <span>Show More Projects (+<span id="loadMoreRemainingCount">10</span> More)</span>
         </button>
-        <div id="allLoadedMessage" style="display: none; font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
+        <div id="allLoadedMessage"
+          style="display: none; font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
           ✨ All matching projects loaded!
         </div>
       </div>
@@ -526,9 +530,11 @@
       <div class="modal-body">
         <form id="submitProjectForm">
           <!-- Contributor Account Badge -->
-          <div id="submitAuthorBadge" style="display: flex; align-items: center; gap: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 0.65rem 0.9rem; margin-bottom: 1.15rem; font-size: 0.85rem; color: var(--accent-emerald);">
+          <div id="submitAuthorBadge"
+            style="display: flex; align-items: center; gap: 0.6rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 0.65rem 0.9rem; margin-bottom: 1.15rem; font-size: 0.85rem; color: var(--accent-emerald);">
             <i data-lucide="user-check" style="width: 16px; height: 16px; flex-shrink: 0;"></i>
-            <span>Submitting as: <strong id="submitAuthorName" style="color: #fff;">Student Contributor</strong> (<span id="submitAuthorMeta">B.Tech • Year 3</span>)</span>
+            <span>Submitting as: <strong id="submitAuthorName" style="color: #fff;">Student Contributor</strong> (<span
+                id="submitAuthorMeta">B.Tech • Year 3</span>)</span>
           </div>
 
           <div class="form-group" style="margin-bottom: 1rem;">
@@ -587,8 +593,10 @@
     <div class="modal-dialog auth-dialog" style="max-width: 480px;">
       <div class="modal-header">
         <div>
-          <div class="modal-badge"><i data-lucide="shield-check" style="width:14px; height:14px;"></i> Student Account</div>
-          <h2 class="modal-title" id="authModalTitle" style="font-size: 1.35rem; margin-top: 0.25rem;">Student Portal Access</h2>
+          <div class="modal-badge"><i data-lucide="shield-check" style="width:14px; height:14px;"></i> Student Account
+          </div>
+          <h2 class="modal-title" id="authModalTitle" style="font-size: 1.35rem; margin-top: 0.25rem;">Student Portal
+            Access</h2>
           <p style="font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.2rem;" id="authModalSubtitle">
             Sign in to save and access your projects anytime on any device.
           </p>
@@ -598,17 +606,21 @@
 
       <div class="modal-body" style="padding: 1.25rem 1.5rem 1.5rem;">
         <!-- Auth Switch Tabs -->
-        <div class="auth-tabs-row" style="display: flex; gap: 0.5rem; background: var(--bg-tertiary); padding: 0.35rem; border-radius: var(--radius-md); margin-bottom: 1.25rem;">
-          <button type="button" class="auth-tab-btn active" id="authTabSignInBtn" style="flex: 1; padding: 0.6rem; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+        <div class="auth-tabs-row"
+          style="display: flex; gap: 0.5rem; background: var(--bg-tertiary); padding: 0.35rem; border-radius: var(--radius-md); margin-bottom: 1.25rem;">
+          <button type="button" class="auth-tab-btn active" id="authTabSignInBtn"
+            style="flex: 1; padding: 0.6rem; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
             <i data-lucide="log-in" style="width:16px; height:16px;"></i> Sign In
           </button>
-          <button type="button" class="auth-tab-btn" id="authTabSignUpBtn" style="flex: 1; padding: 0.6rem; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+          <button type="button" class="auth-tab-btn" id="authTabSignUpBtn"
+            style="flex: 1; padding: 0.6rem; border: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
             <i data-lucide="user-plus" style="width:16px; height:16px;"></i> Create Account
           </button>
         </div>
 
         <!-- Dynamic Context Alert -->
-        <div id="authPromptBanner" style="display: none; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #a5b4fc; display: flex; align-items: center; gap: 0.6rem;">
+        <div id="authPromptBanner"
+          style="display: none; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.85rem; color: #a5b4fc; display: flex; align-items: center; gap: 0.6rem;">
           <i data-lucide="bookmark-plus" style="width: 18px; height: 18px; flex-shrink: 0; color: #818cf8;"></i>
           <span id="authPromptText">Please sign in to bookmark and save this project to your cloud library!</span>
         </div>
@@ -617,20 +629,24 @@
         <form id="signInForm" style="display: flex; flex-direction: column; gap: 1rem;">
           <div class="form-group">
             <label class="form-label" for="signInEmail">Email Address</label>
-            <input type="email" id="signInEmail" class="form-input" placeholder="student@university.edu" required autocomplete="email">
+            <input type="email" id="signInEmail" class="form-input" placeholder="student@university.edu" required
+              autocomplete="email">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="signInPassword">Password</label>
-            <input type="password" id="signInPassword" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+            <input type="password" id="signInPassword" class="form-input" placeholder="••••••••" required
+              autocomplete="current-password">
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem; justify-content: center;">
+          <button type="submit" class="btn btn-primary"
+            style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem; justify-content: center;">
             <i data-lucide="log-in" style="width: 16px; height: 16px;"></i> Sign In to Account
           </button>
 
           <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-            Don't have an account? <a href="#" id="linkToSignUp" style="color: var(--accent-primary); font-weight: 600;">Create Account</a>
+            Don't have an account? <a href="#" id="linkToSignUp"
+              style="color: var(--accent-primary); font-weight: 600;">Create Account</a>
           </p>
         </form>
 
@@ -638,17 +654,20 @@
         <form id="signUpForm" style="display: none; flex-direction: column; gap: 0.9rem;">
           <div class="form-group">
             <label class="form-label" for="signUpName">Full Name</label>
-            <input type="text" id="signUpName" class="form-input" placeholder="e.g. Aditya Negi" required autocomplete="name">
+            <input type="text" id="signUpName" class="form-input" placeholder="e.g. Aditya Negi" required
+              autocomplete="name">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="signUpEmail">Email Address</label>
-            <input type="email" id="signUpEmail" class="form-input" placeholder="student@university.edu" required autocomplete="email">
+            <input type="email" id="signUpEmail" class="form-input" placeholder="student@university.edu" required
+              autocomplete="email">
           </div>
 
           <div class="form-group">
             <label class="form-label" for="signUpPassword">Create Password</label>
-            <input type="password" id="signUpPassword" class="form-input" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
+            <input type="password" id="signUpPassword" class="form-input" placeholder="At least 6 characters"
+              minlength="6" required autocomplete="new-password">
           </div>
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 0.25rem;">
@@ -684,12 +703,14 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-emerald" style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem; justify-content: center;">
+          <button type="submit" class="btn btn-emerald"
+            style="width: 100%; padding: 0.85rem; font-size: 0.95rem; margin-top: 0.5rem; justify-content: center;">
             <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i> Create Student Account
           </button>
 
           <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-            Already have an account? <a href="#" id="linkToSignIn" style="color: var(--accent-emerald); font-weight: 600;">Sign In</a>
+            Already have an account? <a href="#" id="linkToSignIn"
+              style="color: var(--accent-emerald); font-weight: 600;">Sign In</a>
           </p>
         </form>
       </div>
@@ -706,10 +727,10 @@
         <div class="footer-about">
           <a href="#" class="logo">
             <div class="logo-icon"><i data-lucide="layers"></i></div>
-            <div class="logo-text">Project<span>Forge</span></div>
+            <div class="logo-text">Forge<span>Project</span></div>
           </a>
           <p>
-            ProjectForge is the premier open platform empowering students with complete, working codebases, IEEE-format
+            ForgeProject is the premier open platform empowering students with complete, working codebases, IEEE-format
             reports, and defense PowerPoint presentation kits.
           </p>
         </div>
@@ -754,122 +775,124 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2025 ProjectForge Academic Repository. All rights reserved. Created by Aditya Negi BCA 5th Sem </div>
-        <div style="display: flex; gap: 1.5rem;" >
+        <div>© 2025 ForgeProject Academic Repository. All rights reserved. Created by Aditya Negi BCA 5th Sem </div>
+        <div style="display: flex; gap: 1.5rem;">
           <a href="https://www.instagram.com/aditya_neg1">Instagram </a>
           <a href="https://www.linkedin.com/in/aditya-negi-b04ko">LinkedIn</a>
           <a href="https://github.com/adityanegi-hu">Github</a>
         </div>
       </div>
     </div>
-  <!-- Mobile Slide-out Navigation Drawer -->
-  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
-    <div class="mobile-drawer-header">
-      <div class="logo">
-        <div class="logo-icon"><i data-lucide="layers"></i></div>
-        <div class="logo-text">Project<span>Forge</span></div>
+    <!-- Mobile Slide-out Navigation Drawer -->
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+      <div class="mobile-drawer-header">
+        <div class="logo">
+          <div class="logo-icon"><i data-lucide="layers"></i></div>
+          <div class="logo-text">Forge<span>Project</span></div>
+        </div>
+        <button class="modal-close-btn" id="mobileDrawerCloseBtn" aria-label="Close Navigation Drawer">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
       </div>
-      <button class="modal-close-btn" id="mobileDrawerCloseBtn" aria-label="Close Navigation Drawer">
-        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+
+      <div class="mobile-drawer-body">
+        <ul class="mobile-nav-list">
+          <li>
+            <a href="#explore-section" class="mobile-nav-item" id="mobNavExplore">
+              <div class="mob-icon-wrap" style="background: var(--grad-primary);"><i data-lucide="compass"></i></div>
+              <div>
+                <div class="mob-item-title">Explore 450+ Projects</div>
+                <div class="mob-item-sub">All 4 Years & 9 Tech Domains</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-nav-item" id="mobNavCustomizer">
+              <div class="mob-icon-wrap" style="background: var(--grad-cyan);"><i data-lucide="sparkles"></i></div>
+              <div>
+                <div class="mob-item-title">AI PPT Studio</div>
+                <div class="mob-item-sub">Customize Student & Guide Names</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-nav-item" id="mobNavViva">
+              <div class="mob-icon-wrap" style="background: var(--grad-sunset);"><i data-lucide="bot"></i></div>
+              <div>
+                <div class="mob-item-title">Viva Voce AI Bot</div>
+                <div class="mob-item-sub">Mock Examiner Defense Simulator</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-nav-item" id="mobNavSubmit">
+              <div class="mob-icon-wrap" style="background: var(--grad-emerald);"><i data-lucide="upload-cloud"></i>
+              </div>
+              <div>
+                <div class="mob-item-title">Share Your Project</div>
+                <div class="mob-item-sub">Submit Project to Live Catalog</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-nav-item" id="mobNavBookmarks">
+              <div class="mob-icon-wrap" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);"><i
+                  data-lucide="bookmark"></i></div>
+              <div>
+                <div class="mob-item-title">Saved Library</div>
+                <div class="mob-item-sub" id="mobSavedSub">View Bookmarked Projects</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mobile-drawer-footer" id="mobileDrawerAuthContainer">
+        <!-- Injected by app.js -->
+      </div>
+    </aside>
+
+    <!-- Mobile Bottom Quick Navigation Bar -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Quick Mobile Navigation">
+      <a href="#explore-section" class="mob-bottom-item active" id="mobBottomExplore">
+        <i data-lucide="compass"></i>
+        <span>Projects</span>
+      </a>
+      <button type="button" class="mob-bottom-item" id="mobBottomSearch">
+        <i data-lucide="search"></i>
+        <span>Search</span>
       </button>
-    </div>
+      <button type="button" class="mob-bottom-item" id="mobBottomCustomizer">
+        <i data-lucide="sparkles"></i>
+        <span>PPT Studio</span>
+      </button>
+      <button type="button" class="mob-bottom-item" id="mobBottomViva">
+        <i data-lucide="bot"></i>
+        <span>Viva AI</span>
+      </button>
+      <button type="button" class="mob-bottom-item" id="mobBottomSaved">
+        <i data-lucide="bookmark"></i>
+        <span>Saved</span>
+        <span class="mob-saved-dot" id="mobSavedDot" style="display:none;"></span>
+      </button>
+    </nav>
 
-    <div class="mobile-drawer-body">
-      <ul class="mobile-nav-list">
-        <li>
-          <a href="#explore-section" class="mobile-nav-item" id="mobNavExplore">
-            <div class="mob-icon-wrap" style="background: var(--grad-primary);"><i data-lucide="compass"></i></div>
-            <div>
-              <div class="mob-item-title">Explore 450+ Projects</div>
-              <div class="mob-item-sub">All 4 Years & 9 Tech Domains</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="mobile-nav-item" id="mobNavCustomizer">
-            <div class="mob-icon-wrap" style="background: var(--grad-cyan);"><i data-lucide="sparkles"></i></div>
-            <div>
-              <div class="mob-item-title">AI PPT Studio</div>
-              <div class="mob-item-sub">Customize Student & Guide Names</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="mobile-nav-item" id="mobNavViva">
-            <div class="mob-icon-wrap" style="background: var(--grad-sunset);"><i data-lucide="bot"></i></div>
-            <div>
-              <div class="mob-item-title">Viva Voce AI Bot</div>
-              <div class="mob-item-sub">Mock Examiner Defense Simulator</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="mobile-nav-item" id="mobNavSubmit">
-            <div class="mob-icon-wrap" style="background: var(--grad-emerald);"><i data-lucide="upload-cloud"></i></div>
-            <div>
-              <div class="mob-item-title">Share Your Project</div>
-              <div class="mob-item-sub">Submit Project to Live Catalog</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="mobile-nav-item" id="mobNavBookmarks">
-            <div class="mob-icon-wrap" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);"><i data-lucide="bookmark"></i></div>
-            <div>
-              <div class="mob-item-title">Saved Library</div>
-              <div class="mob-item-sub" id="mobSavedSub">View Bookmarked Projects</div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <!-- Core Scripts with Cache-Busting -->
+    <script src="js/data-summary.js?v=13.0"></script>
+    <script src="js/ppt-viewer.js?v=13.0"></script>
+    <script src="js/downloader.js?v=13.0"></script>
+    <script src="js/viva-simulator.js?v=13.0"></script>
+    <script src="js/app.js?v=13.0"></script>
 
-    <div class="mobile-drawer-footer" id="mobileDrawerAuthContainer">
-      <!-- Injected by app.js -->
-    </div>
-  </aside>
-
-  <!-- Mobile Bottom Quick Navigation Bar -->
-  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Quick Mobile Navigation">
-    <a href="#explore-section" class="mob-bottom-item active" id="mobBottomExplore">
-      <i data-lucide="compass"></i>
-      <span>Projects</span>
-    </a>
-    <button type="button" class="mob-bottom-item" id="mobBottomSearch">
-      <i data-lucide="search"></i>
-      <span>Search</span>
-    </button>
-    <button type="button" class="mob-bottom-item" id="mobBottomCustomizer">
-      <i data-lucide="sparkles"></i>
-      <span>PPT Studio</span>
-    </button>
-    <button type="button" class="mob-bottom-item" id="mobBottomViva">
-      <i data-lucide="bot"></i>
-      <span>Viva AI</span>
-    </button>
-    <button type="button" class="mob-bottom-item" id="mobBottomSaved">
-      <i data-lucide="bookmark"></i>
-      <span>Saved</span>
-      <span class="mob-saved-dot" id="mobSavedDot" style="display:none;"></span>
-    </button>
-  </nav>
-
-  <!-- Core Scripts with Cache-Busting -->
-  <script src="js/data-summary.js?v=12.0"></script>
-  <script src="js/ppt-viewer.js?v=12.0"></script>
-  <script src="js/downloader.js?v=12.0"></script>
-  <script src="js/viva-simulator.js?v=12.0"></script>
-  <script src="js/app.js?v=12.0"></script>
-
-  <script>
-    // Initialize Lucide icons on page load
-    document.addEventListener("DOMContentLoaded", () => {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    });
-  </script>
+    <script>
+      // Initialize Lucide icons on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
 </body>
 
 </html>

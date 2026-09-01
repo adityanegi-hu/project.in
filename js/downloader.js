@@ -1,5 +1,5 @@
 /**
- * ProjectForge 1-Click Project Bundle Generator
+ * ForgeProject 1-Click Project Bundle Generator
  * Uses JSZip & FileSaver to package complete working source code, documentation,
  * customized PPT presentations, setup README, and viva cheat sheets into a single ZIP.
  */
@@ -136,7 +136,7 @@ The solution is developed across modular phases:
 4. Frontend Dashboard and Presentation View
 
 ---
-*Report generated via ProjectForge Student Hub.*
+*Report generated via ForgeProject Student Hub.*
 `;
   }
 
@@ -260,7 +260,7 @@ ${questions.map((q, idx) => `
 3. Launch the project according to the specific framework instructions in \`src/\`.
 
 ---
-© ${new Date().getFullYear()} ProjectForge Academic Repository. All rights reserved.
+© ${new Date().getFullYear()} ForgeProject Academic Repository. All rights reserved.
 `;
   }
 

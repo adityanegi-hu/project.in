@@ -1,5 +1,5 @@
 """
-ProjectForge - Full-Stack Local Server with MongoDB Integration
+ForgeProject - Full-Stack Local Server with MongoDB Integration
 Serves the web application and handles REST endpoints for MongoDB at mongodb://localhost:27017.
 """
 
@@ -24,7 +24,7 @@ from collections import defaultdict
 
 class WebFirewallShield:
     """
-    ProjectForge Application-Layer Web Security Firewall (WAF)
+    ForgeProject Application-Layer Web Security Firewall (WAF)
     Provides real-time rate limiting, malicious pattern inspection, path traversal protection,
     and automatic defense headers.
     """
@@ -134,7 +134,7 @@ def get_db():
 # Attempt initial connection
 get_db()
 
-class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
+class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
     def end_headers(self):
@@ -580,9 +580,9 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
     os.chdir(BASE_DIR)
     try:
         http.server.ThreadingHTTPServer.allow_reuse_address = False
-        with http.server.ThreadingHTTPServer((host, port), ProjectForgeHandler) as httpd:
+        with http.server.ThreadingHTTPServer((host, port), ForgeProjectHandler) as httpd:
             print("============================================================", flush=True)
-            print(f"ProjectForge Server is LIVE!", flush=True)
+            print(f"ForgeProject Server is LIVE!", flush=True)
             print(f"Host: {host} | Port: {port}", flush=True)
             print(f"MongoDB Target: {MONGO_URI.split('@')[-1] if '@' in MONGO_URI else MONGO_URI}/{DB_NAME}", flush=True)
             print("============================================================", flush=True)

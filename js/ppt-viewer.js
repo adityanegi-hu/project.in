@@ -1,5 +1,5 @@
 /**
- * ProjectForge Interactive PPT Slide Deck Viewer
+ * ForgeProject Interactive PPT Slide Deck Viewer
  * Renders slide presentations directly in the browser with live editing,
  * fullscreen presenter mode, slide navigation, and speaker notes.
  */
