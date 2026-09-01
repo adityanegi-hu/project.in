@@ -52,7 +52,7 @@
       </ul>
 
       <div class="nav-actions">
-        <button id="favoritesFilterBtn" class="btn-icon" title="View Saved Projects">
+        <button id="favoritesFilterBtn" class="btn-icon header-bookmark-btn" title="View Saved Projects">
           <i data-lucide="bookmark" style="width: 18px; height: 18px;"></i>
           <span class="saved-badge-count" id="navSavedBadge" style="display:none;">0</span>
         </button>
@@ -64,9 +64,12 @@
             <i data-lucide="user" style="width:16px; height:16px;"></i> Sign In / Sign Up
           </button>
         </div>
-        <a href="#explore-section" class="btn btn-primary btn-sm">
+        <a href="#explore-section" class="btn btn-primary btn-sm header-cta-btn">
           <i data-lucide="download-cloud" style="width:16px; height:16px;"></i> Get Projects
         </a>
+        <button id="mobileMenuBtn" class="btn-icon mobile-menu-btn" aria-label="Open navigation menu">
+          <i data-lucide="menu" id="mobileMenuIcon" style="width: 20px; height: 20px;"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -747,7 +750,98 @@
         </div>
       </div>
     </div>
-  </footer>
+  <!-- Mobile Slide-out Navigation Drawer -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="logo">
+        <div class="logo-icon"><i data-lucide="layers"></i></div>
+        <div class="logo-text">Project<span>Forge</span></div>
+      </div>
+      <button class="modal-close-btn" id="mobileDrawerCloseBtn" aria-label="Close Navigation Drawer">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-list">
+        <li>
+          <a href="#explore-section" class="mobile-nav-item" id="mobNavExplore">
+            <div class="mob-icon-wrap" style="background: var(--grad-primary);"><i data-lucide="compass"></i></div>
+            <div>
+              <div class="mob-item-title">Explore 450+ Projects</div>
+              <div class="mob-item-sub">All 4 Years & 9 Tech Domains</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="mobile-nav-item" id="mobNavCustomizer">
+            <div class="mob-icon-wrap" style="background: var(--grad-cyan);"><i data-lucide="sparkles"></i></div>
+            <div>
+              <div class="mob-item-title">AI PPT Studio</div>
+              <div class="mob-item-sub">Customize Student & Guide Names</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="mobile-nav-item" id="mobNavViva">
+            <div class="mob-icon-wrap" style="background: var(--grad-sunset);"><i data-lucide="bot"></i></div>
+            <div>
+              <div class="mob-item-title">Viva Voce AI Bot</div>
+              <div class="mob-item-sub">Mock Examiner Defense Simulator</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="mobile-nav-item" id="mobNavSubmit">
+            <div class="mob-icon-wrap" style="background: var(--grad-emerald);"><i data-lucide="upload-cloud"></i></div>
+            <div>
+              <div class="mob-item-title">Share Your Project</div>
+              <div class="mob-item-sub">Submit Project to Live Catalog</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="mobile-nav-item" id="mobNavBookmarks">
+            <div class="mob-icon-wrap" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);"><i data-lucide="bookmark"></i></div>
+            <div>
+              <div class="mob-item-title">Saved Library</div>
+              <div class="mob-item-sub" id="mobSavedSub">View Bookmarked Projects</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mobile-drawer-footer" id="mobileDrawerAuthContainer">
+      <!-- Injected by app.js -->
+    </div>
+  </aside>
+
+  <!-- Mobile Bottom Quick Navigation Bar -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Quick Mobile Navigation">
+    <a href="#explore-section" class="mob-bottom-item active" id="mobBottomExplore">
+      <i data-lucide="compass"></i>
+      <span>Projects</span>
+    </a>
+    <button type="button" class="mob-bottom-item" id="mobBottomSearch">
+      <i data-lucide="search"></i>
+      <span>Search</span>
+    </button>
+    <button type="button" class="mob-bottom-item" id="mobBottomCustomizer">
+      <i data-lucide="sparkles"></i>
+      <span>PPT Studio</span>
+    </button>
+    <button type="button" class="mob-bottom-item" id="mobBottomViva">
+      <i data-lucide="bot"></i>
+      <span>Viva AI</span>
+    </button>
+    <button type="button" class="mob-bottom-item" id="mobBottomSaved">
+      <i data-lucide="bookmark"></i>
+      <span>Saved</span>
+      <span class="mob-saved-dot" id="mobSavedDot" style="display:none;"></span>
+    </button>
+  </nav>
 
   <!-- Core Scripts with Cache-Busting -->
   <script src="js/data-summary.js?v=7.0"></script>

@@ -87,6 +87,14 @@ class ProjectForgeApp {
     this.authPromptBanner = document.getElementById("authPromptBanner");
     this.authPromptText = document.getElementById("authPromptText");
 
+    // Mobile Drawer & Bottom Navigation Elements
+    this.mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    this.mobileDrawer = document.getElementById("mobileDrawer");
+    this.mobileDrawerBackdrop = document.getElementById("mobileDrawerBackdrop");
+    this.mobileDrawerCloseBtn = document.getElementById("mobileDrawerCloseBtn");
+    this.mobileDrawerAuthContainer = document.getElementById("mobileDrawerAuthContainer");
+    this.mobSavedDot = document.getElementById("mobSavedDot");
+
     // Toast Container
     this.toastContainer = document.getElementById("toastContainer");
   }
@@ -138,10 +146,62 @@ class ProjectForgeApp {
     // Setup Automated Infinite Scroll
     this.initInfiniteScroll();
 
-    // Global Escape Key Listener to Close All Modals
+    // Mobile Drawer & Slide Navigation Listeners
+    this.mobileMenuBtn?.addEventListener("click", () => this.openMobileDrawer());
+    this.mobileDrawerBackdrop?.addEventListener("click", () => this.closeMobileDrawer());
+    this.mobileDrawerCloseBtn?.addEventListener("click", () => this.closeMobileDrawer());
+
+    document.getElementById("mobNavExplore")?.addEventListener("click", () => {
+      this.closeMobileDrawer();
+    });
+    document.getElementById("mobNavCustomizer")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.closeMobileDrawer();
+      this.openCustomizerModal();
+    });
+    document.getElementById("mobNavViva")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.closeMobileDrawer();
+      this.openVivaModal();
+    });
+    document.getElementById("mobNavSubmit")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.closeMobileDrawer();
+      this.openSubmitModal();
+    });
+    document.getElementById("mobNavBookmarks")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.closeMobileDrawer();
+      this.toggleFavoritesFilter();
+    });
+
+    // Mobile Bottom Quick Navigation Bar
+    document.getElementById("mobBottomExplore")?.addEventListener("click", () => {
+      if (this.isFavoritesOnly) {
+        this.toggleFavoritesFilter();
+      }
+    });
+    document.getElementById("mobBottomSearch")?.addEventListener("click", () => {
+      if (this.searchInput) {
+        this.searchInput.focus();
+        this.searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+    document.getElementById("mobBottomCustomizer")?.addEventListener("click", () => {
+      this.openCustomizerModal();
+    });
+    document.getElementById("mobBottomViva")?.addEventListener("click", () => {
+      this.openVivaModal();
+    });
+    document.getElementById("mobBottomSaved")?.addEventListener("click", () => {
+      this.toggleFavoritesFilter();
+    });
+
+    // Global Escape Key Listener to Close All Modals & Drawer
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         this.closeAllModals();
+        this.closeMobileDrawer();
       }
     });
 
@@ -644,14 +704,19 @@ class ProjectForgeApp {
     this.isFavoritesOnly = !this.isFavoritesOnly;
     this.displayedCount = this.batchSize;
     const favBtn = document.getElementById("favoritesFilterBtn");
-    if (favBtn) {
-      if (this.isFavoritesOnly) {
-        favBtn.classList.add("active");
-        this.showToast(`⭐ Showing ${this.bookmarkedIds.length} Saved Projects for ${this.currentUser.name}`, "info");
-      } else {
-        favBtn.classList.remove("active");
-        this.showToast("Showing All Projects", "info");
-      }
+    const mobBottomSaved = document.getElementById("mobBottomSaved");
+    const mobBottomExplore = document.getElementById("mobBottomExplore");
+
+    if (this.isFavoritesOnly) {
+      favBtn?.classList.add("active");
+      mobBottomSaved?.classList.add("active");
+      mobBottomExplore?.classList.remove("active");
+      this.showToast(`⭐ Showing ${this.bookmarkedIds.length} Saved Projects for ${this.currentUser.name}`, "info");
+    } else {
+      favBtn?.classList.remove("active");
+      mobBottomSaved?.classList.remove("active");
+      mobBottomExplore?.classList.add("active");
+      this.showToast("Showing All Projects", "info");
     }
     this.renderProjectsGrid();
   }
@@ -1236,36 +1301,88 @@ class ProjectForgeApp {
     if (window.lucide) window.lucide.createIcons();
   }
 
-  renderAuthNav() {
-    if (!this.authNavContainer) return;
+  openMobileDrawer() {
+    this.mobileDrawer?.classList.add("open");
+    this.mobileDrawerBackdrop?.classList.add("open");
+    document.body.style.overflow = "hidden";
+    if (window.lucide) window.lucide.createIcons();
+  }
 
-    if (this.currentUser) {
-      const savedCount = this.bookmarkedIds.length;
-      this.authNavContainer.innerHTML = `
-        <div class="user-profile-badge">
-          <div class="user-avatar">${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}</div>
-          <div class="user-info-text">
-            <span class="user-name">${this.currentUser.name}</span>
-            <span class="user-sub">${this.currentUser.degree || "B.Tech"} • Yr ${this.currentUser.year || "3"}</span>
+  closeMobileDrawer() {
+    this.mobileDrawer?.classList.remove("open");
+    this.mobileDrawerBackdrop?.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  renderAuthNav() {
+    const savedCount = this.bookmarkedIds.length;
+
+    // 1. Desktop / Header Nav
+    if (this.authNavContainer) {
+      if (this.currentUser) {
+        this.authNavContainer.innerHTML = `
+          <div class="user-profile-badge">
+            <div class="user-avatar">${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}</div>
+            <div class="user-info-text">
+              <span class="user-name">${this.currentUser.name}</span>
+              <span class="user-sub">${this.currentUser.degree || "B.Tech"} • Yr ${this.currentUser.year || "3"}</span>
+            </div>
+            <button class="btn btn-outline btn-sm logout-btn" onclick="app.handleSignOut()" title="Sign Out">
+              <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+            </button>
           </div>
-          <button class="btn btn-outline btn-sm logout-btn" onclick="app.handleSignOut()" title="Sign Out">
-            <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+        `;
+        if (this.navSavedBadge) {
+          this.navSavedBadge.innerText = savedCount;
+          this.navSavedBadge.style.display = savedCount > 0 ? "inline-flex" : "none";
+        }
+      } else {
+        this.authNavContainer.innerHTML = `
+          <button class="btn btn-secondary btn-sm" onclick="app.openAuthModal()">
+            <i data-lucide="log-in" style="width: 14px; height: 14px;"></i> Sign In
           </button>
-        </div>
-      `;
-      if (this.navSavedBadge) {
-        this.navSavedBadge.innerText = savedCount;
-        this.navSavedBadge.style.display = savedCount > 0 ? "inline-flex" : "none";
+        `;
+        if (this.navSavedBadge) {
+          this.navSavedBadge.style.display = "none";
+        }
       }
-    } else {
-      this.authNavContainer.innerHTML = `
-        <button class="btn btn-secondary btn-sm" onclick="app.openAuthModal()">
-          <i data-lucide="log-in" style="width: 14px; height: 14px;"></i> Sign In
-        </button>
-      `;
-      if (this.navSavedBadge) {
-        this.navSavedBadge.style.display = "none";
+    }
+
+    // 2. Mobile Drawer Auth Footer
+    if (this.mobileDrawerAuthContainer) {
+      if (this.currentUser) {
+        this.mobileDrawerAuthContainer.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.65rem;">
+              <div class="user-avatar" style="width: 36px; height: 36px; font-size: 0.9rem;">
+                ${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}
+              </div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.92rem; color: var(--text-heading);">${this.currentUser.name}</div>
+                <div style="font-size: 0.76rem; color: var(--text-muted);">${this.currentUser.degree || "B.Tech"} • Year ${this.currentUser.year || "3"}</div>
+              </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="app.closeMobileDrawer(); app.handleSignOut();" title="Sign Out">
+              <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+            </button>
+          </div>
+        `;
+      } else {
+        this.mobileDrawerAuthContainer.innerHTML = `
+          <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="app.closeMobileDrawer(); app.openAuthModal();">
+            <i data-lucide="user" style="width: 16px; height: 16px;"></i> Sign In / Create Account
+          </button>
+        `;
       }
+    }
+
+    // 3. Mobile Bottom Nav & Badges
+    if (this.mobSavedDot) {
+      this.mobSavedDot.style.display = savedCount > 0 ? "block" : "none";
+    }
+    const mobSavedSub = document.getElementById("mobSavedSub");
+    if (mobSavedSub) {
+      mobSavedSub.innerText = `${savedCount} Saved Project${savedCount === 1 ? '' : 's'}`;
     }
 
     if (window.lucide) window.lucide.createIcons();
@@ -1278,6 +1395,7 @@ class ProjectForgeApp {
     localStorage.removeItem("pf_bookmarks");
     this.isFavoritesOnly = false;
     document.getElementById("favoritesFilterBtn")?.classList.remove("active");
+    document.getElementById("mobBottomSaved")?.classList.remove("active");
     this.renderAuthNav();
     this.renderProjectsGrid();
     this.showToast("Signed out successfully.", "info");
