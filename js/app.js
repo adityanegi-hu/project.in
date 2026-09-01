@@ -606,15 +606,22 @@ class ProjectForgeApp {
     if (this.currentUser) {
       this.currentUser.saved_project_ids = this.bookmarkedIds;
       localStorage.setItem("pf_user", JSON.stringify(this.currentUser));
+
+      const users = this.getRegisteredUsers();
+      const uIdx = users.findIndex(u => u.email.toLowerCase() === (this.currentUser.email || "").toLowerCase());
+      if (uIdx >= 0) {
+        users[uIdx].saved_project_ids = this.bookmarkedIds;
+        this.saveRegisteredUsers(users);
+      }
     }
     localStorage.setItem("pf_bookmarks", JSON.stringify(this.bookmarkedIds));
 
-    // Sync to MongoDB asynchronously
+    // Sync to MongoDB asynchronously if server exists
     try {
       fetch("/api/user/toggle-save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: this.currentUser.email, projectId: projId })
+        body: JSON.stringify({ email: this.currentUser?.email, projectId: projId })
       }).catch(() => {});
     } catch (e) {}
 
@@ -974,6 +981,20 @@ class ProjectForgeApp {
     }
   }
 
+  getRegisteredUsers() {
+    try {
+      return JSON.parse(localStorage.getItem("pf_registered_users") || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+
+  saveRegisteredUsers(users) {
+    try {
+      localStorage.setItem("pf_registered_users", JSON.stringify(users));
+    } catch (e) {}
+  }
+
   // --- Auth Modal & User Management ---
   initAuthListeners() {
     this.authCloseBtn?.addEventListener("click", () => this.closeAuthModal());
@@ -984,66 +1005,200 @@ class ProjectForgeApp {
 
     this.signInForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const email = document.getElementById("signInEmail")?.value.trim();
-      const password = document.getElementById("signInPassword")?.value.trim();
-      if (!email || !password) return;
+      const emailInput = document.getElementById("signInEmail")?.value.trim();
+      const passwordInput = document.getElementById("signInPassword")?.value.trim();
+      if (!emailInput || !passwordInput) return;
 
+      const email = emailInput.toLowerCase();
+      const password = passwordInput;
+
+      let authSuccess = false;
+      let userData = null;
+
+      // 1. Try REST API if server is reachable
       try {
         const res = await fetch("/api/auth/signin", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password })
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Sign in failed");
+        }).catch(() => null);
 
-        this.currentUser = data.user;
-        this.bookmarkedIds = Array.isArray(data.user.saved_project_ids) ? data.user.saved_project_ids : [];
-        localStorage.setItem("pf_user", JSON.stringify(this.currentUser));
-        localStorage.setItem("pf_bookmarks", JSON.stringify(this.bookmarkedIds));
-
-        this.closeAuthModal();
-        this.renderAuthNav();
-        this.renderProjectsGrid();
-        this.showToast(`Welcome back, ${this.currentUser.name}! 👋`, "success");
-        this.handlePendingAction();
+        if (res) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const data = await res.json();
+            if (res.ok && data.success && data.user) {
+              authSuccess = true;
+              userData = data.user;
+            } else if (!res.ok && data.error && !data.error.includes("404")) {
+              throw new Error(data.error);
+            }
+          }
+        }
       } catch (err) {
-        this.showToast(err.message, "error");
+        if (err.message && !err.message.includes("<") && !err.message.includes("fetch") && !err.message.includes("JSON")) {
+          this.showToast(err.message, "error");
+          return;
+        }
       }
+
+      // 2. Client-Side Seamless Local Storage Auth (for GitHub Pages / static hosting)
+      if (!authSuccess) {
+        const users = this.getRegisteredUsers();
+        const existingUser = users.find(u => u.email.toLowerCase() === email);
+
+        if (existingUser) {
+          if (existingUser.password && existingUser.password !== password) {
+            this.showToast("Incorrect password. Please verify and try again.", "error");
+            return;
+          }
+          userData = {
+            name: existingUser.name,
+            email: existingUser.email,
+            degree: existingUser.degree || "B.Tech",
+            year: existingUser.year || "3",
+            saved_project_ids: Array.isArray(existingUser.saved_project_ids) ? existingUser.saved_project_ids : []
+          };
+        } else {
+          // Instant student session for newly entered credentials
+          const generatedName = email.split("@")[0].replace(/[^a-zA-Z0-9]/g, " ").trim();
+          const formattedName = generatedName ? generatedName.charAt(0).toUpperCase() + generatedName.slice(1) : "Student Developer";
+          
+          const newUser = {
+            name: formattedName,
+            email: email,
+            password: password,
+            degree: "B.Tech",
+            year: "3",
+            saved_project_ids: JSON.parse(localStorage.getItem("pf_bookmarks") || "[]")
+          };
+          users.push(newUser);
+          this.saveRegisteredUsers(users);
+
+          userData = {
+            name: newUser.name,
+            email: newUser.email,
+            degree: newUser.degree,
+            year: newUser.year,
+            saved_project_ids: newUser.saved_project_ids
+          };
+        }
+      }
+
+      this.currentUser = userData;
+      this.bookmarkedIds = Array.isArray(userData.saved_project_ids) ? userData.saved_project_ids : [];
+      localStorage.setItem("pf_user", JSON.stringify(this.currentUser));
+      localStorage.setItem("pf_bookmarks", JSON.stringify(this.bookmarkedIds));
+
+      this.closeAuthModal();
+      this.renderAuthNav();
+      this.renderProjectsGrid();
+      this.showToast(`Welcome back, ${this.currentUser.name}! 👋`, "success");
+      this.handlePendingAction();
     });
 
     this.signUpForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
       const name = document.getElementById("signUpName")?.value.trim();
-      const email = document.getElementById("signUpEmail")?.value.trim();
+      const emailInput = document.getElementById("signUpEmail")?.value.trim();
       const password = document.getElementById("signUpPassword")?.value.trim();
-      const degree = document.getElementById("signUpDegree")?.value;
-      const year = document.getElementById("signUpYear")?.value;
+      const degree = document.getElementById("signUpDegree")?.value || "B.Tech";
+      const year = document.getElementById("signUpYear")?.value || "3";
 
-      if (!name || !email || !password) return;
+      if (!name || !emailInput || !password) {
+        this.showToast("Please fill in all required fields.", "error");
+        return;
+      }
 
+      if (password.length < 6) {
+        this.showToast("Password must be at least 6 characters.", "error");
+        return;
+      }
+
+      const email = emailInput.toLowerCase();
+      let authSuccess = false;
+      let userData = null;
+
+      // 1. Try REST API if server is reachable
       try {
         const res = await fetch("/api/auth/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, password, degree, year })
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || "Sign up failed");
+        }).catch(() => null);
 
-        this.currentUser = data.user;
-        this.bookmarkedIds = [];
-        localStorage.setItem("pf_user", JSON.stringify(this.currentUser));
-        localStorage.setItem("pf_bookmarks", JSON.stringify(this.bookmarkedIds));
-
-        this.closeAuthModal();
-        this.renderAuthNav();
-        this.renderProjectsGrid();
-        this.showToast(`Account created successfully! Welcome, ${this.currentUser.name} 🎉`, "success");
-        this.handlePendingAction();
+        if (res) {
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            const data = await res.json();
+            if (res.ok && data.success && data.user) {
+              authSuccess = true;
+              userData = data.user;
+            } else if (!res.ok && data.error && !data.error.includes("404")) {
+              throw new Error(data.error);
+            }
+          }
+        }
       } catch (err) {
-        this.showToast(err.message, "error");
+        if (err.message && !err.message.includes("<") && !err.message.includes("fetch") && !err.message.includes("JSON")) {
+          this.showToast(err.message, "error");
+          return;
+        }
       }
+
+      // 2. Client-Side Seamless Local Storage Auth (for GitHub Pages / static hosting)
+      if (!authSuccess) {
+        const users = this.getRegisteredUsers();
+        const existingIndex = users.findIndex(u => u.email.toLowerCase() === email);
+        const existingBookmarks = JSON.parse(localStorage.getItem("pf_bookmarks") || "[]");
+
+        if (existingIndex >= 0) {
+          users[existingIndex] = {
+            ...users[existingIndex],
+            name,
+            password,
+            degree,
+            year,
+            saved_project_ids: users[existingIndex].saved_project_ids || existingBookmarks
+          };
+          userData = {
+            name,
+            email,
+            degree,
+            year,
+            saved_project_ids: users[existingIndex].saved_project_ids || existingBookmarks
+          };
+        } else {
+          const newUser = {
+            name,
+            email,
+            password,
+            degree,
+            year,
+            saved_project_ids: existingBookmarks
+          };
+          users.push(newUser);
+          userData = {
+            name,
+            email,
+            degree,
+            year,
+            saved_project_ids: existingBookmarks
+          };
+        }
+        this.saveRegisteredUsers(users);
+      }
+
+      this.currentUser = userData;
+      this.bookmarkedIds = Array.isArray(userData.saved_project_ids) ? userData.saved_project_ids : [];
+      localStorage.setItem("pf_user", JSON.stringify(this.currentUser));
+      localStorage.setItem("pf_bookmarks", JSON.stringify(this.bookmarkedIds));
+
+      this.closeAuthModal();
+      this.renderAuthNav();
+      this.renderProjectsGrid();
+      this.showToast(`Account created successfully! Welcome, ${this.currentUser.name} 🎉`, "success");
+      this.handlePendingAction();
     });
   }
 
