@@ -94,8 +94,8 @@ waf = WebFirewallShield()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_PORT = int(os.environ.get("PORT", 3000))
-DEFAULT_HOST = os.environ.get("HOST", "0.0.0.0")
-MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
+DEFAULT_MONGO_URI = "mongodb+srv://anegi0956_db_user:SptciXfQGkLXdENg@cluster0.hnzssxo.mongodb.net/projectforge?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = os.environ.get("MONGO_URI", DEFAULT_MONGO_URI)
 DB_NAME = os.environ.get("DB_NAME", "projectforge")
 
 # Connect to MongoDB (Supports both local mongodb:// and cloud MongoDB Atlas mongodb+srv://)

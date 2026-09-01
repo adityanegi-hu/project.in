@@ -6,7 +6,7 @@ services:
     startCommand: python server.py
     envVars:
       - key: MONGO_URI
-        sync: false
+        value: "mongodb+srv://anegi0956_db_user:SptciXfQGkLXdENg@cluster0.hnzssxo.mongodb.net/projectforge?retryWrites=true&w=majority&appName=Cluster0"
       - key: DB_NAME
         value: projectforge
       - key: HOST
