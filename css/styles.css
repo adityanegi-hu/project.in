@@ -103,6 +103,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -113,6 +114,9 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  -webkit-tap-highlight-color: transparent;
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
@@ -154,6 +158,8 @@ button {
 img,
 svg {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* --- Utility Classes --- */
@@ -161,7 +167,8 @@ svg {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(0.85rem, 3.5vw, 1.5rem);
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
 }
@@ -302,6 +309,7 @@ svg {
   -webkit-backdrop-filter: var(--blur-glass);
   border-bottom: 1px solid var(--border-color);
   padding: 0.85rem 0;
+  padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
   transition: all var(--transition-normal);
 }
 
