@@ -94,6 +94,7 @@ waf = WebFirewallShield()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_PORT = int(os.environ.get("PORT", 3000))
+DEFAULT_HOST = os.environ.get("HOST", "0.0.0.0")
 DEFAULT_MONGO_URI = "mongodb+srv://anegi0956_db_user:SptciXfQGkLXdENg@cluster0.hnzssxo.mongodb.net/projectforge?retryWrites=true&w=majority&appName=Cluster0"
 MONGO_URI = os.environ.get("MONGO_URI", DEFAULT_MONGO_URI)
 DB_NAME = os.environ.get("DB_NAME", "projectforge")
@@ -102,8 +103,18 @@ DB_NAME = os.environ.get("DB_NAME", "projectforge")
 db = None
 if pymongo is not None:
     try:
-        timeout_ms = 5000 if "mongodb+srv" in MONGO_URI else 2000
-        mongo_client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=timeout_ms)
+        timeout_ms = 8000 if "mongodb+srv" in MONGO_URI else 2000
+        client_kwargs = {
+            "serverSelectionTimeoutMS": timeout_ms
+        }
+        if "mongodb+srv" in MONGO_URI:
+            try:
+                import certifi
+                client_kwargs["tlsCAFile"] = certifi.where()
+            except Exception:
+                client_kwargs["tlsAllowInvalidCertificates"] = True
+
+        mongo_client = pymongo.MongoClient(MONGO_URI, **client_kwargs)
         mongo_client.server_info()
         db = mongo_client[DB_NAME]
         safe_uri = MONGO_URI.split("@")[-1] if "@" in MONGO_URI else MONGO_URI
