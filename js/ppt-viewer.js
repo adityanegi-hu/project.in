@@ -130,23 +130,23 @@ class PPTViewer {
       slideHTML = `
         <div class="slide-canvas" style="border-top: 4px solid var(--accent-primary);">
           <div class="slide-badge-tag">SLIDE ${slide.slideNumber} • TITLE & DEFENSE</div>
-          <div class="slide-header" style="margin-top: 1rem;">
-            <div style="font-size: 0.85rem; text-transform: uppercase; color: var(--accent-secondary); font-weight: 700; margin-bottom: 0.4rem;">
+          <div class="slide-header">
+            <div class="college-tag" style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-secondary); font-weight: 700; margin-bottom: 0.25rem;">
               ${this.customMetadata.collegeName || "Engineering & Technology Institute"}
             </div>
             <h2 class="slide-heading">${slide.title}</h2>
             <p class="slide-subheading">${slide.subtitle || ''}</p>
           </div>
           <div class="slide-content-area">
-            <div style="background: rgba(30, 41, 59, 0.6); padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.25rem;">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.88rem;">
+            <div class="slide-metadata-box" style="background: rgba(30, 41, 59, 0.6); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.85rem;">
+              <div class="slide-metadata-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.84rem;">
                 <div>
-                  <span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Team Members:</span>
-                  <strong style="color: #f8fafc;">${this.customMetadata.teamMembers || "Student Team"}</strong>
+                  <span style="color: var(--text-muted); display: block; font-size: 0.7rem; text-transform: uppercase;">Team Members:</span>
+                  <strong style="color: #f8fafc; word-break: break-word;">${this.customMetadata.teamMembers || "Student Team"}</strong>
                 </div>
                 <div>
-                  <span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Project Guide:</span>
-                  <strong style="color: #f8fafc;">${this.customMetadata.guideName || "Project Supervisor"}</strong>
+                  <span style="color: var(--text-muted); display: block; font-size: 0.7rem; text-transform: uppercase;">Project Guide:</span>
+                  <strong style="color: #f8fafc; word-break: break-word;">${this.customMetadata.guideName || "Project Supervisor"}</strong>
                 </div>
               </div>
             </div>
@@ -173,13 +173,13 @@ class PPTViewer {
             <div class="slide-flow-container">
               ${slide.diagramSteps.map((step, idx) => `
                 <div class="slide-flow-node">
-                  <div style="font-size: 0.7rem; color: var(--accent-secondary); margin-bottom: 0.2rem;">STAGE 0${idx + 1}</div>
+                  <div style="font-size: 0.68rem; color: var(--accent-secondary); margin-bottom: 0.15rem;">STAGE 0${idx + 1}</div>
                   <div>${step}</div>
                 </div>
                 ${idx < slide.diagramSteps.length - 1 ? `<div class="slide-flow-arrow">➔</div>` : ""}
               `).join("")}
             </div>
-            <ul class="slide-bullet-list" style="margin-top: 1.5rem;">
+            <ul class="slide-bullet-list" style="margin-top: 0.85rem;">
               ${(slide.bullets || []).map(b => `
                 <li class="slide-bullet-item">
                   <i data-lucide="chevron-right" class="slide-bullet-icon"></i>

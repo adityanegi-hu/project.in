@@ -803,45 +803,45 @@ class ProjectForgeApp {
     const sysReqs = synopsis.systemRequirements || { hardware: "Standard PC / 8GB RAM", software: (project.techStack || []).join(", ") || "Modern Environment" };
 
     container.innerHTML = `
-      <div style="display: flex; flex-direction: column; gap: 1.75rem;">
-        <div style="background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
-          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+      <div class="overview-tab-content" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div class="synopsis-card" style="background: var(--bg-card); padding: clamp(1rem, 3vw, 1.5rem); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <div style="display: flex; gap: 0.4rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
             <span class="year-indicator-pill yr-${project.year}">🎓 ${project.yearLabel || ''}</span>
             ${project.degrees ? project.degrees.map(d => `<span class="degree-badge">${d}</span>`).join("") : ''}
           </div>
-          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-            <i data-lucide="file-text" style="color: var(--accent-primary);"></i> Abstract & Project Synopsis
+          <h3 style="font-size: clamp(1.05rem, 3.5vw, 1.2rem); font-weight: 700; color: var(--text-heading); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="file-text" style="color: var(--accent-primary); width: 18px; height: 18px; flex-shrink: 0;"></i> Abstract & Project Synopsis
           </h3>
-          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">${abstractText}</p>
+          <p style="color: var(--text-secondary); line-height: 1.65; font-size: clamp(0.85rem, 2.5vw, 0.95rem); word-break: break-word;">${abstractText}</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;">
-          <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem;">
-              <i data-lucide="alert-circle"></i> Identified Problem Statement
+        <div class="synopsis-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem;">
+          <div class="synopsis-card" style="background: var(--bg-card); padding: 1.15rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.92rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i data-lucide="alert-circle" style="width: 16px; height: 16px; flex-shrink: 0;"></i> Identified Problem Statement
             </h4>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--text-secondary);">
-              ${issues.map(i => `<li>• ${i}</li>`).join("")}
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.84rem; color: var(--text-secondary);">
+              ${issues.map(i => `<li style="word-break: break-word;">• ${i}</li>`).join("")}
             </ul>
           </div>
 
-          <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem;">
-              <i data-lucide="check-circle"></i> Proposed System Advantages
+          <div class="synopsis-card" style="background: var(--bg-card); padding: 1.15rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h4 style="font-size: 0.92rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i data-lucide="check-circle" style="width: 16px; height: 16px; flex-shrink: 0;"></i> Proposed System Advantages
             </h4>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--text-secondary);">
-              ${advantages.map(a => `<li>• ${a}</li>`).join("")}
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.84rem; color: var(--text-secondary);">
+              ${advantages.map(a => `<li style="word-break: break-word;">• ${a}</li>`).join("")}
             </ul>
           </div>
         </div>
 
-        <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-          <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem;">
-            <i data-lucide="cpu"></i> System Environment Requirements
+        <div class="synopsis-card" style="background: var(--bg-card); padding: 1.15rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <h4 style="font-size: 0.92rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i data-lucide="cpu" style="width: 16px; height: 16px; flex-shrink: 0;"></i> System Environment Requirements
           </h4>
-          <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+          <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; word-break: break-word;">
             <div><strong>Hardware:</strong> ${sysReqs.hardware}</div>
-            <div style="margin-top: 0.35rem;"><strong>Software & Dependencies:</strong> ${sysReqs.software}</div>
+            <div style="margin-top: 0.3rem;"><strong>Software & Dependencies:</strong> ${sysReqs.software}</div>
           </div>
         </div>
       </div>
