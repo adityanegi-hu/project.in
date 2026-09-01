@@ -1643,6 +1643,128 @@ svg {
   animation: fadeIn 0.2s ease;
 }
 
+/* Modal Tab Viva Q&A styling */
+.viva-tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.viva-tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.viva-tab-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viva-tab-info p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.viva-questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.viva-qa-item {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.viva-question-header {
+  padding: 0.95rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-heading);
+  user-select: none;
+  gap: 0.75rem;
+}
+
+.viva-question-header:hover {
+  background: rgba(99, 102, 241, 0.05);
+  color: var(--accent-primary);
+}
+
+.viva-q-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.viva-q-badge {
+  background: var(--accent-primary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+}
+
+.viva-chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.viva-qa-item.open .viva-chevron {
+  transform: rotate(180deg);
+}
+
+.viva-answer-body {
+  padding: 0 1.25rem 1.15rem;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  border-top: 1px dashed var(--border-color);
+  margin-top: 0.25rem;
+  padding-top: 0.85rem;
+  display: none;
+}
+
+.viva-qa-item.open .viva-answer-body {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+
+.viva-ans-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--accent-emerald, #10b981);
+  margin-bottom: 0.4rem;
+}
+
+
 /* --- AI PPT & Synopsis Customizer Studio Modal --- */
 .customizer-form-grid {
   display: grid;

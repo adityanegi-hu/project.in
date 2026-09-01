@@ -236,9 +236,15 @@ class ProjectForgeHandler(http.server.SimpleHTTPRequestHandler):
 
 
     def do_POST(self):
+        client_ip = self.client_address[0] if self.client_address else "127.0.0.1"
         parsed = urllib.parse.urlparse(self.path)
         content_length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(content_length) if content_length > 0 else b"{}"
+
+        allowed, status, msg = waf.inspect_request(client_ip, self.path, body)
+        if not allowed:
+            self.send_json(status, {"error": msg, "firewall": "Active"})
+            return
 
         # API: User Sign Up / Registration
         if parsed.path == "/api/auth/signup":
