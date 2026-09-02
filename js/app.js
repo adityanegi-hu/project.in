@@ -26,8 +26,9 @@ class ForgeProjectApp {
     this.detailsCache = {};
     this.infiniteObserver = null;
 
-    // Cloud Backend Base URL (Supports live cloud deployment & localhost auto-detection)
-    this.apiBase = window.FORGEPROJECT_API_URL || window.PROJECTFORGE_API_URL || (window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1") ? "" : (localStorage.getItem("pf_api_url") || ""));
+    // Backend Base URL: Prioritize local server if on localhost/127.0.0.1, otherwise fallback to configured cloud API
+    const isLocal = typeof window !== "undefined" && window.location && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.port === "3000");
+    this.apiBase = isLocal ? "" : (window.FORGEPROJECT_API_URL || window.PROJECTFORGE_API_URL || (localStorage.getItem("pf_api_url") || ""));
 
     this.initElements();
     this.initEventListeners();
@@ -408,16 +409,16 @@ class ForgeProjectApp {
     this.categoryPillsContainer.innerHTML = "";
 
     const domains = typeof DOMAINS_LIST !== "undefined" ? DOMAINS_LIST : [
-      { id: "all", name: "All 450 Projects", icon: "sparkles" },
-      { id: "ai-ml", name: "AI & Machine Learning", icon: "brain" },
-      { id: "fullstack", name: "Full Stack & Web Dev", icon: "layout" },
-      { id: "iot-embedded", name: "IoT & Smart Hardware", icon: "cpu" },
-      { id: "cloud-devops", name: "Cloud & Microservices", icon: "cloud" },
-      { id: "blockchain", name: "Blockchain & Web3", icon: "shield-check" },
-      { id: "cybersecurity", name: "Cybersecurity & Forensic", icon: "lock" },
-      { id: "mobile-app", name: "Mobile Applications", icon: "smartphone" },
-      { id: "datascience", name: "Data Science & Analytics", icon: "bar-chart-2" },
-      { id: "computer-vision", name: "Computer Vision & AR", icon: "camera" }
+      { id: "all", name: "All Domains (450)", icon: "layout-grid" },
+      { id: "ai-ml", name: "AI & Machine Learning (50)", icon: "brain-circuit" },
+      { id: "iot-embedded", name: "IoT & Hardware (50)", icon: "cpu" },
+      { id: "java", name: "Java & Enterprise (50)", icon: "coffee" },
+      { id: "mobile", name: "Mobile Flutter (50)", icon: "smartphone" },
+      { id: "blockchain", name: "Blockchain & Web3 (50)", icon: "blocks" },
+      { id: "web-dev", name: "Web & Full Stack (50)", icon: "globe" },
+      { id: "python-data", name: "Python & Data Science (50)", icon: "terminal" },
+      { id: "cybersecurity", name: "Cybersecurity & Cloud (50)", icon: "shield" },
+      { id: "c-cpp", name: "C / C++ Systems (50)", icon: "code" }
     ];
 
     domains.forEach(domain => {
@@ -617,7 +618,8 @@ class ForgeProjectApp {
         e.stopPropagation();
         if (window.projectDownloader) {
           const fullProj = await this.getProjectFullDetails(proj);
-          window.projectDownloader.downloadProjectKit(fullProj);
+          const meta = window.pptViewer?.customMetadata || {};
+          window.projectDownloader.downloadProjectKit(fullProj, meta);
         }
       });
 
@@ -742,7 +744,8 @@ class ForgeProjectApp {
       modalDownloadBtn.onclick = async () => {
         if (window.projectDownloader) {
           const fullProj = await this.getProjectFullDetails(targetProj);
-          window.projectDownloader.downloadProjectKit(fullProj);
+          const meta = window.pptViewer?.customMetadata || {};
+          window.projectDownloader.downloadProjectKit(fullProj, meta);
         }
       };
     }
@@ -920,6 +923,18 @@ class ForgeProjectApp {
     if (!targetProj) return;
 
     this.selectedProject = await this.getProjectFullDetails(targetProj);
+
+    // Pre-populate input fields with saved student/college metadata
+    const meta = window.pptViewer?.customMetadata;
+    if (meta) {
+      const col = document.getElementById("custCollegeName");
+      const team = document.getElementById("custTeamMembers");
+      const guide = document.getElementById("custGuideName");
+      if (col && meta.collegeName) col.value = meta.collegeName;
+      if (team && meta.teamMembers) team.value = meta.teamMembers;
+      if (guide && meta.guideName) guide.value = meta.guideName;
+    }
+
     if (this.customizerModal) {
       this.customizerModal.classList.add("open");
     }

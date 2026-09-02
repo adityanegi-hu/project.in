@@ -9,7 +9,13 @@ class PPTViewer {
     this.currentProject = null;
     this.currentSlideIndex = 0;
     this.isFullscreen = false;
-    this.customMetadata = {
+    
+    let savedMeta = null;
+    try {
+      savedMeta = JSON.parse(localStorage.getItem("pf_custom_meta") || "null");
+    } catch (e) {}
+
+    this.customMetadata = savedMeta || {
       collegeName: "Engineering Institute of Technology",
       teamMembers: "Student Developer Team",
       guideName: "Faculty Project Supervisor"
@@ -82,6 +88,9 @@ class PPTViewer {
 
   setCustomMetadata(data) {
     this.customMetadata = { ...this.customMetadata, ...data };
+    try {
+      localStorage.setItem("pf_custom_meta", JSON.stringify(this.customMetadata));
+    } catch (e) {}
     this.renderSlide();
   }
 

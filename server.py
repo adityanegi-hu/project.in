@@ -10,6 +10,12 @@ import urllib.parse
 import os
 import sys
 import hashlib
+import hmac
+import secrets
+import threading
+import time
+from collections import defaultdict
+from datetime import datetime, timezone
 
 # Safe import for PyMongo
 try:
@@ -17,16 +23,34 @@ try:
 except ImportError:
     pymongo = None
 
-from datetime import datetime, timezone
+def hash_password(password: str) -> str:
+    """Secure password hashing using PBKDF2-HMAC-SHA256 with random salt (100,000 rounds)."""
+    salt = secrets.token_hex(16)
+    key = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt.encode("utf-8"), 100_000).hex()
+    return f"pbkdf2_sha256${salt}${key}"
 
-import time
-from collections import defaultdict
+def verify_password(password: str, stored_hash: str) -> bool:
+    """Verifies password against stored hash with backward compatibility for legacy unsalted hashes."""
+    if not stored_hash or not password:
+        return False
+    
+    # Backward compatibility with legacy unsalted SHA-256
+    if not stored_hash.startswith("pbkdf2_sha256$"):
+        legacy_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        return hmac.compare_digest(legacy_hash, stored_hash)
+
+    try:
+        _, salt, key = stored_hash.split("$", 2)
+        calculated_key = hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt.encode("utf-8"), 100_000).hex()
+        return hmac.compare_digest(calculated_key, key)
+    except Exception:
+        return False
 
 class WebFirewallShield:
     """
     ForgeProject Application-Layer Web Security Firewall (WAF)
     Provides real-time rate limiting, malicious pattern inspection, path traversal protection,
-    and automatic defense headers.
+    route-aware code payload allowance, and automatic defense headers with thread safety.
     """
     def __init__(self, rate_limit=120, time_window=60):
         self.rate_limit = rate_limit
@@ -35,59 +59,74 @@ class WebFirewallShield:
         self.blocked_attacks_count = 0
         self.total_inspected_requests = 0
         self.start_time = time.time()
+        self.lock = threading.Lock()
         
         self.blocked_patterns = [
             "../", "..\\", "%2e%2e", "%00", 
-            "<script", "javascript:", "eval(", 
-            "union select", "$where", "/etc/passwd", 
-            "cmd.exe", ".env", "phpinfo"
+            "javascript:", "union select", "$where", 
+            "/etc/passwd", "cmd.exe", ".env", "phpinfo"
         ]
 
     def is_rate_limited(self, client_ip):
         now = time.time()
-        self.request_history[client_ip] = [t for t in self.request_history[client_ip] if now - t < self.time_window]
-        if len(self.request_history[client_ip]) >= self.rate_limit:
-            return True
-        self.request_history[client_ip].append(now)
-        return False
+        with self.lock:
+            self.request_history[client_ip] = [t for t in self.request_history[client_ip] if now - t < self.time_window]
+            if len(self.request_history[client_ip]) >= self.rate_limit:
+                return True
+            self.request_history[client_ip].append(now)
+            return False
 
     def inspect_request(self, client_ip, path, body=b""):
-        self.total_inspected_requests += 1
+        with self.lock:
+            self.total_inspected_requests += 1
         
         # 1. Rate Limiting Check
         if self.is_rate_limited(client_ip):
-            self.blocked_attacks_count += 1
+            with self.lock:
+                self.blocked_attacks_count += 1
             return False, 429, "Rate limit exceeded (Max 120 requests/minute). Please slow down."
 
         # 2. Malicious Pattern Inspection (URL Decoded)
         lowered_path = urllib.parse.unquote(path).lower()
         for pattern in self.blocked_patterns:
             if pattern in lowered_path:
-                self.blocked_attacks_count += 1
-                return False, 403, "Firewall Rule Triggered: Blocked unauthorized pattern."
+                with self.lock:
+                    self.blocked_attacks_count += 1
+                return False, 403, "Firewall Rule Triggered: Blocked unauthorized path pattern."
 
+        # 3. Request Body Malicious Payload Inspection
         if body:
             try:
                 body_str = body.decode("utf-8", errors="ignore").lower()
-                for pattern in ["<script", "eval(", "union select"]:
+                # Route-aware inspection: Allow web code (<script, eval) on project sharing endpoints
+                is_code_endpoint = "/api/share-project" in lowered_path
+                blocked_body_patterns = (
+                    ["union select", "$where", "cmd.exe", "/etc/passwd"] 
+                    if is_code_endpoint 
+                    else ["<script", "eval(", "union select", "$where", "cmd.exe", "/etc/passwd"]
+                )
+                
+                for pattern in blocked_body_patterns:
                     if pattern in body_str:
-                        self.blocked_attacks_count += 1
-                        return False, 403, f"Firewall Rule Triggered: Blocked malicious payload."
+                        with self.lock:
+                            self.blocked_attacks_count += 1
+                        return False, 403, "Firewall Rule Triggered: Blocked malicious payload."
             except Exception:
                 pass
 
         return True, 200, "OK"
 
     def get_status(self):
-        return {
-            "firewall": "Active",
-            "status": "Healthy & Protecting",
-            "total_inspected_requests": self.total_inspected_requests,
-            "blocked_threats_count": self.blocked_attacks_count,
-            "rate_limit_per_minute": self.rate_limit,
-            "active_clients_tracked": len(self.request_history),
-            "uptime_seconds": int(time.time() - self.start_time)
-        }
+        with self.lock:
+            return {
+                "firewall": "Active",
+                "status": "Healthy & Protecting",
+                "total_inspected_requests": self.total_inspected_requests,
+                "blocked_threats_count": self.blocked_attacks_count,
+                "rate_limit_per_minute": self.rate_limit,
+                "active_clients_tracked": len(self.request_history),
+                "uptime_seconds": int(time.time() - self.start_time)
+            }
 
 waf = WebFirewallShield()
 
@@ -95,9 +134,20 @@ waf = WebFirewallShield()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_PORT = int(os.environ.get("PORT", 3000))
 DEFAULT_HOST = os.environ.get("HOST", "0.0.0.0")
-DEFAULT_MONGO_URI = "mongodb+srv://anegi0956_db_user:SptciXfQGkLXdENg@cluster0.hnzssxo.mongodb.net/projectforge?retryWrites=true&w=majority&appName=Cluster0"
+DEFAULT_MONGO_URI = "mongodb://localhost:27017/projectforge"
 MONGO_URI = os.environ.get("MONGO_URI", DEFAULT_MONGO_URI)
 DB_NAME = os.environ.get("DB_NAME", "projectforge")
+
+# Preload data-details.json once in memory for ultra-fast on-demand resolution
+DETAILS_CACHE = {}
+try:
+    details_file_path = os.path.join(BASE_DIR, "js", "data-details.json")
+    if os.path.exists(details_file_path):
+        with open(details_file_path, "r", encoding="utf-8") as df:
+            DETAILS_CACHE = json.load(df)
+            print(f"Loaded {len(DETAILS_CACHE)} project details into memory cache.", flush=True)
+except Exception as e:
+    print(f"Notice: Could not preload details cache ({e})", flush=True)
 
 # Connect to MongoDB (Supports both local mongodb:// and cloud MongoDB Atlas mongodb+srv://)
 db = None
@@ -125,7 +175,7 @@ def get_db():
         mongo_client.server_info()
         db = mongo_client[DB_NAME]
         safe_uri = MONGO_URI.split("@")[-1] if "@" in MONGO_URI else MONGO_URI
-        print(f"Connected to MongoDB Atlas at {safe_uri}/{DB_NAME}", flush=True)
+        print(f"Connected to MongoDB at {safe_uri}/{DB_NAME}", flush=True)
         return db
     except Exception as err:
         print(f"Notice: MongoDB connection pending ({err}). Will retry on request.", flush=True)
@@ -137,6 +187,9 @@ get_db()
 class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=BASE_DIR, **kwargs)
+
     def end_headers(self):
         # Application-Layer Firewall Security Headers
         self.send_header("Access-Control-Allow-Origin", "*")
@@ -147,8 +200,17 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("X-XSS-Protection", "1; mode=block")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Permissions-Policy", "geolocation=(), camera=(), microphone=()")
-        self.send_header("Connection", "close")
         super().end_headers()
+
+    def get_client_ip(self):
+        """Resolves real client IP across reverse proxies (Render, Cloudflare, Nginx) or direct sockets."""
+        forwarded = self.headers.get("X-Forwarded-For")
+        if forwarded:
+            return forwarded.split(",")[0].strip()
+        real_ip = self.headers.get("X-Real-IP")
+        if real_ip:
+            return real_ip.strip()
+        return self.client_address[0] if self.client_address else "127.0.0.1"
 
     def do_OPTIONS(self):
         self.send_response(200)
@@ -167,7 +229,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
             print(f"Error in send_json: {e}", flush=True)
 
     def do_GET(self):
-        client_ip = self.client_address[0] if self.client_address else "127.0.0.1"
+        client_ip = self.get_client_ip()
         allowed, status, msg = waf.inspect_request(client_ip, self.path)
         if not allowed:
             self.send_json(status, {"error": msg, "firewall": "Active"})
@@ -238,13 +300,8 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 if database is not None:
                     proj_doc = database["projects"].find_one({"id": proj_id}, {"_id": 0})
 
-                if proj_doc is None:
-                    details_file = os.path.join(BASE_DIR, "js", "data-details.json")
-                    if os.path.exists(details_file):
-                        with open(details_file, "r", encoding="utf-8") as df:
-                            details_map = json.load(df)
-                            if proj_id in details_map:
-                                proj_doc = {"id": proj_id, **details_map[proj_id]}
+                if proj_doc is None and proj_id in DETAILS_CACHE:
+                    proj_doc = {"id": proj_id, **DETAILS_CACHE[proj_id]}
 
                 if proj_doc is None:
                     self.send_json(404, {"success": False, "error": f"Project '{proj_id}' not found"})
@@ -261,9 +318,16 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
 
 
     def do_POST(self):
-        client_ip = self.client_address[0] if self.client_address else "127.0.0.1"
+        client_ip = self.get_client_ip()
         parsed = urllib.parse.urlparse(self.path)
         content_length = int(self.headers.get("Content-Length", 0))
+
+        # Enforce maximum payload limit (10MB) to protect against DoS memory exhaustion
+        MAX_PAYLOAD = 10 * 1024 * 1024
+        if content_length > MAX_PAYLOAD:
+            self.send_json(413, {"error": "Payload Too Large (Maximum 10MB allowed)."})
+            return
+
         body = self.rfile.read(content_length) if content_length > 0 else b"{}"
 
         allowed, status, msg = waf.inspect_request(client_ip, self.path, body)
@@ -289,7 +353,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 if len(password) < 6:
                     raise ValueError("Password must be at least 6 characters.")
 
-                pwd_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+                pwd_hash = hash_password(password)
 
                 if database is not None:
                     existing = database["users"].find_one({"email": email})
@@ -334,14 +398,24 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 if not email or not password:
                     raise ValueError("Email and password are required.")
 
-                pwd_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
-
                 if database is not None:
                     user = database["users"].find_one({"email": email})
                     if not user:
                         raise ValueError("No account found with this email. Please Sign Up.")
-                    if user.get("password") != pwd_hash:
+                    
+                    stored_pwd = user.get("password", "")
+                    if not verify_password(password, stored_pwd):
                         raise ValueError("Invalid password. Please check and try again.")
+
+                    # Seamlessly upgrade legacy unsalted hash to PBKDF2
+                    if not stored_pwd.startswith("pbkdf2_sha256$"):
+                        try:
+                            database["users"].update_one(
+                                {"email": email},
+                                {"$set": {"password": hash_password(password)}}
+                            )
+                        except Exception:
+                            pass
 
                     user_profile = {
                         "email": user["email"],
@@ -452,13 +526,16 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                     tech_stack = ["Python", "React"]
 
                 tech_str = ", ".join(tech_stack)
+                data["techStack"] = tech_stack
 
-                author_name = data.get("authorName", "Student Contributor")
-                author_email = data.get("authorEmail", "")
-                author_degree = data.get("authorDegree", "B.Tech")
+                author_name = str(data.get("authorName", "")).strip() or "Student Contributor"
+                author_email = str(data.get("authorEmail", "")).strip()
+                author_degree = str(data.get("authorDegree", "B.Tech")).strip()
                 author_year = int(data.get("authorYear", data.get("year", 3)))
+                first_name = author_name.split()[0] if author_name.split() else "Student"
 
                 proj_id = f"shared-{int(datetime.now().timestamp() * 1000)}"
+                data["id"] = proj_id
                 full_proj_meta = {
                     "id": proj_id,
                     "year": author_year,
@@ -467,7 +544,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                     "title": data.get("title", "Community Submitted Project"),
                     "category": cat_id,
                     "categoryLabel": cat_labels.get(cat_id, "Software Engineering"),
-                    "badge": f"Shared by {author_name.split()[0]}",
+                    "badge": f"Shared by {first_name}",
                     "tagline": data.get("abstract", "")[:120] + "..." if len(data.get("abstract", "")) > 120 else data.get("abstract", ""),
                     "rating": 4.9,
                     "downloads": "1.2k+",
@@ -506,12 +583,12 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                         {
                             "filename": "README.md",
                             "language": "markdown",
-                            "code": f"# {data.get('title')}\n\nRepository: {data.get('repoUrl')}\nSubmitted by: {data.get('authorName', 'Student')}\n\n{data.get('abstract')}"
+                            "code": f"# {data.get('title', 'Community Project')}\n\nRepository: {data.get('repoUrl', 'https://github.com')}\nSubmitted by: {author_name}\n\n{data.get('abstract', '')}"
                         },
                         {
                             "filename": "main.py" if any("python" in t.lower() for t in tech_stack) else "index.js",
                             "language": "python" if any("python" in t.lower() for t in tech_stack) else "javascript",
-                            "code": f"// Project: {data.get('title')}\n// Author: {data.get('authorName', 'Student')}\nconsole.log('Project initialized successfully');\n"
+                            "code": f"// Project: {data.get('title', 'Community Project')}\n// Author: {author_name}\nconsole.log('Project initialized successfully');\n"
                         }
                     ],
                     "slides": [
@@ -519,7 +596,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                             "slideNumber": 1,
                             "type": "title",
                             "title": data.get("title", "Project Defense"),
-                            "subtitle": f"An Academic Capstone Presentation by {data.get('authorName', 'Student')}",
+                            "subtitle": f"An Academic Capstone Presentation by {author_name}",
                             "bullets": [],
                             "speakerNotes": "Introduce your team, project title, and institution."
                         },
@@ -541,7 +618,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                             "title": "Proposed Solution",
                             "subtitle": "System Architecture & Innovation",
                             "bullets": [
-                                f"Built with {data.get('techStack', 'Modern Web Technologies')}",
+                                f"Built with {tech_str}",
                                 "Modular microservice architecture",
                                 "End-to-end automated pipeline"
                             ],
@@ -550,8 +627,8 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                     ],
                     "vivaQuestions": [
                         {
-                            "question": f"What is the primary motivation behind {data.get('title')}?",
-                            "answer": f"The primary goal is to address identified operational bottlenecks using modern {data.get('techStack', 'software')} best practices."
+                            "question": f"What is the primary motivation behind {data.get('title', 'this project')}?",
+                            "answer": f"The primary goal is to address identified operational bottlenecks using modern {tech_str} best practices."
                         },
                         {
                             "question": "Which architecture pattern was chosen and why?",
@@ -579,7 +656,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
 def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
     os.chdir(BASE_DIR)
     try:
-        http.server.ThreadingHTTPServer.allow_reuse_address = False
+        http.server.ThreadingHTTPServer.allow_reuse_address = True
         with http.server.ThreadingHTTPServer((host, port), ForgeProjectHandler) as httpd:
             print("============================================================", flush=True)
             print(f"ForgeProject Server is LIVE!", flush=True)

@@ -111,15 +111,23 @@ class VivaSimulator {
     const currentQ = this.currentProject.vivaQuestions[this.currentQuestionIndex];
     const words = studentAnswer.toLowerCase().split(/\s+/);
 
-    // Semantic keyword evaluation based on model answer
-    const modelKeywords = (currentQ.answer || "").toLowerCase().match(/\b\w{4,}\b/g) || [];
-    let matchCount = 0;
+    // Semantic keyword evaluation based on model answer with stop words filtered out
+    const stopWords = new Set([
+      "this", "that", "with", "from", "have", "been", "were", "what", "when", "where",
+      "which", "while", "also", "into", "more", "some", "such", "than", "then", "their",
+      "they", "will", "would", "about", "could", "should", "using", "used", "uses"
+    ]);
 
-    words.forEach(w => {
-      if (modelKeywords.includes(w)) matchCount++;
+    const rawModelWords = (currentQ.answer || "").toLowerCase().match(/\b\w{3,}\b/g) || [];
+    const technicalKeywords = rawModelWords.filter(w => !stopWords.has(w));
+
+    let matchCount = 0;
+    const studentUniqueWords = new Set(words.filter(w => !stopWords.has(w)));
+    studentUniqueWords.forEach(w => {
+      if (technicalKeywords.includes(w)) matchCount++;
     });
 
-    const isGood = words.length >= 8 && (matchCount >= 2 || words.length >= 20);
+    const isGood = (words.length >= 6 && matchCount >= 2) || (words.length >= 15 && matchCount >= 1);
 
     if (isGood) {
       this.score += 25;
