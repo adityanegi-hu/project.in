@@ -71,6 +71,13 @@ class PPTViewer {
     });
   }
 
+  async openViewer(projectOrId) {
+    if (window.app) {
+      await window.app.openProjectModal(projectOrId);
+      window.app.switchModalTab("ppt");
+    }
+  }
+
   async loadProject(project) {
     if (!project) return;
     if (!project.slides && window.app && typeof window.app.getProjectFullDetails === "function") {

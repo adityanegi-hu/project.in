@@ -11,13 +11,19 @@ class ProjectDownloader {
 
   async downloadProjectKit(project, customMeta = {}) {
     if (this.isGenerating) return;
+
+    if (typeof project === "string") {
+      const projId = project;
+      project = (window.app?.projects?.find(p => p.id === projId)) || (typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA.find(p => p.id === projId) : null) || { id: projId, title: "Academic Project Kit" };
+    }
+
     this.isGenerating = true;
 
     const collegeName = customMeta.collegeName || "Engineering Institute of Technology";
     const teamMembers = customMeta.teamMembers || "Student Developer Team";
     const guideName = customMeta.guideName || "Faculty Supervisor";
 
-    window.app?.showToast(`Preparing ${project.title} package...`, "info");
+    window.app?.showToast(`Preparing ${project.title || 'Project'} package...`, "info");
 
     try {
       if (window.app && typeof window.app.getProjectFullDetails === "function") {

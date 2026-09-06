@@ -727,8 +727,16 @@ class ForgeProjectApp {
   }
 
   // --- Project Modal Management ---
-  async openProjectModal(project) {
-    const targetProj = (project && project.id) ? project : (this.selectedProject || this.projects[0]);
+  async openProjectModal(projectOrId) {
+    let targetProj = null;
+    if (typeof projectOrId === "string") {
+      targetProj = this.projects.find(p => p.id === projectOrId);
+    } else if (projectOrId && projectOrId.id) {
+      targetProj = projectOrId;
+    }
+    if (!targetProj) {
+      targetProj = this.selectedProject || this.projects[0];
+    }
     if (!targetProj) return;
 
     this.selectedProject = targetProj;

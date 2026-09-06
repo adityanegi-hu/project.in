@@ -1,7 +1,7 @@
 /**
- * ForgeProject Explorer - Minimalist Directory Tree & Breadcrumbs Navigator
- * Replicates the clean folder navigation and design of haldwani.gehu.in/pyqs
- * Exclusively for Verified Academic Projects, Source Code, Documentation & PPTs
+ * ForgeProject Explorer - Directory Tree & Breadcrumbs Navigator
+ * Clean folder navigation aesthetic exclusively for verified Academic Projects,
+ * Runnable Source Code Kits, and 10-Slide PowerPoint (PPT) Presentation Decks.
  */
 
 class ForgeExplorer {
@@ -24,7 +24,7 @@ class ForgeExplorer {
   }
 
   init() {
-    // Parse URL hash for initial route (e.g. #/B.Tech or #/B.Tech/AI%20&%20Machine%20Learning)
+    // Parse URL hash for initial route (e.g. #/B.Tech%20Projects or #/Browse%20by%20Technology)
     this.handleHashChange();
     window.addEventListener("hashchange", () => this.handleHashChange());
 
@@ -202,7 +202,7 @@ class ForgeExplorer {
       }
     }
 
-    // Degree Level: e.g. ["B.Tech"], ["BCA"], ["MCA"], ["M.Tech"], ["Diploma"]
+    // Degree Level: e.g. ["B.Tech Projects"], ["BCA Projects"], ["MCA Projects"], ["M.Tech Projects"], ["Diploma Projects"]
     if (this.currentPath.length === 1) {
       return {
         type: "degree-level",
@@ -211,7 +211,7 @@ class ForgeExplorer {
       };
     }
 
-    // Subfolder Level: e.g. ["B.Tech", "AI & Machine Learning"] or ["B.Tech", "3rd Year Projects"]
+    // Subfolder Level: e.g. ["B.Tech Projects", "AI & Machine Learning"] or ["B.Tech Projects", "3rd Year Projects"]
     if (this.currentPath.length === 2) {
       const secondSeg = this.currentPath[1];
       return {
@@ -227,12 +227,12 @@ class ForgeExplorer {
 
   getRootItems() {
     const folders = [
-      { name: "B.Tech Projects", degreeKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Major & Minor Projects", count: "300+ Kits" },
-      { name: "BCA Projects", degreeKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects with Complete Code", count: "80+ Kits" },
-      { name: "MCA Projects", degreeKey: "MCA", desc: "Master of Computer Applications Enterprise Systems & Research Capstones", count: "45+ Kits" },
-      { name: "M.Tech Projects", degreeKey: "M.Tech", desc: "Advanced Postgraduate Engineering, Deep Learning & System Research Kits", count: "30+ Kits" },
-      { name: "Diploma Projects", degreeKey: "Diploma", desc: "Polytechnic Engineering, Practical Hardware & Embedded Projects", count: "35+ Kits" },
-      { name: "Browse by Technology", degreeKey: "tech", desc: "Find projects by Stack: Python, AI/ML, React, Java, Flutter, IoT, Solidity", count: "7 Stacks" },
+      { name: "B.Tech Projects", degreeKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Major & Minor Projects with Working Code & PPTs", count: "300+ Kits" },
+      { name: "BCA Projects", degreeKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects with Complete Code & Presentation Slides", count: "80+ Kits" },
+      { name: "MCA Projects", degreeKey: "MCA", desc: "Master of Computer Applications Enterprise Systems & Deep Learning Capstone Projects", count: "45+ Kits" },
+      { name: "M.Tech Projects", degreeKey: "M.Tech", desc: "Advanced Postgraduate Engineering, Neural Architectures & Research Project Kits", count: "30+ Kits" },
+      { name: "Diploma Projects", degreeKey: "Diploma", desc: "Polytechnic Engineering, Practical Hardware, Embedded & Web Projects", count: "35+ Kits" },
+      { name: "Browse by Technology", degreeKey: "tech", desc: "Find projects by Stack: Python, AI/ML, React, Java, Flutter, IoT, Solidity, C/C++", count: "8 Stacks" },
       { name: "Browse by Year", degreeKey: "year", desc: "Filter kits by Academic Year: 1st Year, 2nd Year, 3rd Year, 4th Year Capstone", count: "4 Years" }
     ];
 
@@ -251,74 +251,93 @@ class ForgeExplorer {
 
   getDegreeCategories(degree) {
     return [
-      { name: "1st Year Projects", type: "year", year: 1, desc: "Introductory Programming, Python & Starter Kits" },
-      { name: "2nd Year Projects", type: "year", year: 2, desc: "Core OOP, DBMS, Web & Algorithms Mini Projects" },
-      { name: "3rd Year Projects", type: "year", year: 3, desc: "Advanced Full-Stack, Machine Learning & Systems" },
-      { name: "4th Year Major Projects", type: "year", year: 4, desc: "Comprehensive Capstone & Defense Ready Kits" },
+      { name: "1st Year Projects", type: "year", year: 1, desc: "Introductory Programming, Logic Building, Python & Starter Kits" },
+      { name: "2nd Year Projects", type: "year", year: 2, desc: "Core OOP, DBMS, Web Development & Algorithms Mini Projects" },
+      { name: "3rd Year Projects", type: "year", year: 3, desc: "Advanced Full-Stack, Machine Learning & Distributed Systems" },
+      { name: "4th Year Major Projects", type: "year", year: 4, desc: "Comprehensive Capstone, Industry Scale & Defense Ready Kits" },
       { name: "AI & Machine Learning", type: "domain", category: "ai-ml", desc: "Computer Vision, NLP, Deep Learning & Predictive Models (50 Kits)" },
-      { name: "Full Stack & Web Dev", type: "domain", category: "web", desc: "MERN, Django, Spring Boot & React Applications (50 Kits)" },
-      { name: "IoT & Hardware", type: "domain", category: "iot", desc: "ESP32, Arduino, Raspberry Pi & Smart Automation (50 Kits)" },
-      { name: "Cybersecurity & Cloud", type: "domain", category: "cybersecurity", desc: "Penetration Testing, Encryption & Cloud Infrastructure (50 Kits)" },
-      { name: "Python & Automation", type: "domain", category: "python", desc: "Scrapers, Bots, Dashboards & Data Analytics (50 Kits)" },
-      { name: "Blockchain & Web3", type: "domain", category: "blockchain", desc: "Smart Contracts, Solidity, DApps & Decentralized Systems (50 Kits)" },
-      { name: "Mobile App Development", type: "domain", category: "mobile", desc: "Cross-Platform Flutter & React Native Applications (50 Kits)" }
+      { name: "Web & Full Stack Development", type: "domain", category: "web-dev", desc: "MERN, Django, Spring Boot & React Applications (50 Kits)" },
+      { name: "IoT & Embedded Systems", type: "domain", category: "iot-embedded", desc: "ESP32, Arduino, Raspberry Pi & Smart Automation (50 Kits)" },
+      { name: "Cybersecurity & Cloud Security", type: "domain", category: "cybersecurity", desc: "Penetration Testing, Encryption & Cloud Infrastructure (50 Kits)" },
+      { name: "Python & Data Science", type: "domain", category: "python-data", desc: "Scrapers, Bots, Dashboards & Data Analytics (50 Kits)" },
+      { name: "Blockchain & Web3 DApps", type: "domain", category: "blockchain", desc: "Smart Contracts, Solidity, DApps & Decentralized Systems (50 Kits)" },
+      { name: "Mobile App Development", type: "domain", category: "mobile", desc: "Cross-Platform Flutter & React Native Applications (50 Kits)" },
+      { name: "Java & Enterprise Architecture", type: "domain", category: "java", desc: "Spring Boot, Microservices, Hibernate & Enterprise Systems (50 Kits)" },
+      { name: "C / C++ Core Systems & Drivers", type: "domain", category: "c-cpp", desc: "System Programming, Compilers, OS & Embedded Drivers (50 Kits)" }
     ];
   }
 
   getTechCategories() {
     return [
-      { name: "Python & Data Science", desc: "Flask, FastAPI, Pandas, NumPy, Scikit-learn, Automation Bots", count: "120+ Kits" },
-      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, OpenCV, YOLO, NLP Transformers & LLMs", count: "80+ Kits" },
-      { name: "Full-Stack Web (MERN / Django)", desc: "React.js, Node.js, Express, MongoDB, Django, REST APIs", count: "100+ Kits" },
-      { name: "Java & Spring Boot", desc: "Enterprise MVC, Microservices, Hibernate, MySQL, JSP / Servlets", count: "40+ Kits" },
-      { name: "IoT & Embedded Systems", desc: "ESP8266, ESP32, Arduino Uno, Raspberry Pi, Sensors, MQTT", count: "50+ Kits" },
-      { name: "Mobile App (Flutter & React Native)", desc: "Android, iOS, Firebase, State Management, Clean Architecture", count: "30+ Kits" },
-      { name: "Blockchain & Solidity", desc: "Ethereum, Hardhat, Web3.js, E-Voting, Supply Chain DApps", count: "25+ Kits" }
+      { name: "Python & Data Science", desc: "Flask, FastAPI, Pandas, NumPy, Scikit-learn, Automation Bots", count: "50 Kits" },
+      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, OpenCV, YOLO, NLP Transformers & LLMs", count: "50 Kits" },
+      { name: "Full-Stack Web (MERN / Django)", desc: "React.js, Node.js, Express, MongoDB, Django, REST APIs", count: "50 Kits" },
+      { name: "Java & Spring Boot", desc: "Enterprise MVC, Microservices, Hibernate, MySQL, JSP / Servlets", count: "50 Kits" },
+      { name: "IoT & Embedded Systems", desc: "ESP8266, ESP32, Arduino Uno, Raspberry Pi, Sensors, MQTT", count: "50 Kits" },
+      { name: "Mobile App (Flutter & React Native)", desc: "Android, iOS, Firebase, State Management, Clean Architecture", count: "50 Kits" },
+      { name: "Blockchain & Solidity", desc: "Ethereum, Hardhat, Web3.js, E-Voting, Supply Chain DApps", count: "50 Kits" },
+      { name: "Cybersecurity & Cryptography", desc: "Network Sniffing, Threat Detection, Encryption Protocols", count: "50 Kits" },
+      { name: "C / C++ Systems & OS", desc: "Memory Allocators, Kernel Simulation, Socket Programming", count: "50 Kits" }
     ];
   }
 
   getYearCategories() {
     return [
-      { name: "1st Year", desc: "Beginner foundations, logic building, CLI tools, basic GUI applications", count: "Starter" },
-      { name: "2nd Year", desc: "Database-driven applications, Object-Oriented design, Web basics", count: "Mini Projects" },
-      { name: "3rd Year", desc: "Complex domain applications, Machine Learning pipelines, RESTful services", count: "Pre-Major" },
-      { name: "4th Year", desc: "Industry-grade capstone systems, research papers, viva defense ready", count: "Major Projects" }
+      { name: "1st Year", desc: "Beginner foundations, logic building, CLI tools, basic GUI applications", count: "90 Kits" },
+      { name: "2nd Year", desc: "Database-driven applications, Object-Oriented design, Web basics", count: "110 Kits" },
+      { name: "3rd Year", desc: "Complex domain applications, Machine Learning pipelines, RESTful services", count: "130 Kits" },
+      { name: "4th Year", desc: "Industry-grade capstone systems, research projects, viva defense ready", count: "120 Kits" }
     ];
   }
 
   getProjectsByTech(techName) {
     const q = techName.toLowerCase();
     return this.allProjects.filter(p => {
-      if (q.includes("python") && (p.category === "python" || (p.techStack && p.techStack.some(t => t.toLowerCase().includes("python"))))) return true;
+      if (q.includes("python") && (p.category === "python-data" || (p.techStack && p.techStack.some(t => t.toLowerCase().includes("python"))))) return true;
       if (q.includes("ai") && (p.category === "ai-ml" || (p.techStack && p.techStack.some(t => /ai|ml|tensorflow|pytorch|opencv/i.test(t))))) return true;
-      if (q.includes("full-stack") && (p.category === "web" || p.category === "full-stack" || (p.techStack && p.techStack.some(t => /react|node|django|mongo/i.test(t))))) return true;
+      if (q.includes("full-stack") && (p.category === "web-dev" || (p.techStack && p.techStack.some(t => /react|node|django|mongo/i.test(t))))) return true;
       if (q.includes("java") && (p.category === "java" || (p.techStack && p.techStack.some(t => /java|spring/i.test(t))))) return true;
-      if (q.includes("iot") && (p.category === "iot" || (p.techStack && p.techStack.some(t => /iot|arduino|esp32|raspberry/i.test(t))))) return true;
+      if (q.includes("iot") && (p.category === "iot-embedded" || (p.techStack && p.techStack.some(t => /iot|arduino|esp32|raspberry/i.test(t))))) return true;
       if (q.includes("mobile") && (p.category === "mobile" || (p.techStack && p.techStack.some(t => /flutter|react native|android/i.test(t))))) return true;
       if (q.includes("blockchain") && (p.category === "blockchain" || (p.techStack && p.techStack.some(t => /solidity|web3|blockchain/i.test(t))))) return true;
+      if (q.includes("cyber") && (p.category === "cybersecurity" || (p.techStack && p.techStack.some(t => /security|crypto|network/i.test(t))))) return true;
+      if (q.includes("c / c++") || q.includes("c++")) return p.category === "c-cpp";
       return false;
     });
   }
 
   getProjectsForPath(degree, categoryOrYear) {
-    const cleanDegree = degree.replace(" Projects", "");
+    const cleanDegree = degree.replace(" Projects", "").trim();
     return this.allProjects.filter(p => {
       // Degree match
-      const degreeMatch = cleanDegree === "All" || (Array.isArray(p.degrees) && p.degrees.some(d => d.toLowerCase().includes(cleanDegree.toLowerCase())));
-      
+      let degreeMatch = true;
+      if (cleanDegree === "B.Tech") {
+        degreeMatch = Array.isArray(p.degrees) && p.degrees.some(d => /b\.?tech/i.test(d));
+      } else if (cleanDegree === "BCA") {
+        degreeMatch = Array.isArray(p.degrees) && p.degrees.some(d => /bca/i.test(d));
+      } else if (cleanDegree === "MCA") {
+        degreeMatch = p.year >= 2;
+      } else if (cleanDegree === "M.Tech") {
+        degreeMatch = p.year === 4 || ["ai-ml", "cybersecurity", "blockchain", "iot-embedded"].includes(p.category);
+      } else if (cleanDegree === "Diploma") {
+        degreeMatch = p.year <= 3 || ["iot-embedded", "c-cpp", "python-data", "web-dev"].includes(p.category);
+      }
+
       // Category / Year match
       if (categoryOrYear.includes("1st Year")) return degreeMatch && p.year === 1;
       if (categoryOrYear.includes("2nd Year")) return degreeMatch && p.year === 2;
       if (categoryOrYear.includes("3rd Year")) return degreeMatch && p.year === 3;
       if (categoryOrYear.includes("4th Year")) return degreeMatch && p.year === 4;
 
-      if (categoryOrYear.includes("AI & Machine Learning")) return degreeMatch && p.category === "ai-ml";
-      if (categoryOrYear.includes("Web")) return degreeMatch && (p.category === "web" || p.category === "full-stack");
-      if (categoryOrYear.includes("IoT")) return degreeMatch && p.category === "iot";
+      if (categoryOrYear.includes("AI & Machine Learning") || categoryOrYear.includes("AI")) return degreeMatch && p.category === "ai-ml";
+      if (categoryOrYear.includes("Web") || categoryOrYear.includes("Full Stack")) return degreeMatch && p.category === "web-dev";
+      if (categoryOrYear.includes("IoT") || categoryOrYear.includes("Hardware")) return degreeMatch && p.category === "iot-embedded";
       if (categoryOrYear.includes("Cybersecurity")) return degreeMatch && p.category === "cybersecurity";
-      if (categoryOrYear.includes("Python")) return degreeMatch && p.category === "python";
+      if (categoryOrYear.includes("Python")) return degreeMatch && p.category === "python-data";
       if (categoryOrYear.includes("Blockchain")) return degreeMatch && p.category === "blockchain";
       if (categoryOrYear.includes("Mobile")) return degreeMatch && p.category === "mobile";
+      if (categoryOrYear.includes("Java")) return degreeMatch && p.category === "java";
+      if (categoryOrYear.includes("C / C++") || categoryOrYear.includes("C++")) return degreeMatch && p.category === "c-cpp";
 
       return degreeMatch;
     });
@@ -409,7 +428,7 @@ class ForgeExplorer {
   renderSearchResults() {
     const q = this.searchQuery;
     const matchingProjects = this.allProjects.filter(p => 
-      p.title.toLowerCase().includes(q) || 
+      (p.title && p.title.toLowerCase().includes(q)) || 
       (p.tagline && p.tagline.toLowerCase().includes(q)) ||
       (Array.isArray(p.techStack) && p.techStack.some(t => t.toLowerCase().includes(q))) ||
       (p.categoryLabel && p.categoryLabel.toLowerCase().includes(q))
@@ -446,7 +465,7 @@ class ForgeExplorer {
       html = `
         <div class="explorer-empty-state">
           <p>You haven't saved any projects to your library yet.</p>
-          <span style="font-size:0.85rem; color:var(--text-muted);">Click the bookmark icon on any project row to save it for quick review.</span>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Click the bookmark icon on any project row to save it for quick defense review.</span>
         </div>
       `;
     } else {
@@ -461,7 +480,7 @@ class ForgeExplorer {
     }
   }
 
-  // --- HTML Builders for List Rows matching GEHU PYQs ---
+  // --- HTML Builders for List Rows ---
 
   getFolderRowHtml({ title, desc, badge, onClick }) {
     return `
@@ -512,7 +531,7 @@ class ForgeExplorer {
               ${proj.hasHardware ? '<span class="badge badge-hw">Hardware</span>' : ''}
             </div>
           </div>
-          <p class="item-desc">${proj.tagline || proj.description?.substring(0, 110) + '...' || 'Complete project with source code, viva preparation, and PPT deck.'}</p>
+          <p class="item-desc">${proj.tagline || (proj.description ? proj.description.substring(0, 110) + '...' : '') || 'Complete project with working code, viva preparation, and PPT deck.'}</p>
           <div class="item-tech-row">
             ${techChips}
           </div>
