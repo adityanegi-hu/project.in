@@ -8,7 +8,6 @@ class ForgeExplorer {
   constructor() {
     this.currentPath = [];
     this.searchQuery = "";
-    this.currentMode = "all"; // 'all', 'btech', 'bca', 'mca', 'favorites'
     this.allProjects = typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : [];
 
     this.container = document.getElementById("explorerContainer");
@@ -24,7 +23,7 @@ class ForgeExplorer {
   }
 
   init() {
-    // Parse URL hash for initial route (e.g. #/B.Tech or #/MCA%20%26%20M.Tech/1st%20Year%20Projects)
+    // Parse URL hash for initial route
     this.handleHashChange();
     window.addEventListener("hashchange", () => this.handleHashChange());
 
@@ -47,27 +46,102 @@ class ForgeExplorer {
       this.render();
     });
 
-    // Mode filter pills
+    // Mode filter pills - direct navigation
     this.modePills.forEach(pill => {
       pill.addEventListener("click", () => {
-        this.modePills.forEach(p => p.classList.remove("active"));
-        pill.classList.add("active");
-        this.currentMode = pill.getAttribute("data-mode") || "all";
-        this.render();
+        const mode = pill.getAttribute("data-mode") || "all";
+        if (mode === "all") {
+          this.navigateTo([]);
+        } else if (mode === "btech") {
+          this.navigateTo(["B.Tech"]);
+        } else if (mode === "bca") {
+          this.navigateTo(["BCA, B.Sc & Diploma"]);
+        } else if (mode === "mca") {
+          this.navigateTo(["MCA & M.Tech"]);
+        } else if (mode === "favorites") {
+          this.navigateTo(["Saved Library"]);
+        }
       });
     });
 
+    // Delegated click listener for folder items - handles any depth & special characters safely
+    this.listElement?.addEventListener("click", (e) => {
+      const folderEl = e.target.closest(".folder-item");
+      if (folderEl) {
+        e.preventDefault();
+        const rawPath = folderEl.getAttribute("data-folder-path");
+        if (rawPath) {
+          try {
+            const targetPath = JSON.parse(rawPath);
+            this.navigateTo(targetPath);
+          } catch (err) {
+            console.error("Folder path JSON parse error:", err);
+          }
+        }
+      }
+    });
+
+    // Keyboard accessibility for folder items
+    this.listElement?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        const folderEl = e.target.closest(".folder-item");
+        if (folderEl) {
+          e.preventDefault();
+          folderEl.click();
+        }
+      }
+    });
+
+    this.syncActivePill();
     this.render();
   }
 
   handleHashChange() {
-    const hash = window.location.hash.replace(/^#\/?/, "");
-    if (!hash) {
+    const rawHash = window.location.hash.replace(/^#\/?/, "");
+    if (!rawHash) {
       this.currentPath = [];
     } else {
-      this.currentPath = hash.split("/").map(s => decodeURIComponent(s)).filter(Boolean);
+      this.currentPath = rawHash.split("/").map(s => {
+        try {
+          return decodeURIComponent(s);
+        } catch {
+          return s;
+        }
+      }).filter(Boolean);
     }
+    this.syncActivePill();
     this.render();
+  }
+
+  syncActivePill() {
+    if (!this.modePills || this.modePills.length === 0) return;
+    let activeMode = "all";
+
+    if (this.currentPath.length === 0) {
+      activeMode = "all";
+    } else {
+      const first = (this.currentPath[0] || "").toLowerCase();
+      if (first.includes("b.tech")) {
+        activeMode = "btech";
+      } else if (first.includes("bca") || first.includes("b.sc") || first.includes("diploma")) {
+        activeMode = "bca";
+      } else if (first.includes("mca") || first.includes("m.tech")) {
+        activeMode = "mca";
+      } else if (first.includes("saved") || first.includes("favorite")) {
+        activeMode = "favorites";
+      } else {
+        activeMode = "all";
+      }
+    }
+
+    this.modePills.forEach(pill => {
+      const mode = pill.getAttribute("data-mode");
+      if (mode === activeMode) {
+        pill.classList.add("active");
+      } else {
+        pill.classList.remove("active");
+      }
+    });
   }
 
   navigateTo(newPath) {
@@ -77,7 +151,15 @@ class ForgeExplorer {
 
     this.currentPath = [...newPath];
     const hashStr = this.currentPath.map(s => encodeURIComponent(s)).join("/");
-    window.location.hash = hashStr ? `#/${hashStr}` : "#/";
+    const targetHash = hashStr ? `#/${hashStr}` : "#/";
+
+    if (window.location.hash !== targetHash) {
+      window.location.hash = targetHash;
+    } else {
+      // If hash was already the target, hashchange won't fire, so force sync & render immediately
+      this.syncActivePill();
+      this.render();
+    }
   }
 
   navigateUp() {
@@ -143,13 +225,7 @@ class ForgeExplorer {
       return;
     }
 
-    // 2. Favorites Mode
-    if (this.currentMode === "favorites") {
-      this.renderFavorites();
-      return;
-    }
-
-    // 3. Folder Navigation Mode
+    // 2. Folder Navigation Mode
     const current = this.resolveCurrentDirectory();
     this.renderDirectoryContents(current);
   }
@@ -164,6 +240,42 @@ class ForgeExplorer {
     }
 
     const firstSeg = this.currentPath[0];
+
+    // Favorites Mode
+    if (firstSeg === "Saved Library" || firstSeg === "Favorites") {
+      return {
+        type: "favorites",
+        items: []
+      };
+    }
+
+    // Group Folder: "BCA, B.Sc & Diploma"
+    if (/bca.*b\.?sc.*diploma/i.test(firstSeg) || firstSeg === "BCA, B.Sc & Diploma") {
+      if (this.currentPath.length === 1) {
+        return {
+          type: "bca-group",
+          items: this.getBcaGroupItems()
+        };
+      }
+      if (this.currentPath.length === 2) {
+        const subCourse = this.currentPath[1];
+        return {
+          type: "course-level",
+          course: subCourse,
+          items: this.getCourseItems(subCourse)
+        };
+      }
+      if (this.currentPath.length >= 3) {
+        const subCourse = this.currentPath[1];
+        const yearOrCat = this.currentPath[2];
+        return {
+          type: "project-list",
+          course: subCourse,
+          categoryOrYear: yearOrCat,
+          projects: this.getProjectsForCourseAndPath(subCourse, yearOrCat)
+        };
+      }
+    }
 
     // "Browse by Technology" folder
     if (firstSeg === "Browse by Technology") {
@@ -192,7 +304,7 @@ class ForgeExplorer {
       };
     }
 
-    // Course Level: e.g. ["B.Tech"], ["BCA"], ["B.Sc"], ["Diploma"], ["MCA & M.Tech"], ["MCA Projects"], ["MCA"]
+    // Course Level: e.g. ["B.Tech"], ["BCA"], ["B.Sc"], ["Diploma"], ["MCA & M.Tech"]
     if (this.currentPath.length === 1) {
       return {
         type: "course-level",
@@ -201,7 +313,7 @@ class ForgeExplorer {
       };
     }
 
-    // Subfolder Level: e.g. ["B.Tech", "1st Year Projects & PPTs"] or ["MCA Projects", "1st Year Projects"]
+    // Subfolder Level: e.g. ["BCA", "1st Year Projects & PPTs"] or ["MCA & M.Tech", "1st Year Projects & PPTs"]
     if (this.currentPath.length === 2) {
       const secondSeg = this.currentPath[1];
       return {
@@ -216,29 +328,25 @@ class ForgeExplorer {
   }
 
   getRootItems() {
-    const courses = [
-      { name: "B.Tech", courseKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Projects (450 Kits)", count: "300+ Kits" },
-      { name: "BCA", courseKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects", count: "80+ Kits" },
-      { name: "B.Sc", courseKey: "B.Sc", desc: "CS, IT, Animation & Information Tech Academic Projects", count: "50+ Kits" },
-      { name: "Diploma", courseKey: "Diploma", desc: "Polytechnic Engineering & Technical Practical Kits", count: "35+ Kits" },
-      { name: "MCA & M.Tech", courseKey: "MCA & M.Tech", desc: "Advanced Research, Systems & Capstone Projects (40 Kits)", count: "40 Kits" },
-      { name: "Browse by Technology", courseKey: "tech", desc: "Filter by Stack: Python, AI/ML, MERN, Java, IoT, Mobile, Blockchain, C++", count: "8 Stacks" }
+    return [
+      { name: "B.Tech", courseKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Projects (450 Kits)", count: "450 Kits", targetPath: ["B.Tech"] },
+      { name: "BCA", courseKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects (344 Kits)", count: "344 Kits", targetPath: ["BCA"] },
+      { name: "B.Sc", courseKey: "B.Sc", desc: "CS, IT, Animation & Information Tech Academic Projects (344 Kits)", count: "344 Kits", targetPath: ["B.Sc"] },
+      { name: "Diploma", courseKey: "Diploma", desc: "Polytechnic Engineering & Technical Practical Kits (344 Kits)", count: "344 Kits", targetPath: ["Diploma"] },
+      { name: "MCA & M.Tech", courseKey: "MCA & M.Tech", desc: "Advanced Research, Systems & Capstone Projects (40 Kits)", count: "40 Kits", targetPath: ["MCA & M.Tech"] },
+      { name: "Browse by Technology", courseKey: "tech", desc: "Filter by Stack: Python, AI/ML, MERN, Java, IoT, Mobile, Blockchain, C++", count: "9 Stacks", targetPath: ["Browse by Technology"] }
     ];
-
-    if (this.currentMode === "btech") {
-      return courses.filter(c => c.courseKey === "B.Tech");
-    }
-    if (this.currentMode === "bca") {
-      return courses.filter(c => c.courseKey === "BCA" || c.courseKey === "B.Sc" || c.courseKey === "Diploma");
-    }
-    if (this.currentMode === "mca") {
-      return courses.filter(c => /mca|m\.?tech/i.test(c.courseKey));
-    }
-
-    return courses;
   }
 
-  // Curated 20 Projects for MCA & M.Tech 1st Year
+  getBcaGroupItems() {
+    return [
+      { name: "BCA", desc: "Bachelor of Computer Applications (1st, 2nd & 3rd Year Projects & PPTs)", count: "344 Kits", targetPath: ["BCA"] },
+      { name: "B.Sc", desc: "Bachelor of Science in CS, IT & Software Systems (Working Code & PPTs)", count: "344 Kits", targetPath: ["B.Sc"] },
+      { name: "Diploma", desc: "Polytechnic Engineering & Technical Labs (Working Code & PPTs)", count: "344 Kits", targetPath: ["Diploma"] }
+    ];
+  }
+
+  // Exactly 20 Curated Projects for MCA & M.Tech 1st Year
   getMcaYear1() {
     const cats = ['ai-ml', 'web-dev', 'cybersecurity', 'python-data', 'java', 'mobile', 'blockchain'];
     let list = [];
@@ -250,7 +358,7 @@ class ForgeExplorer {
     return list.slice(0, 20);
   }
 
-  // Curated 20 Capstone / Thesis Projects for MCA & M.Tech 2nd Year
+  // Exactly 20 Curated Capstone / Thesis Projects for MCA & M.Tech 2nd Year
   getMcaYear2() {
     const cats = ['ai-ml', 'web-dev', 'cybersecurity', 'blockchain', 'java', 'mobile', 'iot-embedded', 'python-data'];
     let list = [];
@@ -263,21 +371,21 @@ class ForgeExplorer {
   }
 
   getCourseItems(course) {
-    // 1. MCA & M.Tech (including variations like "MCA Projects", "MCA", "M.Tech")
+    // 1. MCA & M.Tech (Curated 40 Kits total: 20 in Year 1, 20 in Year 2)
     if (/mca|m\.?tech/i.test(course)) {
       return [
         { name: "1st Year Projects & PPTs", desc: "Foundational & Intermediate Systems: AI, Web, Security, Java & Mobile (20 Working Projects & PPTs)", count: "20 Kits", type: "year" },
         { name: "2nd Year Capstone & Dissertation", desc: "Advanced Capstones, Deep Learning, Cloud & Master Defense (20 Working Projects & PPTs)", count: "20 Kits", type: "year" },
         { name: "All MCA & M.Tech Projects & PPTs", desc: "Complete 40 Master-Level Project Packages with Working Code & Defense Slides", count: "40 Kits", type: "all" },
         // Domains
-        { name: "AI & Machine Learning", desc: "Deep Learning, NLP & Computer Vision Kits", count: "6 Kits", type: "domain" },
-        { name: "Web & Full Stack Development", desc: "Enterprise Full-Stack & Microservices Systems", count: "6 Kits", type: "domain" },
-        { name: "Cybersecurity & Cloud", desc: "Threat Detection, Penetration Testing & Cryptography", count: "6 Kits", type: "domain" },
-        { name: "Blockchain & Web3 DApps", desc: "Smart Contracts, Solidity & DApps", count: "4 Kits", type: "domain" }
+        { name: "AI & Machine Learning", desc: "Deep Learning, NLP & Computer Vision Kits (Working Code & PPT)", count: "6 Kits", type: "domain" },
+        { name: "Web & Full Stack Development", desc: "Enterprise Full-Stack & Microservices Systems (Working Code & PPT)", count: "6 Kits", type: "domain" },
+        { name: "Cybersecurity & Cloud", desc: "Threat Detection, Penetration Testing & Cryptography (Working Code & PPT)", count: "6 Kits", type: "domain" },
+        { name: "Blockchain & Web3 DApps", desc: "Smart Contracts, Solidity & DApps (Working Code & PPT)", count: "4 Kits", type: "domain" }
       ];
     }
 
-    // 2. B.Tech
+    // 2. B.Tech (4 Years - 450 Kits total)
     if (/b\.?tech/i.test(course)) {
       return [
         { name: "1st Year Projects & PPTs", desc: "Foundational Programming, Python, Web & Algorithms (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
@@ -298,7 +406,7 @@ class ForgeExplorer {
       ];
     }
 
-    // 3. BCA
+    // 3. BCA (3 Years - 344 Kits total)
     if (/bca/i.test(course)) {
       return [
         { name: "1st Year Projects & PPTs", desc: "Web Basics, Python Automation & Logic Building (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
@@ -314,7 +422,7 @@ class ForgeExplorer {
       ];
     }
 
-    // 4. B.Sc
+    // 4. B.Sc (3 Years - 344 Kits total)
     if (/b\.?sc/i.test(course)) {
       return [
         { name: "1st Year Projects & PPTs", desc: "Foundations of Computing, Python & Interactive Tools (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
@@ -328,7 +436,7 @@ class ForgeExplorer {
       ];
     }
 
-    // 5. Diploma
+    // 5. Diploma (3 Years - 344 Kits total)
     if (/diploma/i.test(course)) {
       return [
         { name: "1st Year Projects & PPTs", desc: "Programming Foundations, Logic Building & Practical Labs (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
@@ -417,7 +525,13 @@ class ForgeExplorer {
       if (yearOrCat.includes("3rd Year") || /3rd|year\s*3/i.test(yearOrCat)) return p.year === 3;
       if (yearOrCat.includes("4th Year") || /4th|year\s*4/i.test(yearOrCat)) return p.year === 4;
 
-      if (yearOrCat.includes("All")) return true;
+      if (yearOrCat.includes("All")) {
+        // BCA, B.Sc, Diploma are 3-year degrees
+        if (/bca|b\.?sc|diploma/i.test(course)) {
+          return p.year <= 3;
+        }
+        return true;
+      }
 
       // Category Matching
       if (/ai|machine\s*learning/i.test(yearOrCat)) return p.category === "ai-ml";
@@ -439,7 +553,7 @@ class ForgeExplorer {
     let html = "";
     let count = 0;
 
-    // 1. Virtual Root (Course folders)
+    // 1. Virtual Root (All Course folders)
     if (dirData.type === "virtual-root") {
       dirData.items.forEach(item => {
         count++;
@@ -447,12 +561,25 @@ class ForgeExplorer {
           title: item.name,
           desc: item.desc,
           badge: item.count,
-          onClick: `window.explorer.navigateTo(['${item.name}'])`
+          targetPath: item.targetPath || [item.name]
         });
       });
     }
 
-    // 2. Course Level (Years & Categories inside selected course)
+    // 2. BCA Group (BCA, B.Sc, Diploma)
+    else if (dirData.type === "bca-group") {
+      dirData.items.forEach(item => {
+        count++;
+        html += this.getFolderRowHtml({
+          title: item.name,
+          desc: item.desc,
+          badge: item.count,
+          targetPath: item.targetPath || [item.name]
+        });
+      });
+    }
+
+    // 3. Course Level (Years & Categories inside selected course)
     else if (dirData.type === "course-level") {
       dirData.items.forEach(item => {
         count++;
@@ -460,12 +587,12 @@ class ForgeExplorer {
           title: item.name,
           desc: item.desc,
           badge: item.count,
-          onClick: `window.explorer.navigateTo(['${dirData.course}', '${item.name}'])`
+          targetPath: [dirData.course, item.name]
         });
       });
     }
 
-    // 3. Tech Categories Level (e.g. /Browse by Technology)
+    // 4. Tech Categories Level (e.g. /Browse by Technology)
     else if (dirData.type === "tech-category-list") {
       dirData.items.forEach(item => {
         count++;
@@ -473,12 +600,18 @@ class ForgeExplorer {
           title: item.name,
           desc: item.desc,
           badge: item.count,
-          onClick: `window.explorer.navigateTo(['Browse by Technology', '${item.name}'])`
+          targetPath: ['Browse by Technology', item.name]
         });
       });
     }
 
-    // 4. Project List (Projects inside selected course + year/domain)
+    // 5. Favorites Mode
+    else if (dirData.type === "favorites") {
+      this.renderFavorites();
+      return;
+    }
+
+    // 6. Project List (Projects inside selected course + year/domain)
     else if (dirData.type === "project-list") {
       const projects = dirData.projects || [];
       count = projects.length;
@@ -518,8 +651,8 @@ class ForgeExplorer {
     if (count === 0) {
       html = `
         <div class="explorer-empty-state">
-          <p>No projects matching <strong>"${q}"</strong></p>
-          <button class="sw-button mt-2" onclick="window.explorer.navigateUp()">Clear Search</button>
+          <p>No verified project kits matched "<strong>${this.searchQuery}</strong>".</p>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Try searching for Python, AI/ML, YOLO, React, MERN, IoT, or Viva Prep.</span>
         </div>
       `;
     } else {
@@ -530,12 +663,12 @@ class ForgeExplorer {
 
     this.listElement.innerHTML = html;
     if (this.folderCountBadge) {
-      this.folderCountBadge.innerText = `${count} matching ${count === 1 ? 'project' : 'projects'}`;
+      this.folderCountBadge.innerText = `${count} ${count === 1 ? 'match' : 'matches'}`;
     }
   }
 
   renderFavorites() {
-    const savedIds = window.app ? window.app.bookmarkedIds : JSON.parse(localStorage.getItem("pf_bookmarks") || "[]");
+    const savedIds = window.app?.bookmarkedIds || [];
     const favProjects = this.allProjects.filter(p => savedIds.includes(p.id));
 
     let html = "";
@@ -560,18 +693,19 @@ class ForgeExplorer {
 
   // --- HTML Builders for List Rows ---
 
-  getFolderRowHtml({ title, desc, badge, onClick }) {
+  getFolderRowHtml({ title, desc, badge, targetPath }) {
+    const jsonPath = JSON.stringify(targetPath).replace(/"/g, '&quot;');
     return `
-      <div class="explorer-item folder-item" onclick="${onClick}">
+      <div class="explorer-item folder-item" data-folder-path="${jsonPath}" role="button" tabindex="0" title="Open ${title} folder">
         <div class="item-media">
-          <svg width="32" height="32" viewBox="0 0 16 16" class="folder-svg-icon">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
             <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
           </svg>
         </div>
         <div class="item-content">
           <div class="item-header">
             <span class="item-title font-excalifont">${title}</span>
-            ${badge ? `<span class="item-badge">${badge}</span>` : ''}
+            ${badge ? `<span class="item-badge font-mono">${badge}</span>` : ''}
           </div>
           ${desc ? `<p class="item-desc">${desc}</p>` : ''}
         </div>
