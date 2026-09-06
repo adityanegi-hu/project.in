@@ -88,6 +88,19 @@ class ProjectDownloader {
       // Trigger Confetti Celebration!
       this.triggerConfetti();
 
+      // Track in Google Analytics 4
+      if (typeof window.gtag === "function") {
+        try {
+          window.gtag("event", "download_project", {
+            project_id: project.id,
+            project_title: project.title,
+            category: project.category || "general"
+          });
+        } catch (analyticsErr) {
+          console.warn("Analytics event failed:", analyticsErr);
+        }
+      }
+
       window.app?.showToast(`🎉 Download Complete: ${project.title} Full Kit!`, "success");
     } catch (err) {
       console.error("Failed to generate zip:", err);
