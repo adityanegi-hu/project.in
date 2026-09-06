@@ -334,7 +334,7 @@ class ForgeExplorer {
       { name: "B.Sc", courseKey: "B.Sc", desc: "CS, IT, Animation & Information Tech Academic Projects (344 Kits)", count: "344 Kits", targetPath: ["B.Sc"] },
       { name: "Diploma", courseKey: "Diploma", desc: "Polytechnic Engineering & Technical Practical Kits (344 Kits)", count: "344 Kits", targetPath: ["Diploma"] },
       { name: "MCA & M.Tech", courseKey: "MCA & M.Tech", desc: "Advanced Research, Systems & Capstone Projects (40 Kits)", count: "40 Kits", targetPath: ["MCA & M.Tech"] },
-      { name: "Browse by Technology", courseKey: "tech", desc: "Filter by Stack: Python, AI/ML, MERN, Java, IoT, Mobile, Blockchain, C++", count: "9 Stacks", targetPath: ["Browse by Technology"] }
+      { name: "Browse by Technology", courseKey: "tech", desc: "Filter by Stack: Python, AI/ML, FastAPI, React, Node.js, Flutter, Java, IoT, Web3, DevOps & 16 Stacks", count: "16 Stacks", targetPath: ["Browse by Technology"] }
     ];
   }
 
@@ -455,31 +455,98 @@ class ForgeExplorer {
 
   getTechCategories() {
     return [
-      { name: "Python & Data Science", desc: "Flask, FastAPI, Pandas, NumPy, Scikit-learn, Automation Bots (Working Code & PPT)", count: "50 Kits" },
-      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, OpenCV, YOLO, NLP Transformers & LLMs (Working Code & PPT)", count: "50 Kits" },
-      { name: "Full-Stack Web (MERN / Django)", desc: "React.js, Node.js, Express, MongoDB, Django, REST APIs (Working Code & PPT)", count: "50 Kits" },
-      { name: "Java & Spring Boot", desc: "Enterprise MVC, Microservices, Hibernate, MySQL, JSP / Servlets (Working Code & PPT)", count: "50 Kits" },
-      { name: "IoT & Embedded Systems", desc: "ESP8266, ESP32, Arduino Uno, Raspberry Pi, Sensors, MQTT (Working Code & PPT)", count: "50 Kits" },
-      { name: "Mobile App (Flutter & React Native)", desc: "Android, iOS, Firebase, State Management, Clean Architecture (Working Code & PPT)", count: "50 Kits" },
-      { name: "Blockchain & Solidity", desc: "Ethereum, Hardhat, Web3.js, E-Voting, Supply Chain DApps (Working Code & PPT)", count: "50 Kits" },
-      { name: "Cybersecurity & Cryptography", desc: "Network Sniffing, Threat Detection, Encryption Protocols (Working Code & PPT)", count: "50 Kits" },
-      { name: "C / C++ Systems & OS", desc: "Memory Allocators, Kernel Simulation, Socket Programming (Working Code & PPT)", count: "50 Kits" }
+      { name: "Python & Automation", desc: "FastAPI, Flask, Scripting, Automation Bots & CLI Tools (Working Code & PPT)", count: "167 Kits" },
+      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, Scikit-learn, Neural Nets & Predictive Models (Working Code & PPT)", count: "113 Kits" },
+      { name: "FastAPI & REST Microservices", desc: "High-Performance Async Python, REST APIs & Swagger Documentation (Working Code & PPT)", count: "100 Kits" },
+      { name: "React.js & Next.js Modern Frontend", desc: "React 18, Next.js, Hooks, State Management & Tailwind CSS (Working Code & PPT)", count: "73 Kits" },
+      { name: "Java & Spring Boot Enterprise", desc: "Enterprise MVC, Microservices, Hibernate, MySQL & JDBC (Working Code & PPT)", count: "70 Kits" },
+      { name: "MERN & Node.js Full-Stack", desc: "Node.js, Express, MongoDB, Full-Stack Architecture & REST APIs (Working Code & PPT)", count: "67 Kits" },
+      { name: "Data Science, Pandas & Analytics", desc: "Pandas, NumPy, Matplotlib, Streamlit & Business Dashboards (Working Code & PPT)", count: "67 Kits" },
+      { name: "C & C++ Core Systems & OS", desc: "System Programming, Memory Allocators, OS & Socket Simulation (Working Code & PPT)", count: "64 Kits" },
+      { name: "Cybersecurity, WAF & Cryptography", desc: "Vulnerability Scanners, Threat Detection, Firewalls & Ciphers (Working Code & PPT)", count: "60 Kits" },
+      { name: "Blockchain, Solidity & Web3 DApps", desc: "Ethereum, Hardhat, Web3.js, E-Voting & Smart Contracts (Working Code & PPT)", count: "53 Kits" },
+      { name: "IoT, ESP32 & Arduino Embedded", desc: "ESP32, ESP8266, Arduino Uno, Sensors & MQTT Automation (Working Code & PPT)", count: "52 Kits" },
+      { name: "Database Systems & SQL (PostgreSQL / MySQL)", desc: "Relational Database Modeling, Query Optimization & Transactions (Working Code & PPT)", count: "52 Kits" },
+      { name: "Flutter & Dart Mobile Apps", desc: "Cross-Platform Android & iOS Applications with Offline Sync (Working Code & PPT)", count: "51 Kits" },
+      { name: "WebSockets & Real-Time Communication", desc: "Socket.io, WebSockets, Real-time Chat & Live Streaming (Working Code & PPT)", count: "35 Kits" },
+      { name: "Computer Vision & OpenCV", desc: "OpenCV, YOLO Object Tracking, Face Recognition & Image Filters (Working Code & PPT)", count: "35 Kits" },
+      { name: "Docker, DevOps & Cloud Systems", desc: "Docker Containerization, Microservices, Redis Caching & Cloud APIs (Working Code & PPT)", count: "26 Kits" }
     ];
   }
 
   getProjectsByTech(techName) {
     const q = techName.toLowerCase();
     return this.allProjects.filter(p => {
-      if (q.includes("python") && (p.category === "python-data" || (p.techStack && p.techStack.some(t => t.toLowerCase().includes("python"))))) return true;
-      if (q.includes("ai") && (p.category === "ai-ml" || (p.techStack && p.techStack.some(t => /ai|ml|tensorflow|pytorch|opencv/i.test(t))))) return true;
-      if (q.includes("full-stack") && (p.category === "web-dev" || (p.techStack && p.techStack.some(t => /react|node|django|mongo/i.test(t))))) return true;
-      if (q.includes("java") && (p.category === "java" || (p.techStack && p.techStack.some(t => /java|spring/i.test(t))))) return true;
-      if (q.includes("iot") && (p.category === "iot-embedded" || (p.techStack && p.techStack.some(t => /iot|arduino|esp32|raspberry/i.test(t))))) return true;
-      if (q.includes("mobile") && (p.category === "mobile" || (p.techStack && p.techStack.some(t => /flutter|react native|android/i.test(t))))) return true;
-      if (q.includes("blockchain") && (p.category === "blockchain" || (p.techStack && p.techStack.some(t => /solidity|web3|blockchain/i.test(t))))) return true;
-      if (q.includes("cyber") && (p.category === "cybersecurity" || (p.techStack && p.techStack.some(t => /security|crypto|network/i.test(t))))) return true;
-      if (q.includes("c / c++") || q.includes("c++")) return p.category === "c-cpp";
-      return false;
+      const stack = Array.isArray(p.techStack) ? p.techStack : [];
+      const title = (p.title || "").toLowerCase();
+      const cat = p.category || "";
+
+      // 1. Blockchain, Solidity & Web3
+      if (q.includes("blockchain") || q.includes("solidity") || q.includes("web3")) {
+        return cat === "blockchain" || stack.some(t => /solidity|web3|blockchain|hardhat|ethers/i.test(t));
+      }
+      // 2. Computer Vision & OpenCV
+      if (q.includes("vision") || q.includes("opencv") || q.includes("yolo")) {
+        return stack.some(t => /opencv|vision|yolo|image|cnn/i.test(t)) || title.includes("vision") || title.includes("yolo") || title.includes("detection");
+      }
+      // 3. FastAPI & REST Microservices
+      if (q.includes("fastapi") || q.includes("microservice")) {
+        return stack.some(t => /fastapi|api|rest/i.test(t));
+      }
+      // 4. React.js & Next.js Frontend
+      if (q.includes("react") || q.includes("next.js")) {
+        return stack.some(t => /react|next\.?js/i.test(t));
+      }
+      // 5. MERN & Node.js Full-Stack
+      if (q.includes("mern") || q.includes("node.js")) {
+        return cat === "web-dev" || stack.some(t => /node|express|mongo|mern/i.test(t));
+      }
+      // 6. Data Science, Pandas & Analytics
+      if (q.includes("data science") || q.includes("pandas") || q.includes("analytics")) {
+        return cat === "python-data" || stack.some(t => /pandas|numpy|matplotlib|plotly|streamlit|data/i.test(t));
+      }
+      // 7. Python & Automation
+      if (q.includes("python") && !q.includes("data science")) {
+        return cat === "python-data" || stack.some(t => /python|flask/i.test(t));
+      }
+      // 8. AI, Machine Learning & Deep Learning
+      if (/\b(ai|ml)\b/i.test(q) || q.includes("machine learning") || q.includes("deep learning")) {
+        return cat === "ai-ml" || stack.some(t => /ai|ml|tensorflow|pytorch|scikit|model/i.test(t));
+      }
+      // 9. Flutter & Dart Mobile Apps
+      if (q.includes("flutter") || q.includes("mobile") || q.includes("dart")) {
+        return cat === "mobile" || stack.some(t => /flutter|dart|mobile|android|ios/i.test(t));
+      }
+      // 10. Java & Spring Boot Enterprise
+      if (q.includes("java") || q.includes("spring")) {
+        return cat === "java" || stack.some(t => /java|spring/i.test(t));
+      }
+      // 11. IoT, ESP32 & Arduino Embedded
+      if (q.includes("iot") || q.includes("arduino") || q.includes("esp32") || q.includes("embedded")) {
+        return cat === "iot-embedded" || stack.some(t => /iot|esp32|esp8266|arduino|raspberry|sensor/i.test(t));
+      }
+      // 12. Cybersecurity, WAF & Cryptography
+      if (q.includes("cyber") || q.includes("security") || q.includes("cryptography") || q.includes("waf")) {
+        return cat === "cybersecurity" || stack.some(t => /security|crypto|waf|scanner|cipher|sniff/i.test(t));
+      }
+      // 13. C & C++ Core Systems & OS
+      if (q.includes("c & c++") || q.includes("c / c++") || q.includes("c++") || q.includes("systems & os")) {
+        return cat === "c-cpp" || stack.some(t => /\bc\b|\bc\+\+/i.test(t));
+      }
+      // 14. Docker, DevOps & Cloud Systems
+      if (q.includes("docker") || q.includes("devops") || q.includes("cloud")) {
+        return stack.some(t => /docker|cloud|redis|microservice|kubernetes/i.test(t));
+      }
+      // 15. Database Systems & SQL
+      if (q.includes("database") || q.includes("sql") || q.includes("postgres") || q.includes("mysql")) {
+        return stack.some(t => /postgres|mysql|sqlite|sql|dbms/i.test(t));
+      }
+      // 16. WebSockets & Real-Time Communication
+      if (q.includes("websocket") || q.includes("real-time") || q.includes("socket")) {
+        return stack.some(t => /websocket|socket|real-time|chat/i.test(t)) || title.includes("real-time");
+      }
+
+      return stack.some(t => t.toLowerCase().includes(q)) || title.includes(q);
     });
   }
 
