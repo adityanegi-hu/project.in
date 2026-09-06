@@ -1,15 +1,15 @@
 /**
  * ForgeProject Explorer - Minimalist Directory Tree & Breadcrumbs Navigator
  * Replicates the clean folder navigation and design of haldwani.gehu.in/pyqs
+ * Exclusively for Verified Academic Projects, Source Code, Documentation & PPTs
  */
 
 class ForgeExplorer {
   constructor() {
     this.currentPath = [];
     this.searchQuery = "";
-    this.currentMode = "all"; // 'all', 'projects', 'pyqs', 'favorites'
+    this.currentMode = "all"; // 'all', 'btech', 'bca', 'mca', 'favorites'
     this.allProjects = typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : [];
-    this.pyqsTree = typeof GEHU_PYQS_DATA !== "undefined" ? GEHU_PYQS_DATA : null;
 
     this.container = document.getElementById("explorerContainer");
     this.listElement = document.getElementById("explorerList");
@@ -24,7 +24,7 @@ class ForgeExplorer {
   }
 
   init() {
-    // Parse URL hash for initial route (e.g. #btech/cse or #pyqs/btech)
+    // Parse URL hash for initial route (e.g. #/B.Tech or #/B.Tech/AI%20&%20Machine%20Learning)
     this.handleHashChange();
     window.addEventListener("hashchange", () => this.handleHashChange());
 
@@ -47,7 +47,7 @@ class ForgeExplorer {
       this.render();
     });
 
-    // Mode filter pills (All, Projects, PYQs, Favorites)
+    // Mode filter pills
     this.modePills.forEach(pill => {
       pill.addEventListener("click", () => {
         this.modePills.forEach(p => p.classList.remove("active"));
@@ -155,24 +155,6 @@ class ForgeExplorer {
   }
 
   resolveCurrentDirectory() {
-    // If inside "PYQs Archive"
-    if (this.currentPath[0] === "PYQs Archive" && this.pyqsTree) {
-      let node = this.pyqsTree;
-      for (let i = 1; i < this.currentPath.length; i++) {
-        const seg = this.currentPath[i];
-        if (node && Array.isArray(node.children)) {
-          node = node.children.find(c => c.name.toLowerCase() === seg.toLowerCase());
-        } else {
-          node = null;
-          break;
-        }
-      }
-      return {
-        type: "pyqs-folder",
-        node: node || { name: this.currentPath[this.currentPath.length - 1], children: [] }
-      };
-    }
-
     // Root directory
     if (this.currentPath.length === 0) {
       return {
@@ -181,8 +163,46 @@ class ForgeExplorer {
       };
     }
 
-    // Degree Level: e.g. ["B.Tech"] or ["BCA"]
     const firstSeg = this.currentPath[0];
+
+    // "Browse by Technology" folder
+    if (firstSeg === "Browse by Technology") {
+      if (this.currentPath.length === 1) {
+        return {
+          type: "tech-category-list",
+          items: this.getTechCategories()
+        };
+      }
+      if (this.currentPath.length === 2) {
+        const techName = this.currentPath[1];
+        return {
+          type: "project-list",
+          folderName: techName,
+          projects: this.getProjectsByTech(techName)
+        };
+      }
+    }
+
+    // "Browse by Year" folder
+    if (firstSeg === "Browse by Year") {
+      if (this.currentPath.length === 1) {
+        return {
+          type: "year-category-list",
+          items: this.getYearCategories()
+        };
+      }
+      if (this.currentPath.length === 2) {
+        const yearName = this.currentPath[1];
+        const yearNum = parseInt(yearName) || 1;
+        return {
+          type: "project-list",
+          folderName: yearName,
+          projects: this.allProjects.filter(p => p.year === yearNum)
+        };
+      }
+    }
+
+    // Degree Level: e.g. ["B.Tech"], ["BCA"], ["MCA"], ["M.Tech"], ["Diploma"]
     if (this.currentPath.length === 1) {
       return {
         type: "degree-level",
@@ -191,9 +211,9 @@ class ForgeExplorer {
       };
     }
 
-    // Subfolder Level: e.g. ["B.Tech", "AI & Machine Learning"] or ["B.Tech", "3rd Year"]
-    const secondSeg = this.currentPath[1];
+    // Subfolder Level: e.g. ["B.Tech", "AI & Machine Learning"] or ["B.Tech", "3rd Year Projects"]
     if (this.currentPath.length === 2) {
+      const secondSeg = this.currentPath[1];
       return {
         type: "project-list",
         degree: firstSeg,
@@ -206,27 +226,31 @@ class ForgeExplorer {
   }
 
   getRootItems() {
-    const degrees = [
-      { name: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Projects (450 Kits)", count: "300+ Kits", icon: "folder" },
-      { name: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects", count: "80+ Kits", icon: "folder" },
-      { name: "B.Sc", desc: "CS, IT, Animation & Information Tech Academic Projects", count: "50+ Kits", icon: "folder" },
-      { name: "Diploma", desc: "Polytechnic Engineering & Technical Practical Kits", count: "35+ Kits", icon: "folder" },
-      { name: "MCA & M.Tech", desc: "Advanced Research, System & Capstone Enterprise Projects", count: "40+ Kits", icon: "folder" },
-      { name: "PYQs Archive", desc: "GEHU Previous Year Question Papers for All Branches & Semesters", count: "Archive", icon: "pyq-folder" }
+    const folders = [
+      { name: "B.Tech Projects", degreeKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Major & Minor Projects", count: "300+ Kits" },
+      { name: "BCA Projects", degreeKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects with Complete Code", count: "80+ Kits" },
+      { name: "MCA Projects", degreeKey: "MCA", desc: "Master of Computer Applications Enterprise Systems & Research Capstones", count: "45+ Kits" },
+      { name: "M.Tech Projects", degreeKey: "M.Tech", desc: "Advanced Postgraduate Engineering, Deep Learning & System Research Kits", count: "30+ Kits" },
+      { name: "Diploma Projects", degreeKey: "Diploma", desc: "Polytechnic Engineering, Practical Hardware & Embedded Projects", count: "35+ Kits" },
+      { name: "Browse by Technology", degreeKey: "tech", desc: "Find projects by Stack: Python, AI/ML, React, Java, Flutter, IoT, Solidity", count: "7 Stacks" },
+      { name: "Browse by Year", degreeKey: "year", desc: "Filter kits by Academic Year: 1st Year, 2nd Year, 3rd Year, 4th Year Capstone", count: "4 Years" }
     ];
 
-    if (this.currentMode === "projects") {
-      return degrees.filter(d => d.name !== "PYQs Archive");
+    if (this.currentMode === "btech") {
+      return folders.filter(f => f.degreeKey === "B.Tech");
     }
-    if (this.currentMode === "pyqs") {
-      return degrees.filter(d => d.name === "PYQs Archive");
+    if (this.currentMode === "bca") {
+      return folders.filter(f => f.degreeKey === "BCA" || f.degreeKey === "Diploma");
     }
-    return degrees;
+    if (this.currentMode === "mca") {
+      return folders.filter(f => f.degreeKey === "MCA" || f.degreeKey === "M.Tech");
+    }
+
+    return folders;
   }
 
   getDegreeCategories(degree) {
-    // Domains / Categories available for this degree
-    const categories = [
+    return [
       { name: "1st Year Projects", type: "year", year: 1, desc: "Introductory Programming, Python & Starter Kits" },
       { name: "2nd Year Projects", type: "year", year: 2, desc: "Core OOP, DBMS, Web & Algorithms Mini Projects" },
       { name: "3rd Year Projects", type: "year", year: 3, desc: "Advanced Full-Stack, Machine Learning & Systems" },
@@ -239,13 +263,48 @@ class ForgeExplorer {
       { name: "Blockchain & Web3", type: "domain", category: "blockchain", desc: "Smart Contracts, Solidity, DApps & Decentralized Systems (50 Kits)" },
       { name: "Mobile App Development", type: "domain", category: "mobile", desc: "Cross-Platform Flutter & React Native Applications (50 Kits)" }
     ];
-    return categories;
+  }
+
+  getTechCategories() {
+    return [
+      { name: "Python & Data Science", desc: "Flask, FastAPI, Pandas, NumPy, Scikit-learn, Automation Bots", count: "120+ Kits" },
+      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, OpenCV, YOLO, NLP Transformers & LLMs", count: "80+ Kits" },
+      { name: "Full-Stack Web (MERN / Django)", desc: "React.js, Node.js, Express, MongoDB, Django, REST APIs", count: "100+ Kits" },
+      { name: "Java & Spring Boot", desc: "Enterprise MVC, Microservices, Hibernate, MySQL, JSP / Servlets", count: "40+ Kits" },
+      { name: "IoT & Embedded Systems", desc: "ESP8266, ESP32, Arduino Uno, Raspberry Pi, Sensors, MQTT", count: "50+ Kits" },
+      { name: "Mobile App (Flutter & React Native)", desc: "Android, iOS, Firebase, State Management, Clean Architecture", count: "30+ Kits" },
+      { name: "Blockchain & Solidity", desc: "Ethereum, Hardhat, Web3.js, E-Voting, Supply Chain DApps", count: "25+ Kits" }
+    ];
+  }
+
+  getYearCategories() {
+    return [
+      { name: "1st Year", desc: "Beginner foundations, logic building, CLI tools, basic GUI applications", count: "Starter" },
+      { name: "2nd Year", desc: "Database-driven applications, Object-Oriented design, Web basics", count: "Mini Projects" },
+      { name: "3rd Year", desc: "Complex domain applications, Machine Learning pipelines, RESTful services", count: "Pre-Major" },
+      { name: "4th Year", desc: "Industry-grade capstone systems, research papers, viva defense ready", count: "Major Projects" }
+    ];
+  }
+
+  getProjectsByTech(techName) {
+    const q = techName.toLowerCase();
+    return this.allProjects.filter(p => {
+      if (q.includes("python") && (p.category === "python" || (p.techStack && p.techStack.some(t => t.toLowerCase().includes("python"))))) return true;
+      if (q.includes("ai") && (p.category === "ai-ml" || (p.techStack && p.techStack.some(t => /ai|ml|tensorflow|pytorch|opencv/i.test(t))))) return true;
+      if (q.includes("full-stack") && (p.category === "web" || p.category === "full-stack" || (p.techStack && p.techStack.some(t => /react|node|django|mongo/i.test(t))))) return true;
+      if (q.includes("java") && (p.category === "java" || (p.techStack && p.techStack.some(t => /java|spring/i.test(t))))) return true;
+      if (q.includes("iot") && (p.category === "iot" || (p.techStack && p.techStack.some(t => /iot|arduino|esp32|raspberry/i.test(t))))) return true;
+      if (q.includes("mobile") && (p.category === "mobile" || (p.techStack && p.techStack.some(t => /flutter|react native|android/i.test(t))))) return true;
+      if (q.includes("blockchain") && (p.category === "blockchain" || (p.techStack && p.techStack.some(t => /solidity|web3|blockchain/i.test(t))))) return true;
+      return false;
+    });
   }
 
   getProjectsForPath(degree, categoryOrYear) {
+    const cleanDegree = degree.replace(" Projects", "");
     return this.allProjects.filter(p => {
       // Degree match
-      const degreeMatch = degree === "All" || (Array.isArray(p.degrees) && p.degrees.some(d => d.toLowerCase().includes(degree.toLowerCase())));
+      const degreeMatch = cleanDegree === "All" || (Array.isArray(p.degrees) && p.degrees.some(d => d.toLowerCase().includes(cleanDegree.toLowerCase())));
       
       // Category / Year match
       if (categoryOrYear.includes("1st Year")) return degreeMatch && p.year === 1;
@@ -274,18 +333,16 @@ class ForgeExplorer {
     if (dirData.type === "virtual-root") {
       dirData.items.forEach(item => {
         count++;
-        const isPyq = item.name === "PYQs Archive";
         html += this.getFolderRowHtml({
           title: item.name,
           desc: item.desc,
           badge: item.count,
-          isPyq: isPyq,
           onClick: `window.explorer.navigateTo(['${item.name}'])`
         });
       });
     }
 
-    // 2. Degree Level (e.g. /B.Tech)
+    // 2. Degree Level (e.g. /B.Tech Projects)
     else if (dirData.type === "degree-level") {
       dirData.items.forEach(item => {
         count++;
@@ -298,43 +355,47 @@ class ForgeExplorer {
       });
     }
 
-    // 3. Project List (e.g. /B.Tech/AI & Machine Learning)
+    // 3. Tech Categories Level (e.g. /Browse by Technology)
+    else if (dirData.type === "tech-category-list") {
+      dirData.items.forEach(item => {
+        count++;
+        html += this.getFolderRowHtml({
+          title: item.name,
+          desc: item.desc,
+          badge: item.count,
+          onClick: `window.explorer.navigateTo(['Browse by Technology', '${item.name}'])`
+        });
+      });
+    }
+
+    // 4. Year Categories Level (e.g. /Browse by Year)
+    else if (dirData.type === "year-category-list") {
+      dirData.items.forEach(item => {
+        count++;
+        html += this.getFolderRowHtml({
+          title: item.name,
+          desc: item.desc,
+          badge: item.count,
+          onClick: `window.explorer.navigateTo(['Browse by Year', '${item.name}'])`
+        });
+      });
+    }
+
+    // 5. Project List (e.g. /B.Tech Projects/AI & Machine Learning)
     else if (dirData.type === "project-list") {
       const projects = dirData.projects || [];
       count = projects.length;
 
       if (projects.length === 0) {
-        html = `<div class="explorer-empty-state"><p>No projects found in this folder.</p></div>`;
+        html = `
+          <div class="explorer-empty-state">
+            <p>No project kits found in this directory.</p>
+            <button class="sw-button mt-2" onclick="window.explorer.navigateUp()">← Go Back</button>
+          </div>
+        `;
       } else {
         projects.forEach(proj => {
           html += this.getProjectRowHtml(proj);
-        });
-      }
-    }
-
-    // 4. PYQs Folder from GEHU Tree
-    else if (dirData.type === "pyqs-folder") {
-      const node = dirData.node;
-      const children = node?.children || [];
-      count = children.length;
-
-      if (children.length === 0) {
-        html = `<div class="explorer-empty-state"><p>No papers or folders in this directory yet.</p></div>`;
-      } else {
-        children.forEach(child => {
-          if (child.type === "folder") {
-            const nextPath = [...this.currentPath, child.name];
-            const pathParam = JSON.stringify(nextPath).replace(/"/g, '&quot;');
-            html += this.getFolderRowHtml({
-              title: child.name,
-              desc: child.description || "Browse semester question papers",
-              badge: "Folder",
-              isPyq: true,
-              onClick: `window.explorer.navigateTo(${pathParam})`
-            });
-          } else if (child.type === "pdf") {
-            html += this.getPdfRowHtml(child);
-          }
         });
       }
     }
@@ -352,17 +413,15 @@ class ForgeExplorer {
       (p.tagline && p.tagline.toLowerCase().includes(q)) ||
       (Array.isArray(p.techStack) && p.techStack.some(t => t.toLowerCase().includes(q))) ||
       (p.categoryLabel && p.categoryLabel.toLowerCase().includes(q))
-    ).slice(0, 30);
+    ).slice(0, 40);
 
-    const matchingPyqs = this.searchPyqs(q).slice(0, 20);
-
-    let count = matchingProjects.length + matchingPyqs.length;
+    let count = matchingProjects.length;
     let html = "";
 
     if (count === 0) {
       html = `
         <div class="explorer-empty-state">
-          <p>No projects or question papers matching <strong>"${q}"</strong></p>
+          <p>No projects matching <strong>"${q}"</strong></p>
           <button class="sw-button mt-2" onclick="window.explorer.navigateUp()">Clear Search</button>
         </div>
       `;
@@ -370,33 +429,12 @@ class ForgeExplorer {
       matchingProjects.forEach(proj => {
         html += this.getProjectRowHtml(proj, true);
       });
-      matchingPyqs.forEach(pyq => {
-        html += this.getPdfRowHtml(pyq, true);
-      });
     }
 
     this.listElement.innerHTML = html;
     if (this.folderCountBadge) {
-      this.folderCountBadge.innerText = `${count} matching ${count === 1 ? 'result' : 'results'}`;
+      this.folderCountBadge.innerText = `${count} matching ${count === 1 ? 'project' : 'projects'}`;
     }
-  }
-
-  searchPyqs(query, node = this.pyqsTree, path = []) {
-    if (!node) return [];
-    let results = [];
-    const currentPath = [...path, node.name];
-
-    if (node.type === "pdf" && node.name.toLowerCase().includes(query)) {
-      results.push({ ...node, path: currentPath.slice(0, -1).join(" / ") });
-    }
-
-    if (Array.isArray(node.children)) {
-      node.children.forEach(child => {
-        results = results.concat(this.searchPyqs(query, child, currentPath));
-      });
-    }
-
-    return results;
   }
 
   renderFavorites() {
@@ -407,8 +445,8 @@ class ForgeExplorer {
     if (favProjects.length === 0) {
       html = `
         <div class="explorer-empty-state">
-          <p>You haven't saved any projects to your favorites yet.</p>
-          <span style="font-size:0.85rem; color:var(--text-muted);">Click the bookmark icon on any project row to save it for quick defense review.</span>
+          <p>You haven't saved any projects to your library yet.</p>
+          <span style="font-size:0.85rem; color:var(--text-muted);">Click the bookmark icon on any project row to save it for quick review.</span>
         </div>
       `;
     } else {
@@ -425,7 +463,7 @@ class ForgeExplorer {
 
   // --- HTML Builders for List Rows matching GEHU PYQs ---
 
-  getFolderRowHtml({ title, desc, badge, isPyq, onClick }) {
+  getFolderRowHtml({ title, desc, badge, onClick }) {
     return `
       <div class="explorer-item folder-item" onclick="${onClick}">
         <div class="item-media">
@@ -450,121 +488,55 @@ class ForgeExplorer {
     `;
   }
 
-  getProjectRowHtml(proj, showPath = false) {
-    const isBookmarked = window.app ? window.app.bookmarkedIds.includes(proj.id) : false;
-    const techPills = (proj.techStack || []).slice(0, 3).map(t => `<span class="pill-badge">${t}</span>`).join("");
+  getProjectRowHtml(proj, isSearchResult = false) {
+    const isBookmarked = window.app?.bookmarkedIds?.includes(proj.id) || false;
+    const techChips = Array.isArray(proj.techStack) ? proj.techStack.slice(0, 3).map(t => `<span class="tech-chip">${t}</span>`).join("") : "";
+    const difficultyBadge = proj.difficulty ? `<span class="badge badge-${proj.difficulty.toLowerCase()}">${proj.difficulty}</span>` : "";
 
     return `
-      <div class="explorer-item file-item project-item" data-id="${proj.id}">
-        <div class="item-media">
+      <div class="explorer-item project-item" data-id="${proj.id}">
+        <div class="item-media" onclick="window.app?.openProjectModal('${proj.id}')" title="Inspect project kit">
           <div class="code-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
           </div>
         </div>
-
-        <div class="item-content" onclick="window.explorer.openProjectModal('${proj.id}')">
+        <div class="item-content" onclick="window.app?.openProjectModal('${proj.id}')">
           <div class="item-header">
-            <span class="item-title">${proj.title}</span>
-            <span class="item-badge success">Verified Kit</span>
+            <span class="item-title font-excalifont">${proj.title}</span>
+            <div class="item-meta-tags">
+              ${difficultyBadge}
+              <span class="badge badge-year">Year ${proj.year || 3}</span>
+              ${proj.hasHardware ? '<span class="badge badge-hw">Hardware</span>' : ''}
+            </div>
           </div>
-          <p class="item-desc">${proj.tagline || ''}</p>
-          <div class="item-meta-row">
-            <span class="meta-tag">🎓 ${proj.yearLabel || 'Academic Project'}</span>
-            ${techPills}
-            <span class="meta-tag ppt-tag">📊 10-Slide PPT</span>
+          <p class="item-desc">${proj.tagline || proj.description?.substring(0, 110) + '...' || 'Complete project with source code, viva preparation, and PPT deck.'}</p>
+          <div class="item-tech-row">
+            ${techChips}
           </div>
         </div>
-
         <div class="item-actions">
-          <button class="action-icon-btn ${isBookmarked ? 'active' : ''}" title="Bookmark" onclick="event.stopPropagation(); window.explorer.toggleBookmark('${proj.id}')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
-              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-            </svg>
+          <button class="action-btn download-btn" onclick="event.stopPropagation(); window.projectDownloader?.downloadProjectKit('${proj.id}', this)" title="Download Complete Project Kit (ZIP)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span class="action-btn-text">ZIP Kit</span>
           </button>
-          <button class="sw-button primary sm" title="Download Verified Project ZIP" onclick="event.stopPropagation(); window.explorer.downloadKit('${proj.id}')">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            ZIP Kit
+          <button class="action-btn ppt-btn" onclick="event.stopPropagation(); window.pptViewer?.openViewer('${proj.id}')" title="Preview PPT Presentation Deck">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <span class="action-btn-text">PPT</span>
           </button>
-          <button class="sw-button outline sm" title="View 10-Slide Presentation" onclick="event.stopPropagation(); window.explorer.previewPpt('${proj.id}')">
-            PPT
+          <button class="action-btn bookmark-btn ${isBookmarked ? 'saved' : ''}" onclick="event.stopPropagation(); window.app?.toggleBookmark('${proj.id}')" title="Save to Favorites">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
           </button>
         </div>
       </div>
       <div class="sw-separator"></div>
     `;
-  }
-
-  getPdfRowHtml(pyq, showPath = false) {
-    const paperUrl = pyq.url || `https://haldwani.gehu.in/pyqs/`;
-    return `
-      <div class="explorer-item file-item pdf-item">
-        <div class="item-media">
-          <svg width="32" height="32" viewBox="0 0 16 16" class="pdf-svg-icon">
-            <g fill="#ef4444">
-              <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"/>
-              <path d="M4.603 12.087a.8.8 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.7 7.7 0 0 1 1.482-.645 20 20 0 0 0 1.062-2.227 7.3 7.3 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a11 11 0 0 0 .98 1.686 5.8 5.8 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.86.86 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.7 5.7 0 0 1-.911-.95 11.6 11.6 0 0 0-1.997.406 11.3 11.3 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.8.8 0 0 1-.58.029"/>
-            </g>
-          </svg>
-        </div>
-        <div class="item-content" onclick="window.open('${paperUrl}', '_blank')">
-          <div class="item-header">
-            <span class="item-title font-medium">${pyq.name}</span>
-            <span class="item-badge pdf-badge">GEHU PYQ</span>
-          </div>
-          <p class="item-desc">${pyq.date ? pyq.date : (pyq.path || 'Previous Year Examination Question Paper')}</p>
-        </div>
-        <div class="item-actions">
-          <a class="sw-button outline sm" href="${paperUrl}" target="_blank">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-            View Paper
-          </a>
-        </div>
-      </div>
-      <div class="sw-separator"></div>
-    `;
-  }
-
-  // --- Action Bridges into app.js ---
-
-  openProjectModal(id) {
-    const proj = this.allProjects.find(p => p.id === id);
-    if (proj && window.app) {
-      window.app.openProjectModal(proj);
-    }
-  }
-
-  downloadKit(id) {
-    const proj = this.allProjects.find(p => p.id === id);
-    if (proj && window.app && window.projectDownloader) {
-      window.app.getProjectFullDetails(proj).then(fullProj => {
-        const meta = window.pptViewer?.customMetadata || {};
-        window.projectDownloader.downloadProjectKit(fullProj, meta);
-      });
-    }
-  }
-
-  previewPpt(id) {
-    const proj = this.allProjects.find(p => p.id === id);
-    if (proj && window.app) {
-      window.app.openProjectModal(proj);
-      setTimeout(() => {
-        document.querySelector('[data-tab="ppt"]')?.click();
-      }, 150);
-    }
-  }
-
-  toggleBookmark(id) {
-    if (window.app) {
-      window.app.toggleBookmark(id);
-      this.render();
-    }
   }
 }
 
-// Initialize on DOM ready
+// Global initialization
 document.addEventListener("DOMContentLoaded", () => {
   window.explorer = new ForgeExplorer();
 });
