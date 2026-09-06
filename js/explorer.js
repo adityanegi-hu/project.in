@@ -26,6 +26,7 @@ class ForgeExplorer {
     // Parse URL hash for initial route
     this.handleHashChange();
     window.addEventListener("hashchange", () => this.handleHashChange());
+    window.addEventListener("popstate", () => this.handleHashChange());
 
     // Up folder button listener
     this.upFolderBtn?.addEventListener("click", () => this.navigateUp());
@@ -100,6 +101,10 @@ class ForgeExplorer {
     const rawHash = window.location.hash.replace(/^#\/?/, "");
     if (!rawHash) {
       this.currentPath = [];
+      // If at root and hash has # or #/, clean the address bar cleanly without page reload
+      if (window.location.hash && window.history.replaceState) {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
     } else {
       this.currentPath = rawHash.split("/").map(s => {
         try {
@@ -151,12 +156,24 @@ class ForgeExplorer {
 
     this.currentPath = [...newPath];
     const hashStr = this.currentPath.map(s => encodeURIComponent(s)).join("/");
-    const targetHash = hashStr ? `#/${hashStr}` : "#/";
 
-    if (window.location.hash !== targetHash) {
-      window.location.hash = targetHash;
+    if (hashStr) {
+      const targetHash = `#/${hashStr}`;
+      if (window.location.hash !== targetHash) {
+        window.location.hash = targetHash;
+      } else {
+        this.syncActivePill();
+        this.render();
+      }
     } else {
-      // If hash was already the target, hashchange won't fire, so force sync & render immediately
+      // At root: remove '#' / '#/' completely from the URL bar!
+      if (window.location.hash) {
+        if (window.history.pushState) {
+          window.history.pushState(null, "", window.location.pathname + window.location.search);
+        } else {
+          window.location.hash = "";
+        }
+      }
       this.syncActivePill();
       this.render();
     }
@@ -188,7 +205,7 @@ class ForgeExplorer {
 
     let html = `
       <li class="breadcrumb-item">
-        <a href="#/" class="${this.currentPath.length === 0 && !this.searchQuery ? 'current' : ''}">forgeproject</a>
+        <a href="#" onclick="event.preventDefault(); window.explorer?.navigateTo([])" class="${this.currentPath.length === 0 && !this.searchQuery ? 'current' : ''}">forgeproject</a>
       </li>
     `;
 
