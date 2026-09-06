@@ -327,8 +327,11 @@ class ForgeProjectApp {
     const streams = typeof DEGREE_STREAMS !== "undefined" ? DEGREE_STREAMS : [
       { id: "all", name: "All Degree Streams", icon: "graduation-cap", count: 450, label: "All Streams" },
       { id: "B.Tech", name: "B.Tech Projects", icon: "cpu", count: 450, label: "B.Tech (CSE / IT / AI / ECE)" },
-      { id: "BCA", name: "BCA Projects", icon: "monitor", count: 320, label: "BCA (Software & Web Apps)" },
-      { id: "B.Sc", name: "B.Sc Projects", icon: "atom", count: 280, label: "B.Sc (Computer Science / IT)" }
+      { id: "BCA", name: "BCA Projects", icon: "monitor", count: 344, label: "BCA (Software & Web Apps)" },
+      { id: "B.Sc", name: "B.Sc Projects", icon: "atom", count: 344, label: "B.Sc (Computer Science / IT)" },
+      { id: "Diploma", name: "Diploma Projects", icon: "wrench", count: 344, label: "Diploma (Polytechnic Engineering)" },
+      { id: "MCA", name: "MCA Projects", icon: "terminal", count: 40, label: "MCA (Master of Computer Applications)" },
+      { id: "M.Tech", name: "M.Tech Projects", icon: "rocket", count: 40, label: "M.Tech (Advanced Systems & Research)" }
     ];
 
     streams.forEach(stream => {
