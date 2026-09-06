@@ -17,12 +17,17 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
 
+  <!-- Google Fonts for GEHU PYQs & Starwind Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
     crossorigin="anonymous"></script>
 
   <!-- Stylesheet with Cache-Busting -->
-  <link rel="stylesheet" href="css/styles.css?v=13.0">
+  <link rel="stylesheet" href="css/styles.css?v=14.0">
 
   <!-- Cloud Backend API Endpoint -->
   <script>
@@ -43,224 +48,147 @@
 
 <body>
 
-  <!-- Sticky Top Navigation -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="#" class="logo">
-        <div class="logo-icon">
-          <i data-lucide="layers"></i>
-        </div>
-        <div class="logo-text">Forge<span>Project</span></div>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#explore-section" class="nav-link active"><i data-lucide="compass"
-              style="width:16px; height:16px;"></i> Explore Projects</a></li>
-        <li><a href="#" id="navCustomizerBtn" class="nav-link"><i data-lucide="sparkles"
-              style="width:16px; height:16px;"></i> AI PPT Studio</a></li>
-        <li><a href="#" id="navVivaBtn" class="nav-link"><i data-lucide="bot" style="width:16px; height:16px;"></i> Viva
-            Practice</a></li>
-        <li><a href="#" id="navSubmitBtn" class="nav-link"><i data-lucide="upload-cloud"
-              style="width:16px; height:16px;"></i> Share Project</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button id="favoritesFilterBtn" class="btn-icon header-bookmark-btn" title="View Saved Projects">
-          <i data-lucide="bookmark" style="width: 18px; height: 18px;"></i>
-          <span class="saved-badge-count" id="navSavedBadge" style="display:none;">0</span>
-        </button>
-        <button id="themeToggleBtn" class="btn-icon" title="Toggle Light/Dark Theme">
-          <i data-lucide="sun" id="themeIcon" style="width: 18px; height: 18px;"></i>
-        </button>
-        <div id="authNavContainer" style="display: flex; align-items: center;">
-          <button id="navAuthBtn" class="btn btn-outline btn-sm" onclick="app.openAuthModal()">
-            <i data-lucide="user" style="width:16px; height:16px;"></i> Sign In / Sign Up
-          </button>
-        </div>
-        <a href="#explore-section" class="btn btn-primary btn-sm header-cta-btn">
-          <i data-lucide="download-cloud" style="width:16px; height:16px;"></i> Get Projects
+  <!-- Minimalist Clean Header matching haldwani.gehu.in/pyqs -->
+  <header class="pyq-header font-excalifont">
+    <div class="pyq-header-inner">
+      <div class="pyq-logo-group">
+        <a href="#/" onclick="window.explorer?.navigateTo([])" class="pyq-logo-link">
+          <span class="pyq-logo-title">Forge<span class="pyq-logo-accent">Project</span></span>
+          <span class="pyq-logo-sub">Academic & GEHU PYQs Archive</span>
         </a>
-        <button id="mobileMenuBtn" class="btn-icon mobile-menu-btn" aria-label="Open navigation menu">
-          <i data-lucide="menu" id="mobileMenuIcon" style="width: 20px; height: 20px;"></i>
+      </div>
+
+      <div class="pyq-header-right">
+        <nav class="pyq-nav-links">
+          <a href="#/" onclick="window.explorer?.navigateTo([])" class="pyq-nav-link">Explorer</a>
+          <a href="#/B.Tech" onclick="window.explorer?.navigateTo(['B.Tech'])" class="pyq-nav-link">B.Tech Kits</a>
+          <a href="#/PYQs%20Archive" onclick="window.explorer?.navigateTo(['PYQs Archive'])" class="pyq-nav-link">GEHU PYQs</a>
+          <a href="#" onclick="app?.openCustomizerModal()" class="pyq-nav-link">AI PPT Studio</a>
+          <a href="#" onclick="app?.openVivaModal()" class="pyq-nav-link">Viva Prep</a>
+          <a href="#about-section" class="pyq-nav-link">About</a>
+        </nav>
+
+        <button class="pyq-theme-toggle" id="themeToggleBtn" type="button" aria-label="Toggle theme">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="theme-sun-icon" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M8 12a4 4 0 1 0 8 0 4 4 0 1 0-8 0M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"/></svg>
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="theme-moon-icon" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z"/></svg>
+        </button>
+
+        <button class="pyq-mobile-menu-trigger" id="mobileMenuBtn" type="button" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-pill">
-        <i data-lucide="graduation-cap" style="width: 16px; height: 16px;"></i>
-        100% Tested Working Code & Ready-to-Present Defense PPTs
-      </div>
-
-      <h1 class="hero-title">
-        The Ultimate Academic Hub for <span class="gradient-text">Student Projects & PPT Kits</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Find, customize, and download complete working projects across AI/ML, Full Stack, IoT, Python, and Cybersecurity
-        with professionally formatted 10-slide PowerPoint presentations, IEEE reports, and Viva-Voce defense guides.
-      </p>
-
-      <!-- Search Box with Live Filtering -->
-      <div class="hero-search-wrapper">
-        <div class="search-box">
-          <i data-lucide="search" class="search-icon"></i>
-          <input type="text" id="searchInput" class="search-input"
-            placeholder="Search projects by domain, title, or tech stack (e.g. AI Disease, MERN, ESP32, FinBERT)..."
-            autocomplete="off">
-          <button class="btn btn-primary" onclick="document.getElementById('searchInput').focus()">
-            Find Project
-          </button>
-        </div>
-
-        <div class="quick-tags">
-          <span class="quick-tag-label">Featured Domains (50 Each):</span>
-          <span class="tag-pill" data-tag="AI & Machine Learning">🤖 AI & Machine Learning (50)</span>
-          <span class="tag-pill" data-tag="IoT & Hardware">⚡ IoT & Hardware (50)</span>
-          <span class="tag-pill" data-tag="Java & Enterprise">☕ Java & Enterprise (50)</span>
-          <span class="tag-pill" data-tag="Mobile Flutter">📱 Mobile Flutter (50)</span>
-          <span class="tag-pill" data-tag="Blockchain & Web3">🔗 Blockchain & Web3 (50)</span>
-          <span class="tag-pill" data-tag="Cybersecurity & Cloud">🛡️ Cybersecurity (50)</span>
-        </div>
-      </div>
-
-      <!-- Degree Streams Filter Tabs (B.Tech, BCA, B.Sc) -->
-      <div style="margin-top: 1.75rem;">
-        <div
-          style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.6rem;">
-          <i data-lucide="graduation-cap"
-            style="width: 14px; height: 14px; display: inline; vertical-align: middle;"></i> 1. Select Degree Stream:
-        </div>
-        <div class="degree-tabs-container" id="degreeTabsContainer">
-          <!-- Rendered dynamically by app.js -->
-        </div>
-      </div>
-
-      <!-- Year Tabs Selector (1st, 2nd, 3rd, 4th Year) -->
-      <div style="margin-top: 1.25rem;">
-        <div
-          style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.6rem;">
-          <i data-lucide="calendar" style="width: 14px; height: 14px; display: inline; vertical-align: middle;"></i> 2.
-          Select Academic Year:
-        </div>
-        <div class="year-tabs-container" id="yearTabsContainer">
-          <!-- Rendered dynamically by app.js -->
-        </div>
-      </div>
-
-      <!-- Stats Bar -->
-      <div class="stats-bar">
-        <div class="stat-item">
-          <div class="stat-number">450+</div>
-          <div class="stat-label">Verified Working Projects</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">50 / Domain</div>
-          <div class="stat-label">Across 9 Tech Domains</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">450 Decks</div>
-          <div class="stat-label">10-Slide PPT in Every Kit</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">B.Tech • BCA • B.Sc</div>
-          <div class="stat-label">All 4 Academic Years</div>
-        </div>
-      </div>
+  <!-- Main Directory Explorer matching haldwani.gehu.in/pyqs -->
+  <main class="pyq-main-container" id="explorerContainer">
+    <!-- Top Responsive AdSense Unit -->
+    <div class="adsense-slot adsense-top">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7748523184523238"
+           data-ad-slot="7953820280"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
     </div>
-  </section>
 
-  <!-- Main Catalog & Project Explorer -->
-  <section class="catalog-section" id="explore-section">
-    <div class="container">
-      <div class="catalog-header">
-        <div class="section-title-wrap">
-          <div>
-            <h2 class="section-title">Explore Verified College Projects</h2>
-            <p class="section-subtitle">Select your academic year (1st, 2nd, 3rd, 4th), degree stream, or category to
-              get complete kits</p>
-          </div>
-          <span class="results-count" id="resultsCountText">Showing 100 Projects</span>
-        </div>
+    <!-- Separator -->
+    <div class="sw-separator"></div>
 
-        <!-- Category Scroll Container -->
-        <div class="category-scroll-container">
-          <div class="category-pills" id="categoryPillsContainer">
-            <!-- Rendered dynamically by app.js -->
-          </div>
-        </div>
+    <!-- Breadcrumb Navigation Bar -->
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <button class="up-folder-btn" id="upFolderBtn" title="Up a folder" type="button">↑</button>
+      <ol class="breadcrumb-list" id="breadcrumbList">
+        <li class="breadcrumb-item"><a href="#/">forgeproject</a></li>
+      </ol>
+      <div class="explorer-count-badge font-mono" id="explorerCountBadge">Loading...</div>
+    </nav>
 
-        <!-- Filter & Difficulty Toolbar -->
-        <div class="filter-bar">
-          <div class="filter-group">
-            <span class="filter-label"><i data-lucide="graduation-cap"
-                style="width: 14px; height: 14px; display: inline;"></i> Degree:</span>
-            <select id="degreeSelect" class="custom-select">
-              <option value="all">All Degrees (B.Tech • BCA • B.Sc)</option>
-              <option value="B.Tech">B.Tech (CSE / IT / AI / ECE)</option>
-              <option value="BCA">BCA (Bachelor of Computer Apps)</option>
-              <option value="B.Sc">B.Sc (Computer Science / IT)</option>
-            </select>
-          </div>
+    <!-- Separator -->
+    <div class="sw-separator"></div>
 
-          <div class="filter-group">
-            <span class="filter-label"><i data-lucide="calendar"
-                style="width: 14px; height: 14px; display: inline;"></i> Year:</span>
-            <select id="yearSelect" class="custom-select">
-              <option value="all">All Years (1st - 4th)</option>
-              <option value="1">1st Year (Easier / Fundamental)</option>
-              <option value="2">2nd Year (Medium / Intermediate)</option>
-              <option value="3">3rd Year (Hard / Pre-Final)</option>
-              <option value="4">4th Year (Very Hard / Capstone)</option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <span class="filter-label"><i data-lucide="filter" style="width: 14px; height: 14px; display: inline;"></i>
-              Difficulty:</span>
-            <select id="difficultySelect" class="custom-select">
-              <option value="all">All Difficulty Levels</option>
-              <option value="Easy">Easy (1st Year)</option>
-              <option value="Medium">Medium (2nd Year)</option>
-              <option value="Hard">Hard (3rd Year)</option>
-              <option value="Very Hard">Very Hard (4th Year Major)</option>
-            </select>
-          </div>
-
-          <div class="filter-group">
-            <button class="btn btn-outline btn-sm" onclick="app.openCustomizerModal()">
-              <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Personalize PPT Studio
-            </button>
-            <button class="btn btn-outline btn-sm" onclick="app.openVivaModal()">
-              <i data-lucide="mic" style="width: 14px; height: 14px;"></i> Viva Defense Bot
-            </button>
-          </div>
-        </div>
+    <!-- Toolbar: Search & Mode Filter Pills -->
+    <div class="explorer-toolbar">
+      <div class="explorer-search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="explorerSearchInput" class="explorer-search-input"
+               placeholder="Search 450+ projects, PPTs, IEEE synopses & GEHU PYQs..."
+               autocomplete="off">
+        <button id="explorerSearchClear" class="explorer-search-clear" style="display:none;" title="Clear Search">✕</button>
       </div>
 
-      <!-- Project Cards Grid -->
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-
-      <!-- Progressive 10-Item Pagination: Show More Button -->
-      <div class="load-more-section" id="loadMoreSection"
-        style="text-align: center; margin: 2.5rem 0 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-        <button id="loadMoreBtn" class="btn btn-primary load-more-btn"
-          style="padding: 0.85rem 2.5rem; font-size: 1rem; font-weight: 700; box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35); display: inline-flex; align-items: center; gap: 0.6rem; border-radius: var(--radius-full); cursor: pointer; transition: all 0.2s ease;">
-          <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i>
-          <span>Show More Projects (+<span id="loadMoreRemainingCount">10</span> More)</span>
+      <div class="explorer-mode-pills">
+        <button class="explorer-mode-pill active" data-mode="all">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          All Folders
         </button>
-        <div id="allLoadedMessage"
-          style="display: none; font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
-          ✨ All matching projects loaded!
-        </div>
+        <button class="explorer-mode-pill" data-mode="projects">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Projects (450 Kits)
+        </button>
+        <button class="explorer-mode-pill" data-mode="pyqs">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          GEHU PYQs Archive
+        </button>
+        <button class="explorer-mode-pill" data-mode="favorites" id="favoritesFilterBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          Saved Library
+        </button>
       </div>
     </div>
-  </section>
+
+    <div class="sw-separator"></div>
+
+    <!-- Explorer Directory List -->
+    <div class="explorer-list" id="explorerList" role="list">
+      <!-- Populated dynamically by explorer.js -->
+    </div>
+
+    <!-- Hidden compatibility elements for app.js -->
+    <div style="display: none;">
+      <div id="projectsGrid"></div>
+      <div id="degreeTabsContainer"></div>
+      <div id="yearTabsContainer"></div>
+      <div id="categoryPillsContainer"></div>
+      <input type="text" id="searchInput">
+      <select id="degreeSelect"><option value="all">All</option></select>
+      <select id="yearSelect"><option value="all">All</option></select>
+      <select id="difficultySelect"><option value="all">All</option></select>
+      <span id="resultsCountText"></span>
+      <span id="navSavedBadge"></span>
+      <div id="authNavContainer"></div>
+    </div>
+
+    <!-- Bottom Responsive AdSense Unit -->
+    <div class="adsense-slot adsense-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7748523184523238"
+           data-ad-slot="7953820280"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- Prose Information / Community Section matching haldwani.gehu.in/pyqs -->
+    <div class="prose-section" id="about-section">
+      <h2 class="font-excalifont">Like our work?</h2>
+      <p>Give this repo a ⭐ on <a href="https://github.com/adityanegi-hu/project.in" target="_blank">GitHub</a>! Built with pride for Graphic Era Hill University students.</p>
+
+      <h2 class="font-excalifont">Academic Defense Ready</h2>
+      <p>Every project kit in ForgeProject is verified and comes packed with working runnable source code, a professionally formatted 10-slide PowerPoint presentation deck, an IEEE documentation synopsis, and custom Viva-Voce defense practice questions.</p>
+
+      <h2 class="font-excalifont">GEHU Previous Year Papers</h2>
+      <p>Explore official student-contributed previous year question papers across all departments: B.Tech (CSE, ECE, ME, CE), BCA, B.Pharma, BBA, B.Com, MBA, and MCA. Click any paper above to read or download.</p>
+    </div>
+  </main>
+
 
   <!-- ==========================================
        MODAL 1: Project Details & PPT Player
@@ -720,70 +648,80 @@
   <!-- Toast Notifications Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <a href="#" class="logo">
-            <div class="logo-icon"><i data-lucide="layers"></i></div>
-            <div class="logo-text">Forge<span>Project</span></div>
-          </a>
-          <p>
-            ForgeProject is the premier open platform empowering students with complete, working codebases, IEEE-format
-            reports, and defense PowerPoint presentation kits.
+  <!-- Minimalist 3-Column Footer matching haldwani.gehu.in/pyqs -->
+  <footer class="pyq-footer">
+    <div class="pyq-footer-inner">
+      <div class="pyq-footer-grid">
+        <div class="pyq-footer-col col-span-2">
+          <p class="footer-title">
+            Maintained by <span class="font-excalifont footer-author">Aditya Negi</span>
+          </p>
+          <p class="footer-sub">
+            (<span class="font-excalifont">GEHU Student Developer • BCA / B.Tech</span>)
+          </p>
+          <p class="footer-support">
+            <a class="font-excalifont support-link" href="https://github.com/adityanegi-hu/project.in" target="_blank">
+              Support our work 
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </p>
+
+          <div class="footer-social-row">
+            <a href="https://github.com/adityanegi-hu" target="_blank" title="GitHub" class="footer-social-link">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/aditya-negi-b04ko" target="_blank" title="LinkedIn" class="footer-social-link">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/aditya_neg1" target="_blank" title="Instagram" class="footer-social-link">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg>
+            </a>
+          </div>
+
+          <p class="footer-meta-desc">
+            A student-driven academic repository providing complete verified project kits, 10-slide PowerPoint presentations, IEEE reports, and Previous Year Question Papers for Graphic Era Hill University students.
           </p>
         </div>
 
-        <div>
-          <h4 class="footer-heading">Project Categories</h4>
-          <ul class="footer-links">
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('ai-ml')">AI & Machine Learning </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('web-dev')">Full Stack & Web Dev </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('c-cpp')">C / C++ Systems </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('python-data')">Python & Data Science </a>
+        <div class="pyq-footer-col">
+          <p class="footer-links-heading">Quick Links</p>
+          <ul class="footer-links-list font-excalifont">
+            <li>
+              <a href="https://github.com/adityanegi-hu/project.in" target="_blank" class="footer-link">
+                ⭐ Star on GitHub
+              </a>
             </li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('iot-embedded')">IoT & Hardware </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('java')">Java & Enterprise </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('mobile')">Mobile Flutter </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('blockchain')">Blockchain & Web3 </a></li>
-            <li><a href="#explore-section" onclick="app.setCategoryFilter('cybersecurity')">Cybersecurity & Cloud</a>
+            <li>
+              <a href="#/PYQs%20Archive" onclick="window.explorer?.navigateTo(['PYQs Archive'])" class="footer-link">
+                📄 GEHU PYQs Archive
+              </a>
             </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Kit Resources</h4>
-          <ul class="footer-links">
-            <li><a href="#" onclick="app.openCustomizerModal()">AI PPT Studio</a></li>
-            <li><a href="#" onclick="app.openVivaModal()">Viva Voce AI Bot</a></li>
-            <li><a href="#explore-section">IEEE Synopsis Format</a></li>
-            <li><a href="#explore-section">System Architecture DFDs</a></li>
-            <li><a href="#" onclick="app.openSubmitModal()">Submit Project</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-heading">Academic Guidelines</h4>
-          <ul class="footer-links">
-            <li><a href="#">Presentation Defense Tips</a></li>
-            <li><a href="#">Literature Review Guides</a></li>
-            <li><a href="#">Plagiarism Prevention</a></li>
-            <li><a href="#">Open Source License</a></li>
+            <li>
+              <a href="#" onclick="app?.openCustomizerModal()" class="footer-link">
+                ✨ AI PPT Studio
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="app?.openVivaModal()" class="footer-link">
+                🤖 Viva Defense Bot
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="app?.openSubmitModal()" class="footer-link">
+                🚀 Share Your Project
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>© 2025 ForgeProject Academic Repository. All rights reserved. Created by Aditya Negi BCA 5th Sem </div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="https://www.instagram.com/aditya_neg1">Instagram </a>
-          <a href="https://www.linkedin.com/in/aditya-negi-b04ko">LinkedIn</a>
-          <a href="https://github.com/adityanegi-hu">Github</a>
-        </div>
+      <div class="footer-bottom-row">
+        <p>Built for <span class="font-excalifont">Students & Engineers</span> • GEHU Academic Hub</p>
+        <p>Last updated on <span class="font-excalifont">September 2026</span> (IST)</p>
       </div>
     </div>
   </footer>
+
 
   <!-- Mobile Slide-out Navigation Drawer -->
     <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
@@ -881,11 +819,14 @@
     </nav>
 
     <!-- Core Scripts with Cache-Busting -->
-    <script src="js/data-summary.js?v=13.0"></script>
-    <script src="js/ppt-viewer.js?v=13.0"></script>
-    <script src="js/downloader.js?v=13.0"></script>
-    <script src="js/viva-simulator.js?v=13.0"></script>
-    <script src="js/app.js?v=13.0"></script>
+    <script src="js/data-summary.js?v=14.0"></script>
+    <script src="js/data-pyqs.js?v=14.0"></script>
+    <script src="js/ppt-viewer.js?v=14.0"></script>
+    <script src="js/downloader.js?v=14.0"></script>
+    <script src="js/viva-simulator.js?v=14.0"></script>
+    <script src="js/app.js?v=14.0"></script>
+    <script src="js/explorer.js?v=14.0"></script>
+
 
     <script>
       // Initialize Lucide icons on page load
