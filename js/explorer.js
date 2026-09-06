@@ -24,7 +24,7 @@ class ForgeExplorer {
   }
 
   init() {
-    // Parse URL hash for initial route (e.g. #/B.Tech%20Projects or #/Browse%20by%20Technology)
+    // Parse URL hash for initial route (e.g. #/B.Tech or #/B.Tech/1st%20Year%20Projects)
     this.handleHashChange();
     window.addEventListener("hashchange", () => this.handleHashChange());
 
@@ -155,7 +155,7 @@ class ForgeExplorer {
   }
 
   resolveCurrentDirectory() {
-    // Root directory
+    // Root directory: Course Folders
     if (this.currentPath.length === 0) {
       return {
         type: "virtual-root",
@@ -183,42 +183,32 @@ class ForgeExplorer {
       }
     }
 
-    // "Browse by Year" folder
-    if (firstSeg === "Browse by Year") {
-      if (this.currentPath.length === 1) {
-        return {
-          type: "year-category-list",
-          items: this.getYearCategories()
-        };
-      }
-      if (this.currentPath.length === 2) {
-        const yearName = this.currentPath[1];
-        const yearNum = parseInt(yearName) || 1;
-        return {
-          type: "project-list",
-          folderName: yearName,
-          projects: this.allProjects.filter(p => p.year === yearNum)
-        };
-      }
-    }
-
-    // Degree Level: e.g. ["B.Tech Projects"], ["BCA Projects"], ["MCA Projects"], ["M.Tech Projects"], ["Diploma Projects"]
-    if (this.currentPath.length === 1) {
+    // "Browse All Projects" folder
+    if (firstSeg === "Browse All 450 Projects" || firstSeg === "All Projects") {
       return {
-        type: "degree-level",
-        degree: firstSeg,
-        items: this.getDegreeCategories(firstSeg)
+        type: "project-list",
+        folderName: "All 450 Academic Projects",
+        projects: this.allProjects
       };
     }
 
-    // Subfolder Level: e.g. ["B.Tech Projects", "AI & Machine Learning"] or ["B.Tech Projects", "3rd Year Projects"]
+    // Course Level: e.g. ["B.Tech"], ["BCA"], ["B.Sc"], ["Diploma"], ["MCA & M.Tech"]
+    if (this.currentPath.length === 1) {
+      return {
+        type: "course-level",
+        course: firstSeg,
+        items: this.getCourseItems(firstSeg)
+      };
+    }
+
+    // Subfolder Level: e.g. ["B.Tech", "1st Year Projects & PPTs"] or ["BCA", "AI & Machine Learning"]
     if (this.currentPath.length === 2) {
       const secondSeg = this.currentPath[1];
       return {
         type: "project-list",
-        degree: firstSeg,
+        course: firstSeg,
         categoryOrYear: secondSeg,
-        projects: this.getProjectsForPath(firstSeg, secondSeg)
+        projects: this.getProjectsForCourseAndPath(firstSeg, secondSeg)
       };
     }
 
@@ -226,67 +216,117 @@ class ForgeExplorer {
   }
 
   getRootItems() {
-    const folders = [
-      { name: "B.Tech Projects", degreeKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Major & Minor Projects with Working Code & PPTs", count: "300+ Kits" },
-      { name: "BCA Projects", degreeKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects with Complete Code & Presentation Slides", count: "80+ Kits" },
-      { name: "MCA Projects", degreeKey: "MCA", desc: "Master of Computer Applications Enterprise Systems & Deep Learning Capstone Projects", count: "45+ Kits" },
-      { name: "M.Tech Projects", degreeKey: "M.Tech", desc: "Advanced Postgraduate Engineering, Neural Architectures & Research Project Kits", count: "30+ Kits" },
-      { name: "Diploma Projects", degreeKey: "Diploma", desc: "Polytechnic Engineering, Practical Hardware, Embedded & Web Projects", count: "35+ Kits" },
-      { name: "Browse by Technology", degreeKey: "tech", desc: "Find projects by Stack: Python, AI/ML, React, Java, Flutter, IoT, Solidity, C/C++", count: "8 Stacks" },
-      { name: "Browse by Year", degreeKey: "year", desc: "Filter kits by Academic Year: 1st Year, 2nd Year, 3rd Year, 4th Year Capstone", count: "4 Years" }
+    const courses = [
+      { name: "B.Tech", courseKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering Projects (450 Kits)", count: "300+ Kits" },
+      { name: "BCA", courseKey: "BCA", desc: "Bachelor of Computer Applications Final & Mini Projects", count: "80+ Kits" },
+      { name: "B.Sc", courseKey: "B.Sc", desc: "CS, IT, Animation & Information Tech Academic Projects", count: "50+ Kits" },
+      { name: "Diploma", courseKey: "Diploma", desc: "Polytechnic Engineering & Technical Practical Kits", count: "35+ Kits" },
+      { name: "MCA & M.Tech", courseKey: "MCA & M.Tech", desc: "Advanced Research, System & Capstone Enterprise Projects", count: "40+ Kits" },
+      { name: "Browse by Technology", courseKey: "tech", desc: "Filter by Stack: Python, AI/ML, MERN, Java, IoT, Mobile, Blockchain, C++", count: "8 Stacks" }
     ];
 
     if (this.currentMode === "btech") {
-      return folders.filter(f => f.degreeKey === "B.Tech");
+      return courses.filter(c => c.courseKey === "B.Tech");
     }
     if (this.currentMode === "bca") {
-      return folders.filter(f => f.degreeKey === "BCA" || f.degreeKey === "Diploma");
+      return courses.filter(c => c.courseKey === "BCA" || c.courseKey === "B.Sc" || c.courseKey === "Diploma");
     }
     if (this.currentMode === "mca") {
-      return folders.filter(f => f.degreeKey === "MCA" || f.degreeKey === "M.Tech");
+      return courses.filter(c => c.courseKey === "MCA & M.Tech");
     }
 
-    return folders;
+    return courses;
   }
 
-  getDegreeCategories(degree) {
-    return [
-      { name: "1st Year Projects", type: "year", year: 1, desc: "Introductory Programming, Logic Building, Python & Starter Kits" },
-      { name: "2nd Year Projects", type: "year", year: 2, desc: "Core OOP, DBMS, Web Development & Algorithms Mini Projects" },
-      { name: "3rd Year Projects", type: "year", year: 3, desc: "Advanced Full-Stack, Machine Learning & Distributed Systems" },
-      { name: "4th Year Major Projects", type: "year", year: 4, desc: "Comprehensive Capstone, Industry Scale & Defense Ready Kits" },
-      { name: "AI & Machine Learning", type: "domain", category: "ai-ml", desc: "Computer Vision, NLP, Deep Learning & Predictive Models (50 Kits)" },
-      { name: "Web & Full Stack Development", type: "domain", category: "web-dev", desc: "MERN, Django, Spring Boot & React Applications (50 Kits)" },
-      { name: "IoT & Embedded Systems", type: "domain", category: "iot-embedded", desc: "ESP32, Arduino, Raspberry Pi & Smart Automation (50 Kits)" },
-      { name: "Cybersecurity & Cloud Security", type: "domain", category: "cybersecurity", desc: "Penetration Testing, Encryption & Cloud Infrastructure (50 Kits)" },
-      { name: "Python & Data Science", type: "domain", category: "python-data", desc: "Scrapers, Bots, Dashboards & Data Analytics (50 Kits)" },
-      { name: "Blockchain & Web3 DApps", type: "domain", category: "blockchain", desc: "Smart Contracts, Solidity, DApps & Decentralized Systems (50 Kits)" },
-      { name: "Mobile App Development", type: "domain", category: "mobile", desc: "Cross-Platform Flutter & React Native Applications (50 Kits)" },
-      { name: "Java & Enterprise Architecture", type: "domain", category: "java", desc: "Spring Boot, Microservices, Hibernate & Enterprise Systems (50 Kits)" },
-      { name: "C / C++ Core Systems & Drivers", type: "domain", category: "c-cpp", desc: "System Programming, Compilers, OS & Embedded Drivers (50 Kits)" }
-    ];
+  getCourseItems(course) {
+    if (course === "B.Tech") {
+      return [
+        { name: "1st Year Projects & PPTs", desc: "Foundational Programming, Python, Web & Algorithms (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
+        { name: "2nd Year Projects & PPTs", desc: "Core OOP, DBMS, Web Development & Mini Projects (Working Code & 10-Slide PPTs)", count: "117 Kits", type: "year" },
+        { name: "3rd Year Projects & PPTs", desc: "Advanced Full-Stack, Machine Learning & Systems (Working Code & 10-Slide PPTs)", count: "116 Kits", type: "year" },
+        { name: "4th Year Major Capstone & PPTs", desc: "Comprehensive Capstone Systems, IEEE Defense Ready (Working Code & 10-Slide PPTs)", count: "106 Kits", type: "year" },
+        { name: "All B.Tech Projects & PPTs", desc: "Complete 4-Year B.Tech Catalog Index with Source Code & Presentation Decks", count: "450 Kits", type: "all" },
+        // Domains
+        { name: "AI & Machine Learning", desc: "Computer Vision, NLP, Deep Learning & Predictive Models (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Web & Full Stack Development", desc: "MERN, Django, Spring Boot & React Applications (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "IoT & Hardware Embedded", desc: "ESP32, Arduino, Raspberry Pi & Smart Automation (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Cybersecurity & Cloud", desc: "Penetration Testing, Encryption & Cloud Infrastructure (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Python & Data Science", desc: "Scrapers, Bots, Dashboards & Data Analytics (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Blockchain & Web3 DApps", desc: "Smart Contracts, Solidity & Decentralized Systems (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Mobile App Development", desc: "Cross-Platform Flutter & React Native Applications (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Java & Enterprise Systems", desc: "Spring Boot, Microservices & Enterprise Architecture (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "C / C++ Core Systems", desc: "System Programming, OS, Compilers & Embedded Drivers (Working Code & PPT)", count: "50 Kits", type: "domain" }
+      ];
+    }
+
+    if (course === "BCA") {
+      return [
+        { name: "1st Year Projects & PPTs", desc: "Web Basics, Python Automation & Logic Building (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
+        { name: "2nd Year Projects & PPTs", desc: "Full-Stack Web, DBMS, Mobile & Desktop Apps (Working Code & 10-Slide PPTs)", count: "117 Kits", type: "year" },
+        { name: "3rd Year Final Projects & PPTs", desc: "Final Year Capstone, AI, Cloud & Defense Ready (Working Code & 10-Slide PPTs)", count: "116 Kits", type: "year" },
+        { name: "All BCA Projects & PPTs", desc: "Complete BCA Catalog Index with Source Code & Presentation Decks", count: "344 Kits", type: "all" },
+        // Domains
+        { name: "Web & Full Stack Development", desc: "MERN, Django & React Web Applications (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Python & Data Science", desc: "Automation Bots, GUI Tools & Dashboards (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "AI & Machine Learning", desc: "Machine Learning & Smart Classification (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Mobile App Development", desc: "Flutter & Mobile Applications (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Java & Enterprise Systems", desc: "Java MVC & Database Systems (Working Code & PPT)", count: "50 Kits", type: "domain" }
+      ];
+    }
+
+    if (course === "B.Sc") {
+      return [
+        { name: "1st Year Projects & PPTs", desc: "Foundations of Computing, Python & Interactive Tools (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
+        { name: "2nd Year Projects & PPTs", desc: "Data Analytics, Web Apps & Software Mini Projects (Working Code & 10-Slide PPTs)", count: "117 Kits", type: "year" },
+        { name: "3rd Year Final Projects & PPTs", desc: "Final Year Software, Practical Systems & Capstones (Working Code & 10-Slide PPTs)", count: "116 Kits", type: "year" },
+        { name: "All B.Sc Projects & PPTs", desc: "Complete B.Sc Catalog Index with Source Code & Presentation Decks", count: "344 Kits", type: "all" },
+        // Domains
+        { name: "Python & Data Science", desc: "Data Analysis, Scrapers & Automation (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Web & Full Stack Development", desc: "Full Stack & Web Applications (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "AI & Machine Learning", desc: "Machine Learning & Neural Nets (Working Code & PPT)", count: "50 Kits", type: "domain" }
+      ];
+    }
+
+    if (course === "Diploma") {
+      return [
+        { name: "1st Year Projects & PPTs", desc: "Programming Foundations, Logic Building & Practical Labs (Working Code & 10-Slide PPTs)", count: "111 Kits", type: "year" },
+        { name: "2nd Year Projects & PPTs", desc: "Embedded Systems, Microcontrollers, Sensors & Web Basics (Working Code & 10-Slide PPTs)", count: "117 Kits", type: "year" },
+        { name: "3rd Year Final Projects & PPTs", desc: "Polytechnic Final Year Projects & IoT Automation (Working Code & 10-Slide PPTs)", count: "116 Kits", type: "year" },
+        { name: "All Diploma Projects & PPTs", desc: "Complete Polytechnic Diploma Catalog Index with Source Code & Presentation Decks", count: "344 Kits", type: "all" },
+        // Domains
+        { name: "IoT & Hardware Embedded", desc: "ESP32, Arduino & Sensor Automation (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "C / C++ Core Systems", desc: "Microcontroller C, Systems & Drivers (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Web & Full Stack Development", desc: "Responsive Web Development (Working Code & PPT)", count: "50 Kits", type: "domain" }
+      ];
+    }
+
+    if (course === "MCA & M.Tech" || course === "MCA") {
+      return [
+        { name: "1st Year Projects & PPTs", desc: "Advanced Systems, Distributed Architecture & Cloud (Working Code & 10-Slide PPTs)", count: "116 Kits", type: "year" },
+        { name: "2nd Year Capstone & Dissertation", desc: "Deep Learning, Security Protocols & Master Thesis Capstones (Working Code & 10-Slide PPTs)", count: "106 Kits", type: "year" },
+        { name: "All MCA & M.Tech Projects & PPTs", desc: "Complete Postgraduate Catalog Index with Source Code & Presentation Decks", count: "222 Kits", type: "all" },
+        // Domains
+        { name: "AI & Machine Learning", desc: "Advanced Deep Learning & NLP (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Cybersecurity & Cloud", desc: "Threat Detection & Cloud Security (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Blockchain & Web3 DApps", desc: "Enterprise DApps & Smart Contracts (Working Code & PPT)", count: "50 Kits", type: "domain" },
+        { name: "Web & Full Stack Development", desc: "Microservices & Enterprise Full-Stack (Working Code & PPT)", count: "50 Kits", type: "domain" }
+      ];
+    }
+
+    return [];
   }
 
   getTechCategories() {
     return [
-      { name: "Python & Data Science", desc: "Flask, FastAPI, Pandas, NumPy, Scikit-learn, Automation Bots", count: "50 Kits" },
-      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, OpenCV, YOLO, NLP Transformers & LLMs", count: "50 Kits" },
-      { name: "Full-Stack Web (MERN / Django)", desc: "React.js, Node.js, Express, MongoDB, Django, REST APIs", count: "50 Kits" },
-      { name: "Java & Spring Boot", desc: "Enterprise MVC, Microservices, Hibernate, MySQL, JSP / Servlets", count: "50 Kits" },
-      { name: "IoT & Embedded Systems", desc: "ESP8266, ESP32, Arduino Uno, Raspberry Pi, Sensors, MQTT", count: "50 Kits" },
-      { name: "Mobile App (Flutter & React Native)", desc: "Android, iOS, Firebase, State Management, Clean Architecture", count: "50 Kits" },
-      { name: "Blockchain & Solidity", desc: "Ethereum, Hardhat, Web3.js, E-Voting, Supply Chain DApps", count: "50 Kits" },
-      { name: "Cybersecurity & Cryptography", desc: "Network Sniffing, Threat Detection, Encryption Protocols", count: "50 Kits" },
-      { name: "C / C++ Systems & OS", desc: "Memory Allocators, Kernel Simulation, Socket Programming", count: "50 Kits" }
-    ];
-  }
-
-  getYearCategories() {
-    return [
-      { name: "1st Year", desc: "Beginner foundations, logic building, CLI tools, basic GUI applications", count: "90 Kits" },
-      { name: "2nd Year", desc: "Database-driven applications, Object-Oriented design, Web basics", count: "110 Kits" },
-      { name: "3rd Year", desc: "Complex domain applications, Machine Learning pipelines, RESTful services", count: "130 Kits" },
-      { name: "4th Year", desc: "Industry-grade capstone systems, research projects, viva defense ready", count: "120 Kits" }
+      { name: "Python & Data Science", desc: "Flask, FastAPI, Pandas, NumPy, Scikit-learn, Automation Bots (Working Code & PPT)", count: "50 Kits" },
+      { name: "AI, ML & Deep Learning", desc: "TensorFlow, PyTorch, OpenCV, YOLO, NLP Transformers & LLMs (Working Code & PPT)", count: "50 Kits" },
+      { name: "Full-Stack Web (MERN / Django)", desc: "React.js, Node.js, Express, MongoDB, Django, REST APIs (Working Code & PPT)", count: "50 Kits" },
+      { name: "Java & Spring Boot", desc: "Enterprise MVC, Microservices, Hibernate, MySQL, JSP / Servlets (Working Code & PPT)", count: "50 Kits" },
+      { name: "IoT & Embedded Systems", desc: "ESP8266, ESP32, Arduino Uno, Raspberry Pi, Sensors, MQTT (Working Code & PPT)", count: "50 Kits" },
+      { name: "Mobile App (Flutter & React Native)", desc: "Android, iOS, Firebase, State Management, Clean Architecture (Working Code & PPT)", count: "50 Kits" },
+      { name: "Blockchain & Solidity", desc: "Ethereum, Hardhat, Web3.js, E-Voting, Supply Chain DApps (Working Code & PPT)", count: "50 Kits" },
+      { name: "Cybersecurity & Cryptography", desc: "Network Sniffing, Threat Detection, Encryption Protocols (Working Code & PPT)", count: "50 Kits" },
+      { name: "C / C++ Systems & OS", desc: "Memory Allocators, Kernel Simulation, Socket Programming (Working Code & PPT)", count: "50 Kits" }
     ];
   }
 
@@ -306,40 +346,43 @@ class ForgeExplorer {
     });
   }
 
-  getProjectsForPath(degree, categoryOrYear) {
-    const cleanDegree = degree.replace(" Projects", "").trim();
+  getProjectsForCourseAndPath(course, yearOrCat) {
     return this.allProjects.filter(p => {
-      // Degree match
-      let degreeMatch = true;
-      if (cleanDegree === "B.Tech") {
-        degreeMatch = Array.isArray(p.degrees) && p.degrees.some(d => /b\.?tech/i.test(d));
-      } else if (cleanDegree === "BCA") {
-        degreeMatch = Array.isArray(p.degrees) && p.degrees.some(d => /bca/i.test(d));
-      } else if (cleanDegree === "MCA") {
-        degreeMatch = p.year >= 2;
-      } else if (cleanDegree === "M.Tech") {
-        degreeMatch = p.year === 4 || ["ai-ml", "cybersecurity", "blockchain", "iot-embedded"].includes(p.category);
-      } else if (cleanDegree === "Diploma") {
-        degreeMatch = p.year <= 3 || ["iot-embedded", "c-cpp", "python-data", "web-dev"].includes(p.category);
+      // 1. Course Scope
+      let courseMatch = true;
+      if (course === "Diploma") {
+        courseMatch = p.year <= 3;
+      } else if (course === "MCA & M.Tech" || course === "MCA") {
+        courseMatch = p.year >= 3;
       }
 
-      // Category / Year match
-      if (categoryOrYear.includes("1st Year")) return degreeMatch && p.year === 1;
-      if (categoryOrYear.includes("2nd Year")) return degreeMatch && p.year === 2;
-      if (categoryOrYear.includes("3rd Year")) return degreeMatch && p.year === 3;
-      if (categoryOrYear.includes("4th Year")) return degreeMatch && p.year === 4;
+      if (!courseMatch) return false;
 
-      if (categoryOrYear.includes("AI & Machine Learning") || categoryOrYear.includes("AI")) return degreeMatch && p.category === "ai-ml";
-      if (categoryOrYear.includes("Web") || categoryOrYear.includes("Full Stack")) return degreeMatch && p.category === "web-dev";
-      if (categoryOrYear.includes("IoT") || categoryOrYear.includes("Hardware")) return degreeMatch && p.category === "iot-embedded";
-      if (categoryOrYear.includes("Cybersecurity")) return degreeMatch && p.category === "cybersecurity";
-      if (categoryOrYear.includes("Python")) return degreeMatch && p.category === "python-data";
-      if (categoryOrYear.includes("Blockchain")) return degreeMatch && p.category === "blockchain";
-      if (categoryOrYear.includes("Mobile")) return degreeMatch && p.category === "mobile";
-      if (categoryOrYear.includes("Java")) return degreeMatch && p.category === "java";
-      if (categoryOrYear.includes("C / C++") || categoryOrYear.includes("C++")) return degreeMatch && p.category === "c-cpp";
+      // 2. Year Matching
+      if (course === "MCA & M.Tech") {
+        if (yearOrCat.includes("1st Year")) return p.year === 3;
+        if (yearOrCat.includes("2nd Year") || yearOrCat.includes("Capstone")) return p.year === 4;
+      } else {
+        if (yearOrCat.includes("1st Year")) return p.year === 1;
+        if (yearOrCat.includes("2nd Year")) return p.year === 2;
+        if (yearOrCat.includes("3rd Year")) return p.year === 3;
+        if (yearOrCat.includes("4th Year")) return p.year === 4;
+      }
 
-      return degreeMatch;
+      if (yearOrCat.includes("All")) return true;
+
+      // 3. Category Matching
+      if (yearOrCat.includes("AI & Machine Learning") || yearOrCat.includes("AI")) return p.category === "ai-ml";
+      if (yearOrCat.includes("Web") || yearOrCat.includes("Full Stack")) return p.category === "web-dev";
+      if (yearOrCat.includes("IoT") || yearOrCat.includes("Hardware")) return p.category === "iot-embedded";
+      if (yearOrCat.includes("Cybersecurity") || yearOrCat.includes("Cloud")) return p.category === "cybersecurity";
+      if (yearOrCat.includes("Python") || yearOrCat.includes("Data")) return p.category === "python-data";
+      if (yearOrCat.includes("Blockchain") || yearOrCat.includes("Web3")) return p.category === "blockchain";
+      if (yearOrCat.includes("Mobile")) return p.category === "mobile";
+      if (yearOrCat.includes("Java")) return p.category === "java";
+      if (yearOrCat.includes("C / C++") || yearOrCat.includes("C++")) return p.category === "c-cpp";
+
+      return true;
     });
   }
 
@@ -348,7 +391,7 @@ class ForgeExplorer {
     let html = "";
     let count = 0;
 
-    // 1. Virtual Root
+    // 1. Virtual Root (Course folders)
     if (dirData.type === "virtual-root") {
       dirData.items.forEach(item => {
         count++;
@@ -361,15 +404,15 @@ class ForgeExplorer {
       });
     }
 
-    // 2. Degree Level (e.g. /B.Tech Projects)
-    else if (dirData.type === "degree-level") {
+    // 2. Course Level (Years & Categories inside selected course)
+    else if (dirData.type === "course-level") {
       dirData.items.forEach(item => {
         count++;
         html += this.getFolderRowHtml({
           title: item.name,
           desc: item.desc,
-          badge: "Open Folder",
-          onClick: `window.explorer.navigateTo(['${dirData.degree}', '${item.name}'])`
+          badge: item.count,
+          onClick: `window.explorer.navigateTo(['${dirData.course}', '${item.name}'])`
         });
       });
     }
@@ -387,20 +430,7 @@ class ForgeExplorer {
       });
     }
 
-    // 4. Year Categories Level (e.g. /Browse by Year)
-    else if (dirData.type === "year-category-list") {
-      dirData.items.forEach(item => {
-        count++;
-        html += this.getFolderRowHtml({
-          title: item.name,
-          desc: item.desc,
-          badge: item.count,
-          onClick: `window.explorer.navigateTo(['Browse by Year', '${item.name}'])`
-        });
-      });
-    }
-
-    // 5. Project List (e.g. /B.Tech Projects/AI & Machine Learning)
+    // 4. Project List (Projects inside selected course + year/domain)
     else if (dirData.type === "project-list") {
       const projects = dirData.projects || [];
       count = projects.length;
@@ -514,7 +544,7 @@ class ForgeExplorer {
 
     return `
       <div class="explorer-item project-item" data-id="${proj.id}">
-        <div class="item-media" onclick="window.app?.openProjectModal('${proj.id}')" title="Inspect project kit">
+        <div class="item-media" onclick="window.app?.openProjectModal('${proj.id}')" title="Inspect working project & PPT">
           <div class="code-icon-box">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
@@ -529,24 +559,26 @@ class ForgeExplorer {
               ${difficultyBadge}
               <span class="badge badge-year">Year ${proj.year || 3}</span>
               ${proj.hasHardware ? '<span class="badge badge-hw">Hardware</span>' : ''}
+              <span class="badge badge-working">⚡ Working Code</span>
+              <span class="badge badge-ppt">📊 10-Slide PPT</span>
             </div>
           </div>
-          <p class="item-desc">${proj.tagline || (proj.description ? proj.description.substring(0, 110) + '...' : '') || 'Complete project with working code, viva preparation, and PPT deck.'}</p>
+          <p class="item-desc">${proj.tagline || (proj.description ? proj.description.substring(0, 110) + '...' : '') || 'Complete working project with runnable source code, viva preparation, and 10-slide PPT deck.'}</p>
           <div class="item-tech-row">
             ${techChips}
           </div>
         </div>
         <div class="item-actions">
-          <button class="action-btn download-btn" onclick="event.stopPropagation(); window.projectDownloader?.downloadProjectKit('${proj.id}', this)" title="Download Complete Project Kit (ZIP)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <button class="action-btn download-btn" onclick="event.stopPropagation(); window.projectDownloader?.downloadProjectKit('${proj.id}', this)" title="Download Complete Working Source Code Kit (ZIP)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             <span class="action-btn-text">ZIP Kit</span>
           </button>
-          <button class="action-btn ppt-btn" onclick="event.stopPropagation(); window.pptViewer?.openViewer('${proj.id}')" title="Preview PPT Presentation Deck">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <button class="action-btn ppt-btn" onclick="event.stopPropagation(); window.pptViewer?.openViewer('${proj.id}')" title="Preview 10-Slide PPT Presentation Deck">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
             <span class="action-btn-text">PPT</span>
           </button>
           <button class="action-btn bookmark-btn ${isBookmarked ? 'saved' : ''}" onclick="event.stopPropagation(); window.app?.toggleBookmark('${proj.id}')" title="Save to Favorites">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
           </button>
         </div>
       </div>
