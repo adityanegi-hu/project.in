@@ -3627,7 +3627,8 @@ svg {
 
 @media (min-width: 768px) {
   .pyq-footer-grid {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2.5rem;
   }
 }
 

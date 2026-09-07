@@ -1,0 +1,20 @@
+# Robots.txt for ForgeProject (https://forgeproject.tech)
+User-agent: *
+Allow: /
+Allow: /ads.txt
+Allow: /sitemap.xml
+Allow: /about.html
+Allow: /contact.html
+Allow: /privacy.html
+Allow: /terms.html
+
+# Explicitly allow Google AdSense Crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Explicitly allow Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Sitemap Index
+Sitemap: https://forgeproject.tech/sitemap.xml
