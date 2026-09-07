@@ -292,12 +292,13 @@
   <script>
     // Theme toggle initialization
     const themeBtn = document.getElementById("themeToggleBtn");
-    const currentTheme = localStorage.getItem("forgeproject_theme") || "dark";
+    const currentTheme = localStorage.getItem("pf_theme") || localStorage.getItem("forgeproject_theme") || "dark";
     document.documentElement.setAttribute("data-theme", currentTheme);
 
     themeBtn?.addEventListener("click", () => {
       const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("pf_theme", nextTheme);
       localStorage.setItem("forgeproject_theme", nextTheme);
     });
 

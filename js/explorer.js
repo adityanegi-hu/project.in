@@ -322,11 +322,16 @@ class ForgeExplorer {
     }
 
     // Course Level: e.g. ["B.Tech"], ["BCA"], ["B.Sc"], ["Diploma"], ["MCA & M.Tech"]
+    let normalizedCourse = firstSeg;
+    if (/^b\.?tech/i.test(firstSeg)) {
+      normalizedCourse = "B.Tech";
+    }
+
     if (this.currentPath.length === 1) {
       return {
         type: "course-level",
-        course: firstSeg,
-        items: this.getCourseItems(firstSeg)
+        course: normalizedCourse,
+        items: this.getCourseItems(normalizedCourse)
       };
     }
 
