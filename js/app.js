@@ -186,7 +186,11 @@ class ForgeProjectApp {
       }
     });
     document.getElementById("mobBottomSearch")?.addEventListener("click", () => {
-      if (this.searchInput) {
+      const explorerInput = document.getElementById("explorerSearchInput");
+      if (explorerInput) {
+        explorerInput.focus();
+        explorerInput.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (this.searchInput) {
         this.searchInput.focus();
         this.searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
       }
@@ -471,12 +475,30 @@ class ForgeProjectApp {
       // Difficulty Filter
       const matchesDifficulty = this.currentDifficulty === "all" || (proj.difficulty && proj.difficulty.toLowerCase() === this.currentDifficulty.toLowerCase());
 
-      // Search Query
-      const searchMatch = !this.searchQuery ||
-        (proj.title && proj.title.toLowerCase().includes(this.searchQuery)) ||
-        (proj.tagline && proj.tagline.toLowerCase().includes(this.searchQuery)) ||
-        (proj.categoryLabel && proj.categoryLabel.toLowerCase().includes(this.searchQuery)) ||
-        (proj.techStack && proj.techStack.some(t => t.toLowerCase().includes(this.searchQuery)));
+      // Search Query (delegates to precision search engine if explorer is active)
+      let searchMatch = true;
+      if (this.searchQuery) {
+        if (window.explorer && typeof window.explorer.searchProjects === "function") {
+          if (!this._cachedSearchQuery || this._cachedSearchQuery !== this.searchQuery) {
+            this._cachedSearchQuery = this.searchQuery;
+            this._cachedMatchingIds = new Set(window.explorer.searchProjects(this.searchQuery).map(p => p.id));
+          }
+          searchMatch = this._cachedMatchingIds.has(proj.id);
+        } else if (typeof ForgeExplorer !== "undefined" && typeof ForgeExplorer.prototype.searchProjects === "function") {
+          const tempExp = window._tempExplorer || (window._tempExplorer = new ForgeExplorer());
+          searchMatch = tempExp.searchProjects(this.searchQuery).some(p => p.id === proj.id);
+        } else {
+          const q = this.searchQuery.trim().toLowerCase();
+          if (q === 'c') {
+            searchMatch = (proj.category === 'c-cpp') || (Array.isArray(proj.techStack) && proj.techStack.some(t => t.toLowerCase() === 'c' || t.toLowerCase() === 'c language'));
+          } else {
+            const boundaryRegex = new RegExp('(?:^|[\\s\\-_/().,"\'`])' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:$|[\\s\\-_/().,"\'`])', 'i');
+            searchMatch = boundaryRegex.test(proj.title || '') ||
+              boundaryRegex.test(proj.tagline || '') ||
+              (proj.techStack && proj.techStack.some(t => boundaryRegex.test(t)));
+          }
+        }
+      }
 
       return matchesFavorites && matchesDegree && matchesYear && matchesCategory && matchesDifficulty && searchMatch;
     });
