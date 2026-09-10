@@ -109,7 +109,7 @@ class WebFirewallShield:
             try:
                 body_str = body.decode("utf-8", errors="ignore").lower()
                 # Route-aware inspection: Allow web code (<script, eval) on project sharing endpoints
-                is_code_endpoint = "/api/share-project" in lowered_path
+                is_code_endpoint = "/api/share-project" in raw_path
                 blocked_body_patterns = (
                     ["union select", "$where", "cmd.exe", "/etc/passwd"] 
                     if is_code_endpoint 
