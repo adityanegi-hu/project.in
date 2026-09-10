@@ -2,6 +2,15 @@
 <html lang="en" data-theme="dark">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CZX1KYVMT3');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a0e1a">
@@ -29,14 +38,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
     crossorigin="anonymous"></script>
 
-  <!-- Google Analytics 4 (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6FFFV5HW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YR6FFFV5HW');
-  </script>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css?v=31.0">
@@ -45,24 +46,6 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Intercept Right-Click and Common DevTools Keyboard Shortcuts -->
-  <script>
-    // Disable right-click context menu
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    // Disable common Inspect element keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-      const isCtrlOrCmd = e.ctrlKey || e.metaKey;
-      if (
-        e.key === 'F12' || 
-        (isCtrlOrCmd && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) || 
-        (isCtrlOrCmd && (e.key === 'U' || e.key === 'u')) // Disables View Source
-      ) {
-        e.preventDefault();
-        return false;
-      }
-    });
-  </script>
 </head>
 
 <body>
@@ -313,11 +296,10 @@
       localStorage.setItem("forgeproject_theme", nextTheme);
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    });
+    // Render Lucide icons — with fallback for slow CDN loads
+    const initLucide = () => { if (window.lucide) window.lucide.createIcons(); };
+    document.addEventListener("DOMContentLoaded", initLucide);
+    window.addEventListener("load", initLucide);
   </script>
 </body>
 

@@ -2,6 +2,16 @@
 <html lang="en" data-theme="dark">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CZX1KYVMT3');
+  </script>
+
   <meta charset="UTF-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -40,15 +50,6 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
     crossorigin="anonymous"></script>
 
-  <!-- Google Analytics 4 (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YR6FFFV5HW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YR6FFFV5HW');
-  </script>
 
   <!-- Stylesheet with Anti-Cache Version Bump -->
   <link rel="stylesheet" href="css/styles.css?v=31.0">
@@ -70,24 +71,6 @@
   <!-- Canvas Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
-  <!-- Intercept Right-Click and Common DevTools Keyboard Shortcuts -->
-  <script>
-    // Disable right-click context menu
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    // Disable common Inspect element keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-      const isCtrlOrCmd = e.ctrlKey || e.metaKey;
-      if (
-        e.key === 'F12' || 
-        (isCtrlOrCmd && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) || 
-        (isCtrlOrCmd && (e.key === 'U' || e.key === 'u')) // Disables View Source
-      ) {
-        e.preventDefault();
-        return false;
-      }
-    });
-  </script>
 </head>
 
 <body>
@@ -934,7 +917,7 @@
     </nav>
 
     <!-- Core Scripts with Anti-Cache Version Bump (v32.0) -->
-    <script src="js/data-summary.js?v=32.0"></script>
+    <script src="js/data-summary.js?v=32.0" defer></script>
     <script src="js/ppt-viewer.js?v=32.0"></script>
     <script src="js/downloader.js?v=32.0"></script>
     <script src="js/viva-simulator.js?v=32.0"></script>
@@ -943,12 +926,10 @@
 
 
     <script>
-      // Initialize Lucide icons on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        if (window.lucide) {
-          window.lucide.createIcons();
-        }
-      });
+      // Render Lucide icons — with fallback for slow CDN loads
+      const initLucide = () => { if (window.lucide) window.lucide.createIcons(); };
+      document.addEventListener("DOMContentLoaded", initLucide);
+      window.addEventListener("load", initLucide);
     </script>
 </body>
 

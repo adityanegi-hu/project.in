@@ -9,8 +9,26 @@ class ProjectDownloader {
     this.isGenerating = false;
   }
 
+  // Escapes HTML special characters to prevent XSS in generated files
+  escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
   async downloadProjectKit(project, customMeta = {}) {
     if (this.isGenerating) return;
+
+    // Rate limiting: prevent abuse across page reloads
+    const lastDownload = parseInt(localStorage.getItem('fp_last_dl') || '0', 10);
+    if (Date.now() - lastDownload < 3000) {
+      window.app?.showToast('Please wait a moment before downloading again.', 'info');
+      return;
+    }
+    localStorage.setItem('fp_last_dl', Date.now());
 
     if (typeof project === "string") {
       const projId = project;
@@ -206,11 +224,12 @@ ${questions.map((q, idx) => `
     const slides = project.slides || [
       { slideNumber: 1, type: "title", title: project.title, subtitle: `Academic Defense - ${project.yearLabel || ''}`, bullets: [] }
     ];
+    const e = this.escHtml.bind(this);
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>${project.title} - Defense Presentation</title>
+  <title>${e(project.title)} - Defense Presentation</title>
   <style>
     body { font-family: system-ui, sans-serif; background: #0b0f19; color: #f8fafc; margin: 0; padding: 2rem; }
     .slide-page { background: #111827; border: 1px solid #374151; border-radius: 12px; max-width: 900px; margin: 0 auto 2rem; padding: 2.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
@@ -227,20 +246,20 @@ ${questions.map((q, idx) => `
   ${slides.map(s => `
     <div class="slide-page">
       <div class="slide-num">Slide ${s.slideNumber} of ${slides.length}</div>
-      <h2>${s.title}</h2>
-      <p style="color: #9ca3af; font-size: 1rem; margin-top: -0.25rem;">${s.subtitle || ""}</p>
+      <h2>${e(s.title)}</h2>
+      <p style="color: #9ca3af; font-size: 1rem; margin-top: -0.25rem;">${e(s.subtitle || "")}</p>
       ${s.type === 'title' ? `
         <div class="meta-box">
-          <div><strong>Institution:</strong> ${meta.collegeName}</div>
-          <div><strong>Team Members:</strong> ${meta.teamMembers}</div>
-          <div><strong>Guide:</strong> ${meta.guideName}</div>
+          <div><strong>Institution:</strong> ${e(meta.collegeName)}</div>
+          <div><strong>Team Members:</strong> ${e(meta.teamMembers)}</div>
+          <div><strong>Guide:</strong> ${e(meta.guideName)}</div>
         </div>
       ` : ''}
       <ul>
-        ${(s.bullets || []).map(b => `<li>${b}</li>`).join("")}
+        ${(s.bullets || []).map(b => `<li>${e(b)}</li>`).join("")}
       </ul>
       <div class="notes-box">
-        <strong>💡 Examiner Defense Note:</strong> ${s.speakerNotes || s.notes || "Be prepared to answer examiner defense queries on this section."}
+        <strong>💡 Examiner Defense Note:</strong> ${e(s.speakerNotes || s.notes || "Be prepared to answer examiner defense queries on this section.")}
       </div>
     </div>
   `).join("")}
