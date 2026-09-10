@@ -1418,14 +1418,15 @@ class ForgeProjectApp {
     if (this.authNavContainer) {
       if (this.currentUser) {
         this.authNavContainer.innerHTML = `
-          <div class="user-profile-badge" onclick="if(window.innerWidth<=768){app.openMobileDrawer();}" title="${this.currentUser.name}">
+          <div class="user-profile-badge" title="${this.currentUser.name}">
             <div class="user-avatar">${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}</div>
             <div class="user-info-text">
               <span class="user-name">${this.currentUser.name}</span>
               <span class="user-sub">${this.currentUser.degree || "B.Tech"} • Yr ${this.currentUser.year || "3"}</span>
             </div>
-            <button class="btn btn-outline btn-sm logout-btn" onclick="event.stopPropagation(); app.handleSignOut()" title="Sign Out">
+            <button class="logout-btn" onclick="event.stopPropagation(); app.handleSignOut()" title="Sign Out">
               <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+              <span>Sign Out</span>
             </button>
           </div>
         `;
@@ -1435,8 +1436,9 @@ class ForgeProjectApp {
         }
       } else {
         this.authNavContainer.innerHTML = `
-          <button class="btn btn-secondary btn-sm" onclick="app.openAuthModal()">
-            <i data-lucide="log-in" style="width: 14px; height: 14px;"></i> Sign In
+          <button class="pyq-signin-btn" onclick="app.openAuthModal()">
+            <i data-lucide="log-in" style="width: 14px; height: 14px;"></i>
+            <span>Sign In</span>
           </button>
         `;
         if (this.navSavedBadge) {
@@ -1449,7 +1451,7 @@ class ForgeProjectApp {
     if (this.mobileDrawerAuthContainer) {
       if (this.currentUser) {
         this.mobileDrawerAuthContainer.innerHTML = `
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; width: 100%;">
             <div style="display: flex; align-items: center; gap: 0.65rem;">
               <div class="user-avatar" style="width: 36px; height: 36px; font-size: 0.9rem;">
                 ${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}
@@ -1459,8 +1461,9 @@ class ForgeProjectApp {
                 <div style="font-size: 0.76rem; color: var(--text-muted);">${this.currentUser.degree || "B.Tech"} • Year ${this.currentUser.year || "3"}</div>
               </div>
             </div>
-            <button class="btn btn-outline btn-sm" onclick="app.closeMobileDrawer(); app.handleSignOut();" title="Sign Out">
+            <button class="logout-btn" onclick="app.closeMobileDrawer(); app.handleSignOut();" title="Sign Out">
               <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+              <span>Sign Out</span>
             </button>
           </div>
         `;

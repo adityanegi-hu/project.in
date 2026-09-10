@@ -98,6 +98,9 @@
           <a href="#" id="navSubmitBtn" onclick="event.preventDefault(); window.app?.openSubmitModal()" class="pyq-nav-link">Share Project</a>
         </nav>
 
+        <!-- User Authentication & Profile / Sign Out Nav -->
+        <div id="authNavContainer"></div>
+
         <button class="pyq-theme-toggle" id="themeToggleBtn" type="button" aria-label="Toggle theme">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="theme-sun-icon" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M8 12a4 4 0 1 0 8 0 4 4 0 1 0-8 0M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"/></svg>
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="theme-moon-icon" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z"/></svg>
@@ -203,7 +206,6 @@
       <select id="difficultySelect"><option value="all">All</option></select>
       <span id="resultsCountText"></span>
       <span id="navSavedBadge"></span>
-      <div id="authNavContainer"></div>
       <div id="loadMoreSection">
         <button id="loadMoreBtn" type="button"><span id="loadMoreRemainingCount">0</span></button>
         <div id="allLoadedMessage"></div>
