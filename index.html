@@ -37,7 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
     crossorigin="anonymous"></script>
 
   <!-- Google Analytics 4 (gtag.js) -->
@@ -51,8 +51,8 @@
   </script>
 
   <!-- Stylesheet with Anti-Cache Version Bump -->
-  <link rel="stylesheet" href="css/styles.css?v=30.0">
-  <link rel="stylesheet" href="css/legal.css?v=30.0">
+  <link rel="stylesheet" href="css/styles.css?v=31.0">
+  <link rel="stylesheet" href="css/legal.css?v=31.0">
 
   <!-- Cloud Backend API Endpoint -->
   <script>
@@ -69,6 +69,25 @@
 
   <!-- Canvas Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Intercept Right-Click and Common DevTools Keyboard Shortcuts -->
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    // Disable common Inspect element keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      const isCtrlOrCmd = e.ctrlKey || e.metaKey;
+      if (
+        e.key === 'F12' || 
+        (isCtrlOrCmd && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) || 
+        (isCtrlOrCmd && (e.key === 'U' || e.key === 'u')) // Disables View Source
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -91,8 +110,9 @@
           <a href="#/B.Sc" onclick="window.explorer?.navigateTo(['B.Sc'])" class="pyq-nav-link">B.Sc</a>
           <a href="#/Diploma" onclick="window.explorer?.navigateTo(['Diploma'])" class="pyq-nav-link">Diploma</a>
           <a href="#/MCA%20%26%20M.Tech" onclick="window.explorer?.navigateTo(['MCA & M.Tech'])" class="pyq-nav-link">MCA & M.Tech</a>
-          <a href="#" onclick="app?.openCustomizerModal()" class="pyq-nav-link">AI PPT Studio</a>
-          <a href="#" onclick="app?.openVivaModal()" class="pyq-nav-link">Viva Prep</a>
+          <a href="#" id="navCustomizerBtn" onclick="event.preventDefault(); window.app?.openCustomizerModal()" class="pyq-nav-link">AI PPT Studio</a>
+          <a href="#" id="navVivaBtn" onclick="event.preventDefault(); window.app?.openVivaModal()" class="pyq-nav-link">Viva Prep</a>
+          <a href="#" id="navSubmitBtn" onclick="event.preventDefault(); window.app?.openSubmitModal()" class="pyq-nav-link">Share Project</a>
         </nav>
 
         <button class="pyq-theme-toggle" id="themeToggleBtn" type="button" aria-label="Toggle theme">
@@ -113,11 +133,12 @@
 
   <!-- Main Directory Explorer matching haldwani.gehu.in/pyqs -->
   <main class="pyq-main-container" id="explorerContainer">
+    <div id="explore-section"></div>
     <!-- Top Responsive AdSense Unit -->
     <div class="adsense-slot adsense-top">
       <ins class="adsbygoogle"
            style="display:block"
-           data-ad-client="ca-pub-7748523184523238"
+           data-ad-client="ca-pub-7317832328079309"
            data-ad-slot="7953820280"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
@@ -200,13 +221,18 @@
       <span id="resultsCountText"></span>
       <span id="navSavedBadge"></span>
       <div id="authNavContainer"></div>
+      <div id="loadMoreSection">
+        <button id="loadMoreBtn" type="button"><span id="loadMoreRemainingCount">0</span></button>
+        <div id="allLoadedMessage"></div>
+      </div>
+      <span id="themeIcon"></span>
     </div>
 
     <!-- Bottom Responsive AdSense Unit -->
     <div class="adsense-slot adsense-bottom">
       <ins class="adsbygoogle"
            style="display:block"
-           data-ad-client="ca-pub-7748523184523238"
+           data-ad-client="ca-pub-7317832328079309"
            data-ad-slot="7953820280"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
@@ -242,8 +268,8 @@
             <i data-lucide="folder-check"></i>
           </div>
           <div>
-            <h3 class="modal-main-title" id="modalTitle">Project Title</h3>
-            <span class="badge badge-primary" id="modalCategoryBadge">Category • Level</span>
+            <h3 class="modal-main-title" id="modalTitle">Loading Project Kit...</h3>
+            <span class="badge badge-primary" id="modalCategoryBadge">Verified Academic Kit</span>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -295,12 +321,15 @@
 
             <!-- Slide Viewport (16:9) -->
             <div class="ppt-slide-viewport" id="pptSlideViewport">
-              <!-- Rendered dynamically by ppt-viewer.js -->
+              <div class="slide-loading-state" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; min-height:280px; color:var(--text-muted); gap:0.85rem; text-align:center;">
+                <div class="spinner" style="width:36px; height:36px; border:3px solid rgba(99,102,241,0.2); border-top-color:var(--accent-primary); border-radius:50%; animation:spin 0.8s linear infinite;"></div>
+                <span style="font-size:0.92rem; font-weight:600; color:var(--text-secondary);">Preparing 10-Slide Project Presentation...</span>
+              </div>
             </div>
 
             <!-- Bottom Navigation Controls -->
             <div class="ppt-bottom-controls">
-              <div class="slide-counter" id="slideCounter">Slide 1 / 10</div>
+              <div class="slide-counter" id="slideCounter">Slide Deck Ready</div>
               <div class="slide-progress-track" id="slideProgressTrack">
                 <!-- Progress dots -->
               </div>
@@ -322,7 +351,7 @@
               Notes:
             </div>
             <div id="speakerNotesText">
-              Welcome faculty. Today we present our final year capstone project...
+              Select any slide to view defense notes and examiner talking points.
             </div>
           </div>
         </div>
@@ -419,7 +448,7 @@
           </div>
 
           <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap;">
-            <button type="button" class="btn btn-secondary" onclick="app.closeCustomizerModal()">Cancel</button>
+            <button type="button" class="btn btn-secondary" onclick="window.app?.closeCustomizerModal()">Cancel</button>
             <button type="submit" class="btn btn-outline" id="custApplyBtn">
               <i data-lucide="eye" style="width: 16px; height: 16px;"></i> Apply & Preview Slides
             </button>
@@ -457,7 +486,9 @@
         <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
           <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Select Project for Mock
             Defense:</label>
-          <select id="vivaProjectSelect" class="custom-select" style="flex: 1;"></select>
+          <select id="vivaProjectSelect" class="custom-select" style="flex: 1;">
+            <option value="">Choose a Project for Viva Voce Defense...</option>
+          </select>
         </div>
 
         <div class="viva-chat-container">
@@ -547,7 +578,7 @@
           </div>
 
           <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-            <button type="button" class="btn btn-secondary" onclick="app.closeSubmitModal()">Cancel</button>
+            <button type="button" class="btn btn-secondary" onclick="window.app?.closeSubmitModal()">Cancel</button>
             <button type="submit" class="btn btn-emerald">
               <i data-lucide="upload" style="width: 16px; height: 16px;"></i> Submit for Review
             </button>
@@ -738,17 +769,17 @@
               </a>
             </li>
             <li>
-              <a href="#" onclick="app?.openCustomizerModal()" class="footer-link">
+              <a href="#" onclick="event.preventDefault(); window.app?.openCustomizerModal()" class="footer-link">
                 ✨ AI PPT Studio
               </a>
             </li>
             <li>
-              <a href="#" onclick="app?.openVivaModal()" class="footer-link">
+              <a href="#" onclick="event.preventDefault(); window.app?.openVivaModal()" class="footer-link">
                 🤖 Viva Defense Bot
               </a>
             </li>
             <li>
-              <a href="#" onclick="app?.openSubmitModal()" class="footer-link">
+              <a href="#" onclick="event.preventDefault(); window.app?.openSubmitModal()" class="footer-link">
                 🚀 Share Your Project
               </a>
             </li>
@@ -902,13 +933,13 @@
       </button>
     </nav>
 
-    <!-- Core Scripts with Anti-Cache Version Bump (v30.0) -->
-    <script src="js/data-summary.js?v=30.0"></script>
-    <script src="js/ppt-viewer.js?v=30.0"></script>
-    <script src="js/downloader.js?v=30.0"></script>
-    <script src="js/viva-simulator.js?v=30.0"></script>
-    <script src="js/explorer.js?v=30.0"></script>
-    <script src="js/app.js?v=30.0"></script>
+    <!-- Core Scripts with Anti-Cache Version Bump (v31.0) -->
+    <script src="js/data-summary.js?v=31.0"></script>
+    <script src="js/ppt-viewer.js?v=31.0"></script>
+    <script src="js/downloader.js?v=31.0"></script>
+    <script src="js/viva-simulator.js?v=31.0"></script>
+    <script src="js/explorer.js?v=31.0"></script>
+    <script src="js/app.js?v=31.0"></script>
 
 
     <script>

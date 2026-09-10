@@ -20,6 +20,13 @@ class VivaSimulator {
     this.userInput = document.getElementById("vivaUserInput");
     this.sendBtn = document.getElementById("vivaSendBtn");
     this.projectSelect = document.getElementById("vivaProjectSelect");
+
+    // Self-populate if options are unpopulated or only contain the placeholder
+    if (this.projectSelect && this.projectSelect.options.length <= 1) {
+      if (window.app && typeof window.app.populateVivaProjectSelect === "function") {
+        window.app.populateVivaProjectSelect();
+      }
+    }
   }
 
   initEventListeners() {
@@ -30,9 +37,10 @@ class VivaSimulator {
 
     this.projectSelect?.addEventListener("change", (e) => {
       const projId = e.target.value;
-      const projects = (window.app && Array.isArray(window.app.projects))
+      if (!projId) return;
+      const projects = (window.app && Array.isArray(window.app.projects) && window.app.projects.length > 0)
         ? window.app.projects
-        : (typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : []);
+        : (window.explorer?.allProjects || (typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : []));
       const proj = projects.find(p => p.id === projId);
       if (proj) this.startSession(proj);
     });
@@ -41,6 +49,10 @@ class VivaSimulator {
   async startSession(project) {
     if (!project) return;
     this.initElements();
+
+    if (this.projectSelect && project.id) {
+      this.projectSelect.value = project.id;
+    }
 
     if (!project.vivaQuestions && window.app && typeof window.app.getProjectFullDetails === "function") {
       project = await window.app.getProjectFullDetails(project);

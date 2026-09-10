@@ -29,12 +29,12 @@ class PPTViewer {
     this.slideViewport = document.getElementById("pptSlideViewport");
     this.deckTitle = document.getElementById("pptDeckTitle");
     this.slideCounter = document.getElementById("slideCounter");
-    this.prevBtn = document.getElementById("pptPrevBtn") || document.getElementById("prevSlideBtn");
-    this.nextBtn = document.getElementById("pptNextBtn") || document.getElementById("nextSlideBtn");
-    this.fullscreenBtn = document.getElementById("pptFullscreenBtn") || document.getElementById("fullscreenBtn");
-    this.speakerNotesToggle = document.getElementById("pptNotesToggleBtn") || document.getElementById("speakerNotesToggle");
-    this.speakerNotesContent = document.getElementById("speakerNotesText") || document.getElementById("speakerNotesContent");
-    this.speakerNotesBox = document.getElementById("speakerNotesBox") || document.getElementById("speakerNotesPanel");
+    this.prevBtn = document.getElementById("pptPrevBtn");
+    this.nextBtn = document.getElementById("pptNextBtn");
+    this.fullscreenBtn = document.getElementById("pptFullscreenBtn");
+    this.speakerNotesToggle = document.getElementById("pptNotesToggleBtn");
+    this.speakerNotesContent = document.getElementById("speakerNotesText");
+    this.speakerNotesBox = document.getElementById("speakerNotesBox");
     this.slideProgressTrack = document.getElementById("slideProgressTrack");
     this.customizeBtn = document.getElementById("pptCustomizeBtn");
   }
@@ -71,6 +71,27 @@ class PPTViewer {
     });
   }
 
+  showLoadingState(project = null) {
+    this.initElements();
+    if (this.slideViewport) {
+      this.slideViewport.innerHTML = `
+        <div class="slide-loading-state" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; min-height:280px; color:var(--text-muted); gap:0.85rem; text-align:center;">
+          <div class="spinner" style="width:36px; height:36px; border:3px solid rgba(99,102,241,0.2); border-top-color:var(--accent-primary); border-radius:50%; animation:spin 0.8s linear infinite;"></div>
+          <span style="font-size:0.92rem; font-weight:600; color:var(--text-secondary);">Preparing Presentation Deck for ${project?.title || 'Academic Defense'}...</span>
+        </div>
+      `;
+    }
+    if (this.slideCounter) {
+      this.slideCounter.innerText = "Loading Deck...";
+    }
+    if (this.deckTitle && project?.title) {
+      this.deckTitle.innerHTML = `<i data-lucide="presentation"></i> ${project.title} - Defense Slides`;
+    }
+    if (this.slideProgressTrack) {
+      this.slideProgressTrack.innerHTML = "";
+    }
+  }
+
   async openViewer(projectOrId) {
     if (window.app) {
       await window.app.openProjectModal(projectOrId);
@@ -80,7 +101,9 @@ class PPTViewer {
 
   async loadProject(project) {
     if (!project) return;
-    if (!project.slides && window.app && typeof window.app.getProjectFullDetails === "function") {
+    this.initElements();
+    if ((!project.slides || project.slides.length < 10) && window.app && typeof window.app.getProjectFullDetails === "function") {
+      this.showLoadingState(project);
       project = await window.app.getProjectFullDetails(project);
     }
     this.currentProject = project;
@@ -241,7 +264,7 @@ class PPTViewer {
   }
 
   nextSlide() {
-    if (!this.currentProject || !this.currentProject.slides) return;
+    if (!this.currentProject || !Array.isArray(this.currentProject.slides) || this.currentProject.slides.length === 0) return;
     if (this.currentSlideIndex < this.currentProject.slides.length - 1) {
       this.currentSlideIndex++;
       this.renderSlide();
@@ -249,7 +272,7 @@ class PPTViewer {
   }
 
   prevSlide() {
-    if (!this.currentProject || !this.currentProject.slides) return;
+    if (!this.currentProject || !Array.isArray(this.currentProject.slides) || this.currentProject.slides.length === 0) return;
     if (this.currentSlideIndex > 0) {
       this.currentSlideIndex--;
       this.renderSlide();
@@ -257,7 +280,7 @@ class PPTViewer {
   }
 
   goToSlide(index) {
-    if (!this.currentProject || !this.currentProject.slides) return;
+    if (!this.currentProject || !Array.isArray(this.currentProject.slides) || this.currentProject.slides.length === 0) return;
     if (index >= 0 && index < this.currentProject.slides.length) {
       this.currentSlideIndex = index;
       this.renderSlide();
@@ -272,7 +295,7 @@ class PPTViewer {
   }
 
   toggleFullscreen() {
-    const container = document.getElementById("pptPlayerContainer") || document.getElementById("pptViewerContainer") || this.slideViewport;
+    const container = document.getElementById("pptPlayerContainer") || this.slideViewport;
     if (!container) return;
 
     if (!document.fullscreenElement) {

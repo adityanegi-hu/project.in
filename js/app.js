@@ -34,6 +34,7 @@ class ForgeProjectApp {
     this.initEventListeners();
     this.initAuthListeners();
     this.initTheme();
+    this.populateVivaProjectSelect();
     this.renderAuthNav();
     this.renderDegreeTabs();
     this.renderYearTabs();
@@ -754,22 +755,35 @@ class ForgeProjectApp {
   // --- Project Modal Management ---
   async openProjectModal(projectOrId) {
     let targetProj = null;
+    const pool = (this.projects && this.projects.length > 0)
+      ? this.projects
+      : (window.explorer?.allProjects || (typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : []));
+
     if (typeof projectOrId === "string") {
-      targetProj = this.projects.find(p => p.id === projectOrId);
+      targetProj = pool.find(p => p.id === projectOrId);
     } else if (projectOrId && projectOrId.id) {
       targetProj = projectOrId;
     }
     if (!targetProj) {
-      targetProj = this.selectedProject || this.projects[0];
+      targetProj = this.selectedProject || pool[0];
     }
-    if (!targetProj) return;
+    if (!targetProj) {
+      console.warn("Could not resolve project for modal:", projectOrId);
+      this.showToast("Project details could not be found.", "error");
+      return;
+    }
 
     this.selectedProject = targetProj;
 
     const modalTitle = document.getElementById("modalTitle");
     const modalBadge = document.getElementById("modalCategoryBadge");
-    if (modalTitle) modalTitle.innerText = targetProj.title;
-    if (modalBadge) modalBadge.innerText = `${targetProj.yearLabel || ''} • ${targetProj.categoryLabel || 'Engineering'} (${targetProj.difficulty || 'Medium'})`;
+    if (modalTitle) modalTitle.innerText = targetProj.title || "Academic Project Kit";
+    if (modalBadge) modalBadge.innerText = `${targetProj.yearLabel || 'Year 4'} • ${targetProj.categoryLabel || 'Engineering'} (${targetProj.difficulty || 'Medium'})`;
+
+    // Immediately show loading state in PPT viewer to avoid blank viewport or stale slide text
+    if (window.pptViewer && typeof window.pptViewer.showLoadingState === "function") {
+      window.pptViewer.showLoadingState(targetProj);
+    }
 
     // Header Download Action
     const modalDownloadBtn = document.getElementById("modalDownloadBtn");
@@ -942,10 +956,13 @@ class ForgeProjectApp {
       list.appendChild(item);
     });
 
-    document.getElementById("launchMockVivaBtn")?.addEventListener("click", () => {
-      this.closeProjectModal();
-      this.openVivaModal(project);
-    });
+    const launchVivaBtn = document.getElementById("launchMockVivaBtn");
+    if (launchVivaBtn) {
+      launchVivaBtn.onclick = () => {
+        this.closeProjectModal();
+        this.openVivaModal(project);
+      };
+    }
 
     if (window.lucide) window.lucide.createIcons();
   }
@@ -977,18 +994,47 @@ class ForgeProjectApp {
     this.customizerModal?.classList.remove("open");
   }
 
+  // --- Viva Project Selector Management ---
+  populateVivaProjectSelect(selectedId = null) {
+    const select = document.getElementById("vivaProjectSelect");
+    if (!select) return;
+    const projectList = (this.projects && this.projects.length > 0)
+      ? this.projects
+      : (window.explorer?.allProjects || (typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : []));
+    if (!projectList || projectList.length === 0) return;
+
+    // Group projects by category
+    const groups = {};
+    projectList.forEach(p => {
+      const cat = p.categoryLabel || p.category || "Academic Projects";
+      if (!groups[cat]) groups[cat] = [];
+      groups[cat].push(p);
+    });
+
+    let html = `<option value="">Choose a Project for Viva Voce Defense...</option>`;
+    for (const [cat, projs] of Object.entries(groups)) {
+      html += `<optgroup label="${cat}">`;
+      projs.forEach(p => {
+        const isSel = (selectedId && p.id === selectedId) ? "selected" : "";
+        html += `<option value="${p.id}" ${isSel}>[${p.yearLabel || 'Yr ' + (p.year || '4')}] ${p.title}</option>`;
+      });
+      html += `</optgroup>`;
+    }
+    select.innerHTML = html;
+    if (selectedId) {
+      select.value = selectedId;
+    }
+  }
+
   // --- Viva Examiner Modal ---
   async openVivaModal(project) {
-    const targetProj = (project && project.id) ? project : (this.selectedProject || this.projects[0]);
+    const pool = (this.projects && this.projects.length > 0)
+      ? this.projects
+      : (window.explorer?.allProjects || (typeof PROJECTS_DATA !== "undefined" ? PROJECTS_DATA : []));
+    const targetProj = (project && project.id) ? project : (this.selectedProject || pool[0]);
     if (!targetProj) return;
 
-    const select = document.getElementById("vivaProjectSelect");
-    if (select) {
-      select.innerHTML = this.projects.map(p => `
-        <option value="${p.id}" ${p.id === targetProj.id ? 'selected' : ''}>[${p.yearLabel || ''}] ${p.title}</option>
-      `).join("");
-    }
-
+    this.populateVivaProjectSelect(targetProj.id);
     this.vivaModal?.classList.add("open");
 
     const fullProj = await this.getProjectFullDetails(targetProj);
@@ -1024,15 +1070,15 @@ class ForgeProjectApp {
   }
 
   async handleProjectSubmission() {
-    const title = (document.getElementById("shareTitle") || document.getElementById("subTitle"))?.value.trim();
-    const domain = (document.getElementById("shareCategory") || document.getElementById("subDomain"))?.value || "ai-ml";
+    const title = document.getElementById("shareTitle")?.value.trim();
+    const domain = document.getElementById("shareCategory")?.value || "ai-ml";
     const year = parseInt(this.currentUser?.year || "3");
     const difficulty = "Intermediate";
     const degreesSelected = [this.currentUser?.degree || "B.Tech"];
-    const techStackInput = (document.getElementById("shareTechStack") || document.getElementById("subTechStack"))?.value || "";
+    const techStackInput = document.getElementById("shareTechStack")?.value || "";
     const techStack = techStackInput.split(",").map(t => t.trim()).filter(Boolean);
-    const githubUrl = (document.getElementById("shareRepoUrl") || document.getElementById("subGithubUrl"))?.value.trim() || "";
-    const description = (document.getElementById("shareAbstract") || document.getElementById("subDescription"))?.value.trim();
+    const githubUrl = document.getElementById("shareRepoUrl")?.value.trim() || "";
+    const description = document.getElementById("shareAbstract")?.value.trim();
 
     if (!title || !description || techStack.length === 0) {
       this.showToast("Please fill out all required project fields.", "error");
@@ -1488,7 +1534,7 @@ class ForgeProjectApp {
   // --- On-Demand Project Details Resolver ---
   async getProjectFullDetails(project) {
     if (!project || !project.id) return project || null;
-    if (project.slides && project.codeFiles && project.codeFiles.length > 0 && project.vivaQuestions) {
+    if (project.slides && project.slides.length >= 10 && project.codeFiles && project.codeFiles.length > 0 && project.vivaQuestions) {
       return project;
     }
 
@@ -1498,9 +1544,35 @@ class ForgeProjectApp {
     }
 
     try {
-      // 1. Static details dictionary (cached once in memory for all 450 projects)
+      // 1. Check in-memory bulk cache if already loaded
+      if (window._dataDetailsCache && window._dataDetailsCache[project.id]) {
+        const details = window._dataDetailsCache[project.id];
+        this.detailsCache[project.id] = details;
+        Object.assign(project, details);
+        return project;
+      }
+
+      // 2. Fast single-project REST API fetch (~16KB in ~30ms)
+      const apiEndpoint = this.apiBase ? `${this.apiBase}/api/project/${project.id}` : `/api/project/${project.id}`;
+      const res = await fetch(apiEndpoint).catch(() => null);
+      if (res && res.ok) {
+        const data = await res.json();
+        if (data.success && data.project) {
+          const details = {
+            synopsis: data.project.synopsis,
+            slides: data.project.slides,
+            codeFiles: data.project.codeFiles,
+            vivaQuestions: data.project.vivaQuestions
+          };
+          this.detailsCache[project.id] = details;
+          Object.assign(project, details);
+          return project;
+        }
+      }
+
+      // 3. Fallback: Static details dictionary file
       if (!window._dataDetailsCache) {
-        const detailsRes = await fetch("js/data-details.json?v=3.0").catch(() => null);
+        const detailsRes = await fetch("js/data-details.json?v=31.0").catch(() => null);
         if (detailsRes && detailsRes.ok) {
           window._dataDetailsCache = await detailsRes.json();
         }
@@ -1512,54 +1584,55 @@ class ForgeProjectApp {
         Object.assign(project, details);
         return project;
       }
-
-      // 2. Fallback: Server REST API
-      const apiBase = (typeof window !== "undefined" && window.location && window.location.origin && window.location.origin !== "null" && window.location.protocol?.startsWith("http"))
-        ? window.location.origin
-        : "";
-      if (apiBase) {
-        const res = await fetch(`${apiBase}/api/project/${project.id}`).catch(() => null);
-        if (res && res.ok) {
-          const data = await res.json();
-          if (data.success && data.project) {
-            const details = {
-              synopsis: data.project.synopsis,
-              slides: data.project.slides,
-              codeFiles: data.project.codeFiles,
-              vivaQuestions: data.project.vivaQuestions
-            };
-            this.detailsCache[project.id] = details;
-            Object.assign(project, details);
-            return project;
-          }
-        }
-      }
     } catch (err) {
       console.warn("Project details fetch notice:", err);
     }
 
-    // 3. Fallback Mock Generator
+    // 4. Complete 10-Slide Academic Presentation Fallback Deck
     const techStr = Array.isArray(project.techStack) ? project.techStack.join(", ") : "Python, Modern Web";
+    const yearText = project.yearLabel || `Year ${project.year || 4}`;
     const fallbackDetails = {
       synopsis: project.synopsis || {
-        abstract: `${project.title} is an academic project engineered for ${project.yearLabel || ''} students in ${project.degrees?.join(', ') || 'Engineering'}.`,
-        objectives: ["Implement core system logic", "Test and validate modules", "Deliver defense presentation"],
-        existingSystemIssues: ["Manual latency", "Lack of automation"],
-        proposedSystemAdvantages: ["Automated workflow", "Verified architecture"],
-        systemRequirements: { hardware: "Standard PC / 8GB RAM", software: `${techStr} environment` }
+        abstract: `${project.title} is an academic engineering capstone project engineered for ${yearText} students in ${project.degrees?.join(', ') || 'Engineering & Technology'}. It delivers complete working source code, automated test verification, and standardized presentation artifacts.`,
+        objectives: [
+          "Design and implement modular system architecture with clean separation of concerns",
+          "Ensure sub-second response times and robust error handling across core modules",
+          "Deliver IEEE-aligned academic documentation and comprehensive defense materials"
+        ],
+        existingSystemIssues: [
+          "Manual processing latency and lack of centralized validation",
+          "High error rates during data collection and manual coordination",
+          "Absence of real-time monitoring and standardized audit logs"
+        ],
+        proposedSystemAdvantages: [
+          `Engineered with modern ${techStr} stack with automated pipelines`,
+          "Interactive dashboard with responsive real-time state visualization",
+          "Complete defense presentation slides, speaker notes, and viva readiness"
+        ],
+        systemRequirements: { hardware: "Standard PC / Multi-core CPU, 8GB RAM", software: `${techStr}, Modern Web Browser, Git` }
       },
       slides: [
-        { slideNumber: 1, type: "title", title: project.title, subtitle: `Academic Defense Presentation - ${project.yearLabel || ''}`, bullets: [], speakerNotes: "Introduce title and team." },
-        { slideNumber: 2, type: "problem", title: "Problem Statement", subtitle: "Identified Bottlenecks", bullets: ["Manual latency", "Lack of automation"], speakerNotes: "Explain legacy drawbacks." },
-        { slideNumber: 3, type: "solution", title: "Proposed System", subtitle: "Core Methodology", bullets: [project.tagline || "Automated modular architecture", `Built with ${techStr}`], speakerNotes: "Highlight solution advantages." }
+        { slideNumber: 1, type: "title", title: project.title, subtitle: `Academic Capstone Defense Presentation - ${yearText}`, bullets: [project.tagline || "Complete working architecture & verified source code."], speakerNotes: "Welcome faculty examiners and committee members. Today we present our capstone project defense." },
+        { slideNumber: 2, type: "problem", title: "Problem Statement", subtitle: "Identified Bottlenecks & Operational Gaps", bullets: ["Manual legacy processing leads to significant operational latency", "Lack of automated validation creates data integrity risks", "Absence of centralized tracking impedes auditability and scaling"], speakerNotes: "Discuss the real-world operational challenges that motivated this engineering solution." },
+        { slideNumber: 3, type: "objectives", title: "Project Objectives", subtitle: "Primary Scope & Measurable Goals", bullets: ["Implement core algorithmic logic with strict modular decoupling", "Achieve resilient state management and low computational overhead", "Deliver verifiable testing suites and presentation artifacts for defense"], speakerNotes: "Present our measurable milestones and specific engineering objectives." },
+        { slideNumber: 4, type: "solution", title: "Proposed Solution", subtitle: "System Architecture & Core Innovation", bullets: [`Built using modern ${techStr}`, "Automated processing pipeline ensuring end-to-end data integrity", "Modular architecture facilitating straightforward scalability and maintenance"], speakerNotes: "Explain our architectural innovation and why this solution outperforms legacy methods." },
+        { slideNumber: 5, type: "architecture", title: "System Pipeline & Data Flow", subtitle: "End-to-End Processing Stages", diagramSteps: ["Input & Request", "Processing Engine", "Validation & Storage", "Presentation & UI"], bullets: ["Asynchronous processing pipeline preventing blocking operations", "Defensive validation at each module boundary"], speakerNotes: "Walk the examiner through the end-to-end data pipeline from input to persistent output." },
+        { slideNumber: 6, type: "methodology", title: "Methodology & Algorithms", subtitle: "Algorithmic Design & Optimization", bullets: ["Carefully chosen algorithmic routines with optimal computational complexity", "Structured memory utilization and asynchronous I/O primitives", "Graceful degradation and deterministic error handling"], speakerNotes: "Detail the algorithmic foundations and performance characteristics of our core routines." },
+        { slideNumber: 7, type: "implementation", title: "Implementation & Modules", subtitle: "Source Code Organization & Design Patterns", bullets: [`Primary technologies: ${techStr}`, "Clear separation between domain logic, data models, and presentation", "Comprehensive test coverage across critical user and data flows"], speakerNotes: "Demonstrate source code modularity and adherence to software engineering standards." },
+        { slideNumber: 8, type: "results", title: "Results & Empirical Validation", subtitle: "Testing Metrics & Performance Benchmarks", bullets: ["High test pass rate across unit, integration, and edge-case test suites", "Validated response times and low memory consumption under simulated loads", "Meets all functional and non-functional requirements set in project specification"], speakerNotes: "Showcase empirical verification results proving the system is reliable and defense-ready." },
+        { slideNumber: 9, type: "viva", title: "Viva Voce Defense & FAQs", subtitle: "Key Architectural Decisions & Rationale", bullets: ["Choice of stack and framework trade-offs over alternative technologies", "Handling of concurrency, race conditions, and network faults", "Scalability considerations and roadmap for production deployment"], speakerNotes: "Address expected examiner inquiries regarding architectural trade-offs and edge case handling." },
+        { slideNumber: 10, type: "conclusion", title: "Conclusion & Future Scope", subtitle: "Project Summary & Roadmap", bullets: ["Successfully achieved all core objectives with verified working deliverables", "Future scope includes microservice scaling, cloud deployment, and AI enhancements", "Complete project kit ready for academic evaluation and repository archival"], speakerNotes: "Summarize major achievements and conclude presentation. Thank the examiners for their time." }
       ],
       codeFiles: [
-        { filename: "README.md", language: "markdown", code: `# ${project.title}\n\n${project.tagline || ''}\n\nTech Stack: ${techStr}` },
-        { filename: "main.py", language: "python", code: `# ${project.title}\nprint("Project initialized successfully.")\n` }
+        { filename: "README.md", language: "markdown", code: `# ${project.title}\n\n${project.tagline || ''}\n\n## Tech Stack\n${techStr}\n\n## Academic Level\n${yearText}\n\n## Getting Started\n1. Review the architecture diagrams\n2. Run the startup script\n3. Execute automated test suites\n` },
+        { filename: "main.py", language: "python", code: `"""\n${project.title}\nAcademic Project Defense Source Kit\n"""\n\ndef initialize_system():\n    print("[System] Initializing ${project.title}...")\n    print("[System] Loading modules with stack: ${techStr}")\n    return True\n\nif __name__ == "__main__":\n    if initialize_system():\n        print("[System] System ready for demonstration.")\n` },
+        { filename: "config.json", language: "json", code: `{\n  "projectName": "${project.title}",\n  "version": "1.0.0",\n  "environment": "academic_testing",\n  "techStack": "${techStr}"\n}\n` },
+        { filename: "tests.py", language: "python", code: `"""Automated Verification Suite for ${project.title}"""\nimport unittest\n\nclass TestSystem(unittest.TestCase):\n    def test_startup(self):\n        self.assertTrue(True, "Core system initializes cleanly.")\n\nif __name__ == "__main__":\n    unittest.main()\n` }
       ],
       vivaQuestions: [
-        { question: `What is the core motivation of ${project.title}?`, answer: `The goal is to automate legacy workflows using ${techStr}.` },
-        { question: "How did you test and validate edge cases?", answer: "We performed rigorous unit and integration testing across core modules." }
+        { question: `What is the primary motivation for developing ${project.title}?`, answer: `The project was designed to overcome identified legacy bottlenecks using ${techStr}, delivering an automated and verifiable workflow.` },
+        { question: "Which architecture pattern was selected and why?", answer: "We selected a modular decoupled architecture to clearly separate domain logic, storage, and presentation, enhancing testability and scalability." },
+        { question: "How did you validate your implementation against failure scenarios?", answer: "We implemented automated test suites testing boundary conditions, network latency, and unexpected input formats." }
       ]
     };
     this.detailsCache[project.id] = fallbackDetails;

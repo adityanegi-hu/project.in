@@ -389,6 +389,7 @@ class ForgeExplorer {
 
   getRootItems() {
     return [
+      { name: "Browse All 450 Academic Projects", courseKey: "all", desc: "Instantly Explore All 450 Verified Project Packages with Code, PPT Decks, & Defense Kits", count: "450 Kits", targetPath: ["Browse All 450 Projects"] },
       { name: "B.Tech", courseKey: "B.Tech", desc: "Computer Science, AI/ML, IoT, ECE & Engineering (C, Python, C++, Java, Rust, Go, Assembly, Verilog, Solidity - 450 Kits)", count: "450 Kits", targetPath: ["B.Tech"] },
       { name: "BCA", courseKey: "BCA", desc: "Bachelor of Computer Applications (C, Python, C++, Java, PHP, SQL, C#, VB.NET, Flutter, MERN - 344 Kits)", count: "344 Kits", targetPath: ["BCA"] },
       { name: "B.Sc", courseKey: "B.Sc", desc: "Computer Science, IT & Software Systems (C, Python, C++, Java, R, SQL, Linux Bash, Data Analytics - 344 Kits)", count: "344 Kits", targetPath: ["B.Sc"] },
@@ -925,6 +926,22 @@ class ForgeExplorer {
           targetPath: item.targetPath || [item.name]
         });
       });
+
+      // Featured Academic Kits Preview on Root Homepage
+      const featured = (this.allProjects && this.allProjects.length > 0) ? this.allProjects.slice(0, 5) : [];
+      if (featured.length > 0) {
+        html += `
+          <div style="margin: 1.5rem 0 0.85rem 0; padding: 0.65rem 0; border-top: 1px dashed rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-heading); display: flex; align-items: center; gap: 0.45rem;">
+              <span style="color: #F5B800;">⭐</span> Featured Verified Academic Kits & PPT Decks
+            </span>
+            <button class="sw-button" style="font-size: 0.78rem; padding: 0.25rem 0.65rem;" onclick="window.explorer.navigateTo(['Browse All 450 Projects'])">Browse All 450 Projects →</button>
+          </div>
+        `;
+        featured.forEach(proj => {
+          html += this.getProjectRowHtml(proj);
+        });
+      }
     }
 
     // 2. BCA Group (BCA, B.Sc, Diploma)
@@ -1279,6 +1296,23 @@ class ForgeExplorer {
 
     const aliases = ForgeExplorer.DOMAIN_ALIASES;
 
+    // Direct degree alias match (e.g. 'btech', 'bca', 'mca', 'diploma', 'bsc')
+    if (q === 'btech' || q === 'b.tech' || q === 'b tech') {
+      return this.allProjects.filter(p => (p.degrees || []).some(d => /b\.?tech/i.test(d)));
+    }
+    if (q === 'bca') {
+      return this.allProjects.filter(p => (p.degrees || []).some(d => /bca/i.test(d)));
+    }
+    if (q === 'bsc' || q === 'b.sc' || q === 'b sc') {
+      return this.allProjects.filter(p => (p.degrees || []).some(d => /b\.?sc/i.test(d)));
+    }
+    if (q === 'diploma') {
+      return this.allProjects.filter(p => p.year <= 3);
+    }
+    if (q === 'mca' || q === 'm.tech' || q === 'mtech') {
+      return this.allProjects.filter(p => (p.degrees || []).some(d => /mca|m\.?tech/i.test(d)) || p.year >= 3);
+    }
+
     // 1. Direct domain alias match (e.g. 'c', 'python', 'java', 'c++', 'iot')
     // User wants ONLY projects belonging to that specific category!
     if (aliases[q]) {
@@ -1418,6 +1452,21 @@ class ForgeExplorer {
           // Check category label
           if (wordRegex.test(catLabel)) {
             score += 25;
+            wordFound = true;
+          }
+
+          // Check degrees list (e.g. "B.Tech", "BCA", "B.Sc")
+          if (!wordFound && Array.isArray(p.degrees)) {
+            const cleanW = w.replace(/[^a-z0-9]/g, '');
+            if (cleanW.length >= 3 && p.degrees.some(d => d.toLowerCase().replace(/[^a-z0-9]/g, '').includes(cleanW))) {
+              score += 25;
+              wordFound = true;
+            }
+          }
+
+          // Check year label (e.g. "1st Year", "Final Year")
+          if (!wordFound && p.yearLabel && wordRegex.test(p.yearLabel)) {
+            score += 20;
             wordFound = true;
           }
         }

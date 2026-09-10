@@ -14,8 +14,17 @@ import hmac
 import secrets
 import threading
 import time
+import html
 from collections import defaultdict
 from datetime import datetime, timezone
+
+def sanitize_text(val, max_len=500) -> str:
+    """Escapes HTML entities and clamps max length to eliminate Stored XSS risks."""
+    if val is None:
+        return ""
+    cleaned = str(val).strip()
+    escaped = html.escape(cleaned)
+    return escaped[:max_len]
 
 # Safe import for PyMongo
 try:
@@ -62,8 +71,8 @@ class WebFirewallShield:
         self.lock = threading.Lock()
         
         self.blocked_patterns = [
-            "../", "..\\", "%2e%2e", "%00", 
-            "javascript:", "union select", "$where", 
+            "../", "..\\", "%2e%2e", "%00", "\x00",
+            "javascript:", "union select", "union+select", "$where", 
             "/etc/passwd", "cmd.exe", ".env", "phpinfo"
         ]
 
@@ -86,10 +95,11 @@ class WebFirewallShield:
                 self.blocked_attacks_count += 1
             return False, 429, "Rate limit exceeded (Max 120 requests/minute). Please slow down."
 
-        # 2. Malicious Pattern Inspection (URL Decoded)
-        lowered_path = urllib.parse.unquote(path).lower()
+        # 2. Malicious Pattern Inspection (Both raw, unquoted, and unquoted_plus)
+        raw_path = path.lower()
+        unquoted_path = urllib.parse.unquote_plus(path).lower()
         for pattern in self.blocked_patterns:
-            if pattern in lowered_path:
+            if pattern in raw_path or pattern in unquoted_path:
                 with self.lock:
                     self.blocked_attacks_count += 1
                 return False, 403, "Firewall Rule Triggered: Blocked unauthorized path pattern."
@@ -204,6 +214,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("X-XSS-Protection", "1; mode=block")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Permissions-Policy", "geolocation=(), camera=(), microphone=()")
+        self.send_header("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; img-src 'self' data: blob: https:; font-src 'self' data: https: fonts.gstatic.com; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; connect-src 'self' https: http: ws: wss:; frame-ancestors 'self';")
         super().end_headers()
 
     def get_client_ip(self):
@@ -246,6 +257,17 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         
         database = get_db()
 
+        # API: Health check & Service status
+        if parsed.path in ("/api/status", "/api/health", "/healthz", "/status"):
+            self.send_json(200, {
+                "status": "healthy",
+                "service": "ForgeProject Server",
+                "database": "connected" if database is not None else "memory_cache",
+                "cached_projects": len(DETAILS_CACHE),
+                "timestamp": datetime.now(timezone.utc).isoformat()
+            })
+            return
+
         # API: Fetch all projects from MongoDB
         if parsed.path == "/api/projects":
             try:
@@ -270,8 +292,8 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 query_params = urllib.parse.parse_qs(parsed.query)
                 email = query_params.get("email", [""])[0].strip().lower()
                 
-                if not email:
-                    raise ValueError("Email parameter is required")
+                if not email or "@" not in email or len(email) > 120 or "." not in email:
+                    raise ValueError("Valid email parameter is required (e.g. student@college.edu).")
                 
                 saved_ids = []
                 if database is not None:
@@ -293,10 +315,15 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_json(400, {"success": False, "error": str(e)})
             return
 
-        # API: Fetch individual project details on-demand
-        elif parsed.path.startswith("/api/project/"):
+        # API: Fetch individual project details on-demand (supports /api/project/<id> and /api/project?id=<id>)
+        elif parsed.path.startswith("/api/project/") or parsed.path == "/api/project":
             try:
-                proj_id = parsed.path.replace("/api/project/", "").strip()
+                if parsed.path.startswith("/api/project/"):
+                    proj_id = parsed.path.replace("/api/project/", "").strip()
+                else:
+                    query_params = urllib.parse.parse_qs(parsed.query)
+                    proj_id = query_params.get("id", [""])[0].strip()
+
                 if not proj_id:
                     raise ValueError("Project ID is required")
 
@@ -450,11 +477,13 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         elif parsed.path == "/api/user/toggle-save":
             try:
                 data = json.loads(body.decode("utf-8"))
-                email = data.get("email", "").strip().lower()
-                project_id = data.get("projectId", "").strip()
+                email = str(data.get("email", "")).strip().lower()
+                project_id = str(data.get("projectId", "")).strip()
 
-                if not email or not project_id:
-                    raise ValueError("Email and projectId are required.")
+                if not email or "@" not in email or len(email) > 120 or "." not in email:
+                    raise ValueError("Valid email parameter is required.")
+                if not project_id or len(project_id) > 80:
+                    raise ValueError("Valid projectId parameter is required.")
 
                 saved_ids = []
                 is_saved = False
@@ -506,9 +535,9 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 data = json.loads(body.decode("utf-8"))
                 now_str = datetime.now(timezone.utc).isoformat()
                 data["createdAt"] = now_str
-                data["status"] = "approved"
+                data["status"] = "pending_review"  # Require review before public publication
                 
-                cat_id = data.get("category", "web-dev")
+                cat_id = sanitize_text(data.get("category", "web-dev"), 50)
                 cat_labels = {
                     "ai-ml": "AI & Machine Learning",
                     "iot-embedded": "IoT & Hardware",
@@ -523,20 +552,31 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 
                 raw_tech = data.get("techStack", ["Python", "React"])
                 if isinstance(raw_tech, list):
-                    tech_stack = [str(t).strip() for t in raw_tech if str(t).strip()]
+                    tech_stack = [sanitize_text(t, 50) for t in raw_tech if str(t).strip()]
                 elif isinstance(raw_tech, str):
-                    tech_stack = [t.strip() for t in raw_tech.split(",") if t.strip()]
+                    tech_stack = [sanitize_text(t, 50) for t in raw_tech.split(",") if t.strip()]
                 else:
                     tech_stack = ["Python", "React"]
 
                 tech_str = ", ".join(tech_stack)
                 data["techStack"] = tech_stack
 
-                author_name = str(data.get("authorName", "")).strip() or "Student Contributor"
-                author_email = str(data.get("authorEmail", "")).strip()
-                author_degree = str(data.get("authorDegree", "B.Tech")).strip()
+                author_name = sanitize_text(data.get("authorName", ""), 80) or "Student Contributor"
+                author_email = sanitize_text(data.get("authorEmail", ""), 120)
+                author_degree = sanitize_text(data.get("authorDegree", "B.Tech"), 50)
                 author_year = int(data.get("authorYear", data.get("year", 3)))
                 first_name = author_name.split()[0] if author_name.split() else "Student"
+
+                raw_title = sanitize_text(data.get("title", "Community Submitted Project"), 150)
+                raw_abstract = sanitize_text(data.get("abstract", "Student project submission verified and approved for academic reference."), 2000)
+                raw_repo = sanitize_text(data.get("repoUrl", "https://github.com"), 250)
+
+                data["title"] = raw_title
+                data["abstract"] = raw_abstract
+                data["authorName"] = author_name
+                data["authorEmail"] = author_email
+                data["authorDegree"] = author_degree
+                data["authorYear"] = author_year
 
                 proj_id = f"shared-{int(datetime.now().timestamp() * 1000)}"
                 data["id"] = proj_id
@@ -544,12 +584,12 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                     "id": proj_id,
                     "year": author_year,
                     "yearLabel": f"Year {author_year} Capstone Project",
-                    "difficulty": data.get("difficulty", "Medium"),
-                    "title": data.get("title", "Community Submitted Project"),
+                    "difficulty": sanitize_text(data.get("difficulty", "Medium"), 30),
+                    "title": raw_title,
                     "category": cat_id,
                     "categoryLabel": cat_labels.get(cat_id, "Software Engineering"),
                     "badge": f"Shared by {first_name}",
-                    "tagline": data.get("abstract", "")[:120] + "..." if len(data.get("abstract", "")) > 120 else data.get("abstract", ""),
+                    "tagline": raw_abstract[:120] + "..." if len(raw_abstract) > 120 else raw_abstract,
                     "rating": 4.9,
                     "downloads": "1.2k+",
                     "color": "#10b981",
@@ -562,7 +602,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                         "year": author_year
                     },
                     "synopsis": {
-                        "abstract": data.get("abstract", "Student project submission verified and approved for academic reference."),
+                        "abstract": raw_abstract,
                         "existingSystemIssues": [
                             "Manual unstructured workflow",
                             "Lack of automated validation",
@@ -587,19 +627,19 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                         {
                             "filename": "README.md",
                             "language": "markdown",
-                            "code": f"# {data.get('title', 'Community Project')}\n\nRepository: {data.get('repoUrl', 'https://github.com')}\nSubmitted by: {author_name}\n\n{data.get('abstract', '')}"
+                            "code": f"# {raw_title}\n\nRepository: {raw_repo}\nSubmitted by: {author_name}\n\n{raw_abstract}"
                         },
                         {
                             "filename": "main.py" if any("python" in t.lower() for t in tech_stack) else "index.js",
                             "language": "python" if any("python" in t.lower() for t in tech_stack) else "javascript",
-                            "code": f"// Project: {data.get('title', 'Community Project')}\n// Author: {author_name}\nconsole.log('Project initialized successfully');\n"
+                            "code": f"// Project: {raw_title}\n// Author: {author_name}\nconsole.log('Project initialized successfully');\n"
                         }
                     ],
                     "slides": [
                         {
                             "slideNumber": 1,
                             "type": "title",
-                            "title": data.get("title", "Project Defense"),
+                            "title": raw_title,
                             "subtitle": f"An Academic Capstone Presentation by {author_name}",
                             "bullets": [],
                             "speakerNotes": "Introduce your team, project title, and institution."
@@ -631,7 +671,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                     ],
                     "vivaQuestions": [
                         {
-                            "question": f"What is the primary motivation behind {data.get('title', 'this project')}?",
+                            "question": f"What is the primary motivation behind {raw_title}?",
                             "answer": f"The primary goal is to address identified operational bottlenecks using modern {tech_str} best practices."
                         },
                         {
@@ -650,6 +690,20 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                     "success": True, 
                     "message": "Project saved to MongoDB successfully in both 'shared_projects' and 'projects' collections!", 
                     "project": full_proj_meta
+                })
+            except Exception as e:
+                self.send_json(400, {"success": False, "error": str(e)})
+            return
+
+        # API: Viva Simulator Mock Evaluation Fallback
+        elif parsed.path == "/api/viva/chat":
+            try:
+                data = json.loads(body.decode("utf-8"))
+                proj_title = str(data.get("projectTitle", "your project"))
+                self.send_json(200, {
+                    "success": True,
+                    "reply": f"Regarding {proj_title}: The system architecture adheres to academic engineering standards. Be prepared to explain concurrency, error boundaries, and scalability trade-offs.",
+                    "score": 25
                 })
             except Exception as e:
                 self.send_json(400, {"success": False, "error": str(e)})

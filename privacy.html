@@ -22,7 +22,7 @@
     rel="stylesheet">
 
   <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
     crossorigin="anonymous"></script>
 
   <!-- Google Analytics 4 (gtag.js) -->
@@ -35,11 +35,30 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=26.0">
-  <link rel="stylesheet" href="css/legal.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css?v=31.0">
+  <link rel="stylesheet" href="css/legal.css?v=31.0">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Intercept Right-Click and Common DevTools Keyboard Shortcuts -->
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    // Disable common Inspect element keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      const isCtrlOrCmd = e.ctrlKey || e.metaKey;
+      if (
+        e.key === 'F12' || 
+        (isCtrlOrCmd && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) || 
+        (isCtrlOrCmd && (e.key === 'U' || e.key === 'u')) // Disables View Source
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
 </head>
 
 <body>
