@@ -926,22 +926,6 @@ class ForgeExplorer {
           targetPath: item.targetPath || [item.name]
         });
       });
-
-      // Featured Academic Kits Preview on Root Homepage
-      const featured = (this.allProjects && this.allProjects.length > 0) ? this.allProjects.slice(0, 5) : [];
-      if (featured.length > 0) {
-        html += `
-          <div style="margin: 1.5rem 0 0.85rem 0; padding: 0.65rem 0; border-top: 1px dashed rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-            <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-heading); display: flex; align-items: center; gap: 0.45rem;">
-              <span style="color: #F5B800;">⭐</span> Featured Verified Academic Kits & PPT Decks
-            </span>
-            <button class="sw-button" style="font-size: 0.78rem; padding: 0.25rem 0.65rem;" onclick="window.explorer.navigateTo(['Browse All 450 Projects'])">Browse All 450 Projects →</button>
-          </div>
-        `;
-        featured.forEach(proj => {
-          html += this.getProjectRowHtml(proj);
-        });
-      }
     }
 
     // 2. BCA Group (BCA, B.Sc, Diploma)
