@@ -138,18 +138,13 @@
   <main class="pyq-main-container" id="explorerContainer">
     <div id="explore-section"></div>
     <!-- Top Responsive AdSense Unit -->
-    <div class="adsense-slot adsense-top" role="complementary" aria-label="Advertisement">
+    <div class="adsense-slot adsense-top" role="complementary" aria-label="Advertisement" style="width:100%;min-width:320px;">
       <ins class="adsbygoogle"
-           style="display:block"
+           style="display:block;min-width:320px;"
            data-ad-client="ca-pub-7317832328079309"
            data-ad-slot="7953820280"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      </script>
     </div>
 
     <!-- Separator -->
@@ -370,18 +365,13 @@
     </div>
 
     <!-- Bottom Responsive AdSense Unit -->
-    <div class="adsense-slot adsense-bottom" role="complementary" aria-label="Advertisement">
+    <div class="adsense-slot adsense-bottom" role="complementary" aria-label="Advertisement" style="width:100%;min-width:320px;">
       <ins class="adsbygoogle"
-           style="display:block"
+           style="display:block;min-width:320px;"
            data-ad-client="ca-pub-7317832328079309"
            data-ad-slot="7953820280"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {}
-      </script>
     </div>
 
     <!-- Prose Information / Community Section matching haldwani.gehu.in/pyqs -->
@@ -1116,33 +1106,75 @@
       })();
     </script>
 
-    <!-- Google AdSense - Smart Non-Blocking Loader for Core Web Vitals (90+ Mobile CWV) -->
+    <!-- Google AdSense - IntersectionObserver Loader (eliminates availableWidth=0 error) -->
     <script>
-      (function() {
-        let adsLoaded = false;
+      (function () {
+        var adsLoaded = false;
+        var pendingSlots = [];
+        var ioObserver = null;
+
+        // Only push a slot when its bounding rect has real width (element is painted on screen)
+        function safePush(ins) {
+          try {
+            var rect = ins.getBoundingClientRect();
+            if (rect.width > 0) {
+              (window.adsbygoogle = window.adsbygoogle || []).push({});
+            }
+            // If still 0, silently skip — IntersectionObserver won't fire for truly hidden elements
+          } catch (e) {}
+        }
+
+        // Set up IntersectionObserver to push each slot the moment it enters the viewport
+        function observeSlots() {
+          var slots = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])');
+          if (!slots.length) return;
+
+          if ('IntersectionObserver' in window) {
+            ioObserver = new IntersectionObserver(function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  ioObserver.unobserve(entry.target);
+                  safePush(entry.target);
+                }
+              });
+            }, { threshold: 0.01 });
+            slots.forEach(function (ins) { ioObserver.observe(ins); });
+          } else {
+            // Fallback for browsers without IntersectionObserver
+            slots.forEach(function (ins) { safePush(ins); });
+          }
+        }
+
         function loadAdSense() {
           if (adsLoaded) return;
           adsLoaded = true;
-          ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function(ev) {
+          // Remove all interaction listeners
+          ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function (ev) {
             window.removeEventListener(ev, loadAdSense, { passive: true });
           });
-          const s = document.createElement('script');
+          var s = document.createElement('script');
           s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309';
           s.crossOrigin = 'anonymous';
           s.async = true;
+          // Set up slot observers only AFTER the AdSense library is ready
+          s.onload = function () { observeSlots(); };
           document.head.appendChild(s);
         }
-        ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function(ev) {
+
+        // Trigger on any user interaction
+        ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function (ev) {
           window.addEventListener(ev, loadAdSense, { once: true, passive: true });
         });
+
+        // Also trigger on idle after 3s (for users who don't interact)
         if ('requestIdleCallback' in window) {
-          window.addEventListener('load', function() {
-            setTimeout(function() {
-              window.requestIdleCallback(loadAdSense, { timeout: 1000 });
+          window.addEventListener('load', function () {
+            setTimeout(function () {
+              window.requestIdleCallback(loadAdSense, { timeout: 1500 });
             }, 3000);
           });
         } else {
-          window.addEventListener('load', function() {
+          window.addEventListener('load', function () {
             setTimeout(loadAdSense, 3500);
           });
         }
