@@ -3,23 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <meta name="theme-color" content="#0a0e1a">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-CZX1KYVMT3');
-  </script>
 
   <title>ForgeProject - College Projects, Working Code & Ready-to-Present PPT Kits</title>
   <meta name="description"
@@ -79,18 +66,22 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts for Times New Roman / Serif Aesthetic -->
+  <!-- Google Fonts for Times New Roman / Serif Aesthetic (Non-blocking) -->
+  <!-- Google Fonts for Times New Roman / Serif Aesthetic (display=optional for zero LCP delay) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=optional">
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=optional" rel="stylesheet">
+  </noscript>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
     crossorigin="anonymous"></script>
 
-
   <!-- Stylesheet with Anti-Cache Version Bump -->
-  <link rel="stylesheet" href="css/styles.css?v=34.0">
+  <link rel="stylesheet" href="css/styles.css?v=34.1">
 
   <!-- Cloud Backend API Endpoint -->
   <script>
@@ -127,7 +118,12 @@
         </nav>
 
         <!-- User Authentication & Profile / Sign Out Nav -->
-        <div id="authNavContainer"></div>
+        <div id="authNavContainer">
+          <button class="pyq-signin-btn" onclick="app.openAuthModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            <span>Sign In</span>
+          </button>
+        </div>
 
         <button class="pyq-theme-toggle" id="themeToggleBtn" type="button" aria-label="Toggle theme">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="theme-sun-icon" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M8 12a4 4 0 1 0 8 0 4 4 0 1 0-8 0M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"/></svg>
@@ -168,11 +164,11 @@
 
     <!-- Breadcrumb Navigation Bar -->
     <nav class="breadcrumb-nav" aria-label="breadcrumb">
-      <button class="up-folder-btn" id="upFolderBtn" title="Up a folder" type="button">↑</button>
+      <button class="up-folder-btn disabled" id="upFolderBtn" title="Up a folder" type="button" disabled>↑</button>
       <ol class="breadcrumb-list" id="breadcrumbList">
-        <li class="breadcrumb-item"><a href="#" onclick="event.preventDefault(); window.explorer?.navigateTo([])">forgeproject</a></li>
+        <li class="breadcrumb-item"><a href="#" onclick="event.preventDefault(); window.explorer?.navigateTo([])" class="current">forgeproject</a></li>
       </ol>
-      <div class="explorer-count-badge font-mono" id="explorerCountBadge">Loading...</div>
+      <div class="explorer-count-badge font-mono" id="explorerCountBadge">7 items</div>
     </nav>
 
     <!-- Separator -->
@@ -217,9 +213,148 @@
 
     <div class="sw-separator"></div>
 
-    <!-- Explorer Directory List -->
+    <!-- Explorer Directory List (Pre-rendered root items to guarantee 0 CLS) -->
     <div class="explorer-list" id="explorerList" role="list">
-      <!-- Populated dynamically by explorer.js -->
+      <div class="explorer-item folder-item" data-folder-path="[&quot;Browse All 450 Projects&quot;]" role="button" tabindex="0" title="Open Browse All 450 Academic Projects folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">Browse All 450 Academic Projects</span>
+            <span class="item-badge font-mono">450 Kits</span>
+          </div>
+          <p class="item-desc">Instantly Explore All 450 Verified Project Packages with Code, PPT Decks, &amp; Defense Kits</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
+      <div class="explorer-item folder-item" data-folder-path="[&quot;B.Tech&quot;]" role="button" tabindex="0" title="Open B.Tech folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">B.Tech</span>
+            <span class="item-badge font-mono">450 Kits</span>
+          </div>
+          <p class="item-desc">Computer Science, AI/ML, IoT, ECE &amp; Engineering (C, Python, C++, Java, Rust, Go, Assembly, Verilog, Solidity - 450 Kits)</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
+      <div class="explorer-item folder-item" data-folder-path="[&quot;BCA&quot;]" role="button" tabindex="0" title="Open BCA folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">BCA</span>
+            <span class="item-badge font-mono">344 Kits</span>
+          </div>
+          <p class="item-desc">Bachelor of Computer Applications (C, Python, C++, Java, PHP, SQL, C#, VB.NET, Flutter, MERN - 344 Kits)</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
+      <div class="explorer-item folder-item" data-folder-path="[&quot;B.Sc&quot;]" role="button" tabindex="0" title="Open B.Sc folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">B.Sc</span>
+            <span class="item-badge font-mono">344 Kits</span>
+          </div>
+          <p class="item-desc">Computer Science, IT &amp; Software Systems (C, Python, C++, Java, R, SQL, Linux Bash, Data Analytics - 344 Kits)</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
+      <div class="explorer-item folder-item" data-folder-path="[&quot;Diploma&quot;]" role="button" tabindex="0" title="Open Diploma folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">Diploma</span>
+            <span class="item-badge font-mono">344 Kits</span>
+          </div>
+          <p class="item-desc">Polytechnic Engineering &amp; Technical Practical Labs (C, C++, Python, Java, PHP, Arduino Labs - 344 Kits)</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
+      <div class="explorer-item folder-item" data-folder-path="[&quot;MCA &amp; M.Tech&quot;]" role="button" tabindex="0" title="Open MCA &amp; M.Tech folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">MCA &amp; M.Tech</span>
+            <span class="item-badge font-mono">40 Kits</span>
+          </div>
+          <p class="item-desc">Advanced Research, Distributed Systems &amp; Capstone Defense (Python AI, Go, Rust, Java Spring, Solidity - 40 Kits)</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
+      <div class="explorer-item folder-item" data-folder-path="[&quot;Browse by Technology&quot;]" role="button" tabindex="0" title="Open Browse by Programming Languages &amp; Technologies folder">
+        <div class="item-media">
+          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
+            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
+          </svg>
+        </div>
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-title font-excalifont">Browse by Programming Languages &amp; Technologies</span>
+            <span class="item-badge font-mono">140 Languages</span>
+          </div>
+          <p class="item-desc">Full Academic Taxonomy Across 140 Programming Languages in 10 Core Academic Families</p>
+        </div>
+        <div class="item-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="sw-separator"></div>
     </div>
 
     <!-- Hidden compatibility elements for app.js -->
@@ -946,10 +1081,10 @@
       </button>
     </nav>
 
-    <!-- Core Essential Scripts (Version Bump v34.0) -->
-    <script src="js/data-summary.js?v=34.0"></script>
-    <script src="js/explorer.js?v=34.0"></script>
-    <script src="js/app.js?v=34.0"></script>
+    <!-- Core Essential Scripts (Version Bump v34.1 - Deferred for Fast FCP) -->
+    <script defer src="js/data-summary.js?v=34.1"></script>
+    <script defer src="js/explorer.js?v=34.1"></script>
+    <script defer src="js/app.js?v=34.1"></script>
 
 
     <script>
@@ -957,6 +1092,15 @@
       const initLucide = () => { if (window.lucide) window.lucide.createIcons(); };
       document.addEventListener("DOMContentLoaded", initLucide);
       window.addEventListener("load", initLucide);
+    </script>
+
+    <!-- Google tag (gtag.js) - Loaded after critical render path -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CZX1KYVMT3');
     </script>
 </body>
 

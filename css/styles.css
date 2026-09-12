@@ -3636,11 +3636,9 @@ svg {
   color: var(--text-muted);
 }
 
-/* AdSense Units */
+/* AdSense Units - Zero CLS */
 .adsense-slot {
   width: 100%;
-  min-height: 90px;
-  margin: 1.25rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3649,10 +3647,21 @@ svg {
 }
 
 .adsense-slot:empty,
+.adsense-slot ins:not([data-ad-status="filled"]) {
+  min-height: 0;
+  margin: 0;
+}
+
 .adsense-slot ins[data-ad-status="unfilled"] {
   display: none !important;
   min-height: 0 !important;
   margin: 0 !important;
+}
+
+.adsense-slot:has(iframe),
+.adsense-slot ins[data-ad-status="filled"] {
+  min-height: 90px;
+  margin: 1.25rem 0;
 }
 
 /* Prose Information Section */
