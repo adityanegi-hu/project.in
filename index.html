@@ -2,6 +2,15 @@
 <html lang="en" data-theme="dark">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
   <script>
@@ -12,20 +21,13 @@
     gtag('config', 'G-CZX1KYVMT3');
   </script>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0e1a">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>ForgeProject - College Projects, Working Code & Ready-to-Present PPT Kits</title>
   <meta name="description"
     content="Download complete, verified working student projects, PowerPoint presentations (PPT), documentation synopsis reports, and Viva-Voce defense prep guides for CS, IT, AI/ML, IoT, and Engineering students.">
   <meta name="keywords"
     content="student projects, final year project, mini project, engineering ppt, project presentation, source code, python projects, ai ml projects, iot projects">
   <link rel="canonical" href="https://forgeproject.tech/">
+  <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
@@ -33,9 +35,45 @@
   <meta property="og:description" content="Download complete, verified working student projects, PowerPoint presentations (PPT), documentation synopsis reports, and Viva-Voce defense prep guides for CS, IT, AI/ML, IoT, and Engineering students.">
   <meta property="og:url" content="https://forgeproject.tech/">
   <meta property="og:site_name" content="ForgeProject">
+  <meta property="og:image" content="https://forgeproject.tech/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ForgeProject - Academic Projects and PPT Kits">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ForgeProject - College Projects & PPT Kits">
-  <meta name="twitter:description" content="450+ verified working college projects across 9 domains with in-browser PPT viewer and Viva bot.">
+  <meta name="twitter:description" content="Download complete, verified working student projects, PowerPoint presentations (PPT), documentation synopsis reports, and Viva-Voce defense prep guides for CS, IT, AI/ML, IoT, and Engineering students.">
+  <meta name="twitter:image" content="https://forgeproject.tech/og-banner.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://forgeproject.tech/#website",
+        "url": "https://forgeproject.tech/",
+        "name": "ForgeProject",
+        "description": "Download complete, verified working student projects, PowerPoint presentations (PPT), documentation synopsis reports, and Viva-Voce defense prep guides.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://forgeproject.tech/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://forgeproject.tech/#organization",
+        "name": "ForgeProject",
+        "url": "https://forgeproject.tech/",
+        "logo": "https://forgeproject.tech/og-banner.png",
+        "sameAs": [
+          "https://github.com/adityanegi-hu/project.in"
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
@@ -52,13 +90,12 @@
 
 
   <!-- Stylesheet with Anti-Cache Version Bump -->
-  <link rel="stylesheet" href="css/styles.css?v=31.0">
-  <link rel="stylesheet" href="css/legal.css?v=31.0">
+  <link rel="stylesheet" href="css/styles.css?v=33.0">
+  <link rel="stylesheet" href="css/legal.css?v=33.0">
 
   <!-- Cloud Backend API Endpoint -->
   <script>
     window.FORGEPROJECT_API_URL = "https://project-in.onrender.com";
-    window.PROJECTFORGE_API_URL = "https://project-in.onrender.com";
   </script>
 
   <!-- Lucide Icons -->
@@ -121,7 +158,7 @@
   <main class="pyq-main-container" id="explorerContainer">
     <div id="explore-section"></div>
     <!-- Top Responsive AdSense Unit -->
-    <div class="adsense-slot adsense-top">
+    <div class="adsense-slot adsense-top" role="complementary" aria-label="Advertisement">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-7317832328079309"
@@ -195,7 +232,7 @@
     </div>
 
     <!-- Hidden compatibility elements for app.js -->
-    <div style="display: none;">
+    <div style="display: none;" aria-hidden="true">
       <div id="projectsGrid"></div>
       <div id="degreeTabsContainer"></div>
       <div id="yearTabsContainer"></div>
@@ -214,7 +251,7 @@
     </div>
 
     <!-- Bottom Responsive AdSense Unit -->
-    <div class="adsense-slot adsense-bottom">
+    <div class="adsense-slot adsense-bottom" role="complementary" aria-label="Advertisement">
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-7317832328079309"
@@ -231,7 +268,7 @@
     <!-- Prose Information / Community Section matching haldwani.gehu.in/pyqs -->
     <div class="prose-section" id="about-section">
       <h2 class="font-excalifont">Like our work?</h2>
-      <p>Give this repo a ⭐ on <a href="https://github.com/adityanegi-hu/project.in" target="_blank">GitHub</a>! Built with pride for students & aspiring engineers.</p>
+      <p>Give this repo a ⭐ on <a href="https://github.com/adityanegi-hu/project.in" target="_blank" rel="noopener noreferrer">GitHub</a>! Built with pride for students & aspiring engineers.</p>
 
       <h2 class="font-excalifont">Academic Defense Ready</h2>
       <p>Every project kit in ForgeProject is verified and comes packed with working runnable source code, a professionally formatted 10-slide PowerPoint presentation deck, an IEEE documentation synopsis, and custom Viva-Voce defense practice questions.</p>
@@ -717,20 +754,20 @@
             Maintained by <span class="font-excalifont footer-author">Aditya Negi</span>
           </p>
           <p class="footer-support">
-            <a class="font-excalifont support-link" href="https://github.com/adityanegi-hu/project.in" target="_blank">
+            <a class="font-excalifont support-link" href="https://github.com/adityanegi-hu/project.in" target="_blank" rel="noopener noreferrer">
               Support our work 
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </a>
           </p>
 
           <div class="footer-social-row">
-            <a href="https://github.com/adityanegi-hu" target="_blank" title="GitHub" class="footer-social-link">
+            <a href="https://github.com/adityanegi-hu" target="_blank" rel="noopener noreferrer" title="GitHub" class="footer-social-link">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/aditya-negi-b04ko" target="_blank" title="LinkedIn" class="footer-social-link">
+            <a href="https://www.linkedin.com/in/aditya-negi-b04ko" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="footer-social-link">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg>
             </a>
-            <a href="https://www.instagram.com/aditya_neg1" target="_blank" title="Instagram" class="footer-social-link">
+            <a href="https://www.instagram.com/aditya_neg1" target="_blank" rel="noopener noreferrer" title="Instagram" class="footer-social-link">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg>
             </a>
           </div>
@@ -744,7 +781,7 @@
           <p class="footer-links-heading">Quick Links</p>
           <ul class="footer-links-list font-excalifont">
             <li>
-              <a href="https://github.com/adityanegi-hu/project.in" target="_blank" class="footer-link">
+              <a href="https://github.com/adityanegi-hu/project.in" target="_blank" rel="noopener noreferrer" class="footer-link">
                 ⭐ Star on GitHub
               </a>
             </li>
@@ -839,42 +876,42 @@
             </a>
           </li>
           <li>
-            <a href="#" class="mobile-nav-item" id="mobNavCustomizer">
+            <button type="button" class="mobile-nav-item" id="mobNavCustomizer">
               <div class="mob-icon-wrap" style="background: var(--grad-cyan);"><i data-lucide="sparkles"></i></div>
               <div>
                 <div class="mob-item-title">AI PPT Studio</div>
                 <div class="mob-item-sub">Customize Student & Guide Names</div>
               </div>
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#" class="mobile-nav-item" id="mobNavViva">
+            <button type="button" class="mobile-nav-item" id="mobNavViva">
               <div class="mob-icon-wrap" style="background: var(--grad-sunset);"><i data-lucide="bot"></i></div>
               <div>
                 <div class="mob-item-title">Viva Voce AI Bot</div>
                 <div class="mob-item-sub">Mock Examiner Defense Simulator</div>
               </div>
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#" class="mobile-nav-item" id="mobNavSubmit">
+            <button type="button" class="mobile-nav-item" id="mobNavSubmit">
               <div class="mob-icon-wrap" style="background: var(--grad-emerald);"><i data-lucide="upload-cloud"></i>
               </div>
               <div>
                 <div class="mob-item-title">Share Your Project</div>
                 <div class="mob-item-sub">Submit Project to Live Catalog</div>
               </div>
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#" class="mobile-nav-item" id="mobNavBookmarks">
+            <button type="button" class="mobile-nav-item" id="mobNavBookmarks">
               <div class="mob-icon-wrap" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);"><i
                   data-lucide="bookmark"></i></div>
               <div>
                 <div class="mob-item-title">Saved Library</div>
                 <div class="mob-item-sub" id="mobSavedSub">View Bookmarked Projects</div>
               </div>
-            </a>
+            </button>
           </li>
           <li>
             <a href="about.html" class="mobile-nav-item">
@@ -918,13 +955,13 @@
       </button>
     </nav>
 
-    <!-- Core Scripts with Anti-Cache Version Bump (v32.0) -->
-    <script src="js/data-summary.js?v=32.0" defer></script>
-    <script src="js/ppt-viewer.js?v=32.0"></script>
-    <script src="js/downloader.js?v=32.0"></script>
-    <script src="js/viva-simulator.js?v=32.0"></script>
-    <script src="js/explorer.js?v=32.0"></script>
-    <script src="js/app.js?v=32.0"></script>
+    <!-- Core Scripts with Anti-Cache Version Bump (v33.0) -->
+    <script src="js/data-summary.js?v=33.0"></script>
+    <script src="js/ppt-viewer.js?v=33.0"></script>
+    <script src="js/downloader.js?v=33.0"></script>
+    <script src="js/viva-simulator.js?v=33.0"></script>
+    <script src="js/explorer.js?v=33.0"></script>
+    <script src="js/app.js?v=33.0"></script>
 
 
     <script>

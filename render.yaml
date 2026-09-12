@@ -11,4 +11,6 @@ services:
         value: projectforge
       - key: HOST
         value: "0.0.0.0"
+      - key: PORT
+        value: "10000"
 

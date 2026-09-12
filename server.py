@@ -17,6 +17,7 @@ import time
 import html
 from collections import defaultdict
 from datetime import datetime, timezone
+import ipaddress
 
 def sanitize_text(val, max_len=500) -> str:
     """Escapes HTML entities and clamps max length to eliminate Stored XSS risks."""
@@ -205,27 +206,66 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
         self.send_header("Pragma", "no-cache")
         self.send_header("Expires", "0")
-        # Application-Layer Firewall Security Headers
-        self.send_header("Access-Control-Allow-Origin", "*")
+        # Application-Layer Firewall Security Headers & Origin Validation
+        ALLOWED_ORIGINS = {
+            "https://forgeproject.tech",
+            "https://www.forgeproject.tech",
+        }
+        origin = self.headers.get("Origin", "") if hasattr(self, "headers") and self.headers else ""
+        if origin in ALLOWED_ORIGINS or (origin and (origin.startswith("http://localhost:") or origin.startswith("http://127.0.0.1:"))):
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
+        else:
+            self.send_header("Access-Control-Allow-Origin", "https://forgeproject.tech")
+
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("X-Frame-Options", "SAMEORIGIN")
         self.send_header("X-XSS-Protection", "1; mode=block")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
         self.send_header("Permissions-Policy", "geolocation=(), camera=(), microphone=()")
-        self.send_header("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; img-src 'self' data: blob: https:; font-src 'self' data: https: fonts.gstatic.com; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; connect-src 'self' https: http: ws: wss:; frame-ancestors 'self';")
+        self.send_header("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; img-src 'self' data: blob: https:; font-src 'self' data: https: fonts.gstatic.com; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; connect-src 'self' https: http: ws: wss:; frame-ancestors 'self' https://*.google.com https://*.doubleclick.net https://*.googleadservices.com;")
         super().end_headers()
 
     def get_client_ip(self):
-        """Resolves real client IP across reverse proxies (Render, Cloudflare, Nginx) or direct sockets."""
+        """Resolves real client IP safely across reverse proxies (Render, Cloudflare) or direct sockets."""
+        # 1. Cloudflare direct client header if present
+        cf_ip = self.headers.get("CF-Connecting-IP")
+        if cf_ip:
+            candidate = cf_ip.strip()
+            try:
+                ipaddress.ip_address(candidate)
+                return candidate
+            except ValueError:
+                pass
+
+        # 2. Reverse proxy chain (Render load balancer).
+        # Trusted reverse proxies append the client IP to the end of X-Forwarded-For.
+        # Taking the rightmost IP prevents client-injected IP spoofing.
         forwarded = self.headers.get("X-Forwarded-For")
         if forwarded:
-            return forwarded.split(",")[0].strip()
+            candidate = forwarded.split(",")[-1].strip()
+            try:
+                ipaddress.ip_address(candidate)
+                return candidate
+            except ValueError:
+                pass
+
+        # 3. Fallback to X-Real-IP if set and valid
         real_ip = self.headers.get("X-Real-IP")
         if real_ip:
-            return real_ip.strip()
-        return self.client_address[0] if self.client_address else "127.0.0.1"
+            candidate = real_ip.strip()
+            try:
+                ipaddress.ip_address(candidate)
+                return candidate
+            except ValueError:
+                pass
+
+        # 4. Fallback to direct socket IP
+        if self.client_address and len(self.client_address) > 0:
+            return str(self.client_address[0])
+        return "127.0.0.1"
 
     def do_OPTIONS(self):
         self.send_response(200)

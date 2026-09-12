@@ -2075,6 +2075,11 @@ svg {
   color: var(--text-primary);
   background: var(--bg-tertiary);
   border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
@@ -3643,6 +3648,13 @@ svg {
   justify-content: center;
   overflow: hidden;
   border-radius: var(--radius-sm);
+}
+
+.adsense-slot:empty,
+.adsense-slot ins[data-ad-status="unfilled"] {
+  display: none !important;
+  min-height: 0 !important;
+  margin: 0 !important;
 }
 
 /* Prose Information Section */

@@ -2,6 +2,10 @@
 <html lang="en" data-theme="dark">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0e1a">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
   <script>
@@ -11,17 +15,40 @@
     gtag('config', 'G-CZX1KYVMT3');
   </script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0e1a">
   <title>Privacy Policy - ForgeProject</title>
   <meta name="description"
     content="Privacy Policy for ForgeProject (forgeproject.tech). Learn how we handle cookies, Google AdSense advertising, analytics, and user privacy rights.">
   <link rel="canonical" href="https://forgeproject.tech/privacy.html">
+  <meta name="robots" content="index, follow">
   <meta property="og:title" content="Privacy Policy - ForgeProject">
   <meta property="og:description" content="Privacy Policy for ForgeProject (forgeproject.tech). Learn how we handle cookies, Google AdSense advertising, analytics, and user privacy rights.">
   <meta property="og:url" content="https://forgeproject.tech/privacy.html">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://forgeproject.tech/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Privacy Policy - ForgeProject">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy - ForgeProject">
+  <meta name="twitter:description" content="Privacy Policy for ForgeProject (forgeproject.tech). Learn how we handle cookies, Google AdSense advertising, analytics, and user privacy rights.">
+  <meta name="twitter:image" content="https://forgeproject.tech/og-banner.png">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy - ForgeProject",
+    "url": "https://forgeproject.tech/privacy.html",
+    "description": "Privacy Policy for ForgeProject (forgeproject.tech). Learn how we handle cookies, Google AdSense advertising, analytics, and user privacy rights.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ForgeProject",
+      "url": "https://forgeproject.tech/",
+      "logo": "https://forgeproject.tech/og-banner.png"
+    }
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
@@ -34,14 +61,10 @@
     href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
-    crossorigin="anonymous"></script>
-
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=31.0">
-  <link rel="stylesheet" href="css/legal.css?v=31.0">
+  <link rel="stylesheet" href="css/styles.css?v=33.0">
+  <link rel="stylesheet" href="css/legal.css?v=33.0">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -249,7 +272,7 @@
             Maintained by <span class="font-excalifont footer-author">Aditya Negi</span>
           </p>
           <p class="footer-support">
-            <a class="font-excalifont support-link" href="https://github.com/adityanegi-hu/project.in" target="_blank">
+            <a class="font-excalifont support-link" href="https://github.com/adityanegi-hu/project.in" target="_blank" rel="noopener noreferrer">
               Support our work 
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </a>
@@ -265,7 +288,7 @@
             <li><a href="index.html" class="footer-link">🏠 Home Catalog</a></li>
             <li><a href="about.html" class="footer-link">ℹ️ About ForgeProject</a></li>
             <li><a href="contact.html" class="footer-link">📩 Contact Support</a></li>
-            <li><a href="https://github.com/adityanegi-hu/project.in" target="_blank" class="footer-link">⭐ Star on GitHub</a></li>
+            <li><a href="https://github.com/adityanegi-hu/project.in" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Star on GitHub</a></li>
           </ul>
         </div>
 
@@ -298,12 +321,18 @@
     const themeBtn = document.getElementById("themeToggleBtn");
     const currentTheme = localStorage.getItem("pf_theme") || localStorage.getItem("forgeproject_theme") || "dark";
     document.documentElement.setAttribute("data-theme", currentTheme);
+    if (themeBtn) {
+      themeBtn.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    }
 
     themeBtn?.addEventListener("click", () => {
       const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", nextTheme);
       localStorage.setItem("pf_theme", nextTheme);
       localStorage.setItem("forgeproject_theme", nextTheme);
+      if (themeBtn) {
+        themeBtn.setAttribute("aria-label", nextTheme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      }
     });
 
     // Render Lucide icons — with fallback for slow CDN loads

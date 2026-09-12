@@ -184,14 +184,22 @@ class VivaSimulator {
     }
   }
 
+  formatMarkdown(content) {
+    if (!content) return "";
+    return content
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.*?)\*/g, "<em>$1</em>");
+  }
+
   addExaminerMessage(html) {
     this.initElements();
     if (!this.chatMessagesContainer) return;
+    const formattedHtml = this.formatMarkdown(html);
     const msgDiv = document.createElement("div");
     msgDiv.className = "chat-bubble examiner";
     msgDiv.innerHTML = `
       <div class="speaker-tag"><i data-lucide="user-check"></i> External Examiner</div>
-      <div>${html}</div>
+      <div>${formattedHtml}</div>
     `;
     this.chatMessagesContainer.appendChild(msgDiv);
     this.scrollToBottom();

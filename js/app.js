@@ -28,7 +28,7 @@ class ForgeProjectApp {
 
     // Backend Base URL: Prioritize local server if on localhost/127.0.0.1, otherwise fallback to configured cloud API
     const isLocal = typeof window !== "undefined" && window.location && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.port === "3000");
-    this.apiBase = isLocal ? "" : (window.FORGEPROJECT_API_URL || window.PROJECTFORGE_API_URL || (localStorage.getItem("pf_api_url") || ""));
+    this.apiBase = isLocal ? "" : (window.FORGEPROJECT_API_URL || (localStorage.getItem("pf_api_url") || ""));
 
     this.initElements();
     this.initEventListeners();
@@ -321,6 +321,10 @@ class ForgeProjectApp {
     if (iconContainer) {
       iconContainer.setAttribute?.("data-lucide", theme === "dark" ? "sun" : "moon");
       if (window.lucide) window.lucide.createIcons();
+    }
+    const themeBtn = document.getElementById("themeToggleBtn");
+    if (themeBtn) {
+      themeBtn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
     }
   }
 
@@ -1575,7 +1579,7 @@ class ForgeProjectApp {
 
       // 3. Fallback: Static details dictionary file
       if (!window._dataDetailsCache) {
-        const detailsRes = await fetch("js/data-details.json?v=31.0").catch(() => null);
+        const detailsRes = await fetch("js/data-details.json?v=33.0").catch(() => null);
         if (detailsRes && detailsRes.ok) {
           window._dataDetailsCache = await detailsRes.json();
         }
