@@ -179,8 +179,14 @@ class VivaSimulator {
       `👉 You can download the complete project kit with full Q&A cheat sheets anytime!`
     );
 
-    if (percentage >= 70 && typeof confetti === "function") {
-      confetti({ particleCount: 50, spread: 60 });
+    if (percentage >= 70) {
+      if (typeof confetti === "function") {
+        confetti({ particleCount: 50, spread: 60 });
+      } else if (window.app?.ensureScript) {
+        window.app.ensureScript("https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js").then(() => {
+          if (typeof confetti === "function") confetti({ particleCount: 50, spread: 60 });
+        }).catch(() => {});
+      }
     }
   }
 

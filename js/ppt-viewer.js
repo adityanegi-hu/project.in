@@ -21,6 +21,8 @@ class PPTViewer {
       guideName: "Faculty Project Supervisor"
     };
 
+    this.renderedSlideCache = {};
+
     this.initElements();
     this.initEventListeners();
   }
@@ -108,6 +110,7 @@ class PPTViewer {
     }
     this.currentProject = project;
     this.currentSlideIndex = 0;
+    this.renderedSlideCache = {};
     if (this.deckTitle) {
       this.deckTitle.innerHTML = `<i data-lucide="presentation"></i> ${project.title} - Defense Slides`;
     }
@@ -118,6 +121,7 @@ class PPTViewer {
 
   setCustomMetadata(data) {
     this.customMetadata = { ...this.customMetadata, ...data };
+    this.renderedSlideCache = {};
     try {
       localStorage.setItem("pf_custom_meta", JSON.stringify(this.customMetadata));
     } catch (e) {}
@@ -160,6 +164,16 @@ class PPTViewer {
 
     if (this.slideCounter) {
       this.slideCounter.innerText = `Slide ${this.currentSlideIndex + 1} / ${slides.length}`;
+    }
+
+    if (this.renderedSlideCache && this.renderedSlideCache[this.currentSlideIndex]) {
+      this.slideViewport.innerHTML = this.renderedSlideCache[this.currentSlideIndex];
+      if (this.speakerNotesContent) {
+        this.speakerNotesContent.innerText = slide.speakerNotes || slide.notes || "Explain key takeaways and methodology for this slide during your defense.";
+      }
+      this.renderProgressDots();
+      if (window.lucide) window.lucide.createIcons();
+      return;
     }
 
     let slideHTML = "";
@@ -252,6 +266,9 @@ class PPTViewer {
       `;
     }
 
+    if (this.renderedSlideCache) {
+      this.renderedSlideCache[this.currentSlideIndex] = slideHTML;
+    }
     this.slideViewport.innerHTML = slideHTML;
 
     // Update Speaker Notes

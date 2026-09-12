@@ -31,13 +31,18 @@ class ForgeExplorer {
     // Up folder button listener
     this.upFolderBtn?.addEventListener("click", () => this.navigateUp());
 
-    // Search input listener
+    // Search input listener (Debounced 150ms)
+    let expSearchDebounce = null;
     this.searchInput?.addEventListener("input", (e) => {
-      this.searchQuery = e.target.value.trim().toLowerCase();
+      const q = e.target.value.trim().toLowerCase();
       if (this.searchClearBtn) {
-        this.searchClearBtn.style.display = this.searchQuery ? "inline-flex" : "none";
+        this.searchClearBtn.style.display = q ? "inline-flex" : "none";
       }
-      this.render();
+      clearTimeout(expSearchDebounce);
+      expSearchDebounce = setTimeout(() => {
+        this.searchQuery = q;
+        this.render();
+      }, 150);
     });
 
     this.searchClearBtn?.addEventListener("click", () => {

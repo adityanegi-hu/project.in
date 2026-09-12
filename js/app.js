@@ -30,6 +30,10 @@ class ForgeProjectApp {
     const isLocal = typeof window !== "undefined" && window.location && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.port === "3000");
     this.apiBase = isLocal ? "" : (window.FORGEPROJECT_API_URL || (localStorage.getItem("pf_api_url") || ""));
 
+    // Dynamic Module Promises & Script Registry
+    this._scriptPromises = {};
+    this.initModuleProxies();
+
     this.initElements();
     this.initEventListeners();
     this.initAuthListeners();
@@ -40,6 +44,114 @@ class ForgeProjectApp {
     this.renderYearTabs();
     this.renderCategoryPills();
     this.renderProjectsGrid();
+    this.initIdlePreloader();
+  }
+
+  // --- Dynamic On-Demand Script & Feature Loaders ---
+  initModuleProxies() {
+    if (!window.projectDownloader) {
+      window.projectDownloader = {
+        async downloadProjectKit(project, customMeta = {}) {
+          const d = await window.app.ensureDownloader();
+          return d?.downloadProjectKit(project, customMeta);
+        }
+      };
+    }
+
+    if (!window.pptViewer) {
+      window.pptViewer = {
+        customMetadata: JSON.parse(localStorage.getItem("pf_custom_meta") || "null") || {
+          collegeName: "Engineering Institute of Technology",
+          teamMembers: "Student Developer Team",
+          guideName: "Faculty Project Supervisor"
+        },
+        async openViewer(projectId) {
+          const p = await window.app.ensurePPTViewer();
+          return p?.openViewer(projectId);
+        },
+        async loadProject(project) {
+          const p = await window.app.ensurePPTViewer();
+          return p?.loadProject(project);
+        },
+        setCustomMetadata(meta) {
+          this.customMetadata = { ...this.customMetadata, ...meta };
+          if (window._realPPTViewerLoaded && window.pptViewer !== this && typeof window.pptViewer.setCustomMetadata === "function") {
+            window.pptViewer.setCustomMetadata(meta);
+          }
+        },
+        showLoadingState(project) {}
+      };
+    }
+
+    if (!window.vivaSimulator) {
+      window.vivaSimulator = {
+        async startSession(project) {
+          const v = await window.app.ensureVivaSimulator();
+          return v?.startSession(project);
+        }
+      };
+    }
+  }
+
+  ensureScript(src) {
+    if (!this._scriptPromises) this._scriptPromises = {};
+    if (this._scriptPromises[src]) return this._scriptPromises[src];
+    this._scriptPromises[src] = new Promise((resolve, reject) => {
+      const cleanSrc = src.split("?")[0];
+      if (document.querySelector(`script[src^="${cleanSrc}"]`)) {
+        resolve();
+        return;
+      }
+      const s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      s.onload = () => resolve();
+      s.onerror = (e) => reject(e);
+      document.body.appendChild(s);
+    });
+    return this._scriptPromises[src];
+  }
+
+  async ensurePPTViewer() {
+    if (window._realPPTViewerLoaded && window.pptViewer && typeof window.pptViewer.renderSlide === "function") {
+      return window.pptViewer;
+    }
+    await this.ensureScript("js/ppt-viewer.js?v=34.0");
+    window._realPPTViewerLoaded = true;
+    return window.pptViewer;
+  }
+
+  async ensureDownloader() {
+    if (window._realDownloaderLoaded && window.projectDownloader && typeof window.projectDownloader.escHtml === "function") {
+      return window.projectDownloader;
+    }
+    await this.ensureScript("js/downloader.js?v=34.0");
+    window._realDownloaderLoaded = true;
+    return window.projectDownloader;
+  }
+
+  async ensureVivaSimulator() {
+    if (window._realVivaLoaded && window.vivaSimulator && typeof window.vivaSimulator.handleUserSubmit === "function") {
+      return window.vivaSimulator;
+    }
+    await this.ensureScript("js/viva-simulator.js?v=34.0");
+    window._realVivaLoaded = true;
+    return window.vivaSimulator;
+  }
+
+  initIdlePreloader() {
+    const warmUp = () => {
+      const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2500));
+      idleCallback(() => {
+        this.ensurePPTViewer().catch(() => {});
+        this.ensureDownloader().catch(() => {});
+      });
+    };
+    if (document.readyState === "complete") {
+      warmUp();
+    } else {
+      window.addEventListener("load", warmUp, { once: true });
+    }
   }
 
   initElements() {
@@ -108,11 +220,16 @@ class ForgeProjectApp {
     // Theme Toggle
     document.getElementById("themeToggleBtn")?.addEventListener("click", () => this.toggleTheme());
 
-    // Search Input
+    // Search Input (Debounced 150ms for 60fps typing responsiveness)
+    let searchDebounce = null;
     this.searchInput?.addEventListener("input", (e) => {
-      this.searchQuery = e.target.value.toLowerCase().trim();
-      this.displayedCount = this.batchSize;
-      this.renderProjectsGrid();
+      const val = e.target.value.toLowerCase().trim();
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        this.searchQuery = val;
+        this.displayedCount = this.batchSize;
+        this.renderProjectsGrid();
+      }, 150);
     });
 
     // Degree Dropdown Filter in Toolbar
@@ -287,9 +404,10 @@ class ForgeProjectApp {
       const guideName = document.getElementById("custGuideName")?.value.trim() || "Faculty Supervisor";
 
       const proj = this.selectedProject || this.projects[0];
-      if (window.projectDownloader && proj) {
+      const downloader = await this.ensureDownloader();
+      if (downloader && proj) {
         const fullProj = await this.getProjectFullDetails(proj);
-        window.projectDownloader.downloadProjectKit(fullProj, { collegeName, teamMembers, guideName });
+        downloader.downloadProjectKit(fullProj, { collegeName, teamMembers, guideName });
       }
       this.closeCustomizerModal();
     });
@@ -646,10 +764,11 @@ class ForgeProjectApp {
       // Direct Download
       card.querySelector(".direct-download-btn")?.addEventListener("click", async (e) => {
         e.stopPropagation();
-        if (window.projectDownloader) {
+        const downloader = await this.ensureDownloader();
+        if (downloader) {
           const fullProj = await this.getProjectFullDetails(proj);
           const meta = window.pptViewer?.customMetadata || {};
-          window.projectDownloader.downloadProjectKit(fullProj, meta);
+          downloader.downloadProjectKit(fullProj, meta);
         }
       });
 
@@ -785,18 +904,20 @@ class ForgeProjectApp {
     if (modalBadge) modalBadge.innerText = `${targetProj.yearLabel || 'Year 4'} • ${targetProj.categoryLabel || 'Engineering'} (${targetProj.difficulty || 'Medium'})`;
 
     // Immediately show loading state in PPT viewer to avoid blank viewport or stale slide text
-    if (window.pptViewer && typeof window.pptViewer.showLoadingState === "function") {
-      window.pptViewer.showLoadingState(targetProj);
+    const pptViewer = await this.ensurePPTViewer();
+    if (pptViewer && typeof pptViewer.showLoadingState === "function") {
+      pptViewer.showLoadingState(targetProj);
     }
 
     // Header Download Action
     const modalDownloadBtn = document.getElementById("modalDownloadBtn");
     if (modalDownloadBtn) {
       modalDownloadBtn.onclick = async () => {
-        if (window.projectDownloader) {
+        const downloader = await this.ensureDownloader();
+        if (downloader) {
           const fullProj = await this.getProjectFullDetails(targetProj);
           const meta = window.pptViewer?.customMetadata || {};
-          window.projectDownloader.downloadProjectKit(fullProj, meta);
+          downloader.downloadProjectKit(fullProj, meta);
         }
       };
     }
@@ -818,8 +939,8 @@ class ForgeProjectApp {
     this.renderVivaTab(fullProject);
 
     // Initialize PPT Viewer
-    if (window.pptViewer) {
-      window.pptViewer.loadProject(fullProject);
+    if (pptViewer) {
+      pptViewer.loadProject(fullProject);
     }
 
     if (window.lucide) window.lucide.createIcons();
@@ -976,6 +1097,7 @@ class ForgeProjectApp {
     const targetProj = (project && project.id) ? project : (this.selectedProject || this.projects[0]);
     if (!targetProj) return;
 
+    await this.ensurePPTViewer();
     this.selectedProject = await this.getProjectFullDetails(targetProj);
 
     // Pre-populate input fields with saved student/college metadata
@@ -1042,8 +1164,9 @@ class ForgeProjectApp {
     this.vivaModal?.classList.add("open");
 
     const fullProj = await this.getProjectFullDetails(targetProj);
-    if (window.vivaSimulator) {
-      window.vivaSimulator.startSession(fullProj);
+    const vivaSim = await this.ensureVivaSimulator();
+    if (vivaSim) {
+      vivaSim.startSession(fullProj);
     }
   }
 

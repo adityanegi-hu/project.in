@@ -2,8 +2,6 @@
    ForgeProject - Design System & Modern UI Stylesheet
    =================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap');
-
 /* --- Root CSS Variables & Themes --- */
 :root {
   --font-serif: 'Times New Roman', Times, Tinos, Georgia, serif;
@@ -3814,4 +3812,32 @@ svg {
   flex-direction: column;
   gap: 0.4rem;
 }
+
+/* Footer bottom row legal links */
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.footer-legal-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.footer-legal-divider {
+  color: var(--border-color);
+  user-select: none;
+}
+
 

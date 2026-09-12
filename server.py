@@ -18,6 +18,7 @@ import html
 from collections import defaultdict
 from datetime import datetime, timezone
 import ipaddress
+import gzip
 
 def sanitize_text(val, max_len=500) -> str:
     """Escapes HTML entities and clamps max length to eliminate Stored XSS risks."""
@@ -202,10 +203,15 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         super().__init__(*args, directory=BASE_DIR, **kwargs)
 
     def end_headers(self):
-        # Strict anti-cache headers so browsers and clients never run outdated JavaScript/HTML
-        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
-        self.send_header("Pragma", "no-cache")
-        self.send_header("Expires", "0")
+        # Smart caching headers: versioned static assets cached long-term; HTML/API revalidated
+        path = getattr(self, "path", "")
+        clean_path = urllib.parse.urlparse(path).path if path else ""
+        if "v=" in path or any(v in path for v in ["v33", "v34", "v35"]):
+            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
+        elif any(clean_path.endswith(ext) for ext in [".js", ".css", ".png", ".jpg", ".svg", ".ico", ".woff", ".woff2"]):
+            self.send_header("Cache-Control", "public, max-age=86400, stale-while-revalidate=604800")
+        else:
+            self.send_header("Cache-Control", "no-cache, must-revalidate")
         # Application-Layer Firewall Security Headers & Origin Validation
         ALLOWED_ORIGINS = {
             "https://forgeproject.tech",
@@ -275,11 +281,22 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
     def send_json(self, status_code, data):
         try:
             body = json.dumps(data, default=str).encode("utf-8")
-            self.send_response(status_code)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-            self.wfile.write(body)
+            accept_enc = self.headers.get("Accept-Encoding", "") if hasattr(self, "headers") and self.headers else ""
+            if "gzip" in accept_enc and len(body) > 1024:
+                compressed = gzip.compress(body, compresslevel=6)
+                self.send_response(status_code)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Content-Encoding", "gzip")
+                self.send_header("Content-Length", str(len(compressed)))
+                self.send_header("Vary", "Accept-Encoding")
+                self.end_headers()
+                self.wfile.write(compressed)
+            else:
+                self.send_response(status_code)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
         except Exception as e:
             print(f"Error in send_json: {e}", flush=True)
 
@@ -381,6 +398,34 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
             except Exception as e:
                 self.send_json(400, {"success": False, "error": str(e)})
             return
+
+        # High-performance static file serving with gzip compression
+        clean_path = parsed.path
+        if clean_path == "/":
+            clean_path = "/index.html"
+        
+        filepath = os.path.normpath(os.path.join(BASE_DIR, clean_path.lstrip("/")))
+        if filepath.startswith(BASE_DIR) and os.path.isfile(filepath):
+            content_type = self.guess_type(filepath)
+            accept_enc = self.headers.get("Accept-Encoding", "") if hasattr(self, "headers") and self.headers else ""
+            compressible = content_type.startswith(("text/", "application/javascript", "application/json", "application/xml", "image/svg+xml"))
+            file_size = os.path.getsize(filepath)
+
+            if compressible and "gzip" in accept_enc and file_size > 512:
+                try:
+                    with open(filepath, "rb") as f:
+                        raw = f.read()
+                    compressed = gzip.compress(raw, compresslevel=6)
+                    self.send_response(200)
+                    self.send_header("Content-Type", content_type)
+                    self.send_header("Content-Encoding", "gzip")
+                    self.send_header("Content-Length", str(len(compressed)))
+                    self.send_header("Vary", "Accept-Encoding")
+                    self.end_headers()
+                    self.wfile.write(compressed)
+                    return
+                except Exception as e:
+                    print(f"Notice: compression error ({e}), serving uncompressed", flush=True)
 
         # Default static file handler
         return super().do_GET()

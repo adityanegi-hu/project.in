@@ -48,8 +48,16 @@ class ProjectDownloader {
         project = await window.app.getProjectFullDetails(project);
       }
 
+      // Dynamically load JSZip & FileSaver on-demand if not already loaded
+      if (typeof JSZip === "undefined" || typeof saveAs === "undefined") {
+        await Promise.all([
+          window.app ? window.app.ensureScript("https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js") : this.loadExternalScript("https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"),
+          window.app ? window.app.ensureScript("https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js") : this.loadExternalScript("https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js")
+        ]);
+      }
+
       if (typeof JSZip === "undefined") {
-        throw new Error("JSZip library not loaded.");
+        throw new Error("JSZip library could not be loaded. Please check your internet connection.");
       }
 
       const zip = new JSZip();
@@ -302,7 +310,16 @@ ${questions.map((q, idx) => `
 `;
   }
 
-  triggerConfetti() {
+  async triggerConfetti() {
+    if (typeof confetti !== "function") {
+      try {
+        if (window.app) {
+          await window.app.ensureScript("https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js");
+        } else {
+          await this.loadExternalScript("https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js");
+        }
+      } catch (e) {}
+    }
     if (typeof confetti === "function") {
       confetti({
         particleCount: 80,
@@ -310,6 +327,18 @@ ${questions.map((q, idx) => `
         origin: { y: 0.6 }
       });
     }
+  }
+
+  loadExternalScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) return resolve();
+      const s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      s.onload = () => resolve();
+      s.onerror = (e) => reject(e);
+      document.head.appendChild(s);
+    });
   }
 }
 
