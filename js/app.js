@@ -141,11 +141,13 @@ class ForgeProjectApp {
 
   initIdlePreloader() {
     const warmUp = () => {
-      const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2500));
-      idleCallback(() => {
-        this.ensurePPTViewer().catch(() => {});
-        this.ensureDownloader().catch(() => {});
-      });
+      setTimeout(() => {
+        const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2000));
+        idleCallback(() => {
+          this.ensurePPTViewer().catch(() => {});
+          this.ensureDownloader().catch(() => {});
+        });
+      }, 7000);
     };
     if (document.readyState === "complete") {
       warmUp();

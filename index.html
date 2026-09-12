@@ -76,10 +76,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=optional" rel="stylesheet">
   </noscript>
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309"
-    crossorigin="anonymous"></script>
-
   <!-- Stylesheet with Anti-Cache Version Bump -->
   <link rel="stylesheet" href="css/styles.css?v=34.1">
 
@@ -87,9 +83,6 @@
   <script>
     window.FORGEPROJECT_API_URL = "https://project-in.onrender.com";
   </script>
-
-  <!-- Lucide Icons (Deferred to never block first paint) -->
-  <script defer src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -214,7 +207,7 @@
     <div class="sw-separator"></div>
 
     <!-- Explorer Directory List (Pre-rendered root items to guarantee 0 CLS) -->
-    <div class="explorer-list" id="explorerList" role="list">
+    <div class="explorer-list" id="explorerList" role="region" aria-label="Academic Project Directory">
       <div class="explorer-item folder-item" data-folder-path="[&quot;Browse All 450 Projects&quot;]" role="button" tabindex="0" title="Open Browse All 450 Academic Projects folder">
         <div class="item-media">
           <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
@@ -1087,6 +1080,8 @@
     <script defer src="js/app.js?v=34.1"></script>
 
 
+    <!-- Lucide Icons (Pinned version, non-blocking) -->
+    <script defer src="https://unpkg.com/lucide@1.45.0/dist/umd/lucide.min.js"></script>
     <script>
       // Render Lucide icons — with fallback for slow CDN loads
       const initLucide = () => { if (window.lucide) window.lucide.createIcons(); };
@@ -1094,13 +1089,64 @@
       window.addEventListener("load", initLucide);
     </script>
 
-    <!-- Google tag (gtag.js) - Loaded after critical render path -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
+    <!-- Google tag (gtag.js) - Loaded asynchronously post-FCP without blocking critical render -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-CZX1KYVMT3');
+
+      (function() {
+        let gtagLoaded = false;
+        function loadGtag() {
+          if (gtagLoaded) return;
+          gtagLoaded = true;
+          const s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+        if (document.readyState === 'complete') {
+          setTimeout(loadGtag, 2000);
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(loadGtag, 2000);
+          });
+        }
+      })();
+    </script>
+
+    <!-- Google AdSense - Smart Non-Blocking Loader for Core Web Vitals (90+ Mobile CWV) -->
+    <script>
+      (function() {
+        let adsLoaded = false;
+        function loadAdSense() {
+          if (adsLoaded) return;
+          adsLoaded = true;
+          ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function(ev) {
+            window.removeEventListener(ev, loadAdSense, { passive: true });
+          });
+          const s = document.createElement('script');
+          s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7317832328079309';
+          s.crossOrigin = 'anonymous';
+          s.async = true;
+          document.head.appendChild(s);
+        }
+        ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function(ev) {
+          window.addEventListener(ev, loadAdSense, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          window.addEventListener('load', function() {
+            setTimeout(function() {
+              window.requestIdleCallback(loadAdSense, { timeout: 1000 });
+            }, 3000);
+          });
+        } else {
+          window.addEventListener('load', function() {
+            setTimeout(loadAdSense, 3500);
+          });
+        }
+      })();
     </script>
 </body>
 
