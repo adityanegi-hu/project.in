@@ -3012,12 +3012,14 @@ svg {
 }
 
 .pyq-header-inner {
-  max-width: 80rem;
+  max-width: 96rem;
+  width: 100%;
   margin: 0 auto;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .pyq-logo-link {
@@ -3025,6 +3027,7 @@ svg {
   flex-direction: column;
   text-decoration: none;
   color: var(--text-heading);
+  flex-shrink: 0;
 }
 
 .pyq-logo-title {
@@ -3049,25 +3052,43 @@ svg {
 .pyq-header-right {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .pyq-nav-links {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.4rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.25rem 0.2rem;
+}
+
+.pyq-nav-links::-webkit-scrollbar {
+  display: none;
 }
 
 .pyq-nav-link {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.15s ease;
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.15s ease;
 }
 
 .pyq-nav-link:hover {
   color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 .pyq-theme-toggle {
