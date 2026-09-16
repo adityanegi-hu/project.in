@@ -3012,14 +3012,14 @@ svg {
 }
 
 .pyq-header-inner {
-  max-width: 96rem;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .pyq-logo-link {
@@ -3052,20 +3052,21 @@ svg {
 .pyq-header-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-shrink: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .pyq-nav-links {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 2rem;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding: 0.25rem 0.2rem;
+  padding: 0.3rem 0.25rem;
 }
 
 .pyq-nav-links::-webkit-scrollbar {
@@ -3073,16 +3074,18 @@ svg {
 }
 
 .pyq-nav-link {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
-  white-space: nowrap !important;
+  white-space: nowrap;
+  word-break: keep-all;
   flex-shrink: 0;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.9rem;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
+  line-height: 1;
   transition: all 0.15s ease;
 }
 
