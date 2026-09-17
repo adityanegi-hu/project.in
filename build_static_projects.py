@@ -1,5 +1,5 @@
 """
-ForgeProject - Static SEO & AdSense Compliant Project Page Generator
+ForgeProject - Static SEO Project Page Generator
 Generates:
 1. 450 static, fully readable HTML project pages in /projects/{id}.html
 2. 1 master index directory in /projects/index.html
@@ -205,10 +205,6 @@ def generate_project_page(p, d, all_projects):
     content="{tagline} Complete verified open-source engineering blueprint including architecture overview, tech stack, system requirements, and viva defense Q&A.">
   <link rel="canonical" href="https://forgeproject.tech/projects/{proj_id}.html">
   <meta name="robots" content="index, follow">
-  <meta name="google-adsense-account" content="ca-pub-7748523184523238">
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
-    crossorigin="anonymous"></script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
@@ -561,10 +557,6 @@ def generate_master_index(projects):
     content="Complete directory of 450 verified open-source engineering projects, system architectures, source codes, and viva defense guides across 9 computer science and engineering disciplines.">
   <link rel="canonical" href="https://forgeproject.tech/projects/">
   <meta name="robots" content="index, follow">
-  <meta name="google-adsense-account" content="ca-pub-7748523184523238">
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
-    crossorigin="anonymous"></script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">

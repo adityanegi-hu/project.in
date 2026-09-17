@@ -15,12 +15,7 @@
     content="open source engineering projects, computer science architecture, system design, viva defense preparation, technical interview prep, python projects, ai ml architectures">
   <link rel="canonical" href="https://forgeproject.tech/">
   <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="google40cf583262c1ebcb">
-  <meta name="google-adsense-account" content="ca-pub-7748523184523238">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
-    crossorigin="anonymous"></script>
-
-  <!-- Open Graph / Social Meta -->
+  <meta name="google-site-verification" content="google40cf583262c1ebcb"><!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="ForgeProject - Open-Source Engineering Projects & Reference Architectures">
   <meta property="og:description"
@@ -171,17 +166,6 @@
   <!-- Main Directory Explorer matching haldwani.gehu.in/pyqs -->
   <main class="pyq-main-container" id="explorerContainer">
     <div id="explore-section"></div>
-    <!-- Top Responsive AdSense Unit (Placeholder - will be enabled once approved or configured in the new AdSense account) -->
-    <!--
-    <div class="adsense-slot adsense-top" role="complementary" aria-label="Advertisement" style="width:100%;min-width:320px;">
-      <ins class="adsbygoogle"
-           style="display:block;min-width:320px;"
-           data-ad-client="ca-pub-7748523184523238"
-           data-ad-slot="8704993622"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-    -->
 
     <!-- Separator -->
     <div class="sw-separator"></div>
@@ -449,17 +433,6 @@
       <span id="themeIcon"></span>
     </div>
 
-    <!-- Bottom Responsive AdSense Unit (Placeholder - will be enabled once approved or configured in the new AdSense account) -->
-    <!--
-    <div class="adsense-slot adsense-bottom" role="complementary" aria-label="Advertisement" style="width:100%;min-width:320px;">
-      <ins class="adsbygoogle"
-           style="display:block;min-width:320px;"
-           data-ad-client="ca-pub-7748523184523238"
-           data-ad-slot="8704993622"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
-    -->
 
     <!-- Prose Information / Community Section matching haldwani.gehu.in/pyqs -->
     <div class="prose-section" id="about-section">
@@ -1232,84 +1205,6 @@
     })();
   </script>
 
-  <!-- Google AdSense - IntersectionObserver Loader (eliminates availableWidth=0 error) -->
-  <script>
-    (function () {
-      var adsLoaded = false;
-      var pendingSlots = [];
-      var ioObserver = null;
-
-      // Only push a slot when its bounding rect has real width (element is painted on screen)
-      function safePush(ins) {
-        try {
-          var rect = ins.getBoundingClientRect();
-          if (rect.width > 0) {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          }
-          // If still 0, silently skip — IntersectionObserver won't fire for truly hidden elements
-        } catch (e) { }
-      }
-
-      // Set up IntersectionObserver to push each slot the moment it enters the viewport
-      function observeSlots() {
-        var slots = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])');
-        if (!slots.length) return;
-
-        if ('IntersectionObserver' in window) {
-          ioObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                ioObserver.unobserve(entry.target);
-                safePush(entry.target);
-              }
-            });
-          }, { threshold: 0.01 });
-          slots.forEach(function (ins) { ioObserver.observe(ins); });
-        } else {
-          // Fallback for browsers without IntersectionObserver
-          slots.forEach(function (ins) { safePush(ins); });
-        }
-      }
-
-      function loadAdSense() {
-        if (adsLoaded) return;
-        adsLoaded = true;
-        // Remove all interaction listeners
-        ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function (ev) {
-          window.removeEventListener(ev, loadAdSense, { passive: true });
-        });
-        if (window.adsbygoogle) {
-          observeSlots();
-          return;
-        }
-        var s = document.createElement('script');
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238';
-        s.crossOrigin = 'anonymous';
-        s.async = true;
-        // Set up slot observers only AFTER the AdSense library is ready
-        s.onload = function () { observeSlots(); };
-        document.head.appendChild(s);
-      }
-
-      // Trigger on any user interaction
-      ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'].forEach(function (ev) {
-        window.addEventListener(ev, loadAdSense, { once: true, passive: true });
-      });
-
-      // Also trigger on idle after 3s (for users who don't interact)
-      if ('requestIdleCallback' in window) {
-        window.addEventListener('load', function () {
-          setTimeout(function () {
-            window.requestIdleCallback(loadAdSense, { timeout: 1500 });
-          }, 3000);
-        });
-      } else {
-        window.addEventListener('load', function () {
-          setTimeout(loadAdSense, 3500);
-        });
-      }
-    })();
-  </script>
 </body>
 
 </html>

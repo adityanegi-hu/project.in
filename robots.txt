@@ -2,9 +2,6 @@
 User-agent: *
 Allow: /
 
-# Explicitly allow Google AdSense Crawler
-User-agent: Mediapartners-Google
-Allow: /
 
 # Explicitly allow Googlebot
 User-agent: Googlebot

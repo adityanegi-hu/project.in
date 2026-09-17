@@ -621,6 +621,21 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
                 now_str = datetime.now(timezone.utc).isoformat()
                 data["createdAt"] = now_str
                 data["status"] = "pending_review"  # Require review before public publication
+
+                # --- Duplicate submission guard ---
+                raw_repo_check = sanitize_text(data.get("repoUrl", ""), 250)
+                author_email_check = sanitize_text(data.get("authorEmail", ""), 120).lower()
+                if database is not None and raw_repo_check:
+                    existing_submission = database["shared_projects"].find_one(
+                        {"repoUrl": raw_repo_check, "authorEmail": author_email_check}
+                    )
+                    if existing_submission:
+                        self.send_json(409, {
+                            "success": False,
+                            "error": "You have already submitted a project with this repository URL. Duplicate submissions are not allowed."
+                        })
+                        return
+                # --- End duplicate guard ---
                 
                 cat_id = sanitize_text(data.get("category", "web-dev"), 50)
                 cat_labels = {
@@ -773,7 +788,7 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
 
                 self.send_json(201, {
                     "success": True, 
-                    "message": "Project saved to MongoDB successfully in both 'shared_projects' and 'projects' collections!", 
+                    "message": "Project submitted successfully! It will appear after review.", 
                     "project": full_proj_meta
                 })
             except Exception as e:
