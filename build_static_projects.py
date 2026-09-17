@@ -162,7 +162,10 @@ def generate_project_page(p, d, all_projects):
                     "@type": "Organization",
                     "name": "ForgeProject",
                     "url": "https://forgeproject.tech/",
-                    "logo": "https://forgeproject.tech/og-banner.png"
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://forgeproject.tech/og-banner.png"
+                    }
                 },
                 "author": {
                     "@type": "Organization",
@@ -237,8 +240,8 @@ def generate_project_page(p, d, all_projects):
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css?v=34.2">
-  <link rel="stylesheet" href="../css/legal.css?v=34.2">
+  <link rel="stylesheet" href="../css/styles.css?v=34.4">
+  <link rel="stylesheet" href="../css/legal.css?v=34.4">
   <link rel="stylesheet" href="../css/project-page.css?v=1.0">
 
   <!-- Lucide Icons -->
@@ -556,6 +559,10 @@ def generate_master_index(projects):
     gtag('config', 'G-CZX1KYVMT3');
   </script>
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
+     crossorigin="anonymous"></script>
+
   <title>All 450 Verified Engineering Projects & Architecture Blueprints | ForgeProject</title>
   <meta name="description"
     content="Complete directory of 450 verified open-source engineering projects, system architectures, source codes, and viva defense guides across 9 computer science and engineering disciplines.">
@@ -580,8 +587,8 @@ def generate_master_index(projects):
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css?v=34.2">
-  <link rel="stylesheet" href="../css/legal.css?v=34.2">
+  <link rel="stylesheet" href="../css/styles.css?v=34.4">
+  <link rel="stylesheet" href="../css/legal.css?v=34.4">
   <link rel="stylesheet" href="../css/project-page.css?v=1.0">
 
   <!-- Lucide Icons -->

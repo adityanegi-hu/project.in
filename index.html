@@ -8,6 +8,15 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX1KYVMT3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CZX1KYVMT3');
+  </script>
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
      crossorigin="anonymous"></script>
@@ -19,7 +28,9 @@
     content="open source engineering projects, computer science architecture, system design, viva defense preparation, technical interview prep, python projects, ai ml architectures">
   <link rel="canonical" href="https://forgeproject.tech/">
   <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="google40cf583262c1ebcb"><!-- Open Graph / Social Meta -->
+  <meta name="google-site-verification" content="google40cf583262c1ebcb">
+
+  <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="ForgeProject - Open-Source Engineering Projects & Reference Architectures">
   <meta property="og:description"
@@ -58,7 +69,10 @@
         "@id": "https://forgeproject.tech/#organization",
         "name": "ForgeProject",
         "url": "https://forgeproject.tech/",
-        "logo": "https://forgeproject.tech/og-banner.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://forgeproject.tech/og-banner.png"
+        },
         "sameAs": [
           "https://github.com/adityanegi-hu/project.in"
         ]
@@ -71,7 +85,6 @@
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts for Times New Roman / Serif Aesthetic (Non-blocking) -->
   <!-- Google Fonts for Times New Roman / Serif Aesthetic (display=optional for zero LCP delay) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -28,6 +28,7 @@
   <meta property="og:description" content="Get in touch with the ForgeProject team. Contact us for project inquiries, contributions, feedback, or support.">
   <meta property="og:url" content="https://forgeproject.tech/contact.html">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ForgeProject">
   <meta property="og:image" content="https://forgeproject.tech/og-banner.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -49,7 +50,10 @@
       "@type": "Organization",
       "name": "ForgeProject",
       "url": "https://forgeproject.tech/",
-      "logo": "https://forgeproject.tech/og-banner.png"
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://forgeproject.tech/og-banner.png"
+      }
     }
   }
   </script>
@@ -63,9 +67,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet"><!-- Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=34.0">
-  <link rel="stylesheet" href="css/legal.css?v=34.0">
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css?v=34.4">
+  <link rel="stylesheet" href="css/legal.css?v=34.4">
 
   <!-- Lucide Icons -->
   <script defer src="https://unpkg.com/lucide@latest"></script>
@@ -165,8 +171,8 @@
           <div class="legal-mini-card">
             <h4><i data-lucide="upload-cloud" style="width: 18px; height: 18px; color: var(--accent-emerald);"></i> Project Submission</h4>
             <p><strong>Share Your Code</strong><br>Have a verified final-year project? Submit it to help fellow students.</p>
-            <a href="index.html" class="support-link" style="color: var(--accent-emerald); font-size: 0.95rem; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
-              Go to Submission Form <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+            <a href="mailto:anegi0956@gmail.com?subject=Project%20Submission" class="support-link" style="color: var(--accent-emerald); font-size: 0.95rem; margin-top: 0.35rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+              Submit via Email <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
             </a>
           </div>
         </div>
