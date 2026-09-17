@@ -2,7 +2,6 @@
 User-agent: *
 Allow: /
 
-
 # Explicitly allow Googlebot
 User-agent: Googlebot
 Allow: /
