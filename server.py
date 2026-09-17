@@ -230,8 +230,9 @@ class ForgeProjectHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("X-Frame-Options", "SAMEORIGIN")
         self.send_header("X-XSS-Protection", "1; mode=block")
         self.send_header("Referrer-Policy", "strict-origin-when-cross-origin")
+        self.send_header("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload")
         self.send_header("Permissions-Policy", "geolocation=(), camera=(), microphone=()")
-        self.send_header("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; img-src 'self' data: blob: https:; font-src 'self' data: https: fonts.gstatic.com; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; connect-src 'self' https: http: ws: wss:; frame-ancestors 'self' https://*.google.com https://*.doubleclick.net https://*.googleadservices.com;")
+        self.send_header("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; img-src 'self' data: blob: https:; font-src 'self' data: https: fonts.gstatic.com; style-src 'self' 'unsafe-inline' https: fonts.googleapis.com; connect-src 'self' https: http: ws: wss:; frame-ancestors 'self';")
         super().end_headers()
 
     def get_client_ip(self):
