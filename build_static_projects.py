@@ -203,6 +203,10 @@ def generate_project_page(p, d, all_projects):
     gtag('config', 'G-CZX1KYVMT3');
   </script>
 
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
+     crossorigin="anonymous"></script>
+
   <title>{title} - Architecture, Source Code & Viva Defense | ForgeProject</title>
   <meta name="description"
     content="{tagline} Complete verified open-source engineering blueprint including architecture overview, tech stack, system requirements, and viva defense Q&A.">
@@ -258,7 +262,7 @@ def generate_project_page(p, d, all_projects):
       <div class="pyq-header-right">
         <nav class="pyq-nav-links">
           <a href="../index.html" class="pyq-nav-link">Catalog Explorer</a>
-          <a href="index.html" class="pyq-nav-link" style="color: var(--accent-secondary); font-weight: 600;">HTML Index</a>
+          <a href="index.html" class="pyq-nav-link" style="color: var(--accent-secondary); font-weight: 600;">All Projects</a>
           <a href="../about.html" class="pyq-nav-link">About</a>
           <a href="../contact.html" class="pyq-nav-link">Contact</a>
           <a href="../terms.html" class="pyq-nav-link">Honor Code</a>
@@ -452,7 +456,7 @@ def generate_project_page(p, d, all_projects):
         <div class="pyq-footer-col">
           <p class="footer-links-heading">Engineering Resources</p>
           <ul class="footer-links-list font-excalifont">
-            <li><a href="index.html" class="footer-link">📚 All 450 Project Blueprints (HTML Index)</a></li>
+            <li><a href="index.html" class="footer-link">📚 All 450 Project Blueprints (All Projects)</a></li>
             <li><a href="../index.html" class="footer-link">📦 Catalog Explorer</a></li>
             <li><a href="../about.html" class="footer-link">ℹ️ About ForgeProject</a></li>
             <li><a href="https://github.com/adityanegi-hu/project.in" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Star on GitHub</a></li>
@@ -554,6 +558,10 @@ def generate_master_index(projects):
     gtag('js', new Date());
     gtag('config', 'G-CZX1KYVMT3');
   </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
+     crossorigin="anonymous"></script>
 
   <title>All 450 Verified Engineering Projects & Architecture Blueprints | ForgeProject</title>
   <meta name="description"
