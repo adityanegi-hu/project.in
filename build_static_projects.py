@@ -203,10 +203,6 @@ def generate_project_page(p, d, all_projects):
     gtag('config', 'G-CZX1KYVMT3');
   </script>
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
-     crossorigin="anonymous"></script>
-
   <title>{title} - Architecture, Source Code & Viva Defense | ForgeProject</title>
   <meta name="description"
     content="{tagline} Complete verified open-source engineering blueprint including architecture overview, tech stack, system requirements, and viva defense Q&A.">
@@ -558,10 +554,6 @@ def generate_master_index(projects):
     gtag('js', new Date());
     gtag('config', 'G-CZX1KYVMT3');
   </script>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7748523184523238"
-     crossorigin="anonymous"></script>
 
   <title>All 450 Verified Engineering Projects & Architecture Blueprints | ForgeProject</title>
   <meta name="description"
