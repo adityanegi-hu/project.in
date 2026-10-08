@@ -1,4 +1,7 @@
 # Robots.txt for ForgeProject (https://forgeproject.tech)
+User-agent: Mediapartners-Google
+Allow: /
+
 User-agent: *
 Allow: /
 
