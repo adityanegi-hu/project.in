@@ -64,7 +64,7 @@
       },
       "proficiencyLevel": "Medium",
       "keywords": "Flutter, Just Audio, Audio Service, Dart, Mobile Flutter",
-      "articleBody": "Offline Music Player with Equalizer &amp; Playlists is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Just Audio, Audio Service, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation."
+      "articleBody": "Offline Music Player with Equalizer &amp; Playlists is a moderately complex and architecturally sound mobile flutter project that scans local MP3 audio files, creates playlists, and renders animated soundbars. Built with Flutter, Just Audio, Audio Service, Dart, this implementation demonstrates practical application of Just Audio and Audio Service in solving real-world mobile flutter challenges. Designed for 2nd year project students pursuing B.Tech, BCA, B.Sc, the project includes a complete working codebase, architectural documentation, IEEE-format synopsis, and viva defense preparation materials."
     },
     {
       "@type": "SoftwareSourceCode",
@@ -170,27 +170,27 @@
     <!-- Section 1: Executive Summary & Abstract -->
     <section class="project-section" id="architecture">
       <h2><i data-lucide="file-text" style="color: var(--accent-primary);"></i> 1. Executive Summary & Architecture Overview</h2>
-      <p>Offline Music Player with Equalizer &amp; Playlists is an academic project engineered for 2nd Year Project students in B.Tech, BCA, B.Sc curricula. The project addresses critical domain challenges by leveraging modern Flutter, Just Audio, Audio Service, Dart to deliver a clean, robust, and reproducible working system ready for college evaluation.</p>
+      <p>Offline Music Player with Equalizer &amp; Playlists is a moderately complex and architecturally sound mobile flutter project that scans local MP3 audio files, creates playlists, and renders animated soundbars. Built with Flutter, Just Audio, Audio Service, Dart, this implementation demonstrates practical application of Just Audio and Audio Service in solving real-world mobile flutter challenges. Designed for 2nd year project students pursuing B.Tech, BCA, B.Sc, the project includes a complete working codebase, architectural documentation, IEEE-format synopsis, and viva defense preparation materials.</p>
     </section>
 
     <!-- Section 2: Key Engineering Objectives -->
     <section class="project-section">
       <h2><i data-lucide="target" style="color: var(--accent-secondary);"></i> 2. Core Technical Objectives</h2>
       <ul>
-        <li>Develop and deploy a working system using Flutter and Just Audio.</li><li>Adhere to best software engineering standards tailored for Mobile Flutter.</li><li>Provide verified source code, comprehensive 10-slide PowerPoint presentation, and IEEE synopsis documentation for defense.</li>
+        <li>Develop a responsive full-stack web application that scans local MP3 audio files, creates playlists, and renders animated soundbars with a modern Flutter frontend.</li><li>Implement a database layer with Audio Service, CRUD operations, and query optimization.</li><li>Deploy the application with environment configuration, build optimization, and production-ready security headers.</li>
       </ul>
     </section>
 
     <!-- Section 3: Problem Statement & Existing System Challenges -->
     <section class="project-section">
       <h2><i data-lucide="alert-circle" style="color: var(--accent-rose);"></i> 3. Problem Statement & Bottlenecks in Prior Art</h2>
-      <ul><li>Manual, disconnected procedures causing high latency and human error rates.</li><li>Lack of real-time monitoring, visualization, or validation mechanisms.</li><li>Absence of structured logging, automated reports, and centralized data security.</li></ul>
+      <ul><li>Manual offline music player workflows involve repetitive data entry across disconnected forms with no client-side validation or auto-save functionality.</li><li>Legacy web solutions use synchronous blocking architectures that cannot handle concurrent WebSocket connections or real-time event streams.</li><li>Absence of structured error handling, loading states, and optimistic UI updates creates a frustrating and unreliable user experience.</li></ul>
     </section>
 
     <!-- Section 4: Proposed Architecture & Key Technical Advantages -->
     <section class="project-section">
       <h2><i data-lucide="check-circle-2" style="color: var(--accent-emerald);"></i> 4. Proposed Architecture & Engineering Advantages</h2>
-      <ul><li>Automated end-to-end processing pipeline reducing operational turnaround time by over 75%.</li><li>Intuitive responsive interface with live validation and error recovery.</li><li>Complete academic kit customized for B.Tech, BCA, B.Sc final examination.</li></ul>
+      <ul><li>Real-time data synchronization using WebSocket connections with automatic reconnection, heartbeat monitoring, and conflict resolution strategies.</li><li>Server-side rendering with hydration for optimal SEO indexing, fast initial page loads, and accessible content for screen readers.</li><li>Automated CI/CD pipeline with linting, unit tests, build optimization, and zero-downtime deployment to production environments.</li></ul>
     </section>
 
     <!-- Section 5: System Specifications & Environment Requirements -->
@@ -199,11 +199,11 @@
       <div class="specs-grid">
         <div class="spec-box">
           <h4><i data-lucide="cpu" style="width: 16px; height: 16px;"></i> Hardware Configuration</h4>
-          <p>Standard PC / Laptop with 4GB+ RAM (8GB recommended for ML/IoT)</p>
+          <p>Standard PC/Laptop with 4GB+ RAM, Flutter development environment, modern web browser (Chrome/Firefox), and local development server</p>
         </div>
         <div class="spec-box">
           <h4><i data-lucide="terminal" style="width: 16px; height: 16px;"></i> Software & Runtime Environment</h4>
-          <p>Flutter, Just Audio, Audio Service, Dart environment with modern web browser / IDE</p>
+          <p>Flutter, Just Audio, Audio Service, Dart with required dependencies installed via flutter pub get, modern IDE or code editor, and Git version control for project management</p>
         </div>
         <div class="spec-box">
           <h4><i data-lucide="book-open" style="width: 16px; height: 16px;"></i> Target Engineering Disciplines</h4>
@@ -358,7 +358,7 @@ class _HomeScreenState extends State&lt;HomeScreen&gt; {
             <span class="viva-question-num">Q1.</span>
             <span>What is the primary objective of Offline Music Player with Equalizer &amp; Playlists and what real-world problem does it solve?</span>
           </div>
-          <p class="viva-answer">Offline Music Player with Equalizer &amp; Playlists automates legacy workflows by providing a structured, high-performance solution built with Flutter, Just Audio, Audio Service, Dart, ensuring high reliability, sub-second latency, and ease of deployment.</p>
+          <p class="viva-answer">The primary objective of Offline Music Player with Equalizer &amp; Playlists is to scans local MP3 audio files, creates playlists, and renders animated soundbars. This addresses a real-world need in mobile flutter where offline music player processes are often handled manually or with outdated tools. Our system uses Flutter, Just Audio, Audio Service, Dart to provide an automated, reliable, and efficient solution that can be deployed in practical scenarios.</p>
         </div>
         
         <div class="viva-card">
@@ -366,7 +366,7 @@ class _HomeScreenState extends State&lt;HomeScreen&gt; {
             <span class="viva-question-num">Q2.</span>
             <span>Why did you choose Flutter over other alternatives for this project?</span>
           </div>
-          <p class="viva-answer">Flutter provides the optimal balance between performance, ecosystem support, and ease of deployment, making it ideal for 2nd Year Project Mobile Flutter requirements.</p>
+          <p class="viva-answer">We chose Flutter as the primary technology because it offers cross-platform compilation from a single codebase with native performance that aligns with the requirements of this mobile flutter project. Specifically, Just Audio was selected for its component-based architecture and reactive rendering, making the overall stack optimal for building a medium-level 2nd year project implementation.</p>
         </div>
         
         <div class="viva-card">
@@ -374,7 +374,7 @@ class _HomeScreenState extends State&lt;HomeScreen&gt; {
             <span class="viva-question-num">Q3.</span>
             <span>How did you test and validate the system against edge cases and exceptions?</span>
           </div>
-          <p class="viva-answer">We performed unit testing on individual modules, input boundary validation, and stress-tested concurrent operations to ensure zero unhandled runtime exceptions.</p>
+          <p class="viva-answer">We validated the system through multiple testing layers: unit tests for individual API endpoints, database queries, and frontend component renders; integration tests verifying the interaction between frontend forms, backend API routes, and database persistence; and boundary testing with malformed inputs, edge cases, and stress conditions to ensure robust error handling throughout the application.</p>
         </div>
         
       </div>

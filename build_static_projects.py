@@ -678,12 +678,12 @@ def update_sitemap(projects):
 
     # Static core pages
     core_pages = [
-        ("https://forgeproject.tech/", "2026-09-16", "daily", "1.0"),
-        ("https://forgeproject.tech/projects/", "2026-09-16", "daily", "0.9"),
-        ("https://forgeproject.tech/about.html", "2026-09-16", "monthly", "0.8"),
-        ("https://forgeproject.tech/contact.html", "2026-09-16", "monthly", "0.8"),
-        ("https://forgeproject.tech/privacy.html", "2026-09-16", "monthly", "0.7"),
-        ("https://forgeproject.tech/terms.html", "2026-09-16", "monthly", "0.7"),
+        ("https://forgeproject.tech/", "2026-11-04", "daily", "1.0"),
+        ("https://forgeproject.tech/projects/", "2026-11-04", "daily", "0.9"),
+        ("https://forgeproject.tech/about.html", "2026-11-04", "monthly", "0.8"),
+        ("https://forgeproject.tech/contact.html", "2026-11-04", "monthly", "0.8"),
+        ("https://forgeproject.tech/privacy.html", "2026-11-04", "monthly", "0.7"),
+        ("https://forgeproject.tech/terms.html", "2026-11-04", "monthly", "0.7"),
     ]
 
     for loc_url, lastmod, changefreq, priority in core_pages:
@@ -697,7 +697,7 @@ def update_sitemap(projects):
     for p in projects:
         url_elem = ET.SubElement(root, "url")
         ET.SubElement(url_elem, "loc").text = f"https://forgeproject.tech/projects/{p['id']}.html"
-        ET.SubElement(url_elem, "lastmod").text = "2026-09-16"
+        ET.SubElement(url_elem, "lastmod").text = "2026-11-04"
         ET.SubElement(url_elem, "changefreq").text = "weekly"
         ET.SubElement(url_elem, "priority").text = "0.8"
 
