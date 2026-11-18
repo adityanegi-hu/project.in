@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Spider-Man Front-End Experience | Interactive Web Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Canvas container for 60fps dynamic physics & graphics -->
+  <canvas id="spideyCanvas"></canvas>
+
+  <!-- Comic Action Banner / Logo -->
+  <header class="hud-header">
+    <div class="logo-badge">
+      <span class="sub-text">THE AMAZING</span>
+      <h1 class="main-title">SPIDER-MAN</h1>
+      <span class="tag-text">FRONT-END WEB SLINGER</span>
+    </div>
+
+    <div class="hud-stats">
+      <div class="stat-pill"><span class="stat-label">ALTITUDE</span><span id="statAltitude" class="stat-val">340 FT</span></div>
+      <div class="stat-pill"><span class="stat-label">VELOCITY</span><span id="statSpeed" class="stat-val">68 MPH</span></div>
+      <div class="stat-pill"><span class="stat-label">SWINGS</span><span id="statSwings" class="stat-val">0</span></div>
+    </div>
+  </header>
+
+  <!-- Interactive HUD Controls -->
+  <div class="hud-controls">
+    <!-- Mode Switcher -->
+    <div class="control-group">
+      <span class="group-title">EXPERIENCE MODE</span>
+      <div class="btn-group">
+        <button class="mode-btn active" data-mode="swing">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-6h2v6zm0-8h-2V7h2v1z"/></svg>
+          City Patrol
+        </button>
+        <button class="mode-btn" data-mode="free">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M10.5 4.5c.28 0 .5.22.5.5v2h2V5c0-.28.22-.5.5-.5s.5.22.5.5v2h1.5A2.5 2.5 0 0118 9.5v1.5h2c.28 0 .5.22.5.5s-.22.5-.5.5h-2v2h2c.28 0 .5.22.5.5s-.22.5-.5.5h-2v1.5a2.5 2.5 0 01-2.5 2.5H14v2c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-2h-2v2c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-2H8.5A2.5 2.5 0 016 18.5V17H4c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h2v-2H4c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h2V11.5H4c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h2V8.5A2.5 2.5 0 018.5 6H10V5c0-.28.22-.5.5-.5z"/></svg>
+          Web Sandbox
+        </button>
+        <button class="mode-btn" data-mode="hang">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2v6m-4 2c0 2.21 1.79 4 4 4s4-1.79 4-4m-8 6h8m-6 4h4"/></svg>
+          Inverted Hang
+        </button>
+      </div>
+    </div>
+
+    <!-- Suit Switcher -->
+    <div class="control-group">
+      <span class="group-title">SELECT SUIT</span>
+      <div class="suit-grid">
+        <button class="suit-btn active" data-suit="classic" title="Classic Spidey">
+          <span class="suit-swatch classic-swatch"></span>
+          <span>Classic</span>
+        </button>
+        <button class="suit-btn" data-suit="miles" title="Miles Morales">
+          <span class="suit-swatch miles-swatch"></span>
+          <span>Miles</span>
+        </button>
+        <button class="suit-btn" data-suit="symbiote" title="Symbiote Alien Suit">
+          <span class="suit-swatch symbiote-swatch"></span>
+          <span>Symbiote</span>
+        </button>
+        <button class="suit-btn" data-suit="iron" title="Iron Spider Armor">
+          <span class="suit-swatch iron-swatch"></span>
+          <span>Iron Spider</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Actions & Sound -->
+    <div class="control-group utility-group">
+      <button id="btnSpiderSense" class="action-btn sense-btn">
+        <span class="spider-icon">🕸️</span>
+        <span>SPIDER-SENSE!</span>
+      </button>
+      <button id="btnFlipTrick" class="action-btn trick-btn">
+        <span>🔄 AERIAL FLIP</span>
+      </button>
+      <button id="btnAudioToggle" class="icon-toggle active" title="Toggle Sound FX">
+        <span id="audioIcon">🔊</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Instruction Hints Footer -->
+  <footer class="instruction-bar">
+    <div class="hint-item"><span class="key-tag">CLICK / TAP</span> Shoot Web Anchor</div>
+    <div class="hint-item"><span class="key-tag">DRAG</span> Sling & Fling Spidey</div>
+    <div class="hint-item"><span class="key-tag">SPACE</span> Mid-Air Acrobatics</div>
+    <div class="hint-item"><span class="key-tag">HOVER HEAD</span> Trigger Spider-Sense</div>
+  </footer>
+
+  <!-- Script Engine -->
+  <script src="spiderman.js"></script>
+</body>
+</html>
