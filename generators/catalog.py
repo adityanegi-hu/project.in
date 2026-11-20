@@ -4,7 +4,7 @@ ProjectForge Catalog Matrix
 Covers 1st, 2nd, 3rd, and 4th Year for B.Tech, BCA, and B.Sc.
 """
 
-from typing import List, Dict, Tuple, Any
+from typing import List, Dict, Tuple
 from .models import ProjectMeta
 
 PROJECTS_BY_DOMAIN = {

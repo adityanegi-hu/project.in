@@ -3,8 +3,7 @@ Academic presentation slide deck generator.
 Generates a structured 10-slide academic defense presentation with presenter notes.
 """
 
-from typing import List, Dict, Any
-from .models import Slide
+from typing import List
 
 def generate_presentation_slides(p):
     title = p["title"]

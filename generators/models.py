@@ -3,7 +3,7 @@ Data models and type definitions for ProjectForge project generators.
 Provides type safety, schema clarity, and clean IDE autocompletion.
 """
 
-from typing import TypedDict, List, Dict, Any, Optional
+from typing import TypedDict, List
 
 
 class CodeFile(TypedDict):

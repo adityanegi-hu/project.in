@@ -3,7 +3,7 @@ Project stylesheet generator.
 Generates responsive glassmorphism styles with custom domain color palettes.
 """
 
-from typing import Dict, Any
+from typing import Dict
 
 
 THEME_PALETTES: Dict[str, Dict[str, str]] = {

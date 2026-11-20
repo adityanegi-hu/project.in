@@ -4,7 +4,6 @@ Serves the web application and handles REST endpoints for MongoDB at mongodb://l
 """
 
 import http.server
-import socketserver
 import json
 import urllib.parse
 import os
