@@ -1547,15 +1547,14 @@ class ForgeProjectApp {
     if (this.authNavContainer) {
       if (this.currentUser) {
         this.authNavContainer.innerHTML = `
-          <div class="user-profile-badge" title="${this.currentUser.name}">
-            <div class="user-avatar">${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}</div>
-            <div class="user-info-text">
-              <span class="user-name">${this.currentUser.name}</span>
-              <span class="user-sub">${this.currentUser.degree || "B.Tech"} • Yr ${this.currentUser.year || "3"}</span>
+          <div class="inline-flex items-center gap-2.5 bg-surface border border-line rounded-full px-3 py-1.5" title="${this.currentUser.name}">
+            <div class="w-8 h-8 rounded-full bg-rust text-white font-medium inline-flex items-center justify-center text-sm font-sans">${this.currentUser.name ? this.currentUser.name.charAt(0).toUpperCase() : 'U'}</div>
+            <div class="hidden sm:flex flex-col text-left leading-tight pr-1 font-sans">
+              <span class="text-xs font-semibold text-ink">${this.currentUser.name}</span>
+              <span class="text-[11px] text-mute">${this.currentUser.degree || "B.Tech"} • Yr ${this.currentUser.year || "3"}</span>
             </div>
-            <button class="logout-btn" onclick="event.stopPropagation(); app.handleSignOut()" title="Sign Out">
+            <button type="button" class="text-mute hover:text-rust p-1 transition-colors" onclick="event.stopPropagation(); app.handleSignOut()" title="Sign Out">
               <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
-              <span>Sign Out</span>
             </button>
           </div>
         `;
@@ -1565,15 +1564,16 @@ class ForgeProjectApp {
         }
       } else {
         this.authNavContainer.innerHTML = `
-          <button class="pyq-signin-btn" onclick="app.openAuthModal()">
-            <i data-lucide="log-in" style="width: 14px; height: 14px;"></i>
-            <span>Sign In</span>
+          <button type="button" onclick="app.openAuthModal()" class="hidden sm:inline-flex items-center gap-2 bg-rust hover:bg-rustdark text-white text-[15px] font-medium px-5 h-11 rounded-full transition-colors font-sans">
+            <i data-lucide="log-in" style="width: 15px; height: 15px;"></i>
+            <span>Sign in</span>
           </button>
         `;
         if (this.navSavedBadge) {
           this.navSavedBadge.style.display = "none";
         }
       }
+      if (window.lucide) window.lucide.createIcons();
     }
 
     // 2. Mobile Drawer Auth Footer

@@ -14,9 +14,9 @@ class ForgeExplorer {
     this.listElement = document.getElementById("explorerList");
     this.breadcrumbList = document.getElementById("breadcrumbList");
     this.upFolderBtn = document.getElementById("upFolderBtn");
-    this.searchInput = document.getElementById("explorerSearchInput");
+    this.searchInput = document.getElementById("q") || document.getElementById("explorerSearchInput");
     this.searchClearBtn = document.getElementById("explorerSearchClear");
-    this.modePills = document.querySelectorAll(".explorer-mode-pill");
+    this.modePills = document.querySelectorAll(".explorer-mode-pill, .chip");
     this.folderCountBadge = document.getElementById("explorerCountBadge");
 
     this.init();
@@ -124,19 +124,29 @@ class ForgeExplorer {
   }
 
   syncActivePill() {
-    if (!this.modePills || this.modePills.length === 0) return;
     let activeMode = "all";
+    let activeChipId = "c0";
 
     if (this.currentPath.length === 0) {
       activeMode = "all";
+      activeChipId = "c0";
     } else {
       const first = (this.currentPath[0] || "").toLowerCase();
       if (first.includes("b.tech")) {
         activeMode = "btech";
-      } else if (first.includes("bca") || first.includes("b.sc") || first.includes("diploma")) {
+        activeChipId = "c1";
+      } else if (first.includes("bca")) {
         activeMode = "bca";
+        activeChipId = "c2";
+      } else if (first.includes("b.sc")) {
+        activeMode = "bca";
+        activeChipId = "c3";
+      } else if (first.includes("diploma")) {
+        activeMode = "bca";
+        activeChipId = "c4";
       } else if (first.includes("mca") || first.includes("m.tech")) {
         activeMode = "mca";
+        activeChipId = "c5";
       } else if (first.includes("saved") || first.includes("favorite")) {
         activeMode = "favorites";
       } else {
@@ -144,13 +154,22 @@ class ForgeExplorer {
       }
     }
 
-    this.modePills.forEach(pill => {
-      const mode = pill.getAttribute("data-mode");
-      if (mode === activeMode) {
-        pill.classList.add("active");
-      } else {
-        pill.classList.remove("active");
-      }
+    if (this.modePills && this.modePills.length > 0) {
+      this.modePills.forEach(pill => {
+        const mode = pill.getAttribute("data-mode");
+        if (mode) {
+          if (mode === activeMode) {
+            pill.classList.add("active");
+          } else {
+            pill.classList.remove("active");
+          }
+        }
+      });
+    }
+
+    ['c0', 'c1', 'c2', 'c3', 'c4', 'c5'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute("aria-pressed", id === activeChipId ? "true" : "false");
     });
   }
 
@@ -200,24 +219,31 @@ class ForgeExplorer {
   }
 
   renderBreadcrumbs() {
+    const breadcrumbContainer = document.getElementById("breadcrumbBar");
     if (!this.breadcrumbList) return;
 
+    const isAtRoot = this.currentPath.length === 0 && !this.searchQuery;
+    if (breadcrumbContainer) {
+      breadcrumbContainer.classList.toggle("hidden", isAtRoot);
+    }
+
     if (this.upFolderBtn) {
-      const canGoUp = this.currentPath.length > 0 || this.searchQuery.length > 0;
+      const canGoUp = !isAtRoot;
       this.upFolderBtn.disabled = !canGoUp;
-      this.upFolderBtn.classList.toggle("disabled", !canGoUp);
+      this.upFolderBtn.classList.toggle("opacity-40", !canGoUp);
+      this.upFolderBtn.classList.toggle("cursor-not-allowed", !canGoUp);
     }
 
     let html = `
-      <li class="breadcrumb-item">
-        <a href="#" onclick="event.preventDefault(); window.explorer?.navigateTo([])" class="${this.currentPath.length === 0 && !this.searchQuery ? 'current' : ''}">forgeproject</a>
+      <li class="inline-flex items-center">
+        <a href="#" onclick="event.preventDefault(); window.explorer?.navigateTo([])" class="hover:text-rust transition-colors ${isAtRoot ? 'text-ink font-semibold' : ''}">forgeproject</a>
       </li>
     `;
 
     if (this.searchQuery) {
       html += `
-        <li class="breadcrumb-separator">/</li>
-        <li class="breadcrumb-item current">search: "${this.searchQuery}"</li>
+        <li class="text-line">/</li>
+        <li class="text-ink font-semibold">search: "${this.searchQuery}"</li>
       `;
     } else {
       let accumulated = [];
@@ -226,9 +252,9 @@ class ForgeExplorer {
         const isLast = idx === this.currentPath.length - 1;
         const linkHash = accumulated.map(s => encodeURIComponent(s)).join("/");
         html += `
-          <li class="breadcrumb-separator">/</li>
-          <li class="breadcrumb-item ${isLast ? 'current' : ''}">
-            ${isLast ? `<span>${segment}</span>` : `<a href="#/${linkHash}">${segment}</a>`}
+          <li class="text-line">/</li>
+          <li class="${isLast ? 'text-ink font-semibold' : ''}">
+            ${isLast ? `<span>${segment}</span>` : `<a href="#/${linkHash}" class="hover:text-rust transition-colors">${segment}</a>`}
           </li>
         `;
       });
@@ -985,9 +1011,9 @@ class ForgeExplorer {
 
       if (projects.length === 0) {
         html = `
-          <div class="explorer-empty-state">
-            <p>No project kits found in this directory.</p>
-            <button class="sw-button mt-2" onclick="window.explorer.navigateUp()">← Go Back</button>
+          <div class="py-12 text-center text-mute font-sans">
+            <p class="text-lg font-medium text-ink">No project kits found in this directory.</p>
+            <button class="mt-4 inline-flex items-center gap-1.5 border border-line bg-surface hover:border-rust hover:text-rust text-ink text-[14px] font-medium px-5 h-10 rounded-full transition-colors" onclick="window.explorer.navigateUp()">← Go Back</button>
           </div>
         `;
       } else {
@@ -1001,6 +1027,7 @@ class ForgeExplorer {
     if (this.folderCountBadge) {
       this.folderCountBadge.innerText = `${count} ${count === 1 ? 'item' : 'items'}`;
     }
+    if (window.lucide) window.lucide.createIcons();
   }
 
   static get DOMAIN_ALIASES() {
@@ -1483,9 +1510,9 @@ class ForgeExplorer {
 
     if (count === 0) {
       html = `
-        <div class="explorer-empty-state">
-          <p>No verified project kits matched "<strong>${this.searchQuery}</strong>".</p>
-          <span style="font-size:0.85rem; color:var(--text-muted);">Try searching for C, Python, Java, AI/ML, React, IoT, or Viva Prep.</span>
+        <div class="py-12 text-center text-mute font-sans">
+          <p class="text-lg font-medium text-ink">No verified project kits matched "<strong>${this.searchQuery}</strong>".</p>
+          <span class="block mt-2 text-[15px]">Try searching for C, Python, Java, AI/ML, React, IoT, or Viva Prep.</span>
         </div>
       `;
     } else {
@@ -1498,6 +1525,7 @@ class ForgeExplorer {
     if (this.folderCountBadge) {
       this.folderCountBadge.innerText = `${count} ${count === 1 ? 'match' : 'matches'}`;
     }
+    if (window.lucide) window.lucide.createIcons();
   }
 
   renderFavorites() {
@@ -1507,9 +1535,9 @@ class ForgeExplorer {
     let html = "";
     if (favProjects.length === 0) {
       html = `
-        <div class="explorer-empty-state">
-          <p>You haven't saved any projects to your library yet.</p>
-          <span style="font-size:0.85rem; color:var(--text-muted);">Click the bookmark icon on any project row to save it for quick defense review.</span>
+        <div class="py-12 text-center text-mute font-sans">
+          <p class="text-lg font-medium text-ink">You haven't saved any projects to your library yet.</p>
+          <span class="block mt-2 text-[15px]">Click the bookmark icon on any project row to save it for quick defense review.</span>
         </div>
       `;
     } else {
@@ -1522,82 +1550,109 @@ class ForgeExplorer {
     if (this.folderCountBadge) {
       this.folderCountBadge.innerText = `${favProjects.length} saved`;
     }
+    if (window.lucide) window.lucide.createIcons();
   }
 
   // --- HTML Builders for List Rows ---
 
   getFolderRowHtml({ title, desc, badge, targetPath }) {
     const jsonPath = JSON.stringify(targetPath).replace(/"/g, '&quot;');
+    const isRootAll = title.toLowerCase().includes("browse all");
+    const isLang = title.toLowerCase().includes("programming language") || title.toLowerCase().includes("technology");
+
+    let iconName = "folder";
+    let iconBoxClass = "bg-surface border border-line text-rust";
+
+    if (isRootAll) {
+      iconName = "library-big";
+      iconBoxClass = "bg-rust text-white";
+    } else if (title.toLowerCase() === "b.tech") {
+      iconName = "cpu";
+    } else if (title.toLowerCase() === "bca") {
+      iconName = "monitor-smartphone";
+    } else if (title.toLowerCase() === "b.sc") {
+      iconName = "database";
+    } else if (title.toLowerCase() === "diploma") {
+      iconName = "wrench";
+    } else if (title.toLowerCase().includes("mca")) {
+      iconName = "network";
+    } else if (isLang) {
+      iconName = "braces";
+    } else if (title.toLowerCase().includes("year")) {
+      iconName = "calendar";
+    } else if (title.toLowerCase().includes("ai") || title.toLowerCase().includes("machine learning")) {
+      iconName = "brain-circuit";
+    } else if (title.toLowerCase().includes("web")) {
+      iconName = "globe";
+    } else if (title.toLowerCase().includes("cyber")) {
+      iconName = "shield";
+    } else if (title.toLowerCase().includes("iot") || title.toLowerCase().includes("hardware")) {
+      iconName = "cpu";
+    } else if (title.toLowerCase().includes("blockchain")) {
+      iconName = "blocks";
+    } else if (title.toLowerCase().includes("mobile")) {
+      iconName = "smartphone";
+    } else if (title.toLowerCase().includes("python") || title.toLowerCase().includes("data")) {
+      iconName = "terminal";
+    } else if (title.toLowerCase().includes("c / c++") || title.toLowerCase().includes("c++")) {
+      iconName = "code-2";
+    } else if (title.toLowerCase().includes("java")) {
+      iconName = "coffee";
+    }
+
     return `
-      <div class="explorer-item folder-item" data-folder-path="${jsonPath}" role="button" tabindex="0" title="Open ${title} folder">
-        <div class="item-media">
-          <svg width="34" height="34" viewBox="0 0 16 16" class="folder-svg-icon">
-            <path fill="#F5B800" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z"/>
-          </svg>
-        </div>
-        <div class="item-content">
-          <div class="item-header">
-            <span class="item-title font-excalifont">${title}</span>
-            ${badge ? `<span class="item-badge font-mono">${badge}</span>` : ''}
-          </div>
-          ${desc ? `<p class="item-desc">${desc}</p>` : ''}
-        </div>
-        <div class="item-arrow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </div>
+      <div class="row-link grid grid-cols-[auto_1fr_auto] items-center gap-5 sm:gap-7 py-7 px-2 sm:px-4 border-b border-line cursor-pointer folder-item" data-folder-path="${jsonPath}" role="button" tabindex="0" title="Open ${title} folder">
+        <span class="w-14 h-14 rounded-2xl ${iconBoxClass} inline-flex items-center justify-center shrink-0">
+          <i data-lucide="${iconName}" class="w-6 h-6"></i>
+        </span>
+        <span>
+          <span class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span class="font-serif text-2xl font-medium text-ink">${title}</span>
+            ${badge ? `<span class="text-[14px] text-mute font-sans">${badge}</span>` : ''}
+          </span>
+          ${desc ? `<span class="block mt-1 text-[15px] text-mute max-w-2xl font-sans">${desc}</span>` : ''}
+        </span>
+        <i data-lucide="arrow-right" class="row-arrow w-5 h-5 text-mute"></i>
       </div>
-      <div class="sw-separator"></div>
     `;
   }
 
   getProjectRowHtml(proj, isSearchResult = false) {
     const isBookmarked = window.app?.bookmarkedIds?.includes(proj.id) || false;
-    const techChips = Array.isArray(proj.techStack) ? proj.techStack.slice(0, 3).map(t => `<span class="tech-chip">${t}</span>`).join("") : "";
-    const difficultyBadge = proj.difficulty ? `<span class="badge badge-${proj.difficulty.toLowerCase()}">${proj.difficulty}</span>` : "";
+    const techChips = Array.isArray(proj.techStack) ? proj.techStack.slice(0, 4).map(t => `<span class="text-xs px-2.5 py-0.5 rounded-full border border-line bg-surface text-mute font-medium font-sans">${t}</span>`).join("") : "";
+    const difficultyBadge = proj.difficulty ? `<span class="text-xs px-2.5 py-0.5 rounded-full border border-line bg-surface text-rust font-medium font-sans">${proj.difficulty}</span>` : "";
 
     return `
-      <div class="explorer-item project-item" data-id="${proj.id}">
-        <div class="item-media" onclick="window.app?.openProjectModal('${proj.id}')" title="Inspect working project & PPT">
-          <div class="code-icon-box">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
+      <div class="row-link grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-start md:items-center gap-4 sm:gap-6 py-6 px-2 sm:px-4 border-b border-line project-item" data-id="${proj.id}">
+        <span class="w-12 h-12 rounded-xl bg-surface border border-line inline-flex items-center justify-center text-rust shrink-0 cursor-pointer" onclick="window.app?.openProjectModal('${proj.id}')" title="Inspect working project & PPT">
+          <i data-lucide="file-code-2" class="w-6 h-6"></i>
+        </span>
+        <div class="cursor-pointer" onclick="window.app?.openProjectModal('${proj.id}')">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-serif text-xl sm:text-2xl font-medium text-ink">${proj.title}</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full border border-line bg-surface text-mute font-medium font-sans">Year ${proj.year || 3}</span>
+            ${difficultyBadge}
+            ${proj.hasHardware ? '<span class="text-xs px-2.5 py-0.5 rounded-full border border-line bg-surface text-rust font-medium font-sans">Hardware</span>' : ''}
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-rust/10 text-rust font-medium font-sans">10-Slide PPT</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-[#1e2420]/5 text-ink font-medium font-sans">Runnable Code</span>
           </div>
-        </div>
-        <div class="item-content" onclick="window.app?.openProjectModal('${proj.id}')">
-          <div class="item-header">
-            <span class="item-title font-excalifont">${proj.title}</span>
-            <div class="item-meta-tags">
-              ${difficultyBadge}
-              <span class="badge badge-year">Year ${proj.year || 3}</span>
-              ${proj.hasHardware ? '<span class="badge badge-hw">Hardware</span>' : ''}
-              <span class="badge badge-working">⚡ Working Code</span>
-              <span class="badge badge-ppt">📊 10-Slide PPT</span>
-            </div>
-          </div>
-          <p class="item-desc">${proj.tagline || (proj.description ? proj.description.substring(0, 110) + '...' : '') || 'Complete working project with runnable source code, viva preparation, and 10-slide PPT deck.'}</p>
-          <div class="item-tech-row">
+          <p class="mt-2 text-[15px] text-mute max-w-2xl font-sans">${proj.tagline || (proj.description ? proj.description.substring(0, 115) + '...' : '')}</p>
+          <div class="mt-2.5 flex flex-wrap gap-1.5">
             ${techChips}
           </div>
         </div>
-        <div class="item-actions">
-          <button class="action-btn download-btn" onclick="event.stopPropagation(); window.projectDownloader?.downloadProjectKit('${proj.id}', this)" title="Download Complete Working Source Code Kit (ZIP)">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            <span class="action-btn-text">ZIP Kit</span>
+        <div class="flex items-center gap-2 shrink-0 mt-3 md:mt-0">
+          <button class="inline-flex items-center gap-1.5 bg-rust hover:bg-rustdark text-white text-[13px] font-medium px-4 h-9 rounded-full transition-colors" onclick="event.stopPropagation(); window.projectDownloader?.downloadProjectKit('${proj.id}', this)" title="Download Complete Working Source Code Kit (ZIP)">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> <span>ZIP</span>
           </button>
-          <button class="action-btn ppt-btn" onclick="event.stopPropagation(); window.pptViewer?.openViewer('${proj.id}')" title="Preview 10-Slide PPT Presentation Deck">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-            <span class="action-btn-text">PPT</span>
+          <button class="inline-flex items-center gap-1.5 border border-line bg-surface hover:border-rust hover:text-rust text-ink text-[13px] font-medium px-4 h-9 rounded-full transition-colors" onclick="event.stopPropagation(); window.pptViewer?.openViewer('${proj.id}')" title="Preview 10-Slide PPT Presentation Deck">
+            <i data-lucide="presentation" class="w-3.5 h-3.5"></i> <span>PPT</span>
           </button>
-          <button class="action-btn bookmark-btn ${isBookmarked ? 'saved' : ''}" onclick="event.stopPropagation(); window.app?.toggleBookmark('${proj.id}')" title="Save to Favorites">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          <button class="w-9 h-9 inline-flex items-center justify-center rounded-full border border-line bg-surface text-mute hover:text-rust transition-colors ${isBookmarked ? 'text-rust border-rust' : ''}" onclick="event.stopPropagation(); window.app?.toggleBookmark('${proj.id}')" title="Save to Favorites">
+            <i data-lucide="bookmark" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
-      <div class="sw-separator"></div>
     `;
   }
 }
