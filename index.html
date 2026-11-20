@@ -963,13 +963,15 @@
   <!-- Toast Notifications Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- Hidden compatibility elements for app.js -->
+  <!-- Hidden compatibility elements for app.js and explorer.js -->
   <div style="display: none;" aria-hidden="true">
     <div id="projectsGrid"></div>
     <div id="degreeTabsContainer"></div>
     <div id="yearTabsContainer"></div>
     <div id="categoryPillsContainer"></div>
     <input type="text" id="searchInput">
+    <input type="text" id="explorerSearchInput">
+    <button type="button" id="explorerSearchClear"></button>
     <select id="degreeSelect"><option value="all">All</option></select>
     <select id="yearSelect"><option value="all">All</option></select>
     <select id="difficultySelect"><option value="all">All</option></select>
@@ -980,6 +982,29 @@
       <div id="allLoadedMessage"></div>
     </div>
     <span id="themeIcon"></span>
+    <span id="explore-section"></span>
+    <button type="button" id="favoritesFilterBtn"></button>
+    <button type="button" id="navVivaBtn"></button>
+    <button type="button" id="navCustomizerBtn"></button>
+    <button type="button" id="navSubmitBtn"></button>
+    <button type="button" id="themeToggleBtn"></button>
+    <button type="button" id="mobileMenuBtn"></button>
+    <div id="mobileDrawer"></div>
+    <div id="mobileDrawerBackdrop"></div>
+    <button type="button" id="mobileDrawerCloseBtn"></button>
+    <div id="mobileDrawerAuthContainer"></div>
+    <span id="mobSavedDot"></span>
+    <span id="mobSavedSub"></span>
+    <button type="button" id="mobNavExplore"></button>
+    <button type="button" id="mobNavCustomizer"></button>
+    <button type="button" id="mobNavViva"></button>
+    <button type="button" id="mobNavSubmit"></button>
+    <button type="button" id="mobNavBookmarks"></button>
+    <button type="button" id="mobBottomExplore"></button>
+    <button type="button" id="mobBottomSearch"></button>
+    <button type="button" id="mobBottomCustomizer"></button>
+    <button type="button" id="mobBottomViva"></button>
+    <button type="button" id="mobBottomSaved"></button>
   </div>
 
   <!-- Core Scripts -->
