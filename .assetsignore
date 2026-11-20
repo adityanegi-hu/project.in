@@ -1,0 +1,14 @@
+.venv/**
+__pycache__/**
+generators/**
+src/**
+*.py
+requirements.txt
+node_modules/**
+package.json
+package-lock.json
+wrangler.jsonc
+.assetsignore
+SECURITY.md
+README.md
+.git/**

@@ -102,9 +102,11 @@
   <!-- Stylesheet with Anti-Cache Version Bump -->
   <link rel="stylesheet" href="css/styles.css?v=34.4">
 
-  <!-- Cloud Backend API Endpoint -->
+  <!-- Cloudflare Edge API Endpoint -->
   <script>
-    window.FORGEPROJECT_API_URL = "https://project-in.onrender.com";
+    window.FORGEPROJECT_API_URL = window.location.hostname.includes("forgeproject.tech") || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+      ? ""
+      : "https://project-in.anegi0956.workers.dev";
   </script>
 
 </head>
