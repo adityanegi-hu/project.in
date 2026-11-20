@@ -12,3 +12,4 @@ venv.bak/
 scratch/
 .vercel/
 *.backup.json
+.wrangler/
