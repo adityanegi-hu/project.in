@@ -1,4 +1,4 @@
-/**
+/*
  * ForgeProject 1-Click Project Bundle Generator
  * Uses JSZip & FileSaver to package complete working source code, documentation,
  * customized PPT presentations, setup README, and viva cheat sheets into a single ZIP.
